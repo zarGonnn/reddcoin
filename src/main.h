@@ -110,6 +110,8 @@ extern uint64_t nLastBlockSize;
 extern const std::string strMessageMagic;
 extern int64_t nTimeBestReceived;
 extern std::map<uint256, COrphanBlock*> mapOrphanBlocks;
+extern CWaitableCriticalSection csBestBlock;
+extern CConditionVariable cvBlockChange;
 extern bool fImporting;
 extern bool fReindex;
 extern bool fBenchmark;
