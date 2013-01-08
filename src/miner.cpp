@@ -185,7 +185,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
         for (map<uint256, CTransaction>::iterator mi = mempool.mapTx.begin(); mi != mempool.mapTx.end(); ++mi)
         {
             CTransaction& tx = (*mi).second;
-            if (tx.IsCoinBase() || tx.IsCoinStake() || !tx.IsFinal())
+            if (tx.IsCoinBase() || tx.IsCoinStake() || !IsFinalTx(tx))
                 continue;
 
             if (fProofOfStake && tx.nVersion <= POW_TX_VERSION)
@@ -251,7 +251,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             // This is a more accurate fee-per-kilobyte than is used by the client code, because the
             // client code rounds up the size to the nearest 1K. That's good, because it gives an
             // incentive to create smaller transactions.
-            double dFeePerKb =  double(nTotalIn-tx.GetValueOut()) / (double(nTxSize)/1000.0);
+            double dFeePerKb =  double(nTotalIn-GetValueOut(tx)) / (double(nTxSize)/1000.0);
 
             if (porphan)
             {
@@ -287,7 +287,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
                 continue;
 
             // Legacy limits on sigOps:
-            unsigned int nTxSigOps = tx.GetLegacySigOpCount();
+            unsigned int nTxSigOps = GetLegacySigOpCount(tx);
             if (nBlockSigOps + nTxSigOps >= MAX_BLOCK_SIGOPS)
                 continue;
 
@@ -309,12 +309,12 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
                 std::make_heap(vecPriority.begin(), vecPriority.end(), comparer);
             }
 
-            if (!tx.HaveInputs(view))
+            if (!view.HaveInputs(tx))
                 continue;
 
-            int64 nTxFees = tx.GetValueIn(view)-tx.GetValueOut();
+            int64 nTxFees = view.GetValueIn(tx)-GetValueOut(tx);
 
-            nTxSigOps += tx.GetP2SHSigOpCount(view);
+            nTxSigOps += GetP2SHSigOpCount(tx, view);
             if (nBlockSigOps + nTxSigOps >= MAX_BLOCK_SIGOPS)
                 continue;
 
@@ -322,12 +322,12 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             // policy here, but we still have to ensure that the block we
             // create only contains transactions that are valid in new blocks.
             CValidationState state;
-            if (!tx.CheckInputs(state, view, true, SCRIPT_VERIFY_P2SH))
+            if (!CheckInputs(tx, state, view, true, SCRIPT_VERIFY_P2SH))
                 continue;
 
             CTxUndo txundo;
             uint256 hash = tx.GetHash();
-            tx.UpdateCoins(state, view, txundo, pindexPrev->nHeight+1, hash);
+            UpdateCoins(tx, state, view, txundo, pindexPrev->nHeight+1, hash);
 
             // Added
             pblock->vtx.push_back(tx);
@@ -379,7 +379,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
         pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock);
         pblock->nNonce         = 0;
         pblock->vtx[0].vin[0].scriptSig = CScript() << OP_0 << OP_0;
-        pblocktemplate->vTxSigOps[0] = pblock->vtx[0].GetLegacySigOpCount();
+        pblocktemplate->vTxSigOps[0] = GetLegacySigOpCount(pblock->vtx[0]);
 
         CBlockIndex indexDummy(*pblock);
         indexDummy.pprev = pindexPrev;
@@ -525,7 +525,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     //// debug print
     printf("CheckStake() : new proof-of-stake-velocity block found\n  hash: %s\n  proofhash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), proofHash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
-    printf("minted %s\n", FormatMoney(pblock->vtx[1].GetValueOut()).c_str());
+    printf("minted %s\n", FormatMoney(GetValueOut(pblock->vtx[1])).c_str());
 
     // Found a solution
     {

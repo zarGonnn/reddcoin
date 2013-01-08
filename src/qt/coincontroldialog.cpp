@@ -389,17 +389,17 @@ void CoinControlDialog::viewItemChanged(QTreeWidgetItem* item, int column)
 // helper function, return human readable label for priority number
 QString CoinControlDialog::getPriorityLabel(double dPriority)
 {
-    if (CTransaction::AllowFree(dPriority)) // at least medium
+    if (AllowFree(dPriority)) // at least medium
     {
-        if      (CTransaction::AllowFree(dPriority / 10000))  return tr("highest");
-        else if (CTransaction::AllowFree(dPriority / 1000))   return tr("high");
-        else if (CTransaction::AllowFree(dPriority / 100))    return tr("medium-high");
+        if      (AllowFree(dPriority / 10000))  return tr("highest");
+        else if (AllowFree(dPriority / 1000))   return tr("high");
+        else if (AllowFree(dPriority / 100))    return tr("medium-high");
         else                                    return tr("medium");
     }
     else
     {
-        if      (CTransaction::AllowFree(dPriority * 100))    return tr("low-medium");
-        else if (CTransaction::AllowFree(dPriority * 10000))  return tr("low");
+        if      (AllowFree(dPriority * 100))    return tr("low-medium");
+        else if (AllowFree(dPriority * 10000))  return tr("low");
         else                                    return tr("lowest");
     }
 }
@@ -440,7 +440,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
 
             CTxOut txout(amount, (CScript)vector<unsigned char>(24, 0));
             txDummy.vout.push_back(txout);
-            if (txout.IsDust())
+            if (txout.IsDust(CTransaction::nMinRelayTxFee))
                fDust = true; 
         }
     }
@@ -510,7 +510,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         
         // Min Fee
         int64 nMinFee = CTransaction::nMinTxFee * (1 + (int64)nBytes / 1000) + CTransaction::nMinTxFee * nQuantityDust;
-        if (CTransaction::AllowFree(dPriority) && nBytes < 5000)
+        if (AllowFree(dPriority) && nBytes < 5000)
             nMinFee = 0;
         
         nPayFee = max(nFee, nMinFee);
@@ -545,7 +545,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
             if (nChange > 0 && nChange < CENT)
             {
                 CTxOut txout(nChange, (CScript)vector<unsigned char>(24, 0));
-                if (txout.IsDust())
+                if (txout.IsDust(CTransaction::nMinRelayTxFee))
                 {
                     nPayFee += nChange;
                     nChange = 0;
@@ -594,7 +594,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     
     // turn labels "red"
     l5->setStyleSheet((nBytes >= 5000) ? "color:red;" : "");               // Bytes >= 5000
-    l6->setStyleSheet((!CTransaction::AllowFree(dPriority)) ? "color:red;" : "");         // Priority < "medium"
+    l6->setStyleSheet((!AllowFree(dPriority)) ? "color:red;" : "");         // Priority < "medium"
     l7->setStyleSheet((fLowOutput) ? "color:red;" : "");                    // Low Output = "yes"
     l8->setStyleSheet((nChange > 0 && nChange < CENT) ? "color:red;" : ""); // Change < 0.01BTC
         
