@@ -375,7 +375,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
 
         // Fill in header
         pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
-        pblock->UpdateTime(pindexPrev);
+        UpdateTime(*pblock, pindexPrev);
         pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock);
         pblock->nNonce         = 0;
         pblock->vtx[0].vin[0].scriptSig = CScript() << OP_0 << OP_0;
@@ -739,7 +739,7 @@ void static ReddcoinMiner(CWallet *pwallet)
                 break;
 
             // Update nTime every few seconds
-            pblock->UpdateTime(pindexPrev);
+            UpdateTime(*pblock, pindexPrev);
             nBlockTime = ByteReverse(pblock->nTime);
             if (fTestNet)
             {

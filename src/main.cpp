@@ -1496,13 +1496,13 @@ bool ConnectBestBlock(CValidationState &state) {
     } while(true);
 }
 
-void CBlockHeader::UpdateTime(const CBlockIndex* pindexPrev)
+void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev)
 {
-    nTime = max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
+    block.nTime = max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
 
     // Updating time can change work required on testnet:
     if (fTestNet)
-        nBits = GetNextWorkRequired(pindexPrev, this);
+        block.nBits = GetNextWorkRequired(pindexPrev, &block);
 }
 
 
