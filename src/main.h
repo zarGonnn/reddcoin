@@ -290,20 +290,6 @@ struct CDiskTxPos : public CDiskBlockPos
 };
 
 
-/** An inpoint - a combination of a transaction and an index n into its vin */
-class CInPoint
-{
-public:
-    CTransaction* ptx;
-    unsigned int n;
-
-    CInPoint() { SetNull(); }
-    CInPoint(CTransaction* ptxIn, unsigned int nIn) { ptx = ptxIn; n = nIn; }
-    void SetNull() { ptx = NULL; n = (unsigned int) -1; }
-    bool IsNull() const { return (ptx == NULL && n == (unsigned int) -1); }
-};
-
-
 
 
 /** An input of a transaction.  It contains the location of the previous
@@ -469,6 +455,8 @@ enum GetMinFee_mode
     GMF_RELAY,
     GMF_SEND,
 };
+
+int64 GetMinFee(const CTransaction& tx, unsigned int nBlockSize = 1, bool fAllowFree = true, enum GetMinFee_mode mode = GMF_BLOCK);
 
 /** The basic transaction that is broadcasted on the network and contained in
  * blocks. A transaction can contain multiple inputs and outputs.
@@ -654,8 +642,6 @@ public:
 
     // Apply the effects of this transaction on the UTXO set represented by view
     void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCache &inputs, CTxUndo &txundo, int nHeight, const uint256 &txhash);
-
-    int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=true, enum GetMinFee_mode mode=GMF_BLOCK) const;
 
     friend bool operator==(const CTransaction& a, const CTransaction& b)
     {
