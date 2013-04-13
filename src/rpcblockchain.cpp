@@ -3,8 +3,16 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "main.h"
+
+
 #include "bitcoinrpc.h"
+#include "checkpoints.h"
+#include "main.h"
+#include "sync.h"
+
+#include <stdint.h>
+
+#include "json/json_spirit_value.h"
 
 using namespace json_spirit;
 using namespace std;
@@ -92,7 +100,7 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex)
     {
         result.push_back(Pair("mint", ValueFromAmount(blockindex->nMint)));
         result.push_back(Pair("entropybit", (int)blockindex->GetStakeEntropyBit()));
-        result.push_back(Pair("modifier", strprintf("%016"PRI64x, blockindex->nStakeModifier)));
+        result.push_back(Pair("modifier", strprintf("%016"PRIx64, blockindex->nStakeModifier)));
         result.push_back(Pair("modifierchecksum", strprintf("%08x", blockindex->nStakeModifierChecksum)));
         result.push_back(Pair("signature", HexStr(block.vchBlockSig.begin(), block.vchBlockSig.end())));
     }
@@ -140,7 +148,7 @@ Value settxfee(const Array& params, bool fHelp)
             "<amount> is a real and is rounded to the nearest 0.00000001 RDD per kb");
 
     // Amount
-    int64 nAmount = 0;
+    int64_t nAmount = 0;
     if (params[0].get_real() != 0.0)
         nAmount = AmountFromValue(params[0]);        // rejects 0.0 amounts
 

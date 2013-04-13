@@ -3,6 +3,7 @@
 // Copyright (c) 2014 The Reddcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #ifndef BITCOIN_MAIN_H
 #define BITCOIN_MAIN_H
 
@@ -10,25 +11,27 @@
 #include "bitcoin-config.h"
 #endif
 
-#include "core.h"
 #include "bignum.h"
-#include "sync.h"
-#include "txmempool.h"
+#include "chainparams.h"
+#include "core.h"
 #include "net.h"
 #include "script.h"
+#include "sync.h"
+#include "txmempool.h"
+#include "uint256.h"
 
-#include <list>
+#include <algorithm>
+#include <exception>
+#include <map>
+#include <set>
+#include <stdint.h>
+#include <string>
+#include <utility>
+#include <vector>
 
-class CBlock;
 class CBlockIndex;
-class CBlockHeader;
-class COutPoint;
-
+class CBloomFilter;
 class CInv;
-class CKeyItem;
-class CNode;
-class CReserveKey;
-class CWallet;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
@@ -53,12 +56,12 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Fake height value used in CCoins to signify they are only in the memory pool (since 0.8) */
 static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
 /** Dust Soft Limit, allowed with additional fee per output */
-static const int64 DUST_SOFT_LIMIT = 100000000; // 1 RDD
+static const int64_t DUST_SOFT_LIMIT = 100000000; // 1 RDD
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
-static const int64 DUST_HARD_LIMIT = 1000000;   // 0.01 RDD mininput
+static const int64_t DUST_HARD_LIMIT = 1000000;   // 0.01 RDD mininput
 /** No amount larger than this (in satoshi) is valid */
-static const int64 MAX_MONEY = 92233720368 * COIN; // Maximum or compile warning, will fix in future release.
-inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
+static const int64_t MAX_MONEY = 92233720368 * COIN; // Maximum or compile warning, will fix in future release.
+inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY = 30;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
@@ -66,7 +69,7 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
 /** Start checking POW after block 44877 http://cryptexplorer.com/block/4253e7618d40aded00d11b664e874245ae74d55b976f4ac087d1a9db2f5f3cda */
-static const int64 CHECK_POW_FROM_NTIME = 1394048078;
+static const int64_t CHECK_POW_FROM_NTIME = 1394048078;
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
@@ -74,12 +77,12 @@ static const int fHaveUPnP = false;
 #endif
 
 // ppcoin
-inline int64 PastDrift(int64 nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
-inline int64 FutureDrift(int64 nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
+inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
+inline int64_t FutureDrift(int64_t nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
 
 // Reddcoin PoSV
 static const int LAST_POW_BLOCK = 260800 - 1;
-static const int64 COIN_YEAR_REWARD = 5 * CENT; // 5% per year
+static const int64_t COIN_YEAR_REWARD = 5 * CENT; // 5% per year
 
 extern CScript COINBASE_FLAGS;
 
@@ -91,10 +94,10 @@ extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;
 extern CTxMemPool mempool;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
-extern uint64 nLastBlockTx;
-extern uint64 nLastBlockSize;
+extern uint64_t nLastBlockTx;
+extern uint64_t nLastBlockSize;
 extern const std::string strMessageMagic;
-extern int64 nTimeBestReceived;
+extern int64_t nTimeBestReceived;
 extern std::map<uint256, CBlock*> mapOrphanBlocks;
 extern bool fImporting;
 extern bool fReindex;
@@ -106,23 +109,21 @@ extern bool fHaveGUI;
 
 // Reddcoin PoSV
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
-extern const int64 nTargetSpacing;
-extern int64 nLastCoinStakeSearchInterval;
-extern int64 nReserveBalance;
+extern const int64_t nTargetSpacing;
+extern int64_t nLastCoinStakeSearchInterval;
+extern int64_t nReserveBalance;
 
 // Settings
-extern int64 nTransactionFee;
-extern int64 nMinimumInputValue;
+extern int64_t nTransactionFee;
+extern int64_t nMinimumInputValue;
 
 // Minimum disk space required - used in CheckDiskSpace()
-static const uint64 nMinDiskSpace = 52428800;
+static const uint64_t nMinDiskSpace = 52428800;
 
 
-class CReserveKey;
 class CCoinsDB;
 class CBlockTreeDB;
 struct CDiskBlockPos;
-class CCoins;
 class CTxUndo;
 class CCoinsView;
 class CCoinsViewCache;
@@ -151,7 +152,7 @@ void PushGetBlocks(CNode* pnode, CBlockIndex* pindexBegin, uint256 hashEnd);
 /** Process an incoming block */
 bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBlockPos *dbp = NULL);
 /** Check whether enough disk space is available for an incoming block */
-bool CheckDiskSpace(uint64 nAdditionalBytes = 0);
+bool CheckDiskSpace(uint64_t nAdditionalBytes = 0);
 /** Open a block file (blk?????.dat) */
 FILE* OpenBlockFile(const CDiskBlockPos &pos, bool fReadOnly = false);
 /** Open an undo file (rev?????.dat) */
@@ -179,7 +180,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 /** Get the next difficulty */
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock);
 /** Calculate the minimum amount of work a received block needs, without knowing its direct parent */
-unsigned int ComputeMinWork(unsigned int nBase, int64 nTime);
+unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 /** Get the number of active peers */
 int GetNumBlocksOfPeers();
 /** Check whether we are doing an initial block download (synchronizing from disk or network) */
@@ -192,7 +193,7 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, b
 bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew);
 /** Find the best known block, and make it the tip of the block chain */
 bool ConnectBestBlock(CValidationState &state);
-int64 GetBlockValue(int nHeight, int64 nFees);
+int64_t GetBlockValue(int nHeight, int64_t nFees);
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock);
 
 void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev);
@@ -209,9 +210,9 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
                         bool* pfMissingInputs, bool fRejectInsaneFee=false);
 
 // Reddcoin PoSV
-int64 GetProofOfStakeReward(int64 nCoinAge, int64 nFees);
-int64 GetBlockValue(int nHeight, int64 nFees);
-unsigned int ComputeMinStake(unsigned int nBase, int64 nTime);
+int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees);
+int64_t GetBlockValue(int nHeight, int64_t nFees);
+unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime);
 uint256 WantedByOrphan(const CBlock* pblockOrphan);
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 void StakeMiner(CWallet *pwallet);
@@ -284,7 +285,7 @@ enum GetMinFee_mode
     GMF_SEND,
 };
 
-int64 GetMinFee(const CTransaction& tx, bool fAllowFree, enum GetMinFee_mode mode);
+int64_t GetMinFee(const CTransaction& tx, bool fAllowFree, enum GetMinFee_mode mode);
 
 //
 // Check transaction inputs, and make sure any
@@ -344,15 +345,15 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state);
 */
 bool IsStandardTx(const CTransaction& tx, std::string& reason);
 
-bool IsFinalTx(const CTransaction &tx, int nBlockHeight = 0, int64 nBlockTime = 0);
+bool IsFinalTx(const CTransaction &tx, int nBlockHeight = 0, int64_t nBlockTime = 0);
 
 // ppcoin: get transaction coin age
-bool GetCoinAge(const CTransaction &tx, uint64& nCoinAge);
+bool GetCoinAge(const CTransaction &tx, uint64_t& nCoinAge);
 
 /** Amount of bitcoins spent by the transaction.
     @return sum of all outputs (note: does not include fees)
  */
-int64 GetValueOut(const CTransaction& tx);
+int64_t GetValueOut(const CTransaction& tx);
 
 /** Undo information for a CBlock */
 class CBlockUndo
@@ -645,8 +646,8 @@ public:
     unsigned int nUndoSize;    // number of used bytes in the undo file
     unsigned int nHeightFirst; // lowest height of block in file
     unsigned int nHeightLast;  // highest height of block in file
-    uint64 nTimeFirst;         // earliest time of block in file
-    uint64 nTimeLast;          // latest time of block in file
+    uint64_t nTimeFirst;         // earliest time of block in file
+    uint64_t nTimeLast;          // latest time of block in file
 
     IMPLEMENT_SERIALIZE(
         READWRITE(VARINT(nBlocks));
@@ -677,7 +678,7 @@ public:
      }
 
      // update statistics (does not update nSize)
-     void AddBlock(unsigned int nHeightIn, uint64 nTimeIn) {
+     void AddBlock(unsigned int nHeightIn, uint64_t nTimeIn) {
          if (nBlocks==0 || nHeightFirst > nHeightIn)
              nHeightFirst = nHeightIn;
          if (nBlocks==0 || nTimeFirst > nTimeIn)
@@ -726,8 +727,8 @@ public:
     int nHeight;
 
     // ppcoin extra fields
-    int64 nMint;
-    int64 nMoneySupply;
+    int64_t nMint;
+    int64_t nMoneySupply;
 
     // ppcoin: block index flags
     unsigned int nFlags;
@@ -738,7 +739,7 @@ public:
         BLOCK_STAKE_MODIFIER = (1 << 2), // regenerated stake modifier
     };
 
-    uint64 nStakeModifier; // hash modifier for proof-of-stake
+    uint64_t nStakeModifier; // hash modifier for proof-of-stake
     unsigned int nStakeModifierChecksum; // checksum of index; in-memeory only
 
     // more proof-of-stake specific fields
@@ -881,9 +882,9 @@ public:
         return *phashBlock;
     }
 
-    int64 GetBlockTime() const
+    int64_t GetBlockTime() const
     {
-        return (int64)nTime;
+        return (int64_t)nTime;
     }
 
     CBigNum GetBlockWork() const
@@ -904,11 +905,11 @@ public:
 
     enum { nMedianTimeSpan=11 };
 
-    int64 GetMedianTimePast() const
+    int64_t GetMedianTimePast() const
     {
-        int64 pmedian[nMedianTimeSpan];
-        int64* pbegin = &pmedian[nMedianTimeSpan];
-        int64* pend = &pmedian[nMedianTimeSpan];
+        int64_t pmedian[nMedianTimeSpan];
+        int64_t* pbegin = &pmedian[nMedianTimeSpan];
+        int64_t* pend = &pmedian[nMedianTimeSpan];
 
         const CBlockIndex* pindex = this;
         for (int i = 0; i < nMedianTimeSpan && pindex; i++, pindex = pindex->pprev)
@@ -918,7 +919,7 @@ public:
         return pbegin[(pend - pbegin)/2];
     }
 
-    int64 GetMedianTime() const;
+    int64_t GetMedianTime() const;
 
     /**
      * Returns true if there are nRequired or more blocks of minVersion or above
@@ -970,7 +971,7 @@ public:
 
     std::string ToString() const
     {
-        return strprintf("CBlockIndex(pprev=%p, nHeight=%d, nMint=%s, nMoneySupply=%s, nFlags=(%s)(%d)(%s), nStakeModifier=%016"PRI64x", nStakeModifierChecksum=%08x, hashProof=%s, prevoutStake=(%s), nStakeTime=%d merkle=%s, hashBlock=%s)",
+        return strprintf("CBlockIndex(pprev=%p, nHeight=%d, nMint=%s, nMoneySupply=%s, nFlags=(%s)(%d)(%s), nStakeModifier=%016"PRIx64", nStakeModifierChecksum=%08x, hashProof=%s, prevoutStake=(%s), nStakeTime=%d merkle=%s, hashBlock=%s)",
             pprev, nHeight,
             FormatMoney(nMint).c_str(), FormatMoney(nMoneySupply).c_str(),
             GeneratedStakeModifier() ? "MOD" : "-", GetStakeEntropyBit(), IsProofOfStake()? "PoS" : "PoW",
@@ -1190,11 +1191,11 @@ struct CCoinsStats
 {
     int nHeight;
     uint256 hashBlock;
-    uint64 nTransactions;
-    uint64 nTransactionOutputs;
-    uint64 nSerializedSize;
+    uint64_t nTransactions;
+    uint64_t nTransactionOutputs;
+    uint64_t nSerializedSize;
     uint256 hashSerialized;
-    int64 nTotalAmount;
+    int64_t nTotalAmount;
 
     CCoinsStats() : nHeight(0), hashBlock(0), nTransactions(0), nTransactionOutputs(0), nSerializedSize(0), hashSerialized(0), nTotalAmount(0) {}
 };
@@ -1285,7 +1286,8 @@ public:
         @return	Sum of value of all inputs (scriptSigs)
         @see CTransaction::FetchInputs
      */
-    int64 GetValueIn(const CTransaction& tx);
+    int64_t GetValueIn(const CTransaction& tx);
+
 
     // Check whether all prevouts of the transaction are present in the UTXO set represented by this view
     bool HaveInputs(const CTransaction& tx);

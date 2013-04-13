@@ -8,18 +8,20 @@
 #include "init.h"
 #include "addresstablemodel.h"
 #include "bitcoinunits.h"
-#include "optionsmodel.h"
-#include "sendcoinsentry.h"
-#include "guiutil.h"
-#include "askpassphrasedialog.h"
 #include "coincontrol.h"
 #include "coincontroldialog.h"
+#include "guiutil.h"
+#include "optionsmodel.h"
+#include "sendcoinsentry.h"
+#include "walletmodel.h"
+
+#include "base58.h"
 #include "ui_interface.h"
 
 #include <QMessageBox>
-#include <QTextDocument>
 #include <QScrollBar>
-#include <QClipboard>
+//#include <QClipboard>
+#include <QTextDocument>
 
 SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     QDialog(parent),
@@ -381,7 +383,7 @@ bool SendCoinsDialog::handlePaymentRequest(const SendCoinsRecipient &rv)
     if (rv.paymentRequest.IsInitialized()) {
         // Expired payment request?
         const payments::PaymentDetails& details = rv.paymentRequest.getDetails();
-        if (details.has_expires() && (int64)details.expires() < GetTime())
+        if (details.has_expires() && (int64_t)details.expires() < GetTime())
         {
             emit message(strSendCoins, tr("Payment request expired"),
                 CClientUIInterface::MSG_WARNING);

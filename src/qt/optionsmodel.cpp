@@ -9,12 +9,13 @@
 #include "optionsmodel.h"
 
 #include "bitcoinunits.h"
-#include "init.h"
-#include "core.h"
-#include "wallet.h"
-#include "netbase.h"
-#include "walletdb.h"
 #include "guiutil.h"
+
+#include "init.h"
+#include "main.h"
+#include "net.h"
+#include "wallet.h"
+#include "walletdb.h"
 
 #include <QSettings>
 
@@ -203,7 +204,7 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
                 return QVariant(5);
         }
         case Fee:
-            return QVariant(nTransactionFee);
+            return QVariant((qint64) nTransactionFee);
         case SpendZeroConfChange:
             return bSpendZeroConfChange;
         case DisplayUnit:
@@ -281,7 +282,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         break;
         case Fee:
             nTransactionFee = value.toLongLong();
-            settings.setValue("nTransactionFee", nTransactionFee);
+            settings.setValue("nTransactionFee", (qint64) nTransactionFee);
             emit transactionFeeChanged(nTransactionFee);
             break;
         case SpendZeroConfChange:
@@ -319,7 +320,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
 
 qint64 OptionsModel::getTransactionFee()
 {
-    return nTransactionFee;
+    return (qint64) nTransactionFee;
 }
 
 bool OptionsModel::getProxySettings(QString& proxyIP, quint16 &proxyPort) const

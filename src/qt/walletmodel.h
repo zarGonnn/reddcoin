@@ -5,19 +5,19 @@
 #ifndef WALLETMODEL_H
 #define WALLETMODEL_H
 
-#include <QObject>
+#include "paymentrequestplus.h"
+#include "walletmodeltransaction.h"
+
+#include "allocators.h" /* for SecureString */
+
 #include <vector>
 #include <map>
 
-#include "allocators.h" /* for SecureString */
-#include "wallet.h"
-#include "walletmodeltransaction.h"
-#include "paymentrequestplus.h"
+#include <QObject>
 
-class OptionsModel;
 class AddressTableModel;
+class OptionsModel;
 class TransactionTableModel;
-class CWallet;
 class WalletModelTransaction;
 class CKeyID;
 class CPubKey;
@@ -25,6 +25,8 @@ class COutput;
 class COutPoint;
 class uint256;
 class CCoinControl;
+
+class CWallet;
 
 QT_BEGIN_NAMESPACE
 class QTimer;

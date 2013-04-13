@@ -5,36 +5,26 @@
 #ifndef BITCOINGUI_H
 #define BITCOINGUI_H
 
-#include <QMainWindow>
-#include <QSystemTrayIcon>
-#include <QMap>
+#include <inttypes.h>
 
-class WalletFrame;
-class WalletView;
+#include <QMainWindow>
+#include <QMap>
+#include <QSystemTrayIcon>
+
 class ClientModel;
-class WalletModel;
-class WalletStack;
-class OverviewPage;
-class SendCoinsDialog;
-class SendCoinsRecipient;
-class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
+class SendCoinsRecipient;
+class WalletFrame;
+class WalletModel;
 
 class CWallet;
 
 QT_BEGIN_NAMESPACE
-class QLabel;
-class QModelIndex;
-class QProgressBar;
-class QStackedWidget;
-class QUrl;
-class QListWidget;
-class QPushButton;
 class QAction;
+class QLabel;
+class QProgressBar;
 QT_END_NAMESPACE
-
-typedef unsigned long long uint64;
 
 /**
   Bitcoin GUI main class. This class represents the main window of the Bitcoin UI. It communicates with both the client and
@@ -112,8 +102,8 @@ private:
     int prevBlocks;
 
     /** local weight for staking */
-    uint64 nAverageWeight;
-    uint64 nTotalWeight;
+    uint64_t nAverageWeight;
+    uint64_t nTotalWeight;
 
     /** Create the main UI actions. */
     void createActions(bool fIsTestnet);

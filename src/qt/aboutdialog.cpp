@@ -6,6 +6,7 @@
 #include "ui_aboutdialog.h"
 
 #include "clientmodel.h"
+
 #include "clientversion.h"
 
 // Copyright year (2009-this)

@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2013 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #ifndef BITCOIN_CHECKPOINT_H
 #define BITCOIN_CHECKPOINT_H
 
@@ -14,9 +15,9 @@
 #undef ADVISORY
 #endif
 
-class uint256;
 class CBlockIndex;
 class CSyncCheckpoint;
+class uint256;
 
 /** Block-chain checkpoints are compiled-in sanity checks.
  * They are updated every release or three.

@@ -4,11 +4,21 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+
+
+#include "bitcoinrpc.h"
 #include "chainparams.h"
 #include "db.h"
 #include "init.h"
+#include "net.h"
+#include "main.h"
 #include "miner.h"
-#include "bitcoinrpc.h"
+#include "wallet.h"
+
+#include <stdint.h>
+
+#include "json/json_spirit_utils.h"
+#include "json/json_spirit_value.h"
 
 using namespace json_spirit;
 using namespace std;
@@ -36,7 +46,7 @@ Value GetNetworkHashPS(int lookup, int height) {
     }
 
     uint256 workDiff = pb->nChainWork - pb0->nChainWork;
-    int64 timeDiff = lookup * 60;
+    int64_t timeDiff = lookup * 60;
 
     return (boost::int64_t)(workDiff.getdouble() / timeDiff);
 }
@@ -150,7 +160,7 @@ Value getmininginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("testnet",          TestNet()));
 
     // ppcoin
-    uint64 nAverageWeight = 0, nTotalWeight = 0;
+    uint64_t nAverageWeight = 0, nTotalWeight = 0;
     pwalletMain->GetStakeWeight(*pwalletMain, nAverageWeight, nTotalWeight);
     Object weight;
     weight.push_back(Pair("average", (uint64_t)nAverageWeight));
@@ -169,10 +179,10 @@ Value getstakinginfo(const Array& params, bool fHelp)
             "getstakinginfo\n"
             "Returns an object containing staking-related information.");
 
-    uint64 nAverageWeight = 0, nTotalWeight = 0;
+    uint64_t nAverageWeight = 0, nTotalWeight = 0;
     pwalletMain->GetStakeWeight(*pwalletMain, nAverageWeight, nTotalWeight);
 
-    uint64 nNetworkWeight = GetPoSVKernelPS();
+    uint64_t nNetworkWeight = GetPoSVKernelPS();
     bool staking = nLastCoinStakeSearchInterval && nAverageWeight;
     int nExpectedTime = staking ? (nTargetSpacing * nNetworkWeight / nAverageWeight) : -1;
 
@@ -223,7 +233,7 @@ Value getworkex(const Array& params, bool fHelp)
         // Update block
         static unsigned int nTransactionsUpdatedLast;
         static CBlockIndex* pindexPrev;
-        static int64 nStart;
+        static int64_t nStart;
         static CBlockTemplate* pblocktemplate;
         if (pindexPrev != chainActive.Tip() ||
             (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
@@ -365,7 +375,7 @@ Value getwork(const Array& params, bool fHelp)
         // Update block
         static unsigned int nTransactionsUpdatedLast;
         static CBlockIndex* pindexPrev;
-        static int64 nStart;
+        static int64_t nStart;
         static CBlockTemplate* pblocktemplate;
         if (pindexPrev != chainActive.Tip() ||
             (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
@@ -517,7 +527,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     // Update block
     static unsigned int nTransactionsUpdatedLast;
     static CBlockIndex* pindexPrev;
-    static int64 nStart;
+    static int64_t nStart;
     static CBlockTemplate* pblocktemplate;
     if (pindexPrev != chainActive.Tip() ||
         (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5))

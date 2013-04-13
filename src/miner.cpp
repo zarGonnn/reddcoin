@@ -6,12 +6,18 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "miner.h"
+
+#include "core.h"
 #include "kernel.h"
 #include "main.h"
+#include "net.h"
 #include "scrypt.h"
+#include "wallet.h"
+
+#include <stdint.h>
 
 double dHashesPerSec = 0.0;
-int64 nHPSTimerStart = 0;
+int64_t nHPSTimerStart = 0;
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -81,9 +87,9 @@ public:
 };
 
 
-uint64 nLastBlockTx = 0;
-uint64 nLastBlockSize = 0;
-int64 nLastCoinStakeSearchInterval = 0;
+uint64_t nLastBlockTx = 0;
+uint64_t nLastBlockSize = 0;
+int64_t nLastCoinStakeSearchInterval = 0;
 
 // We want to sort transactions by priority and fee, so:
 typedef boost::tuple<double, double, CTransaction*> TxPriority;
@@ -168,7 +174,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     nBlockMinSize = std::min(nBlockMaxSize, nBlockMinSize);
 
     // Collect memory pool transactions into the block
-    int64 nFees = 0;
+    int64_t nFees = 0;
     {
         LOCK2(cs_main, mempool.cs);
         CBlockIndex* pindexPrev = chainActive.Tip();
@@ -201,7 +207,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
 
             COrphan* porphan = NULL;
             double dPriority = 0;
-            int64 nTotalIn = 0;
+            int64_t nTotalIn = 0;
             bool fMissingInputs = false;
             BOOST_FOREACH(const CTxIn& txin, tx.vin)
             {
@@ -235,7 +241,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
                 }
                 const CCoins &coins = view.GetCoins(txin.prevout.hash);
 
-                int64 nValueIn = coins.vout[txin.prevout.n].nValue;
+                int64_t nValueIn = coins.vout[txin.prevout.n].nValue;
                 nTotalIn += nValueIn;
 
                 int nConf = pindexPrev->nHeight - coins.nHeight + 1;
@@ -275,8 +281,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
         }
 
         // Collect transactions into block
-        uint64 nBlockSize = 1000;
-        uint64 nBlockTx = 0;
+        uint64_t nBlockSize = 1000;
+        uint64_t nBlockTx = 0;
         int nBlockSigOps = 100;
         bool fSortedByFee = (nBlockPrioritySize <= 0);
 
@@ -324,7 +330,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             if (!view.HaveInputs(tx))
                 continue;
 
-            int64 nTxFees = view.GetValueIn(tx)-GetValueOut(tx);
+            int64_t nTxFees = view.GetValueIn(tx)-GetValueOut(tx);
 
             nTxSigOps += GetP2SHSigOpCount(tx, view);
             if (nBlockSigOps + nTxSigOps >= MAX_BLOCK_SIGOPS)
@@ -373,7 +379,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-        LogPrintf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
+        LogPrintf("CreateNewBlock(): total size %"PRIu64"\n", nBlockSize);
         
         if (!fProofOfStake)
             pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight+1, nFees);
@@ -602,7 +608,7 @@ void StakeMiner(CWallet *pwallet)
         if (!pblocktemplate.get())
             return;
         CBlock *pblock = &pblocktemplate->block;
-        int64 nFees = pblocktemplate->vTxFees[0] * -1;
+        int64_t nFees = pblocktemplate->vTxFees[0] * -1;
 
         // Trying to sign a block
         if (pblock->SignBlock(*pwallet, nFees))
@@ -682,7 +688,7 @@ void static ReddcoinMiner(CWallet *pwallet)
         //
         // Search
         //
-        int64 nStart = GetTime();
+        int64_t nStart = GetTime();
         uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
         while (true)
         {
@@ -715,7 +721,7 @@ void static ReddcoinMiner(CWallet *pwallet)
             }
 
             // Meter hashes/sec
-            static int64 nHashCounter;
+            static int64_t nHashCounter;
             if (nHPSTimerStart == 0)
             {
                 nHPSTimerStart = GetTimeMillis();
@@ -733,7 +739,7 @@ void static ReddcoinMiner(CWallet *pwallet)
                         dHashesPerSec = 1000.0 * nHashCounter / (GetTimeMillis() - nHPSTimerStart);
                         nHPSTimerStart = GetTimeMillis();
                         nHashCounter = 0;
-                        static int64 nLogTime;
+                        static int64_t nLogTime;
                         if (GetTime() - nLogTime > 30 * 60)
                         {
                             nLogTime = GetTime();

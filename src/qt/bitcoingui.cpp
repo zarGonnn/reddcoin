@@ -4,52 +4,58 @@
 
 #include "bitcoingui.h"
 
-#include "optionsdialog.h"
 #include "aboutdialog.h"
-#include "clientmodel.h"
-#include "walletmodel.h"
-#include "walletframe.h"
-#include "optionsmodel.h"
 #include "bitcoinunits.h"
+#include "clientmodel.h"
 #include "guiconstants.h"
-#include "notificator.h"
 #include "guiutil.h"
+#include "notificator.h"
+#include "optionsdialog.h"
+#include "optionsmodel.h"
 #include "rpcconsole.h"
-#include "ui_interface.h"
-#include "wallet.h"
-#include "init.h"
+#include "walletframe.h"
+#include "walletmodel.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
 #endif
 
-#include <QApplication>
-#include <QMenuBar>
-#include <QMenu>
-#include <QIcon>
-#include <QVBoxLayout>
-#include <QToolBar>
-#include <QStatusBar>
-#include <QLabel>
-#include <QMessageBox>
-#include <QProgressBar>
-#include <QStackedWidget>
-#include <QDateTime>
-#include <QMovie>
-#include <QTimer>
-#include <QDragEnterEvent>
-#if QT_VERSION < 0x050000
-#include <QUrl>
-#include <QTextDocument>
-#endif
-#include <QMimeData>
-#include <QStyle>
-#include <QListWidget>
+#include "init.h"
+#include "ui_interface.h"
+#include "wallet.h"
 
 #include <iostream>
 
+#include <QApplication>
+#include <QDateTime>
+#include <QDesktopWidget>
+#include <QDragEnterEvent>
+#include <QIcon>
+#include <QLabel>
+#include <QListWidget>
+#include <QMenu>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QMimeData>
+#include <QMovie>
+#include <QProgressBar>
+#include <QSettings>
+#include <QStackedWidget>
+#include <QStatusBar>
+#include <QStyle>
+#include <QTimer>
+#include <QToolBar>
+#include <QVBoxLayout>
+
+#if QT_VERSION < 0x050000
+#include <QUrl>
+#include <QTextDocument>
+#else
+#include <QUrlQuery>
+#endif
+
 const QString BitcoinGUI::DEFAULT_WALLET = "~Default";
-extern int64 nLastCoinStakeSearchInterval;
+extern int64_t nLastCoinStakeSearchInterval;
 double GetPoSVKernelPS();
 
 BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
@@ -888,7 +894,7 @@ void BitcoinGUI::updateStakingIcon()
 
     if (nLastCoinStakeSearchInterval && nAverageWeight)
     {
-        uint64 nNetworkWeight = GetPoSVKernelPS();
+        uint64_t nNetworkWeight = GetPoSVKernelPS();
         unsigned nEstimateTime = nTargetSpacing * nNetworkWeight / nTotalWeight;
 
         QString text;
