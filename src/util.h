@@ -519,8 +519,6 @@ public:
     }
 };
 
-bool NewThread(void(*pfn)(void*), void* parg);
-
 #ifdef WIN32
 inline void SetThreadPriority(int nPriority)
 {
@@ -531,7 +529,7 @@ inline void SetThreadPriority(int nPriority)
 #define THREAD_PRIORITY_LOWEST          PRIO_MAX
 #define THREAD_PRIORITY_BELOW_NORMAL    2
 #define THREAD_PRIORITY_NORMAL          0
-#define THREAD_PRIORITY_ABOVE_NORMAL    0
+#define THREAD_PRIORITY_ABOVE_NORMAL    (-2)
 
 inline void SetThreadPriority(int nPriority)
 {
@@ -542,11 +540,6 @@ inline void SetThreadPriority(int nPriority)
 #else
     setpriority(PRIO_PROCESS, 0, nPriority);
 #endif
-}
-
-inline void ExitThread(size_t nExitCode)
-{
-    pthread_exit((void*)nExitCode);
 }
 #endif
 
