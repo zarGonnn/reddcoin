@@ -90,7 +90,7 @@ Value getgenerate(const Array& params, bool fHelp)
     if (!pMiningKey)
         return false;
 
-    return GetBoolArg("-staking");
+    return GetBoolArg("-staking", true);
 }
 
 
@@ -142,17 +142,17 @@ Value getmininginfo(const Array& params, bool fHelp)
             "Returns an object containing mining-related information.");
 
     Object obj;
-    obj.push_back(Pair("blocks",        (int)nBestHeight));
-    obj.push_back(Pair("currentblocksize",(uint64_t)nLastBlockSize));
-    obj.push_back(Pair("currentblocktx",(uint64_t)nLastBlockTx));
-    obj.push_back(Pair("difficulty",    (double)GetDifficulty()));
-    obj.push_back(Pair("errors",        GetWarnings("statusbar")));
-    obj.push_back(Pair("generate",      GetBoolArg("-staking")));
-    obj.push_back(Pair("genproclimit",  (int)GetArg("-genproclimit", 0)));
-    obj.push_back(Pair("hashespersec",  gethashespersec(params, false)));
-    obj.push_back(Pair("networkhashps", getnetworkhashps(params, false)));
-    obj.push_back(Pair("pooledtx",      (uint64_t)mempool.size()));
-    obj.push_back(Pair("testnet",       fTestNet));
+    obj.push_back(Pair("blocks",           (int)nBestHeight));
+    obj.push_back(Pair("currentblocksize", (uint64_t)nLastBlockSize));
+    obj.push_back(Pair("currentblocktx",   (uint64_t)nLastBlockTx));
+    obj.push_back(Pair("difficulty",       (double)GetDifficulty()));
+    obj.push_back(Pair("errors",           GetWarnings("statusbar")));
+    obj.push_back(Pair("generate",         GetBoolArg("-staking", true)));
+    obj.push_back(Pair("genproclimit",     (int)GetArg("-genproclimit", -1)));
+    obj.push_back(Pair("hashespersec",     gethashespersec(params, false)));
+    obj.push_back(Pair("networkhashps",    getnetworkhashps(params, false)));
+    obj.push_back(Pair("pooledtx",         (uint64_t)mempool.size()));
+    obj.push_back(Pair("testnet",          fTestNet));
 
     // ppcoin
     uint64 nAverageWeight = 0, nTotalWeight = 0;

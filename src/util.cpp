@@ -532,7 +532,7 @@ static void InterpretNegativeSetting(string name, map<string, string>& mapSettin
         positive.append(name.begin()+3, name.end());
         if (mapSettingsRet.count(positive) == 0)
         {
-            bool value = !GetBoolArg(name);
+            bool value = !GetBoolArg(name, false);
             mapSettingsRet[positive] = (value ? "1" : "0");
         }
     }
@@ -1189,7 +1189,6 @@ bool TruncateFile(FILE *file, unsigned int length) {
 #endif
 }
 
-
 // this function tries to raise the file descriptor limit to the requested number.
 // It returns the actual file descriptor limit (which may be more or less than nMinFD)
 int RaiseFileDescriptorLimit(int nMinFD) {
@@ -1275,8 +1274,8 @@ void ShrinkDebugFile()
             fclose(file);
         }
     }
-    else if(file != NULL)
-	     fclose(file);
+    else if (file != NULL)
+        fclose(file);
 }
 
 

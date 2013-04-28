@@ -3510,7 +3510,7 @@ string GetWarnings(string strFor)
     string strStatusBar;
     string strRPC;
 
-    if (GetBoolArg("-testsafemode"))
+    if (GetBoolArg("-testsafemode", false))
         strRPC = "test";
 
     if (!CLIENT_VERSION_IS_RELEASE)
