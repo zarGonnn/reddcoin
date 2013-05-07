@@ -109,9 +109,6 @@ bool fWalletUnlockStakingOnly = false;
 
 bool CWallet::Unlock(const SecureString& strWalletPassphrase)
 {
-    if (!IsLocked())
-        return false;
-
     CCrypter crypter;
     CKeyingMaterial vMasterKey;
 
@@ -122,7 +119,7 @@ bool CWallet::Unlock(const SecureString& strWalletPassphrase)
             if(!crypter.SetKeyFromPassphrase(strWalletPassphrase, pMasterKey.second.vchSalt, pMasterKey.second.nDeriveIterations, pMasterKey.second.nDerivationMethod))
                 return false;
             if (!crypter.Decrypt(pMasterKey.second.vchCryptedKey, vMasterKey))
-                return false;
+                continue; // try another master key
             if (CCryptoKeyStore::Unlock(vMasterKey))
                 return true;
         }
