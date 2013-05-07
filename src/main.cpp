@@ -14,6 +14,7 @@
 #include "ui_interface.h"
 #include "checkqueue.h"
 #include "kernel.h"
+#include "chainparams.h"
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -41,9 +42,6 @@ unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
 std::vector<CBlockIndex*> vBlockIndexByHeight;
-uint256 hashGenesisBlock("0xb868e0d95a3c3c0e0dadc67ee587aaf9dc8acbf99e3b4b3110fad4eb74c1decc");
-uint256 hashGenesisBlockTestNet("0x46db8d519c64586e3f0bf16153f61fdcf1d30b71ab159bf4a5b46dbcbc79d814");
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Reddcoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -88,11 +86,7 @@ int64 nMinimumInputValue = DUST_HARD_LIMIT;
 // ppcoin
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 set<pair<COutPoint, unsigned int> > setStakeSeenOrphan;
-static CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
-static CBigNum bnProofOfStakeReset(~uint256(0) >> 32); // 1
 int64 nReserveBalance = 0;
-unsigned int nStakeMinAge = 8 * 60 * 60; // 8 hours
-unsigned int nStakeMaxAge = 45 * 24 *  60 * 60; // 45 days
 extern enum Checkpoints::CPMode CheckpointsMode;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -220,7 +214,7 @@ void CBlockLocator::Set(const CBlockIndex* pindex)
         if (vHave.size() > 10)
             nStep *= 2;
     }
-    vHave.push_back(hashGenesisBlock);
+    vHave.push_back(Params().HashGenesisBlock());
 }
 
 int CBlockLocator::GetDistanceBack()
@@ -273,7 +267,7 @@ uint256 CBlockLocator::GetBlockHash()
                 return hash;
         }
     }
-    return hashGenesisBlock;
+    return Params().HashGenesisBlock();
 }
 
 int CBlockLocator::GetHeight()
@@ -829,8 +823,8 @@ bool CTxMemPool::accept(CValidationState &state, CTransaction &tx, bool fLimitFr
 
     // Rather not work on nonstandard transactions (unless -testnet)
     string strNonStd;
-    if (!fTestNet && !IsStandardTx(tx, strNonStd))
-        return error("CTxMemPool::accept() : nonstandard transaction type (%s)",
+    if (!TestNet() && !IsStandardTx(tx, strNonStd))
+        return error("CTxMemPool::accept() : nonstandard transaction type",
                      strNonStd.c_str());
 
     // is it already in the memory pool?
@@ -905,7 +899,7 @@ bool CTxMemPool::accept(CValidationState &state, CTransaction &tx, bool fLimitFr
         }
 
         // Check for non-standard pay-to-script-hash in inputs
-        if (!AreInputsStandard(tx, view) && !fTestNet)
+        if (!TestNet() && !AreInputsStandard(tx, view))
             return error("CTxMemPool::accept() : nonstandard transaction input");
 
         // Note: if you modify this code to accept non-standard transactions, then
@@ -1250,7 +1244,7 @@ int64 GetBlockValue(int nHeight, int64 nFees)
         nSubsidy = 150000 * COIN;
     } else if (nHeight >= 140000) {
       // Subsidy is cut in half every 50,000 blocks starting at block 140000
-      nSubsidy >>= ((nHeight - 140000 + 50000) / 50000);
+      nSubsidy >>= ((nHeight - 140000 + 50000) / Params().SubsidyHalvingInterval());
     }
 
     return nSubsidy + nFees;
@@ -1276,24 +1270,24 @@ static const int64 nTargetTimespan = 60 * 60; // Reddcoin: Not used
 //
 // maximum nBits value could possible be required nTime after
 //
-unsigned int static ComputeMaxBits(CBigNum bnTargetLimit, unsigned int nBase, int64 nTime)
+unsigned int static ComputeMaxBits(const CBigNum& bnLimit, unsigned int nBase, int64 nTime)
 {
     // Testnet has min-difficulty blocks
     // after nTargetSpacing*2 time between blocks:
-    if (fTestNet && nTime > nTargetSpacing*2)
-        return bnTargetLimit.GetCompact();
+    if (TestNet() && nTime > nTargetSpacing*2)
+        return bnLimit.GetCompact();
 
     CBigNum bnResult;
     bnResult.SetCompact(nBase);
-    while (nTime > 0 && bnResult < bnTargetLimit)
+    while (nTime > 0 && bnResult < bnLimit)
     {
         // Maximum 400% adjustment...
         bnResult *= 4;
         // ... in best-case exactly 4-times-normal target time
         nTime -= nTargetTimespan*4;
     }
-    if (bnResult > bnTargetLimit)
-        bnResult = bnTargetLimit;
+    if (bnResult > bnLimit)
+        bnResult = bnLimit;
     return bnResult.GetCompact();
 }
 
@@ -1303,7 +1297,7 @@ unsigned int static ComputeMaxBits(CBigNum bnTargetLimit, unsigned int nBase, in
 //
 unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 {
-    return ComputeMaxBits(bnProofOfWorkLimit, nBase, nTime);
+    return ComputeMaxBits(Params().ProofOfWorkLimit(), nBase, nTime);
 }
 
 //
@@ -1313,7 +1307,7 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 //
 unsigned int ComputeMinStake(unsigned int nBase, int64 nTime)
 {
-    return ComputeMaxBits(bnProofOfStakeLimit, nBase, nTime);
+    return ComputeMaxBits(Params().ProofOfStakeLimit(), nBase, nTime);
 }
 
 
@@ -1348,15 +1342,15 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin)
     {
-        return bnProofOfWorkLimit.GetCompact();
+        return Params().ProofOfWorkLimit().GetCompact();
     }
     else if (fProofOfStake && (uint64)(BlockLastSolved->nHeight - LAST_POW_BLOCK) < PastBlocksMin)
     {
         // difficulty is reset at the first PoSV blocks
-        if (fTestNet)
-            return bnProofOfStakeLimit.GetCompact();
+        if (TestNet())
+            return Params().ProofOfStakeLimit().GetCompact();
         else
-            return bnProofOfStakeReset.GetCompact();
+            return Params().ProofOfStakeReset().GetCompact();
     }
 
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > (fProofOfStake ? LAST_POW_BLOCK : 0); i++)
@@ -1423,13 +1417,13 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
         bnNew /= PastRateTargetSeconds;
     }
 
-    if (!fProofOfStake && bnNew > bnProofOfWorkLimit)
+    if (!fProofOfStake && bnNew > Params().ProofOfWorkLimit())
     {
-        bnNew = bnProofOfWorkLimit;
+        bnNew = Params().ProofOfWorkLimit();
     }
-    else if (fProofOfStake && bnNew > bnProofOfStakeLimit)
+    else if (fProofOfStake && bnNew > Params().ProofOfStakeLimit())
     {
-        bnNew = bnProofOfStakeLimit;
+        bnNew = Params().ProofOfStakeLimit();
     }
 
      /// debug print
@@ -1447,8 +1441,8 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
     // always mine PoW blocks at the lowest diff on testnet
-    if (fTestNet && pindexLast->nHeight < LAST_POW_BLOCK)
-        return bnProofOfWorkLimit.GetCompact();
+    if (TestNet() && pindexLast->nHeight < LAST_POW_BLOCK)
+        return Params().ProofOfWorkLimit().GetCompact();
 
     static const int64 BlocksTargetSpacing = 1 * 60; // 1 Minute
     unsigned int       TimeDaySeconds      = 60 * 60 * 24;
@@ -1474,7 +1468,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
     bnTarget.SetCompact(nBits);
 
     // Check range
-    if (bnTarget <= 0 || bnTarget > bnProofOfWorkLimit)
+    if (bnTarget <= 0 || bnTarget > Params().ProofOfWorkLimit())
         return error("CheckProofOfWork() : nBits below minimum work");
 
     // Check proof of work matches claimed amount
@@ -1592,7 +1586,7 @@ void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev)
     block.nTime = max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
 
     // Updating time can change work required on testnet:
-    if (fTestNet)
+    if (TestNet())
         block.nBits = GetNextWorkRequired(pindexPrev, &block);
 }
 
@@ -1910,7 +1904,7 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
 
     // Special case for the genesis block, skipping connection of its transactions
     // (its coinbase is unspendable)
-    if (GetHash() == hashGenesisBlock) {
+    if (GetHash() == Params().HashGenesisBlock()) {
         view.SetBestBlock(pindex);
         pindexGenesisBlock = pindex;
         pindexGenesisBlock->nMoneySupply = 10000 * COIN;
@@ -2302,7 +2296,7 @@ bool GetCoinAge(const CTransaction& tx, uint64& nCoinAge)
             return false; // unable to read block of previous transaction
         if (!block.ReadFromDisk(mapBlockIndex[hashBlock]))
             return false; // unable to read block of previous transaction
-        if (block.nTime + nStakeMinAge > tx.nTime)
+        if (block.nTime + Params().StakeMinAge() > tx.nTime)
             continue; // only count coins meeting min age requirement
 
         // deal with missing timestamps in PoW blocks
@@ -2349,7 +2343,7 @@ bool CBlock::GetCoinAge(uint64& nCoinAge) const
     return true;
 }
 
-bool CBlock::AddToBlockIndex(CValidationState &state, const CDiskBlockPos &pos, uint256 &hashProof)
+bool CBlock::AddToBlockIndex(CValidationState &state, const CDiskBlockPos &pos, const uint256 &hashProof)
 {
     // Check for duplicate
     uint256 hash = GetHash();
@@ -2613,7 +2607,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
     int nHeight = 0;
     uint256 hashProof = 0;
 
-    if (hash != hashGenesisBlock) {
+    if (hash != Params().HashGenesisBlock()) {
         map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.find(hashPrevBlock);
         if (mi == mapBlockIndex.end())
             return state.DoS(10, error("AcceptBlock() : prev block not found"));
@@ -2673,8 +2667,8 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
         // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
         if (nVersion < 2)
         {
-            if ((!fTestNet && CBlockIndex::IsSuperMajority(2, pindexPrev, 950, 1000)) ||
-                (fTestNet && CBlockIndex::IsSuperMajority(2, pindexPrev, 75, 100)))
+            if ((!TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 950, 1000)) ||
+                (TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 75, 100)))
             {
                 return state.Invalid(error("AcceptBlock() : rejected nVersion=1 block"));
             }
@@ -2683,8 +2677,8 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
         if (nVersion >= 2)
         {
             // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
-            if ((!fTestNet && CBlockIndex::IsSuperMajority(2, pindexPrev, 750, 1000)) ||
-                (fTestNet && CBlockIndex::IsSuperMajority(2, pindexPrev, 51, 100)))
+            if ((!TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 750, 1000)) ||
+                (TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 51, 100)))
             {
                 CScript expect = CScript() << nHeight;
                 if (vtx[0].vin[0].scriptSig.size() < expect.size() ||
@@ -3338,18 +3332,7 @@ void UnloadBlockIndex()
 
 bool LoadBlockIndex()
 {
-    if (fTestNet)
-    {
-        pchMessageStart[0] = 0xfe;
-        pchMessageStart[1] = 0xc3;
-        pchMessageStart[2] = 0xb9;
-        pchMessageStart[3] = 0xde;
-        hashGenesisBlock = hashGenesisBlockTestNet;
-    }
-
-    //
     // Load block index from databases
-    //
     if (!fReindex && !LoadBlockIndexDB())
     {
         // (partially) missing blockchain. reset checkpoint.
@@ -3371,7 +3354,7 @@ bool LoadBlockIndex()
             return error("LoadBlockIndex() : failed to write new checkpoint master key to db");
         if (!txdb.TxnCommit())
             return error("LoadBlockIndex() : failed to commit new checkpoint master key to db");
-//      if ((!fTestNet) && !Checkpoints::ResetSyncCheckpoint())
+//      if ((!TestNet()) && !Checkpoints::ResetSyncCheckpoint())
         if (!Checkpoints::ResetSyncCheckpoint())
             return error("LoadBlockIndex() : failed to reset sync-checkpoint");
     }
@@ -3397,49 +3380,9 @@ bool InitBlockIndex() {
 
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
-        // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
-
-        // Genesis block
-        const char* pszTimestamp = "January 21st 2014 was such a nice day...";
-        CTransaction txNew;
-        txNew.nVersion = 1;
-        txNew.nTime = 1390280400;
-        txNew.vin.resize(1);
-        txNew.vout.resize(1);
-        txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 10000 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
-        CBlock block;
-        block.vtx.push_back(txNew);
-        block.hashPrevBlock = 0;
-        block.hashMerkleRoot = block.BuildMerkleTree();
-        block.nVersion = 1;
-        block.nTime = 1390280400;
-        block.nBits = 0x1e0ffff0;
-        block.nNonce = 222583475;
-
-        if (fTestNet)
-        {
-            txNew.nTime = block.nTime = 1399544585;
-            block.nNonce = 1403777;
-        }
-
-        //// debug print
-        uint256 hash = block.GetHash();
-        printf("%s\n", hash.ToString().c_str());
-        printf("%s\n", hashGenesisBlock.ToString().c_str());
-        printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0xb502bc1dc42b07092b9187e92f70e32f9a53247feae16d821bebffa916af79ff"));
-        block.print();
-        assert(hash == hashGenesisBlock);
-
-        // Start new block file
         try {
+            CBlock &block = const_cast<CBlock&>(Params().GenesisBlock());
+            // Start new block file
             unsigned int nBlockSize = ::GetSerializeSize(block, SER_DISK, CLIENT_VERSION);
             CDiskBlockPos blockPos;
             CValidationState state;
@@ -3447,10 +3390,10 @@ bool InitBlockIndex() {
                 return error("InitBlockIndex() : FindBlockPos failed");
             if (!block.WriteToDisk(blockPos))
                 return error("InitBlockIndex() : writing genesis block to disk failed");
-            if (!block.AddToBlockIndex(state, blockPos, hashGenesisBlock))
+            if (!block.AddToBlockIndex(state, blockPos, Params().HashGenesisBlock()))
                 return error("InitBlockIndex() : genesis block not accepted");
             // ppcoin: initialize synchronized checkpoint
-            if (!Checkpoints::WriteSyncCheckpoint((!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet)))
+            if (!Checkpoints::WriteSyncCheckpoint(Params().HashGenesisBlock()))
                 return error("InitBlockIndex() : failed to init sync checkpoint");
         } catch(std::runtime_error &e) {
             return error("InitBlockIndex() : failed to initialize block database: %s", e.what());
@@ -3559,10 +3502,10 @@ bool LoadExternalBlockFile(FILE* fileIn, CDiskBlockPos *dbp)
             try {
                 // locate a header
                 unsigned char buf[4];
-                blkdat.FindByte(pchMessageStart[0]);
+                blkdat.FindByte(Params().MessageStart()[0]);
                 nRewind = blkdat.GetPos()+1;
                 blkdat >> FLATDATA(buf);
-                if (memcmp(buf, pchMessageStart, 4))
+                if (memcmp(buf, Params().MessageStart(), 4))
                     continue;
                 // read size
                 blkdat >> nSize;
@@ -3712,12 +3655,6 @@ bool static AlreadyHave(const CInv& inv)
 }
 
 
-
-
-// The message start string is designed to be unlikely to occur in normal data.
-// The characters are rarely used upper ASCII, not valid as UTF-8, and produce
-// a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xfb, 0xc0, 0xb6, 0xdb }; // Reddcoin: increase each by adding 2 to bitcoin's value.
 
 
 void static ProcessGetData(CNode* pfrom)
@@ -4156,7 +4093,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                 printf("  getblocks stopping at %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString().c_str());
                 // ppcoin: tell downloading node about the latest block if it's
                 // without risk being rejected due to stake connection check
-                if (hashStop != hashBestChain && pindex->GetBlockTime() + nStakeMinAge > pindexBest->GetBlockTime())
+                if (hashStop != hashBestChain && pindex->GetBlockTime() + Params().StakeMinAge() > pindexBest->GetBlockTime())
                     pfrom->PushInventory(CInv(MSG_BLOCK, hashBestChain));
                 break;
             }
@@ -4527,7 +4464,7 @@ bool ProcessMessages(CNode* pfrom)
         it++;
 
         // Scan for message start
-        if (memcmp(msg.hdr.pchMessageStart, pchMessageStart, sizeof(pchMessageStart)) != 0) {
+        if (memcmp(msg.hdr.pchMessageStart, Params().MessageStart(), MESSAGE_START_SIZE) != 0) {
             printf("\n\nPROCESSMESSAGE: INVALID MESSAGESTART\n\n");
             fOk = false;
             break;

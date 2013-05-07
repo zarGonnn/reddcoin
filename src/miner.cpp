@@ -741,7 +741,7 @@ void static ReddcoinMiner(CWallet *pwallet)
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);
             nBlockTime = ByteReverse(pblock->nTime);
-            if (fTestNet)
+            if (TestNet())
             {
                 // Changing pblock->nTime can change work required on testnet:
                 nBlockBits = ByteReverse(pblock->nBits);

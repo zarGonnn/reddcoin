@@ -152,6 +152,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/addrman.h \
     src/base58.h \
     src/bignum.h \
+    src/chainparams.h \
     src/checkpoints.h \
     src/coincontrol.h \
     src/compat.h \
@@ -240,6 +241,7 @@ SOURCES += src/qt/bitcoin.cpp \
     src/qt/editaddressdialog.cpp \
     src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
+    src/chainparams.cpp \
     src/version.cpp \
     src/sync.cpp \
     src/util.cpp \

@@ -79,7 +79,7 @@ namespace Checkpoints
     };
 
     const CCheckpointData &Checkpoints() {
-        if (fTestNet)
+        if (TestNet())
             return dataTestnet;
         else
             return data;
@@ -156,7 +156,7 @@ namespace Checkpoints
     }
 
     // ppcoin: synchronized checkpoint (centrally broadcasted)
-    uint256 hashSyncCheckpoint = fTestNet ? hashGenesisBlockTestNet : hashGenesisBlock;
+    uint256 hashSyncCheckpoint = Params().HashGenesisBlock();
     uint256 hashPendingCheckpoint = 0;
     CSyncCheckpoint checkpointMessage;
     CSyncCheckpoint checkpointMessagePending;
@@ -287,7 +287,7 @@ namespace Checkpoints
     // Check against synchronized checkpoint
     bool CheckSync(const uint256& hashBlock, const CBlockIndex* pindexPrev)
     {
-        //if (fTestNet) return true; // Testnet has no checkpoints
+        //if (TestNet()) return true; // Testnet has no checkpoints
         int nHeight = pindexPrev->nHeight + 1;
 
         LOCK(cs_hashSyncCheckpoint);
@@ -363,7 +363,7 @@ namespace Checkpoints
         }
 
         // last resort. set sync checkpoint to genesis before downloading any blockchain
-        if (WriteSyncCheckpoint(fTestNet ? hashGenesisBlockTestNet : hashGenesisBlock))
+        if (WriteSyncCheckpoint(Params().HashGenesisBlock()))
         {
             printf("ResetSyncCheckpoint: sync-checkpoint reset to hashGenesisBlock\n");
             return true;
@@ -385,12 +385,12 @@ namespace Checkpoints
     bool SetCheckpointPrivKey(std::string strPrivKey)
     {
         // do nothing for testnet
-        // if (fTestNet)
+        // if (TestNet())
         //     return true;
 
         // Test signing a sync-checkpoint with genesis block
         CSyncCheckpoint checkpoint;
-        checkpoint.hashCheckpoint = fTestNet ? hashGenesisBlockTestNet: hashGenesisBlock;
+        checkpoint.hashCheckpoint = Params().HashGenesisBlock();
         CDataStream sMsg(SER_NETWORK, PROTOCOL_VERSION);
         sMsg << (CUnsignedSyncCheckpoint)checkpoint;
         checkpoint.vchMsg = std::vector<unsigned char>(sMsg.begin(), sMsg.end());
@@ -458,7 +458,7 @@ namespace Checkpoints
         assert(mapBlockIndex.count(hashSyncCheckpoint));
         const CBlockIndex* pindexSync = mapBlockIndex[hashSyncCheckpoint];
         return (nBestHeight >= pindexSync->nHeight + COINBASE_MATURITY ||
-                pindexSync->GetBlockTime() + nStakeMinAge < GetAdjustedTime());
+                pindexSync->GetBlockTime() + Params().StakeMinAge() < GetAdjustedTime());
     }
 }
 

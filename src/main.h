@@ -91,8 +91,6 @@ extern CCriticalSection cs_main;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
 extern std::vector<CBlockIndex*> vBlockIndexByHeight;
 extern std::set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexValid;
-extern uint256 hashGenesisBlock;
-extern uint256 hashGenesisBlockTestNet;
 extern CBlockIndex* pindexGenesisBlock;
 extern int nBestHeight;
 extern uint256 nBestChainWork;
@@ -108,7 +106,6 @@ extern int64 nHPSTimerStart;
 extern int64 nTimeBestReceived;
 extern CCriticalSection cs_setpwalletRegistered;
 extern std::set<CWallet*> setpwalletRegistered;
-extern unsigned char pchMessageStart[4];
 extern std::map<uint256, CBlock*> mapOrphanBlocks;
 extern bool fImporting;
 extern bool fReindex;
@@ -120,8 +117,6 @@ extern bool fHaveGUI;
 
 // Reddcoin PoSV
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
-extern unsigned int nStakeMinAge;
-extern unsigned int nStakeMaxAge;
 extern const int64 nTargetSpacing;
 extern int64 nLastCoinStakeSearchInterval;
 extern int64 nReserveBalance;
@@ -392,7 +387,7 @@ public:
 
         // Write index header
         unsigned int nSize = fileout.GetSerializeSize(*this);
-        fileout << FLATDATA(pchMessageStart) << nSize;
+        fileout << FLATDATA(Params().MessageStart()) << nSize;
 
         // Write undo data
         long fileOutPos = ftell(fileout);
@@ -789,7 +784,7 @@ public:
 
         // Write index header
         unsigned int nSize = fileout.GetSerializeSize(*this);
-        fileout << FLATDATA(pchMessageStart) << nSize;
+        fileout << FLATDATA(Params().MessageStart()) << nSize;
 
         // Write block
         long fileOutPos = ftell(fileout);
@@ -869,7 +864,7 @@ public:
     bool ReadFromDisk(const CBlockIndex* pindex);
 
     // Add this block to the block index, and if necessary, switch the active block chain to this
-    bool AddToBlockIndex(CValidationState &state, const CDiskBlockPos &pos, uint256 &hashProof);
+    bool AddToBlockIndex(CValidationState &state, const CDiskBlockPos &pos, const uint256 &hashProof);
 
     // Context-independent validity checks
     bool CheckBlock(CValidationState &state, bool fCheckPOW=true, bool fCheckMerkleRoot=true, bool fCheckSig=true) const;
