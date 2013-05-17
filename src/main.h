@@ -299,12 +299,11 @@ struct CDiskTxPos : public CDiskBlockPos
 
 enum GetMinFee_mode
 {
-    GMF_BLOCK,
     GMF_RELAY,
     GMF_SEND,
 };
 
-int64 GetMinFee(const CTransaction& tx, unsigned int nBlockSize = 1, bool fAllowFree = true, enum GetMinFee_mode mode = GMF_BLOCK);
+int64 GetMinFee(const CTransaction& tx, bool fAllowFree, enum GetMinFee_mode mode);
 
 //
 // Check transaction inputs, and make sure any
