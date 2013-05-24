@@ -1142,7 +1142,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge, int64 nFees)
     // CoinAge=366 -> nSubsidy=10020
     int64 nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
 
-    if (fDebug && GetBoolArg("-printcreation"))
+    if (fDebug && GetBoolArg("-printcreation", false))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRI64d"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
 
     return nSubsidy + nFees;
@@ -2210,13 +2210,13 @@ bool CTransaction::GetCoinAge(uint64& nCoinAge) const
         int64 nTimeWeight = GetCoinAgeWeight(txPrev.nTime, nTime);
         bnCentSecond += CBigNum(nValueIn) * nTimeWeight / CENT;
 
-        if (fDebug && GetBoolArg("-printcoinage"))
+        if (fDebug && GetBoolArg("-printcoinage", false))
             printf("coin age nValueIn=%"PRI64d" nTime=%d, txPrev.nTime=%d, nTimeWeight=%"PRI64d" bnCentSecond=%s\n",
                 nValueIn, nTime, txPrev.nTime, nTimeWeight, bnCentSecond.ToString().c_str());
     }
 
     CBigNum bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
-    if (fDebug && GetBoolArg("-printcoinage"))
+    if (fDebug && GetBoolArg("-printcoinage", false))
         printf("coin age bnCoinDay=%s\n", bnCoinDay.ToString().c_str());
     nCoinAge = bnCoinDay.getuint64();
     return true;
@@ -2238,7 +2238,7 @@ bool CBlock::GetCoinAge(uint64& nCoinAge) const
 
     if (nCoinAge == 0) // block coin age minimum 1 coin-day
         nCoinAge = 1;
-    if (fDebug && GetBoolArg("-printcoinage"))
+    if (fDebug && GetBoolArg("-printcoinage", false))
         printf("block coin age total nCoinDays=%"PRI64d"\n", nCoinAge);
     return true;
 }

@@ -45,6 +45,8 @@ namespace Checkpoints
 
     double GuessVerificationProgress(CBlockIndex *pindex);
 
+    extern bool fEnabled;
+
     extern uint256 hashSyncCheckpoint;
     extern CSyncCheckpoint checkpointMessage;
     extern uint256 hashInvalidCheckpoint;
