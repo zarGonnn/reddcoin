@@ -1,8 +1,46 @@
+*.tar.gz
+
+*.exe
 src/*.exe
+src/*/*.exe
 src/reddcoin
 src/reddcoind
-src/test_reddcoin
-src/tags
+src/test/test_reddcoin
+src/qt/test/test_reddcoin-qt
+
+Makefile.in
+aclocal.m4
+autom4te.cache/
+config.log
+config.status
+configure
+src/.deps/
+src/Makefile.in
+src/bitcoin-config.h
+src/bitcoin-config.h.in
+src/build-aux/
+src/qt/Makefile.in
+src/stamp-h1
+share/setup.nsi
+share/qt/Info.plist
+
+src/leveldb/.deps/
+
+src/test/.deps
+src/test/.dirstamp
+
+src/qt/.deps/
+src/qt/.dirstamp
+src/qt/*.moc
+src/qt/moc_*.cpp
+src/qt/forms/ui_*.h
+
+src/qt/test/.deps/
+src/qt/test/.dirstamp
+src/qt/test/moc*.cpp
+src/qt/res/.deps/
+src/qt/res/.dirstamp
+
 .*.swp
 *.*~*
 *.bak
@@ -11,6 +49,13 @@ src/tags
 *.o
 *.patch
 .reddcoin
+*.a
+*.pb.cc
+*.pb.h
+
+*.log
+*.trs
+*.dmg
 
 # Compilation and Qt preprocessor part
 *.qm
@@ -39,6 +84,24 @@ Info.plist
 Reddcoin-Qt.xcodeproj
 dist/
 *.dmg
+
+#lcov
+*.gcno
+/*.info
+test_bitcoin.coverage/
+total.coverage/
+coverage_percent.txt
+
+#build tests
+linux-coverage-build
+linux-build
+win32-build
+qa/pull-tester/run-bitcoind-for-test.sh
+qa/pull-tester/build-tests.sh
+
+!src/leveldb-*/Makefile
+
+src/tags
 
 # Output of contrib/check-upstream.sh
 merge-*.txt
