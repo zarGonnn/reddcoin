@@ -560,7 +560,7 @@ Value sendrawtransaction(const Array& params, bool fHelp)
         if (!fHave) {
             // push to local node
             CValidationState state;
-            if (!mempool.accept(state, tx, true, false, NULL, !fOverrideFees))
+            if (!mempool.accept(state, tx, false, NULL, !fOverrideFees))
                 throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX rejected"); // TODO: report validation state
         }
     }
