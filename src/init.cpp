@@ -406,9 +406,6 @@ bool AppInit2(boost::thread_group& threadGroup)
         CheckpointsMode = Checkpoints::PERMISSIVE;
 
     Checkpoints::fEnabled = GetBoolArg("-checkpoints", true);
-    if (!SelectParamsFromCommandLine()) {
-        return InitError("Invalid combination of -testnet and -regtest.");
-    }
 
     fBloomFilters = GetBoolArg("-bloomfilters", true);
     if (fBloomFilters)
