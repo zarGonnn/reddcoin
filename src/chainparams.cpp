@@ -9,6 +9,10 @@
 #include "main.h"
 #include "util.h"
 
+#include <boost/assign/list_of.hpp>
+
+using namespace boost::assign;
+
 //
 // Main network
 //
@@ -59,9 +63,9 @@ public:
 
         vSeeds.push_back(CDNSSeedData("seed.reddcoin.com", "seed.reddcoin.com"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = 61;
-        base58Prefixes[SCRIPT_ADDRESS] = 5;
-        base58Prefixes[SECRET_KEY] = 189;
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(61);
+        base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
+        base58Prefixes[SECRET_KEY] =     list_of(189);
 
         // Convert the pnSeeds array into usable address objects.
         for (unsigned int i = 0; i < ARRAYLEN(pnSeed); i++)
@@ -126,10 +130,9 @@ public:
         vSeeds.clear();
         vSeeds.push_back(CDNSSeedData("testnet-seed.reddcoin.com", "testnet-seed.reddcoin.com"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = 111;
-        base58Prefixes[SCRIPT_ADDRESS] = 196;
-        base58Prefixes[SECRET_KEY] = 239;
-
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
+        base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
+        base58Prefixes[SECRET_KEY]     = list_of(239);
     }
     virtual Network NetworkID() const { return CChainParams::TESTNET; }
 };
@@ -157,10 +160,6 @@ public:
         assert(hashGenesisBlock == uint256("0472dc040de80ded8bd385a2b6bc6e4e05cb6432047efa07692724c6ccef40ac"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
-
-        base58Prefixes[PUBKEY_ADDRESS] = 61;
-        base58Prefixes[SCRIPT_ADDRESS] = 5;
-        base58Prefixes[SECRET_KEY] = 189;
     }
 
     virtual bool RequireRPCPassword() const { return false; }
