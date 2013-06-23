@@ -464,15 +464,15 @@ unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans)
 
 
 
-bool IsStandardTx(const CTransaction& tx, string& strReason)
+bool IsStandardTx(const CTransaction& tx, string& reason)
 {
     if (tx.nVersion > CTransaction::CURRENT_VERSION) {
-        strReason = "version";
+        reason = "version";
         return false;
     }
 
     if (!IsFinalTx(tx)) {
-        strReason = "not-final";
+        reason = "non-final";
         return false;
     }
 
@@ -482,7 +482,7 @@ bool IsStandardTx(const CTransaction& tx, string& strReason)
     // to MAX_STANDARD_TX_SIZE mitigates CPU exhaustion attacks.
     unsigned int sz = tx.GetSerializeSize(SER_NETWORK, CTransaction::CURRENT_VERSION);
     if (sz >= MAX_STANDARD_TX_SIZE) {
-        strReason = "tx-size";
+        reason = "tx-size";
         return false;
     }
 
@@ -492,28 +492,29 @@ bool IsStandardTx(const CTransaction& tx, string& strReason)
         // pay-to-script-hash, which is 3 ~80-byte signatures, 3
         // ~65-byte public keys, plus a few script ops.
         if (txin.scriptSig.size() > 500) {
-            strReason = "scriptsig-size";
+            reason = "scriptsig-size";
             return false;
         }
         if (!txin.scriptSig.IsPushOnly()) {
-            strReason = "scriptsig-not-pushonly";
+            reason = "scriptsig-not-pushonly";
             return false;
         }
         if (!txin.scriptSig.HasCanonicalPushes()) {
-            strReason = "non-canonical-push";
+            reason = "non-canonical-push";
             return false;
         }
     }
     BOOST_FOREACH(const CTxOut& txout, tx.vout) {
         if (!::IsStandard(txout.scriptPubKey)) {
-            strReason = "scriptpubkey";
+            reason = "scriptpubkey";
             return false;
 		}
         if (txout.IsDust(CTransaction::nMinRelayTxFee)) {
-            strReason = "dust";
+            reason = "dust";
             return false;
         }
     }
+
     return true;
 }
 
@@ -822,10 +823,10 @@ bool CTxMemPool::accept(CValidationState &state, CTransaction &tx, bool fLimitFr
         return error("CTxMemPool::accept() : not accepting nLockTime beyond 2038 yet");
 
     // Rather not work on nonstandard transactions (unless -testnet)
-    string strNonStd;
-    if (!TestNet() && !IsStandardTx(tx, strNonStd))
-        return error("CTxMemPool::accept() : nonstandard transaction type",
-                     strNonStd.c_str());
+    string reason;
+    if (!TestNet() && !IsStandardTx(tx, reason))
+        return error("CTxMemPool::accept() : nonstandard transaction: %s",
+                     reason.c_str());
 
     // is it already in the memory pool?
     uint256 hash = tx.GetHash();
