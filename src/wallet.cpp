@@ -1599,7 +1599,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         CBlock block;
         {
             LOCK2(cs_main, cs_wallet);
-            if (!block.ReadFromDisk(mapBlockIndex[hashBlock]))
+            if (!ReadBlockFromDisk(block, mapBlockIndex[hashBlock]))
                 continue;
         }
 
@@ -2006,7 +2006,7 @@ bool CWallet::GetTransaction(const uint256 &hash, CTransaction &txOut, uint256 &
 
     if (pindexSlow) {
         CBlock block;
-        if (block.ReadFromDisk(pindexSlow)) {
+        if (ReadBlockFromDisk(block, pindexSlow)) {
             BOOST_FOREACH(const CTransaction &tx, block.vtx) {
                 if (tx.GetHash() == hash) {
                     txOut = tx;

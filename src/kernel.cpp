@@ -418,7 +418,7 @@ bool CheckProofOfStake(const CTransaction& tx, unsigned int nBits, uint256& hash
         return fDebug? error("CheckProofOfStake() : block not indexed") : false; // unable to read block of previous transaction
 
     CBlock block;
-    if (!block.ReadFromDisk(mapBlockIndex[hashBlock]))
+    if (!ReadBlockFromDisk(block, mapBlockIndex[hashBlock]))
         return fDebug? error("CheckProofOfStake() : read block failed") : false; // unable to read block of previous transaction
 
     if (!CheckStakeKernelHash(nBits, block, txin.prevout.n, txPrev, txin.prevout, tx.nTime, hashProofOfStake, targetProofOfStake, fDebug))
