@@ -798,11 +798,6 @@ public:
         printf("\n");
     }
 
-
-    // Store block on disk
-    // if dbp is provided, the file is known to already reside on disk
-    bool AcceptBlock(CValidationState &state, CDiskBlockPos *dbp = NULL);
-
     // ppcoin: calculate total coin age spent in block
     bool GetCoinAge(uint64& nCoinAge) const;
     bool SignBlock(CWallet& keystore, int64 nFees);
@@ -832,6 +827,10 @@ bool AddToBlockIndex(CBlock& block, CValidationState &state, const CDiskBlockPos
 
 // Context-independent validity checks
 bool CheckBlock(const CBlock& block, CValidationState &state, bool fCheckPOW=true, bool fCheckMerkleRoot=true, bool fCheckSig=true);
+
+// Store block on disk
+// if dbp is provided, the file is known to already reside on disk
+bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp = NULL);
 
 class CBlockFileInfo
 {
