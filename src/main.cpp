@@ -2698,7 +2698,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
         if (!FindBlockPos(state, blockPos, nBlockSize+8, nHeight, nTime, dbp != NULL))
             return error("AcceptBlock() : FindBlockPos failed");
         if (dbp == NULL)
-            if (!WriteToDisk(blockPos))
+            if (!WriteBlockToDisk(*this, blockPos))
                 return state.Abort(_("Failed to write block"));
         if (!AddToBlockIndex(state, blockPos, hashProof))
             return error("AcceptBlock() : AddToBlockIndex failed");
@@ -3389,7 +3389,7 @@ bool InitBlockIndex() {
             CValidationState state;
             if (!FindBlockPos(state, blockPos, nBlockSize+8, 0, block.nTime))
                 return error("InitBlockIndex() : FindBlockPos failed");
-            if (!block.WriteToDisk(blockPos))
+            if (!WriteBlockToDisk(block, blockPos))
                 return error("InitBlockIndex() : writing genesis block to disk failed");
             if (!block.AddToBlockIndex(state, blockPos, Params().HashGenesisBlock()))
                 return error("InitBlockIndex() : genesis block not accepted");
