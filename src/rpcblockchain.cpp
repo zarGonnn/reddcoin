@@ -198,7 +198,7 @@ Value getblock(const Array& params, bool fHelp)
 
     CBlock block;
     CBlockIndex* pblockindex = mapBlockIndex[hash];
-    block.ReadFromDisk(pblockindex);
+    ReadBlockFromDisk(block, pblockindex);
 
     if (!fVerbose)
     {
