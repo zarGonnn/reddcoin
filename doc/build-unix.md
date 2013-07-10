@@ -8,7 +8,7 @@ To Build
 	cd src/
 	make -f makefile.unix		# Headless reddcoin
 
-See readme-qt.rst for instructions on building Reddcoin-Qt, the graphical user interface.
+See [readme-qt.md](readme-qt.md) for instructions on building Reddcoin-Qt, the graphical user interface.
 
 Dependencies
 ---------------------
