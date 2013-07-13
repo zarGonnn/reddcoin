@@ -191,6 +191,7 @@ RPCConsole::RPCConsole(QWidget *parent) :
     historyPtr(0)
 {
     ui->setupUi(this);
+    GUIUtil::restoreWindowGeometry("nRPCConsoleWindow", this->size(), this);
 
 #ifndef Q_OS_MAC
     ui->openDebugLogfileButton->setIcon(QIcon(":/icons/export"));
@@ -213,6 +214,7 @@ RPCConsole::RPCConsole(QWidget *parent) :
 
 RPCConsole::~RPCConsole()
 {
+    GUIUtil::saveWindowGeometry("nRPCConsoleWindow", this);
     emit stopExecutor();
     delete ui;
 }
