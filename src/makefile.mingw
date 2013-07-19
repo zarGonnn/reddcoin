@@ -20,8 +20,8 @@ CXX ?= g++
 USE_UPNP:=-
 USE_IPV6:=1
 
-DEPSDIR?=/c/deps
-BOOST_SUFFIX?=-mgw48-mt-s-1_55
+DEPSDIR?=/usr/local
+BOOST_SUFFIX?=-mgw46-mt-s-1_52
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
