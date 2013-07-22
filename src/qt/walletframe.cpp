@@ -26,7 +26,7 @@ WalletFrame::WalletFrame(BitcoinGUI *_gui) :
 
     QLabel *noWallet = new QLabel(tr("No wallet has been loaded."));
     noWallet->setAlignment(Qt::AlignCenter);
-    walletStack->addWidget(noWallet);
+//     walletStack->addWidget(noWallet);
 }
 
 WalletFrame::~WalletFrame()
@@ -56,13 +56,13 @@ void WalletFrame::removeAllWallets()
     walletStack->removeAllWallets();
 }
 
-bool WalletFrame::handleURI(const QString &uri)
+bool WalletFrame::handlePaymentRequest(const SendCoinsRecipient &recipient)
 {
     WalletView *walletView = currentWalletView();
     if (!walletView)
         return false;
 
-    return walletStack->handleURI(uri);
+    return walletStack->handlePaymentRequest(recipient);
 }
 
 void WalletFrame::showOutOfSyncWarning(bool fShow)

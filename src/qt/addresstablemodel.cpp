@@ -66,9 +66,19 @@ public:
             BOOST_FOREACH(const PAIRTYPE(CTxDestination, CAddressBookData)& item, wallet->mapAddressBook)
             {
                 const CBitcoinAddress& address = item.first;
+
+                AddressTableEntry::Type addressType;
+                const std::string& strPurpose = item.second.purpose;
+                if (strPurpose == "send") addressType = AddressTableEntry::Sending;
+                else if (strPurpose == "receive") addressType = AddressTableEntry::Receiving;
+                else if (strPurpose == "unknown") {
+                    bool fMine = IsMine(*wallet, address.Get());
+                    addressType = (fMine ? AddressTableEntry::Receiving : AddressTableEntry::Sending);
+                }
+                else continue; // "refund" addresses aren't shown, and change addresses aren't in mapAddressBook at all.
+
                 const std::string& strName = item.second.name;
-                bool fMine = IsMine(*wallet, address.Get());
-                cachedAddressTable.append(AddressTableEntry(fMine ? AddressTableEntry::Receiving : AddressTableEntry::Sending,
+                cachedAddressTable.append(AddressTableEntry(addressType,
                                   QString::fromStdString(strName),
                                   QString::fromStdString(address.ToString())));
             }
@@ -219,7 +229,7 @@ bool AddressTableModel::setData(const QModelIndex &index, const QVariant &value,
     if(!index.isValid())
         return false;
     AddressTableEntry *rec = static_cast<AddressTableEntry*>(index.internalPointer());
-
+    std::string strPurpose = (rec->type == AddressTableEntry::Sending ? "send" : "receive");
     editStatus = OK;
 
     if(role == Qt::EditRole)
@@ -234,7 +244,7 @@ bool AddressTableModel::setData(const QModelIndex &index, const QVariant &value,
                 editStatus = NO_CHANGES;
                 return false;
             }
-            wallet->SetAddressBookName(curAddress, value.toString().toStdString());
+            wallet->SetAddressBook(CBitcoinAddress(rec->address.toStdString()).Get(), value.toString().toStdString(), strPurpose);
         } else if(index.column() == Address) {
             CTxDestination newAddress = CBitcoinAddress(value.toString().toStdString()).Get();
             // Refuse to set invalid address, set error status and return false
@@ -260,9 +270,9 @@ bool AddressTableModel::setData(const QModelIndex &index, const QVariant &value,
             else if(rec->type == AddressTableEntry::Sending)
             {
                 // Remove old entry
-                wallet->DelAddressBookName(curAddress);
+                wallet->DelAddressBook(CBitcoinAddress(rec->address.toStdString()).Get());
                 // Add new entry with new address
-                wallet->SetAddressBookName(newAddress, rec->label.toStdString());
+                wallet->SetAddressBook(CBitcoinAddress(value.toString().toStdString()).Get(), rec->label.toStdString(), strPurpose);
             }
         }
         return true;
@@ -369,7 +379,8 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
     // Add entry
     {
         LOCK(wallet->cs_wallet);
-        wallet->SetAddressBookName(CBitcoinAddress(strAddress).Get(), strLabel);
+        wallet->SetAddressBook(CBitcoinAddress(strAddress).Get(), strLabel,
+                               (type == Send ? "send" : "receive"));
     }
     return QString::fromStdString(strAddress);
 }
@@ -386,7 +397,7 @@ bool AddressTableModel::removeRows(int row, int count, const QModelIndex &parent
     }
     {
         LOCK(wallet->cs_wallet);
-        wallet->DelAddressBookName(CBitcoinAddress(rec->address.toStdString()).Get());
+        wallet->DelAddressBook(CBitcoinAddress(rec->address.toStdString()).Get());
     }
     return true;
 }

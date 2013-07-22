@@ -9,6 +9,7 @@
 
 class BitcoinGUI;
 class ClientModel;
+class SendCoinsRecipient;
 class WalletModel;
 class WalletStack;
 class WalletView;
@@ -28,7 +29,7 @@ public:
 
     void removeAllWallets();
 
-    bool handleURI(const QString &uri);
+    bool handlePaymentRequest(const SendCoinsRecipient& recipient);
 
     void showOutOfSyncWarning(bool fShow);
 

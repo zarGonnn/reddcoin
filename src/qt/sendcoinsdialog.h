@@ -6,6 +6,7 @@
 #define SENDCOINSDIALOG_H
 
 #include <QDialog>
+#include <QVariant>
 #include <QString>
 
 namespace Ui {
@@ -36,7 +37,7 @@ public:
 
     void setAddress(const QString &address);
     void pasteEntry(const SendCoinsRecipient &rv);
-    bool handleURI(const QString &uri);
+    bool handlePaymentRequest(const SendCoinsRecipient &recipient);
 
 public slots:
     void clear();
