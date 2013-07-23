@@ -2,8 +2,6 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <QApplication>
-
 #include "bitcoingui.h"
 
 #include "transactiontablemodel.h"
@@ -27,6 +25,8 @@
 #include "macdockiconhandler.h"
 #endif
 
+#undef loop /* Todo: ugh, remove this when the #define loop is gone from util.h */
+#include <QApplication>
 #include <QMenuBar>
 #include <QMenu>
 #include <QIcon>
