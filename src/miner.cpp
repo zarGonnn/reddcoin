@@ -5,13 +5,15 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "txdb.h"
+#include "core.h"
+#include "wallet.h"
 #include "miner.h"
 #include "kernel.h"
 #include "main.h"
-#include "wallet.h"
 
-using namespace std;
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -74,9 +76,9 @@ public:
     void print() const
     {
         printf("COrphan(hash=%s, dPriority=%.1f, dFeePerKb=%.1f)\n",
-            ptx->GetHash().ToString().c_str(), dPriority, dFeePerKb);
+               ptx->GetHash().ToString().c_str(), dPriority, dFeePerKb);
         BOOST_FOREACH(uint256 hash, setDependsOn)
-            printf("   setDependsOn %s\n", hash.ToString().c_str());
+        printf("   setDependsOn %s\n", hash.ToString().c_str());
     }
 };
 
@@ -84,7 +86,7 @@ public:
 uint64 nLastBlockTx = 0;
 uint64 nLastBlockSize = 0;
 int64 nLastCoinStakeSearchInterval = 0;
- 
+
 // We want to sort transactions by priority and fee, so:
 typedef boost::tuple<double, double, CTransaction*> TxPriority;
 class TxPriorityCompare
@@ -318,9 +320,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             if (nBlockSigOps + nTxSigOps >= MAX_BLOCK_SIGOPS)
                 continue;
 
-            // Note that flags: we don't want to set mempool/IsStandard()
-            // policy here, but we still have to ensure that the block we
-            // create only contains transactions that are valid in new blocks.
             CValidationState state;
             if (!CheckInputs(tx, state, view, true, SCRIPT_VERIFY_P2SH))
                 continue;
@@ -364,13 +363,10 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-
-        if (fDebug)
-            printf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
+        printf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
 
         if (!fProofOfStake)
             pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight+1, nFees);
-
         pblocktemplate->vTxFees[0] = -nFees;
 
         // Fill in header
@@ -393,6 +389,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     return pblocktemplate.release();
 }
 
+
 CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey)
 {
     CPubKey pubkey;
@@ -413,7 +410,6 @@ void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& 
         hashPrevBlock = pblock->hashPrevBlock;
     }
     ++nExtraNonce;
-
     unsigned int nHeight = pindexPrev->nHeight+1; // Height first in coinbase required for block.version=2
     pblock->vtx[0].vin[0].scriptSig = (CScript() << nHeight << CBigNum(nExtraNonce)) + COINBASE_FLAGS;
     assert(pblock->vtx[0].vin[0].scriptSig.size() <= 100);
@@ -482,6 +478,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return false;
 
     //// debug print
+    printf("ReddcoinMiner:\n");
     printf("CheckWork() : new proof-of-work block found\n  hash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("mined %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -628,9 +625,13 @@ void static ReddcoinMiner(CWallet *pwallet)
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
-    try { while(true) {
-        while (vNodes.empty())
-            MilliSleep(1000);
+    try { while (true) {
+        if (Params().NetworkID() != CChainParams::REGTEST) {
+            // Busy-wait for the network to come online so we don't waste time mining
+            // on an obsolete chain. In regtest mode we expect to fly solo.
+            while (vNodes.empty())
+                MilliSleep(1000);
+        }
 
         //
         // Create new block
@@ -642,7 +643,6 @@ void static ReddcoinMiner(CWallet *pwallet)
         if (!pblocktemplate.get())
             return;
         CBlock *pblock = &pblocktemplate->block;
-
         // exit if received a PoSV block template
         if (pblock->vtx[0].vout[0].IsEmpty())
         {
@@ -690,6 +690,12 @@ void static ReddcoinMiner(CWallet *pwallet)
                     SetThreadPriority(THREAD_PRIORITY_NORMAL);
                     CheckWork(pblock, *pwallet, reservekey);
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
+
+                    // In regression test mode, stop mining after a block is found. This
+                    // allows developers to controllably generate a block on demand.
+                    if (Params().NetworkID() == CChainParams::REGTEST)
+                        throw boost::thread_interrupted();
+
                     break;
                 }
                 pblock->nNonce += 1;
@@ -729,7 +735,7 @@ void static ReddcoinMiner(CWallet *pwallet)
 
             // Check for stop or if block needs to be rebuilt
             boost::this_thread::interruption_point();
-            if (vNodes.empty())
+            if (vNodes.empty() && Params().NetworkID() != CChainParams::REGTEST)
                 break;
             if (pblock->nNonce >= 0xffff0000)
                 break;
@@ -779,8 +785,12 @@ void GenerateReddcoins(bool fGenerate, CWallet* pwallet)
     if (nThreads == 0)
         return;
     if (nThreads < 0)
-        nThreads = boost::thread::hardware_concurrency();
-
+    {
+        if (Params().NetworkID() == CChainParams::REGTEST)
+            nThreads = 1;
+        else
+            nThreads = boost::thread::hardware_concurrency();
+    }
     // start threads for PoW CPU mining
     for (int i = 0; i < nThreads; i++)
         minerThreads->create_thread(boost::bind(&ReddcoinMiner, pwallet));

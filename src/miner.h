@@ -7,18 +7,12 @@
 #ifndef REDDCOIN_MINER_H
 #define REDDCOIN_MINER_H
 
-#include <stdint.h>
-
-class CBlock;
-class CBlockIndex;
-struct CBlockTemplate;
-class CReserveKey;
-class CScript;
-class CWallet;
+#include "core.h"
+#include "wallet.h"
 
 /** Run the miner threads */
 void GenerateReddcoins(bool fGenerate, CWallet* pwallet);
-/* Generate a new block, without valid proof-of-work */
+/** Generate a new block, without valid proof-of-work */
 CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn);
 CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey);
 /** Modify the extranonce in a block */
