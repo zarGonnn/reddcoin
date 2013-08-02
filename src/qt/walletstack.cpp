@@ -26,7 +26,7 @@ WalletStack::~WalletStack()
 
 bool WalletStack::addWallet(const QString& name, WalletModel *walletModel)
 {
-    if (!gui || !clientModel || mapWalletViews.count(name) > 0)
+    if (!gui || !clientModel || !walletModel || mapWalletViews.count(name) > 0)
         return false;
 
     WalletView *walletView = new WalletView(this, gui);
@@ -45,7 +45,9 @@ bool WalletStack::addWallet(const QString& name, WalletModel *walletModel)
 
 bool WalletStack::removeWallet(const QString& name)
 {
-    if (mapWalletViews.count(name) == 0) return false;
+    if (mapWalletViews.count(name) == 0)
+        return false;
+
     WalletView *walletView = mapWalletViews.take(name);
     removeWidget(walletView);
     return true;
@@ -62,7 +64,8 @@ void WalletStack::removeAllWallets()
 bool WalletStack::handlePaymentRequest(const SendCoinsRecipient &recipient)
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (!walletView) return false;
+    if (!walletView)
+        return false;
 
     return walletView->handlePaymentRequest(recipient);
 }
@@ -113,37 +116,43 @@ void WalletStack::gotoSendCoinsPage(QString addr)
 void WalletStack::gotoSignMessageTab(QString addr)
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->gotoSignMessageTab(addr);
+    if (walletView)
+        walletView->gotoSignMessageTab(addr);
 }
 
 void WalletStack::gotoVerifyMessageTab(QString addr)
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->gotoVerifyMessageTab(addr);
+    if (walletView)
+        walletView->gotoVerifyMessageTab(addr);
 }
 
 void WalletStack::encryptWallet(bool status)
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->encryptWallet(status);
+    if (walletView)
+        walletView->encryptWallet(status);
 }
 
 void WalletStack::backupWallet()
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->backupWallet();
+    if (walletView)
+        walletView->backupWallet();
 }
 
 void WalletStack::changePassphrase()
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->changePassphrase();
+    if (walletView)
+        walletView->changePassphrase();
 }
 
 void WalletStack::unlockWallet()
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->unlockWallet();
+    if (walletView)
+        walletView->unlockWallet();
 }
 
 void WalletStack::lockWallet()
@@ -155,13 +164,17 @@ void WalletStack::lockWallet()
 void WalletStack::setEncryptionStatus()
 {
     WalletView *walletView = (WalletView*)currentWidget();
-    if (walletView) walletView->setEncryptionStatus();
+    if (walletView)
+        walletView->setEncryptionStatus();
 }
 
-void WalletStack::setCurrentWallet(const QString& name)
+bool WalletStack::setCurrentWallet(const QString& name)
 {
-    if (mapWalletViews.count(name) == 0) return;
+    if (mapWalletViews.count(name) == 0)
+        return false;
+
     WalletView *walletView = mapWalletViews.value(name);
     setCurrentWidget(walletView);
     walletView->setEncryptionStatus();
+    return true;
 }
