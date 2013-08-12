@@ -323,6 +323,11 @@ qint64 OptionsModel::getTransactionFee()
     return (qint64) nTransactionFee;
 }
 
+bool OptionsModel::getCoinControlFeatures()
+{
+    return fCoinControlFeatures;
+}
+
 bool OptionsModel::getProxySettings(QString& proxyIP, quint16 &proxyPort) const
 {
     std::string proxy = GetArg("-proxy", "");
@@ -333,9 +338,3 @@ bool OptionsModel::getProxySettings(QString& proxyIP, quint16 &proxyPort) const
     proxyPort = addrProxy.GetPort();
     return true;
 }
-
-bool OptionsModel::getCoinControlFeatures()
-{
-    return fCoinControlFeatures;
-}
-

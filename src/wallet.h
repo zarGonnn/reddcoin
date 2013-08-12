@@ -33,6 +33,7 @@ class COutput;
 class CReserveKey;
 class CScript;
 class CWalletTx;
+class CCoinControl;
 
 /** (client) version numbers for particular wallet features */
 enum WalletFeature

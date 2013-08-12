@@ -8,7 +8,7 @@
 #include "walletmodel.h"
 
 #include <QDialog>
-//#include <QString>
+#include <QString>
 
 class OptionsModel;
 class SendCoinsEntry;
