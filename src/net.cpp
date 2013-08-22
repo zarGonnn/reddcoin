@@ -427,8 +427,10 @@ void AddressCurrentlyConnected(const CService& addr)
 
 
 
-
-
+uint64 CNode::nTotalBytesRecv = 0;
+uint64 CNode::nTotalBytesSent = 0;
+CCriticalSection CNode::cs_totalBytesRecv;
+CCriticalSection CNode::cs_totalBytesSent;
 
 CNode* FindNode(const CNetAddr& ip)
 {
@@ -735,6 +737,7 @@ void SocketSendData(CNode *pnode)
             pnode->nLastSend = GetTime();
             pnode->nSendBytes += nBytes;
             pnode->nSendOffset += nBytes;
+            pnode->RecordBytesSent(nBytes);
             if (pnode->nSendOffset == data.size()) {
                 pnode->nSendOffset = 0;
                 pnode->nSendSize -= data.size();
@@ -830,10 +833,9 @@ void ThreadSocketHandler()
                 }
             }
         }
-        if (vNodes.size() != nPrevNodeCount)
-        {
+        if(vNodes.size() != nPrevNodeCount) {
             nPrevNodeCount = vNodes.size();
-            uiInterface.NotifyNumConnectionsChanged(vNodes.size());
+            uiInterface.NotifyNumConnectionsChanged(nPrevNodeCount);
         }
 
 
@@ -1012,6 +1014,7 @@ void ThreadSocketHandler()
                                 pnode->CloseSocketDisconnect();
                             pnode->nLastRecv = GetTime();
                             pnode->nRecvBytes += nBytes;
+                            pnode->RecordBytesRecv(nBytes);
                         }
                         else if (nBytes == 0)
                         {
@@ -1878,4 +1881,28 @@ void RelayTransaction(const CTransaction& tx, const uint256& hash, const CDataSt
         } else
             pnode->PushInventory(inv);
     }
+}
+
+void CNode::RecordBytesRecv(uint64 bytes)
+{
+    LOCK(cs_totalBytesRecv);
+    nTotalBytesRecv += bytes;
+}
+
+void CNode::RecordBytesSent(uint64 bytes)
+{
+    LOCK(cs_totalBytesSent);
+    nTotalBytesSent += bytes;
+}
+
+uint64 CNode::GetTotalBytesRecv()
+{
+    LOCK(cs_totalBytesRecv);
+    return nTotalBytesRecv;
+}
+
+uint64 CNode::GetTotalBytesSent()
+{
+    LOCK(cs_totalBytesSent);
+    return nTotalBytesSent;
 }
