@@ -24,9 +24,9 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <openssl/crypto.h>
 
-#ifndef WIN32
+// #ifndef WIN32
 #include <signal.h>
-#endif
+// #endif
 
 using namespace std;
 using namespace boost;
@@ -963,13 +963,12 @@ bool AppInit2(boost::thread_group& threadGroup)
             RandAddSeedPerfmon();
 
             CPubKey newDefaultKey;
-            if (pwalletMain->GetKeyFromPool(newDefaultKey, false)) {
+            if (pwalletMain->GetKeyFromPool(newDefaultKey)) {
                 pwalletMain->SetDefaultKey(newDefaultKey);
                 if (!pwalletMain->SetAddressBook(pwalletMain->vchDefaultKey.GetID(), "", "receive"))
                     strErrors << _("Cannot write default address") << "\n";
             }
 
-            pwalletMain->SetBestChain(CBlockLocator(pindexBest));
         }
 
         printf("%s", strErrors.str().c_str());
