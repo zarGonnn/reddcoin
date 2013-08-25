@@ -393,20 +393,6 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     nMinerSleep = GetArg("-minersleep", 1000);
 
-    CheckpointsMode = Checkpoints::STRICT;
-    std::string strCpMode = GetArg("-cppolicy", "strict");
-
-    if(strCpMode == "strict")
-        CheckpointsMode = Checkpoints::STRICT;
-
-    if(strCpMode == "advisory")
-        CheckpointsMode = Checkpoints::ADVISORY;
-
-    if(strCpMode == "permissive")
-        CheckpointsMode = Checkpoints::PERMISSIVE;
-
-    Checkpoints::fEnabled = GetBoolArg("-checkpoints", true);
-
     fBloomFilters = GetBoolArg("-bloomfilters", true);
     if (fBloomFilters)
         nLocalServices |= NODE_BLOOM;
@@ -459,6 +445,20 @@ bool AppInit2(boost::thread_group& threadGroup)
     fDebug = GetBoolArg("-debug", false);
     fBenchmark = GetBoolArg("-benchmark", false);
     mempool.fChecks = GetBoolArg("-checkmempool", RegTest());
+
+    CheckpointsMode = Checkpoints::STRICT;
+    std::string strCpMode = GetArg("-cppolicy", "strict");
+
+    if(strCpMode == "strict")
+        CheckpointsMode = Checkpoints::STRICT;
+
+    if(strCpMode == "advisory")
+        CheckpointsMode = Checkpoints::ADVISORY;
+
+    if(strCpMode == "permissive")
+        CheckpointsMode = Checkpoints::PERMISSIVE;
+
+    Checkpoints::fEnabled = GetBoolArg("-checkpoints", true);
 
     // -par=0 means autodetect, but nScriptCheckThreads==0 means no concurrency
     nScriptCheckThreads = GetArg("-par", 0);
