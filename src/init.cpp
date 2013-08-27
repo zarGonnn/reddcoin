@@ -111,7 +111,7 @@ void Shutdown()
     if (!lockShutdown) return;
 
     RenameThread("bitcoin-shutoff");
-    nTransactionsUpdated++;
+    mempool.AddTransactionsUpdated(1);
     StopRPCThreads();
     ShutdownRPCMining();
     if (pwalletMain)
@@ -493,7 +493,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         InitWarning(_("Warning: Deprecated argument -debugnet ignored, use -debug=net"));
 
     fBenchmark = GetBoolArg("-benchmark", false);
-    mempool.fChecks = GetBoolArg("-checkmempool", RegTest());
+    mempool.setSanityCheck(GetBoolArg("-checkmempool", RegTest()));
 
     CheckpointsMode = Checkpoints::STRICT;
     std::string strCpMode = GetArg("-cppolicy", "strict");

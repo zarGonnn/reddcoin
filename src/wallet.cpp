@@ -1949,9 +1949,8 @@ bool CWallet::GetTransaction(const uint256 &hash, CTransaction &txOut, uint256 &
         LOCK(cs_main);
         {
             LOCK(mempool.cs);
-            if (mempool.exists(hash))
+            if (mempool.lookup(hash, txOut))
             {
-                txOut = mempool.lookup(hash);
                 return true;
             }
         }

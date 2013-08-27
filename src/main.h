@@ -13,6 +13,7 @@
 #include "core.h"
 #include "bignum.h"
 #include "sync.h"
+#include "txmempool.h"
 #include "net.h"
 #include "script.h"
 
@@ -21,13 +22,13 @@
 class CBlock;
 class CBlockIndex;
 class CBlockHeader;
-class CKeyItem;
-class CReserveKey;
 class COutPoint;
 
-class CAddress;
 class CInv;
+class CKeyItem;
 class CNode;
+class CReserveKey;
+class CWallet;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
@@ -88,8 +89,8 @@ extern CScript COINBASE_FLAGS;
 
 
 extern CCriticalSection cs_main;
+extern CTxMemPool mempool;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
-extern unsigned int nTransactionsUpdated;
 extern uint64 nLastBlockTx;
 extern uint64 nLastBlockSize;
 extern const std::string strMessageMagic;
@@ -203,6 +204,10 @@ bool VerifySignature(const CTransaction& txFrom, const CTransaction& txTo, unsig
 /** Abort with a message */
 bool AbortNode(const std::string &msg);
 
+/** (try to) add transaction to memory pool **/
+bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransaction &tx, bool fLimitFree,
+                        bool* pfMissingInputs, bool fRejectInsaneFee=false);
+
 // Reddcoin PoSV
 int64 GetProofOfStakeReward(int64 nCoinAge, int64 nFees);
 int64 GetBlockValue(int nHeight, int64 nFees);
@@ -210,7 +215,6 @@ unsigned int ComputeMinStake(unsigned int nBase, int64 nTime);
 uint256 WantedByOrphan(const CBlock* pblockOrphan);
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 void StakeMiner(CWallet *pwallet);
-
 
 
 
@@ -1181,44 +1185,6 @@ extern CChain chainActive;
 
 
 
-
-
-
-class CTxMemPool
-{
-public:
-    static bool fChecks;
-    mutable CCriticalSection cs;
-    std::map<uint256, CTransaction> mapTx;
-    std::map<COutPoint, CInPoint> mapNextTx;
-
-    bool accept(CValidationState &state, const CTransaction &tx, bool fLimitFree, bool* pfMissingInputs, bool fRejectInsaneFee = false);
-    bool addUnchecked(const uint256& hash, const CTransaction &tx);
-    bool remove(const CTransaction &tx, bool fRecursive = false);
-    bool removeConflicts(const CTransaction &tx);
-    void clear();
-    void queryHashes(std::vector<uint256>& vtxid);
-    void pruneSpent(const uint256& hash, CCoins &coins);
-    void check(CCoinsViewCache *pcoins) const;
-
-    unsigned long size()
-    {
-        LOCK(cs);
-        return mapTx.size();
-    }
-
-    bool exists(uint256 hash)
-    {
-        return (mapTx.count(hash) != 0);
-    }
-
-    CTransaction& lookup(uint256 hash)
-    {
-        return mapTx[hash];
-    }
-};
-
-extern CTxMemPool mempool;
 
 struct CCoinsStats
 {
