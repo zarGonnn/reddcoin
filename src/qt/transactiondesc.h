@@ -18,7 +18,7 @@ class TransactionDesc: public QObject
     Q_OBJECT
 
 public:
-    static QString toHTML(CWallet *wallet, CWalletTx &wtx, int unit);
+    static QString toHTML(CWallet *wallet, CWalletTx &wtx, int vout, int unit);
 
 private:
     TransactionDesc() {}

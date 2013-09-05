@@ -12,6 +12,7 @@
 #include "ui_interface.h"
 #include "base58.h"
 #include "paymentserver.h"
+#include "transactionrecord.h"
 
 #include <string>
 
@@ -38,7 +39,7 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
     }
 }
 
-QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int unit)
+QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int vout, int unit)
 {
     QString strHTML;
 
@@ -221,7 +222,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int unit)
         if (wtx.mapValue.count("comment") && !wtx.mapValue["comment"].empty())
             strHTML += "<br><b>" + tr("Comment") + ":</b><br>" + GUIUtil::HtmlEscape(wtx.mapValue["comment"], true) + "<br>";
 
-        strHTML += "<b>" + tr("Transaction ID") + ":</b> " + wtx.GetHash().ToString().c_str() + "<br>";
+        strHTML += "<b>" + tr("Transaction ID") + ":</b> " + TransactionRecord::formatSubTxId(wtx.GetHash(), vout) + "<br>";
 
         //
         // PaymentRequest info:
@@ -231,7 +232,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int unit)
             if (r.first == "PaymentRequest")
             {
                 PaymentRequestPlus req;
-                req.parse(QByteArray::fromRawData(r.second.c_str(), r.second.size()));
+                req.parse(QByteArray::fromRawData(r.second.data(), r.second.size()));
                 QString merchant;
                 if (req.getMerchant(PaymentServer::getCertStore(), merchant))
                     strHTML += "<b>" + tr("Merchant") + ":</b> " + GUIUtil::HtmlEscape(merchant) + "<br>";
