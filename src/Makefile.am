@@ -10,7 +10,15 @@ if ENABLE_WALLET
 noinst_LIBRARIES += libreddcoin_wallet.a
 endif
 
-bin_PROGRAMS = reddcoind reddcoin-cli
+bin_PROGRAMS =
+
+if BUILD_BITCOIND
+  bin_PROGRAMS += reddcoind
+endif
+
+if BUILD_BITCOIN_CLI
+  bin_PROGRAMS += reddcoin-cli
+endif
 
 SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
 DIST_SUBDIRS = . qt test
