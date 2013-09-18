@@ -4,7 +4,7 @@ AM_CPPFLAGS =  $(INCLUDES) -I$(top_builddir)/src/obj \
   -I$(top_srcdir)/src/leveldb/include -I$(top_srcdir)/src \
   -I$(top_srcdir)/src/leveldb/helpers -I$(top_builddir)/src/qt \
   -I$(top_builddir)/src/qt/forms $(BOOST_INCLUDES) $(PROTOBUF_CFLAGS) \
-  $(QR_CFLAGS)
+  $(QR_CFLAGS) $(BDB_CPPFLAGS)
 AM_LDFLAGS = $(PTHREAD_CFLAGS)
 bin_PROGRAMS = reddcoin-qt
 noinst_LIBRARIES = libreddcoinqt.a
@@ -144,12 +144,12 @@ if USE_QRCODE
 endif
 #
 
-# bitcoin-qt binary #
+# reddcoin-qt binary #
 reddcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
 reddcoin_qt_SOURCES = bitcoin.cpp
 reddcoin_qt_LDADD = libreddcoinqt.a $(LIBBITCOIN) $(LIBLEVELDB) $(LIBMEMENV) \
-  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS)
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
 
 # forms/foo.h -> forms/ui_foo.h
 QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
