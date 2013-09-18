@@ -76,10 +76,10 @@ public:
 
     void print() const
     {
-        printf("COrphan(hash=%s, dPriority=%.1f, dFeePerKb=%.1f)\n",
+        LogPrintf("COrphan(hash=%s, dPriority=%.1f, dFeePerKb=%.1f)\n",
                ptx->GetHash().ToString().c_str(), dPriority, dFeePerKb);
         BOOST_FOREACH(uint256 hash, setDependsOn)
-        printf("   setDependsOn %s\n", hash.ToString().c_str());
+        LogPrintf("   setDependsOn %s\n", hash.ToString().c_str());
     }
 };
 
@@ -133,7 +133,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     if (!fProofOfStake)
     {
         if (fDebug)
-           printf("CreateNewBlock : new PoW block\n");
+           LogPrintf("CreateNewBlock : new PoW block\n");
 
         pblock->nVersion = POW_BLOCK_VERSION;
         txNew.nVersion = POW_TX_VERSION;
@@ -142,7 +142,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     else
     {
         if (fDebug)
-            printf("CreateNewBlock : new PoSV block\n");
+            LogPrintf("CreateNewBlock : new PoSV block\n");
 
         // Height first in coinbase required for block.version=2
         txNew.vin[0].scriptSig = (CScript() << pindexPrev->nHeight+1) + COINBASE_FLAGS;
@@ -216,7 +216,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
                     // or other transactions in the memory pool.
                     if (!mempool.mapTx.count(txin.prevout.hash))
                     {
-                        printf("ERROR: mempool transaction missing input\n");
+                        LogPrintf("ERROR: mempool transaction missing input\n");
                         if (fDebug) assert("mempool transaction missing input" == 0);
                         fMissingInputs = true;
                         if (porphan)
@@ -352,7 +352,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
 
             if (fPrintPriority)
             {
-                printf("priority %.1f feeperkb %.1f txid %s\n",
+                LogPrintf("priority %.1f feeperkb %.1f txid %s\n",
                        dPriority, dFeePerKb, tx.GetHash().ToString().c_str());
             }
 
@@ -376,8 +376,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-        printf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
-
+        LogPrintf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
+        
         if (!fProofOfStake)
             pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight+1, nFees);
         pblocktemplate->vTxFees[0] = -nFees;
@@ -485,16 +485,16 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     if(!pblock->IsProofOfWork())
         return error("CheckWork() : %s is not a proof-of-work block", hashBlock.GetHex().c_str());
 
-    printf("CheckWork() : hash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
+    LogPrintf("CheckWork() : hash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
 
     if (hashBlock > hashTarget)
         return false;
 
     //// debug print
-    printf("ReddcoinMiner:\n");
-    printf("CheckWork() : new proof-of-work block found\n  hash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
+    LogPrintf("ReddcoinMiner:\n");
+    LogPrintf("CheckWork() : new proof-of-work block found\n  hash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
-    printf("mined %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
+    LogPrintf("mined %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
 
     // Found a solution
     {
@@ -533,9 +533,9 @@ bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return error("CheckStake() : proof-of-stake checking failed");
 
     //// debug print
-    printf("CheckStake() : new proof-of-stake-velocity block found\n  hash: %s\n  proofhash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), proofHash.GetHex().c_str(), hashTarget.GetHex().c_str());
+    LogPrintf("CheckStake() : new proof-of-stake-velocity block found\n  hash: %s\n  proofhash: %s\n  target: %s\n", hashBlock.GetHex().c_str(), proofHash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
-    printf("minted %s\n", FormatMoney(GetValueOut(pblock->vtx[1])).c_str());
+    LogPrintf("minted %s\n", FormatMoney(GetValueOut(pblock->vtx[1])).c_str());
 
     // Found a solution
     {
@@ -563,7 +563,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
 void StakeMiner(CWallet *pwallet)
 {
-    printf("StakeMiner started\n");
+    LogPrintf("StakeMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
@@ -617,20 +617,20 @@ void StakeMiner(CWallet *pwallet)
         }
         else
         {
-            // printf("StakeMiner : Failed to sign the new block.\n");
+            // LogPrintf("StakeMiner : Failed to sign the new block.\n");
             MilliSleep(nMinerSleep);
         }
     } }
     catch (boost::thread_interrupted)
     {
-        printf("StakeMiner terminated\n");
+        LogPrintf("StakeMiner terminated\n");
         throw;
     }
 }
 
 void static ReddcoinMiner(CWallet *pwallet)
 {
-    printf("ReddcoinMiner started\n");
+    LogPrintf("ReddcoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("reddcoin-miner");
 
@@ -659,13 +659,13 @@ void static ReddcoinMiner(CWallet *pwallet)
         // exit if received a PoSV block template
         if (pblock->vtx[0].vout[0].IsEmpty())
         {
-            printf("ReddcoinMiner : no more PoW blocks\n");
+            LogPrintf("ReddcoinMiner : no more PoW blocks\n");
             return;
         }
 
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
-
-        printf("Running ReddcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        
+        LogPrintf("Running ReddcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -740,7 +740,7 @@ void static ReddcoinMiner(CWallet *pwallet)
                         if (GetTime() - nLogTime > 30 * 60)
                         {
                             nLogTime = GetTime();
-                            printf("hashmeter %6.0f khash/s\n", dHashesPerSec/1000.0);
+                            LogPrintf("hashmeter %6.0f khash/s\n", dHashesPerSec/1000.0);
                         }
                     }
                 }
@@ -770,7 +770,7 @@ void static ReddcoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("ReddcoinMiner terminated\n");
+        LogPrintf("ReddcoinMiner terminated\n");
         throw;
     }
 }

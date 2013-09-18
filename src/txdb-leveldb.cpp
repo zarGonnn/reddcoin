@@ -42,7 +42,7 @@ void init_blockindex(leveldb::Options& options, bool fRemoveOld = false) {
         filesystem::remove_all(directory); // remove directory
 
     filesystem::create_directory(directory);
-    printf("Opening LevelDB in %s\n", directory.string().c_str());
+    LogPrintf("Opening LevelDB in %s\n", directory.string().c_str());
     leveldb::Status status = leveldb::DB::Open(options, directory.string(), &txdb);
     if (!status.ok()) {
         throw runtime_error(strprintf("init_blockindex(): error opening database environment %s", status.ToString().c_str()));
@@ -74,11 +74,11 @@ CTxDB::CTxDB(const char* pszMode)
     if (Exists(string("version")))
     {
         ReadVersion(nVersion);
-        printf("Transaction index version is %d\n", nVersion);
+        LogPrintf("Transaction index version is %d\n", nVersion);
 
         if (nVersion < DATABASE_VERSION)
         {
-            printf("Required index version is %d, removing old database\n", DATABASE_VERSION);
+            LogPrintf("Required index version is %d, removing old database\n", DATABASE_VERSION);
 
             // Leveldb instance destruction
             delete txdb;
@@ -103,7 +103,7 @@ CTxDB::CTxDB(const char* pszMode)
         fReadOnly = fTmp;
     }
 
-    printf("Opened LevelDB successfully\n");
+    LogPrintf("Opened LevelDB successfully\n");
 }
 
 void CTxDB::Close()
@@ -132,7 +132,7 @@ bool CTxDB::TxnCommit()
     delete activeBatch;
     activeBatch = NULL;
     if (!status.ok()) {
-        printf("LevelDB batch commit failure: %s\n", status.ToString().c_str());
+        LogPrintf("LevelDB batch commit failure: %s\n", status.ToString().c_str());
         return false;
     }
     return true;

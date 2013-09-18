@@ -179,7 +179,7 @@ bool CWallet::ChangeWalletPassphrase(const SecureString& strOldWalletPassphrase,
                 if (pMasterKey.second.nDeriveIterations < 25000)
                     pMasterKey.second.nDeriveIterations = 25000;
 
-                printf("Wallet passphrase changed to an nDeriveIterations of %i\n", pMasterKey.second.nDeriveIterations);
+                LogPrintf("Wallet passphrase changed to an nDeriveIterations of %i\n", pMasterKey.second.nDeriveIterations);
 
                 if (!crypter.SetKeyFromPassphrase(strNewWalletPassphrase, pMasterKey.second.vchSalt, pMasterKey.second.nDeriveIterations, pMasterKey.second.nDerivationMethod))
                     return false;
@@ -287,7 +287,7 @@ bool CWallet::EncryptWallet(const SecureString& strWalletPassphrase)
     if (kMasterKey.nDeriveIterations < 25000)
         kMasterKey.nDeriveIterations = 25000;
 
-    printf("Encrypting Wallet with an nDeriveIterations of %i\n", kMasterKey.nDeriveIterations);
+    LogPrintf("Encrypting Wallet with an nDeriveIterations of %i\n", kMasterKey.nDeriveIterations);
 
     if (!crypter.SetKeyFromPassphrase(strWalletPassphrase, kMasterKey.vchSalt, kMasterKey.nDeriveIterations, kMasterKey.nDerivationMethod))
         return false;
@@ -388,10 +388,10 @@ void CWallet::WalletUpdateSpent(const CTransaction &tx)
             {
                 CWalletTx& wtx = (*mi).second;
                 if (txin.prevout.n >= wtx.vout.size())
-                    printf("WalletUpdateSpent: bad wtx %s\n", wtx.GetHash().ToString().c_str());
+                    LogPrintf("WalletUpdateSpent: bad wtx %s\n", wtx.GetHash().ToString().c_str());
                 else if (!wtx.IsSpent(txin.prevout.n) && IsMine(wtx.vout[txin.prevout.n]))
                 {
-                    printf("WalletUpdateSpent found spent coin %s RDD %s\n", FormatMoney(wtx.GetCredit()).c_str(), wtx.GetHash().ToString().c_str());
+                    LogPrintf("WalletUpdateSpent found spent coin %s RDD %s\n", FormatMoney(wtx.GetCredit()).c_str(), wtx.GetHash().ToString().c_str());
                     wtx.MarkSpent(txin.prevout.n);
                     wtx.WriteToDisk();
                     NotifyTransactionChanged(this, txin.prevout.hash, CT_UPDATED);
@@ -469,9 +469,9 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn)
                         wtx.nTime = blocktime;
                 }
                 else
-                    printf("AddToWallet() : found %s in block %s not in index\n",
-                           wtxIn.GetHash().ToString().c_str(),
-                           wtxIn.hashBlock.ToString().c_str());
+                    LogPrintf("AddToWallet() : found %s in block %s not in index\n",
+                             wtxIn.GetHash().ToString().c_str(),
+                             wtxIn.hashBlock.ToString().c_str());
             }
         }
 
@@ -499,7 +499,7 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn)
         }
 
         //// debug print
-        printf("AddToWallet %s  %s%s\n", wtxIn.GetHash().ToString().c_str(), (fInsertedNew ? "new" : ""), (fUpdated ? "update" : ""));
+        LogPrintf("AddToWallet %s  %s%s\n", wtxIn.GetHash().ToString().c_str(), (fInsertedNew ? "new" : ""), (fUpdated ? "update" : ""));
 
         // Write to disk
         if (fInsertedNew || fUpdated)
@@ -726,7 +726,7 @@ void CWalletTx::GetAmounts(list<pair<CTxDestination, int64> >& listReceived,
         CTxDestination address;
         if (!ExtractDestination(txout.scriptPubKey, address))
         {
-            printf("CWalletTx::GetAmounts: Unknown transaction type found, txid %s\n",
+            LogPrintf("CWalletTx::GetAmounts: Unknown transaction type found, txid %s\n",
                    this->GetHash().ToString().c_str());
             address = CNoDestination();
         }
@@ -901,7 +901,7 @@ void CWallet::ReacceptWalletTransactions()
                 }
                 if (fUpdated)
                 {
-                    printf("ReacceptWalletTransactions found spent coin %s RDD %s\n", FormatMoney(wtx.GetCredit()).c_str(), wtx.GetHash().ToString().c_str());
+                    LogPrintf("ReacceptWalletTransactions found spent coin %s RDD %s\n", FormatMoney(wtx.GetCredit()).c_str(), wtx.GetHash().ToString().c_str());
                     wtx.MarkDirty();
                     wtx.WriteToDisk();
                 }
@@ -937,7 +937,7 @@ void CWalletTx::RelayWalletTransaction()
     {
         if (GetDepthInMainChain() == 0) {
             uint256 hash = GetHash();
-            printf("Relaying wtx %s\n", hash.ToString().c_str());
+            LogPrintf("Relaying wtx %s\n", hash.ToString().c_str());
             RelayTransaction((CTransaction)*this, hash);
         }
     }
@@ -960,7 +960,7 @@ void CWallet::ResendWalletTransactions()
     nLastResend = GetTime();
 
     // Rebroadcast any of our txes that aren't in a block yet
-    printf("ResendWalletTransactions()\n");
+    LogPrintf("ResendWalletTransactions()\n");
     {
         LOCK(cs_wallet);
         // Sort them in chronological order
@@ -1243,12 +1243,11 @@ bool CWallet::SelectCoinsMinConf(int64 nTargetValue, int nConfMine, int nConfThe
                 nValueRet += vValue[i].first;
             }
 
-        //// debug print
-        printf("SelectCoins() best subset: ");
+        LogPrintf("selectcoins", "SelectCoins() best subset: ");
         for (unsigned int i = 0; i < vValue.size(); i++)
             if (vfBest[i])
-                printf("%s ", FormatMoney(vValue[i].first).c_str());
-        printf("total %s\n", FormatMoney(nBest).c_str());
+                LogPrintf("selectcoins", "%s ", FormatMoney(vValue[i].first).c_str());
+        LogPrintf("selectcoins", "total %s\n", FormatMoney(nBest).c_str());
     }
 
     return true;
@@ -1624,7 +1623,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             {
                 // Found a kernel
                 if (fDebug && GetBoolArg("-printcoinstake", false))
-                    printf("CreateCoinStake : kernel found\n");
+                    LogPrintf("CreateCoinStake : kernel found\n");
                 vector<valtype> vSolutions;
                 txnouttype whichType;
                 CScript scriptPubKeyOut;
@@ -1632,15 +1631,15 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                 if (!Solver(scriptPubKeyKernel, whichType, vSolutions))
                 {
                     if (fDebug && GetBoolArg("-printcoinstake", false))
-                        printf("CreateCoinStake : failed to parse kernel\n");
+                        LogPrintf("CreateCoinStake : failed to parse kernel\n");
                     break;
                 }
-                if (fDebug && GetBoolArg("-printcoinstake", false))
-                    printf("CreateCoinStake : parsed kernel type=%d\n", whichType);
+                if (GetBoolArg("-printcoinstake", false))
+                    LogPrintf("CreateCoinStake : parsed kernel type=%d\n", whichType);
                 if (whichType != TX_PUBKEY && whichType != TX_PUBKEYHASH)
                 {
-                    if (fDebug && GetBoolArg("-printcoinstake", false))
-                        printf("CreateCoinStake : no support for kernel type=%d\n", whichType);
+                    if (GetBoolArg("-printcoinstake", false))
+                        LogPrintf("CreateCoinStake : no support for kernel type=%d\n", whichType);
                     break;  // only support pay to public key and pay to address
                 }
                 if (whichType == TX_PUBKEYHASH) // pay to address type
@@ -1648,8 +1647,8 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                     // convert to pay to public key type
                     if (!keystore.GetKey(uint160(vSolutions[0]), key))
                     {
-                        if (fDebug && GetBoolArg("-printcoinstake", false))
-                            printf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
+                        if (GetBoolArg("-printcoinstake", false))
+                            LogPrintf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
                         break;  // unable to find corresponding public key
                     }
                     scriptPubKeyOut << key.GetPubKey() << OP_CHECKSIG;
@@ -1659,15 +1658,15 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                     valtype& vchPubKey = vSolutions[0];
                     if (!keystore.GetKey(Hash160(vchPubKey), key))
                     {
-                        if (fDebug && GetBoolArg("-printcoinstake", false))
-                            printf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
+                        if (GetBoolArg("-printcoinstake", false))
+                            LogPrintf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
                         break;  // unable to find corresponding public key
                     }
 
                 if (key.GetPubKey() != vchPubKey)
                 {
-                    if (fDebug && GetBoolArg("-printcoinstake", false))
-                        printf("CreateCoinStake : invalid key for kernel type=%d\n", whichType);
+                    if (GetBoolArg("-printcoinstake", false))
+                        LogPrintf("CreateCoinStake : invalid key for kernel type=%d\n", whichType);
                         break; // keys mismatch
                     }
 
@@ -1682,8 +1681,8 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
                 if (GetCoinAgeWeight(block.GetBlockTime(), (int64)txNew.nTime) < nStakeSplitAge)
                     txNew.vout.push_back(CTxOut(0, scriptPubKeyOut)); //split stake
-                if (fDebug && GetBoolArg("-printcoinstake", false))
-                    printf("CreateCoinStake : added kernel type=%d\n", whichType);
+                if (GetBoolArg("-printcoinstake", false))
+                    LogPrintf("CreateCoinStake : added kernel type=%d\n", whichType);
                 fKernelFound = true;
                 break;
             }
@@ -1784,7 +1783,7 @@ bool CWallet::CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey)
 {
     {
         LOCK2(cs_main, cs_wallet);
-        printf("CommitTransaction:\n%s", wtxNew.ToString().c_str());
+        LogPrintf("CommitTransaction:\n%s", wtxNew.ToString().c_str());
         {
             // This is only to keep the database open to defeat the auto-flush for the
             // duration of this scope.  This is the only place where this optimization
@@ -1820,7 +1819,7 @@ bool CWallet::CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey)
         if (!wtxNew.AcceptToMemoryPool(false))
         {
             // This must not fail. The transaction has already been signed and recorded.
-            printf("CommitTransaction() : Error: Transaction not valid");
+            LogPrintf("CommitTransaction() : Error: Transaction not valid");
             return false;
         }
         wtxNew.RelayWalletTransaction();
@@ -1840,20 +1839,20 @@ string CWallet::SendMoney(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew,
     if (IsLocked())
     {
         strError = _("Error: Wallet locked, unable to create transaction!");
-        printf("SendMoney() : %s", strError.c_str());
+        LogPrintf("SendMoney() : %s", strError.c_str());
         return strError;
     }
     if (fWalletUnlockStakingOnly)
     {
         strError = _("Error: Wallet unlocked for staking only, unable to create transaction.");
-        printf("SendMoney() : %s", strError.c_str());
+        LogPrintf("SendMoney() : %s", strError.c_str());
         return strError;
     }
     if (!CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired, strError))
     {
         if (nValue + nFeeRequired > GetBalance())
             strError = strprintf(_("Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!"), FormatMoney(nFeeRequired).c_str());
-        printf("SendMoney() : %s\n", strError.c_str());
+        LogPrintf("SendMoney() : %s\n", strError.c_str());
         return strError;
     }
 
@@ -1944,15 +1943,15 @@ void CWallet::PrintWallet(const CBlock& block)
         if (block.IsProofOfWork() && mapWallet.count(block.vtx[0].GetHash()))
         {
             CWalletTx& wtx = mapWallet[block.vtx[0].GetHash()];
-            printf("    mine:  %d  %d  %"PRI64d"", wtx.GetDepthInMainChain(), wtx.GetBlocksToMaturity(), wtx.GetCredit());
+            LogPrintf("    mine:  %d  %d  %"PRI64d"", wtx.GetDepthInMainChain(), wtx.GetBlocksToMaturity(), wtx.GetCredit());
         }
         else if (block.IsProofOfStake() && mapWallet.count(block.vtx[1].GetHash()))
         {
             CWalletTx& wtx = mapWallet[block.vtx[1].GetHash()];
-            printf("    stake: %d  %d  %"PRI64d"", wtx.GetDepthInMainChain(), wtx.GetBlocksToMaturity(), wtx.GetCredit());
+            LogPrintf("    stake: %d  %d  %"PRI64d"", wtx.GetDepthInMainChain(), wtx.GetBlocksToMaturity(), wtx.GetCredit());
         }
     }
-    printf("\n");
+    LogPrintf("\n");
 }
 
 bool CWallet::GetTransaction(const uint256 &hashTx, CWalletTx& wtx)
@@ -2074,7 +2073,7 @@ bool CWallet::NewKeyPool()
             walletdb.WritePool(nIndex, CKeyPool(GenerateNewKey()));
             setKeyPool.insert(nIndex);
         }
-        printf("CWallet::NewKeyPool wrote %"PRI64d" new keys\n", nKeys);
+        LogPrintf("CWallet::NewKeyPool wrote %"PRI64d" new keys\n", nKeys);
     }
     return true;
 }
@@ -2104,7 +2103,7 @@ bool CWallet::TopUpKeyPool(unsigned int kpSize)
             if (!walletdb.WritePool(nEnd, CKeyPool(GenerateNewKey())))
                 throw runtime_error("TopUpKeyPool() : writing generated key failed");
             setKeyPool.insert(nEnd);
-            printf("keypool added key %"PRI64d", size=%"PRIszu"\n", nEnd, setKeyPool.size());
+            LogPrintf("keypool added key %"PRI64d", size=%"PRIszu"\n", nEnd, setKeyPool.size());
         }
     }
     return true;
@@ -2133,7 +2132,7 @@ void CWallet::ReserveKeyFromKeyPool(int64& nIndex, CKeyPool& keypool)
         if (!HaveKey(keypool.vchPubKey.GetID()))
             throw runtime_error("ReserveKeyFromKeyPool() : unknown key in key pool");
         assert(keypool.vchPubKey.IsValid());
-        printf("keypool reserve %"PRI64d"\n", nIndex);
+        LogPrintf("keypool reserve %"PRI64d"\n", nIndex);
     }
 }
 
@@ -2160,7 +2159,7 @@ void CWallet::KeepKey(int64 nIndex)
         CWalletDB walletdb(strWalletFile);
         walletdb.ErasePool(nIndex);
     }
-    printf("keypool keep %"PRI64d"\n", nIndex);
+    LogPrintf("keypool keep %"PRI64d"\n", nIndex);
 }
 
 void CWallet::ReturnKey(int64 nIndex)
@@ -2170,7 +2169,7 @@ void CWallet::ReturnKey(int64 nIndex)
         LOCK(cs_wallet);
         setKeyPool.insert(nIndex);
     }
-    printf("keypool return %"PRI64d"\n", nIndex);
+    LogPrintf("keypool return %"PRI64d"\n", nIndex);
 }
 
 bool CWallet::GetKeyFromPool(CPubKey& result)
@@ -2380,7 +2379,7 @@ bool CReserveKey::GetReservedKey(CPubKey& pubkey)
             vchPubKey = keypool.vchPubKey;
         else {
             if (pwallet->vchDefaultKey.IsValid()) {
-                printf("CReserveKey::GetReservedKey(): Warning: Using default key instead of a new key, top up your keypool!");
+                LogPrintf("CReserveKey::GetReservedKey(): Warning: Using default key instead of a new key, top up your keypool!");
                 vchPubKey = pwallet->vchDefaultKey;
             } else
                 return false;

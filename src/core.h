@@ -462,21 +462,18 @@ public:
 
     // equality test
     friend bool operator==(const CCoins &a, const CCoins &b) {
-        if (fDebug)
-        {
-            if (a.fCoinBase != b.fCoinBase)
-                printf("CCoins: fCoinBase mismatch\n");
-            if (a.fCoinStake != b.fCoinStake)
-                printf("CCoins: fCoinStake mismatch\n");
-            if (a.nTime != b.nTime)
-                printf("CCoins: nTime mismatch\n");
-            if (a.nHeight != b.nHeight)
-                printf("CCoins: nHeight mismatch\n");
-            if (a.nVersion != b.nVersion)
-                printf("CCoins: nVersion mismatch\n");
-            if (a.vout != b.vout)
-                printf("CCoins: vout mismatch\n");
-        }
+        if (a.fCoinBase != b.fCoinBase)
+            LogPrintf("CCoins: fCoinBase mismatch\n");
+        if (a.fCoinStake != b.fCoinStake)
+            LogPrintf("CCoins: fCoinStake mismatch\n");
+        if (a.nTime != b.nTime)
+            LogPrintf("CCoins: nTime mismatch\n");
+        if (a.nHeight != b.nHeight)
+            LogPrintf("CCoins: nHeight mismatch\n");
+        if (a.nVersion != b.nVersion)
+            LogPrintf("CCoins: nVersion mismatch\n");
+        if (a.vout != b.vout)
+            LogPrintf("CCoins: vout mismatch\n");
         
         return a.fCoinBase == b.fCoinBase &&
                 a.fCoinStake == b.fCoinStake &&
@@ -734,8 +731,8 @@ public:
     {
         // Take last bit of block hash as entropy bit
         unsigned int nEntropyBit = ((GetHash().Get64()) & 1llu);
-        if (fDebug && GetBoolArg("-printstakemodifier", false))
-            printf("GetStakeEntropyBit: hashBlock=%s nEntropyBit=%u\n", GetHash().ToString().c_str(), nEntropyBit);
+        if (GetBoolArg("-printstakemodifier", false))
+            LogPrintf("GetStakeEntropyBit: hashBlock=%s nEntropyBit=%u\n", GetHash().ToString().c_str(), nEntropyBit);
         return nEntropyBit;
     }
 

@@ -1021,7 +1021,7 @@ public:
 
     void print() const
     {
-        printf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString().c_str());
     }
 };
 
@@ -1115,7 +1115,7 @@ public:
 
     void print() const
     {
-        printf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString().c_str());
     }
 };
 

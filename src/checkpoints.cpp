@@ -275,7 +275,7 @@ namespace Checkpoints
             hashPendingCheckpoint = 0;
             checkpointMessage = checkpointMessagePending;
             checkpointMessagePending.SetNull();
-            printf("AcceptPendingSyncCheckpoint : sync-checkpoint at %s\n", hashSyncCheckpoint.ToString().c_str());
+            LogPrintf("AcceptPendingSyncCheckpoint : sync-checkpoint at %s\n", hashSyncCheckpoint.ToString().c_str());
             // relay the checkpoint
             if (!checkpointMessage.IsNull())
             {
@@ -305,7 +305,7 @@ namespace Checkpoints
 
         LOCK(cs_hashSyncCheckpoint);
         // sync-checkpoint should always be accepted block
-        printf("CheckSync: accepted? %s\n", hashSyncCheckpoint.ToString().c_str());
+        LogPrintf("CheckSync: accepted? %s\n", hashSyncCheckpoint.ToString().c_str());
         assert(mapBlockIndex.count(hashSyncCheckpoint));
         const CBlockIndex* pindexSync = mapBlockIndex[hashSyncCheckpoint];
 
@@ -348,7 +348,7 @@ namespace Checkpoints
         if (mapBlockIndex.count(hash) && !mapBlockIndex[hash]->IsInMainChain())
         {
             // checkpoint block accepted but not yet in main chain
-            printf("ResetSyncCheckpoint: SetBestChain to hardened checkpoint %s\n", hash.ToString().c_str());
+            LogPrintf("ResetSyncCheckpoint: SetBestChain to hardened checkpoint %s\n", hash.ToString().c_str());
             CValidationState state;
             if (!SetBestChain(state, mapBlockIndex[hash]))
             {
@@ -360,7 +360,7 @@ namespace Checkpoints
             // checkpoint block not yet accepted
             hashPendingCheckpoint = hash;
             checkpointMessagePending.SetNull();
-            printf("ResetSyncCheckpoint: pending for sync-checkpoint %s\n", hashPendingCheckpoint.ToString().c_str());
+            LogPrintf("ResetSyncCheckpoint: pending for sync-checkpoint %s\n", hashPendingCheckpoint.ToString().c_str());
         }
 
         BOOST_REVERSE_FOREACH(const MapCheckpoints::value_type& i, checkpoints)
@@ -370,7 +370,7 @@ namespace Checkpoints
             {
                 if (!WriteSyncCheckpoint(hash))
                     return error("ResetSyncCheckpoint: failed to write sync checkpoint %s", hash.ToString().c_str());
-                printf("ResetSyncCheckpoint: sync-checkpoint reset to %s\n", hashSyncCheckpoint.ToString().c_str());
+                LogPrintf("ResetSyncCheckpoint: sync-checkpoint reset to %s\n", hashSyncCheckpoint.ToString().c_str());
                 return true;
             }
         }
@@ -378,12 +378,12 @@ namespace Checkpoints
         // last resort. set sync checkpoint to genesis before downloading any blockchain
         if (WriteSyncCheckpoint(Params().HashGenesisBlock()))
         {
-            printf("ResetSyncCheckpoint: sync-checkpoint reset to hashGenesisBlock\n");
+            LogPrintf("ResetSyncCheckpoint: sync-checkpoint reset to hashGenesisBlock\n");
             return true;
         }
         else
         {
-            printf("ResetSyncCheckpoint: failed to reset sync-checkpoint to hashGenesisBlock\n");
+            LogPrintf("ResetSyncCheckpoint: failed to reset sync-checkpoint to hashGenesisBlock\n");
             return false;
         }
     }
@@ -421,7 +421,7 @@ namespace Checkpoints
 
         // Test signing successful, proceed
         CSyncCheckpoint::strMasterPrivKey = strPrivKey;
-        printf("SetCheckpointPrivKey: successfully set private key.");
+        LogPrintf("SetCheckpointPrivKey: successfully set private key.");
         return true;
     }
 
@@ -449,11 +449,11 @@ namespace Checkpoints
 
         if(!checkpoint.ProcessSyncCheckpoint(NULL))
         {
-            printf("WARNING: SendSyncCheckpoint: Failed to process checkpoint.\n");
+            LogPrintf("WARNING: SendSyncCheckpoint: Failed to process checkpoint.\n");
             return false;
         }
 
-        printf("SendSyncCheckpoint: about to relay checkpoint.\n");
+        LogPrintf("SendSyncCheckpoint: about to relay checkpoint.\n");
         // Relay checkpoint
         {
             LOCK(cs_vNodes);
@@ -488,7 +488,7 @@ bool CSyncCheckpoint::CheckSignature()
         return error("CSyncCheckpoint::CheckSignature() : verify signature failed");
 
     // Now unserialize the data
-    printf("CSyncCheckpoint::CheckSignature() : successfully verified signature\n");
+    LogPrintf("CSyncCheckpoint::CheckSignature() : successfully verified signature\n");
     CDataStream sMsg(vchMsg, SER_NETWORK, PROTOCOL_VERSION);
     sMsg >> *(CUnsignedSyncCheckpoint*)this;
     return true;
@@ -506,7 +506,7 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
         // We haven't received the checkpoint chain, keep the checkpoint as pending
         Checkpoints::hashPendingCheckpoint = hashCheckpoint;
         Checkpoints::checkpointMessagePending = *this;
-        printf("ProcessSyncCheckpoint: pending for sync-checkpoint %s\n", hashCheckpoint.ToString().c_str());
+        LogPrintf("ProcessSyncCheckpoint: pending for sync-checkpoint %s\n", hashCheckpoint.ToString().c_str());
         // Ask this guy to fill in what we're missing
         if (pfrom)
         {
@@ -538,6 +538,6 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
     Checkpoints::checkpointMessage = *this;
     Checkpoints::hashPendingCheckpoint = 0;
     Checkpoints::checkpointMessagePending.SetNull();
-    printf("ProcessSyncCheckpoint: sync-checkpoint at %s\n", hashCheckpoint.ToString().c_str());
+    LogPrintf("ProcessSyncCheckpoint: sync-checkpoint at %s\n", hashCheckpoint.ToString().c_str());
     return true;
 }
