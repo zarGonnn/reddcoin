@@ -5,16 +5,13 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "core.h"
-#include "wallet.h"
 #include "miner.h"
 #include "kernel.h"
 #include "main.h"
 #include "scrypt.h"
 
-
-
-
+double dHashesPerSec = 0.0;
+int64 nHPSTimerStart = 0;
 
 //////////////////////////////////////////////////////////////////////////////
 //

@@ -26,4 +26,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey);
 /** Base sha256 mining transform */
 void SHA256Transform(void* pstate, void* pinput, const void* pinit);
 
+extern double dHashesPerSec;
+extern int64 nHPSTimerStart;
+
 #endif // REDDCOIN_MINER_H
