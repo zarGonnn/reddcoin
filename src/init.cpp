@@ -980,7 +980,7 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
             else if (nLoadWalletRet == DB_NEED_REWRITE)
             {
                 strErrors << _("Wallet needed to be rewritten: restart Reddcoin to complete") << "\n";
-                printf("%s", strErrors.str().c_str());
+                LogPrintf("%s", strErrors.str().c_str());
                 return InitError(strErrors.str());
             }
             else
@@ -997,7 +997,7 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
                 pwalletMain->SetMinVersion(FEATURE_LATEST); // permanently upgrade the wallet immediately
             }
             else
-                printf("Allowing wallet upgrade up to %i\n", nMaxVersion);
+                LogPrintf("Allowing wallet upgrade up to %i\n", nMaxVersion);
             if (nMaxVersion < pwalletMain->GetVersion())
                 strErrors << _("Cannot downgrade wallet") << "\n";
             pwalletMain->SetMaxVersion(nMaxVersion);
@@ -1015,11 +1015,11 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
                     strErrors << _("Cannot write default address") << "\n";
             }
 
+            pwalletMain->SetBestChain(chainActive.GetLocator());
         }
 
         LogPrintf("%s", strErrors.str().c_str());
         LogPrintf(" wallet      %15"PRId64"ms\n", GetTimeMillis() - nStart);
-        pwalletMain->SetBestChain(chainActive.GetLocator());
 
         RegisterWallet(pwalletMain);
 
