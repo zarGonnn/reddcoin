@@ -956,8 +956,8 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
     // ********************************************************* Step 8: load wallet
 
     if (fDisableWallet) {
-        printf("Wallet disabled!\n");
         pwalletMain = NULL;
+        LogPrintf("Wallet disabled!\n");
     } else {
         uiInterface.InitMessage(_("Loading wallet..."));
 
