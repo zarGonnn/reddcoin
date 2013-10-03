@@ -59,7 +59,7 @@ reddcoind_SOURCES = bitcoind.cpp
 #
 
 if TARGET_WINDOWS
-reddcoind_SOURCES += bitcoin-res.rc
+reddcoind_SOURCES += bitcoind-res.rc
 endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
