@@ -260,7 +260,7 @@ namespace Checkpoints
 
             CTxDB txdb;
             CBlockIndex* pindexCheckpoint = mapBlockIndex[hashPendingCheckpoint];
-            if (!pindexCheckpoint->IsInMainChain())
+            if (!chainActive.Contains(pindexCheckpoint))
             {
                 CValidationState state;
                 if (!SetBestChain(state, pindexCheckpoint))
@@ -290,6 +290,7 @@ namespace Checkpoints
     // Automatically select a suitable sync-checkpoint
     uint256 AutoSelectSyncCheckpoint()
     {
+        const CBlockIndex *pindexBest = chainActive.Tip();
         const CBlockIndex *pindex = pindexBest;
         // Search backward for a block within max span and maturity window
         while (pindex->pprev && (pindex->GetBlockTime() + nCheckpointSpan * nTargetSpacing > pindexBest->GetBlockTime() || pindex->nHeight + nCheckpointSpan > pindexBest->nHeight))
@@ -345,7 +346,7 @@ namespace Checkpoints
         LOCK(cs_hashSyncCheckpoint);
         const MapCheckpoints& checkpoints = *Checkpoints().mapCheckpoints;
         const uint256& hash = checkpoints.rbegin()->second;
-        if (mapBlockIndex.count(hash) && !mapBlockIndex[hash]->IsInMainChain())
+        if (mapBlockIndex.count(hash) && !chainActive.Contains(mapBlockIndex[hash]))
         {
             // checkpoint block accepted but not yet in main chain
             LogPrintf("ResetSyncCheckpoint: SetBestChain to hardened checkpoint %s\n", hash.ToString().c_str());
@@ -366,7 +367,7 @@ namespace Checkpoints
         BOOST_REVERSE_FOREACH(const MapCheckpoints::value_type& i, checkpoints)
         {
             const uint256& hash = i.second;
-            if (mapBlockIndex.count(hash) && mapBlockIndex[hash]->IsInMainChain())
+            if (mapBlockIndex.count(hash) && chainActive.Contains(mapBlockIndex[hash]))
             {
                 if (!WriteSyncCheckpoint(hash))
                     return error("ResetSyncCheckpoint: failed to write sync checkpoint %s", hash.ToString().c_str());
@@ -470,7 +471,7 @@ namespace Checkpoints
         // sync-checkpoint should always be accepted block
         assert(mapBlockIndex.count(hashSyncCheckpoint));
         const CBlockIndex* pindexSync = mapBlockIndex[hashSyncCheckpoint];
-        return (nBestHeight >= pindexSync->nHeight + COINBASE_MATURITY ||
+        return (chainActive.Height() >= pindexSync->nHeight + COINBASE_MATURITY ||
                 pindexSync->GetBlockTime() + Params().StakeMinAge() < GetAdjustedTime());
     }
 }
@@ -510,7 +511,7 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
         // Ask this guy to fill in what we're missing
         if (pfrom)
         {
-            PushGetBlocks(pfrom, pindexBest, hashCheckpoint);
+            PushGetBlocks(pfrom, chainActive.Tip(), hashCheckpoint);
             // ask directly as well in case rejected earlier by duplicate
             // proof-of-stake because getblocks may not get it this time
             pfrom->AskFor(CInv(MSG_BLOCK, mapOrphanBlocks.count(hashCheckpoint)? WantedByOrphan(mapOrphanBlocks[hashCheckpoint]) : hashCheckpoint));
@@ -522,7 +523,7 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
         return false;
 
     CBlockIndex* pindexCheckpoint = mapBlockIndex[hashCheckpoint];
-    if (!pindexCheckpoint->IsInMainChain())
+    if (!chainActive.Contains(pindexCheckpoint))
     {
         // checkpoint chain received but not yet main chain
         CValidationState state;
