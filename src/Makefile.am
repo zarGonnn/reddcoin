@@ -6,7 +6,7 @@ AM_LDFLAGS = $(PTHREAD_CFLAGS)
 
 noinst_LIBRARIES = libreddcoin.a
 
-bin_PROGRAMS = reddcoind
+bin_PROGRAMS = reddcoind reddcoin-cli
 
 SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
 DIST_SUBDIRS = . qt test
@@ -64,6 +64,17 @@ endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
 reddcoind_LDADD += $(BDB_LIBS)
+
+# reddcoin-cli binary #
+reddcoin_cli_LDADD = libreddcoin.a leveldb/libleveldb.a leveldb/libmemenv.a \
+  $(BOOST_LIBS)
+reddcoin_cli_SOURCES = bitcoin-cli.cpp
+#
+
+if TARGET_WINDOWS
+reddcoin_cli_SOURCES += bitcoin-cli-res.rc
+endif
+reddcoin_cli_LDADD += $(BDB_LIBS)
 
 leveldb/libleveldb.a: leveldb/libmemenv.a
 

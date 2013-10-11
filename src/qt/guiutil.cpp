@@ -536,7 +536,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         tr("Usage:") + "\n" +
         "  reddcoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
-    coreOptions = QString::fromStdString(HelpMessage());
+    coreOptions = QString::fromStdString(HelpMessage(HMM_BITCOIN_QT));
 
     uiOptions = tr("UI options") + ":\n" +
         "  -lang=<lang>           " + tr("Set language, for example \"de_DE\" (default: system locale)") + "\n" +
