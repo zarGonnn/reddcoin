@@ -69,10 +69,8 @@ QDateTime ClientModel::getLastBlockDate() const
 {
     if (chainActive.Tip())
         return QDateTime::fromTime_t(chainActive.Tip()->GetBlockTime());
-    else if(!isTestNet())
-        return QDateTime::fromTime_t(1390280400); // Genesis block's time
     else
-        return QDateTime::fromTime_t(1399544585); // Genesis block's time (testnet)
+        return QDateTime::fromTime_t(Params().GenesisBlock().nTime); // Genesis block's time of current network
 }
 
 double ClientModel::getVerificationProgress() const
