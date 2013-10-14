@@ -42,8 +42,6 @@ unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
 CChain chainActive;
-CBlockIndex *pindexBestInvalid;
-set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexValid; // may contain all CBlockIndex*'s that have validness >=BLOCK_VALID_TRANSACTIONS, and must contain those who aren't failed
 int64 nTimeBestReceived = 0;
 int nScriptCheckThreads = 0;
 bool fImporting = false;
@@ -74,6 +72,29 @@ const string strMessageMagic = "Reddcoin Signed Message:\n";
 // Settings
 int64 nTransactionFee = 0;
 int64 nMinimumInputValue = DUST_HARD_LIMIT;
+
+// Internal stuff
+namespace {
+struct CBlockIndexWorkComparator
+{
+    bool operator()(CBlockIndex *pa, CBlockIndex *pb) {
+        if (pa->nChainWork > pb->nChainWork) return false;
+        if (pa->nChainWork < pb->nChainWork) return true;
+
+        if (pa->GetBlockHash() < pb->GetBlockHash()) return false;
+        if (pa->GetBlockHash() > pb->GetBlockHash()) return true;
+
+        return false; // identical blocks
+    }
+};
+
+CBlockIndex *pindexBestInvalid;
+set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexValid; // may contain all CBlockIndex*'s that have validness >=BLOCK_VALID_TRANSACTIONS, and must contain those who aren't failed
+
+CCriticalSection cs_LastBlockFile;
+CBlockFileInfo infoLastBlockFile;
+int nLastBlockFile = 0;
+}
 
 // ppcoin
 set<pair<COutPoint, unsigned int> > setStakeSeen;
@@ -3230,10 +3251,6 @@ bool CheckDiskSpace(uint64 nAdditionalBytes)
 
     return true;
 }
-
-CCriticalSection cs_LastBlockFile;
-CBlockFileInfo infoLastBlockFile;
-int nLastBlockFile = 0;
 
 FILE* OpenDiskFile(const CDiskBlockPos &pos, const char *prefix, bool fReadOnly)
 {
