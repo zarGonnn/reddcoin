@@ -74,7 +74,7 @@ public:
     unsigned int StakeMinAge() const { return nStakeMinAge; }
     unsigned int StakeMaxAge() const { return nStakeMaxAge; }
 protected:
-    CChainParams() {};
+    CChainParams() {}
 
     uint256 hashGenesisBlock;
     MessageStartChars pchMessageStart;
