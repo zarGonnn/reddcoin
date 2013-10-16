@@ -43,14 +43,15 @@ for help and more information.
 
 Building
 ---------------------
-- [Reddcoin-Qt Readme](readme-qt.md)
+The following are developer notes on how to build Reddcoin on your native platform. They are not complete guide, but include notes on the necessary libraries, compile flags, etc.
+
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
 - [Windows Build Notes](build-msw.md)
 
 Development
 ---------------------
-The Bitcoin repo's [root README](https://github.com/bitcoin/bitcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Reddcoin repo's [root README](https://github.com/reddcoin-project/reddcoin/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Coding Guidelines](coding.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
