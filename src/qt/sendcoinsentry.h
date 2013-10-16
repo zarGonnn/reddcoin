@@ -63,6 +63,8 @@ private:
     SendCoinsRecipient recipient;
     Ui::SendCoinsEntry *ui;
     WalletModel *model;
+
+    bool updateLabel(const QString &address);
 };
 
 #endif // SENDCOINSENTRY_H
