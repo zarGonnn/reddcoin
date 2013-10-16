@@ -118,13 +118,6 @@ void WalletFrame::gotoHistoryPage()
         i.value()->gotoHistoryPage();
 }
 
-void WalletFrame::gotoAddressBookPage()
-{
-    QMap<QString, WalletView*>::const_iterator i;
-    for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
-        i.value()->gotoAddressBookPage();
-}
-
 void WalletFrame::gotoReceiveCoinsPage()
 {
     QMap<QString, WalletView*>::const_iterator i;
@@ -200,3 +193,16 @@ WalletView *WalletFrame::currentWalletView()
     return qobject_cast<WalletView*>(walletStack->currentWidget());
 }
 
+void WalletFrame::usedSendingAddresses()
+{
+    WalletView *walletView = (WalletView*)walletStack->currentWidget();
+    if (walletView)
+        walletView->usedSendingAddresses();
+}
+
+void WalletFrame::usedReceivingAddresses()
+{
+    WalletView *walletView = (WalletView*)walletStack->currentWidget();
+    if (walletView)
+        walletView->usedReceivingAddresses();
+}
