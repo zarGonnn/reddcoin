@@ -48,6 +48,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(accept()));
         ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->tableView->setFocus();
+        ui->closeButton->setText(tr("C&hoose"));
         ui->exportButton->hide();
         break;
     case ForEditing:
@@ -93,8 +94,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
 
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
 
-    // Pass through accept action from button box
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
 AddressBookPage::~AddressBookPage()
@@ -271,7 +271,7 @@ void AddressBookPage::on_exportButton_clicked()
     // CSV is currently the only supported format
     QString filename = GUIUtil::getSaveFileName(
             this,
-            tr("Export Address Book Data"), QString(),
+            tr("Export Address List"), QString(),
             tr("Comma separated file (*.csv)"));
 
     if (filename.isNull()) return;
