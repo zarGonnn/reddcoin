@@ -6,13 +6,17 @@
 #define WALLETFRAME_H
 
 #include <QFrame>
+#include <QMap>
 
 class BitcoinGUI;
 class ClientModel;
 class SendCoinsRecipient;
 class WalletModel;
-class WalletStack;
 class WalletView;
+
+QT_BEGIN_NAMESPACE
+class QStackedWidget;
+QT_END_NAMESPACE
 
 class WalletFrame : public QFrame
 {
@@ -34,7 +38,12 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
-    WalletStack *walletStack;
+    QStackedWidget *walletStack;
+    BitcoinGUI *gui;
+    ClientModel *clientModel;
+    QMap<QString, WalletView*> mapWalletViews;
+
+    bool bOutOfSync;
 
     WalletView *currentWalletView();
 
