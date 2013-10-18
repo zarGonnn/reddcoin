@@ -50,9 +50,8 @@ void URITests::uriTests()
     QVERIFY(rv.address == QString("Rv5B5xZqR598YHWd178Cv2qE3TBjDes7Tf"));
     QVERIFY(rv.label == QString());
 
-    // We currently don't implement the message parameter (ok, yea, we break spec...)
     uri.setUrl(QString("reddcoin:Rv5B5xZqR598YHWd178Cv2qE3TBjDes7Tf?req-message=Wikipedia Example Address"));
-    QVERIFY(!GUIUtil::parseBitcoinURI(uri, &rv));
+    QVERIFY(GUIUtil::parseBitcoinURI(uri, &rv));
 
     uri.setUrl(QString("reddcoin:Rv5B5xZqR598YHWd178Cv2qE3TBjDes7Tf?amount=1,000&label=Wikipedia Example"));
     QVERIFY(!GUIUtil::parseBitcoinURI(uri, &rv));
