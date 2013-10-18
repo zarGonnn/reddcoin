@@ -47,7 +47,8 @@ bool WalletFrame::addWallet(const QString& name, WalletModel *walletModel)
     walletView->setWalletModel(walletModel);
     walletView->showOutOfSyncWarning(bOutOfSync);
 
-    walletView->gotoOverviewPage(); /* XXX we should go to the currently selected page */
+     /* TODO we should goto the currently selected page once dynamically adding wallets is supported */
+    walletView->gotoOverviewPage();
     walletStack->addWidget(walletView);
     mapWalletViews[name] = walletView;
 
@@ -65,6 +66,16 @@ bool WalletFrame::setCurrentWallet(const QString& name)
     WalletView *walletView = mapWalletViews.value(name);
     walletStack->setCurrentWidget(walletView);
     walletView->setEncryptionStatus();
+    return true;
+}
+
+bool WalletFrame::removeWallet(const QString &name)
+{
+    if (mapWalletViews.count(name) == 0)
+        return false;
+
+    WalletView *walletView = mapWalletViews.take(name);
+    walletStack->removeWidget(walletView);
     return true;
 }
 
