@@ -88,76 +88,59 @@ extern enum Checkpoints::CPMode CheckpointsMode;
 
 // These functions dispatch to one or all registered wallets
 
-
-void RegisterWallet(CWallet* pwalletIn)
-{
-    {
-        LOCK(cs_setpwalletRegistered);
-        setpwalletRegistered.insert(pwalletIn);
-    }
+namespace {
+struct CMainSignals {
+    // Notifies listeners of updated transaction data (passing hash, transaction, and optionally the block it is found in.
+    boost::signals2::signal<void (const uint256 &, const CTransaction &, const CBlock *)> SyncTransaction;
+    // Notifies listeners of an erased transaction (currently disabled, requires transaction replacement).
+    boost::signals2::signal<void (const uint256 &)> EraseTransaction;
+    // Notifies listeners of a disabled transaction.
+    boost::signals2::signal<void (const CTransaction &)> DisableTransaction;
+    // Notifies listeners of an updated transaction without new data (for now: a coinbase potentially becoming visible).
+    boost::signals2::signal<void (const uint256 &, bool fDeleted)> UpdatedTransaction;
+    // Notifies listeners of a new active block chain.
+    boost::signals2::signal<void (const CBlockLocator &)> SetBestChain;
+    // Notifies listeners about an inventory item being seen on the network.
+    boost::signals2::signal<void (const uint256 &)> Inventory;
+    // Tells listeners to broadcast their data.
+    boost::signals2::signal<void ()> Broadcast;
+} g_signals;
 }
 
-void UnregisterWallet(CWallet* pwalletIn)
-{
-    {
-        LOCK(cs_setpwalletRegistered);
-        setpwalletRegistered.erase(pwalletIn);
-    }
+void RegisterWallet(CWalletInterface* pwalletIn) {
+    g_signals.SyncTransaction.connect(boost::bind(&CWalletInterface::SyncTransaction, pwalletIn, _1, _2, _3));
+    g_signals.EraseTransaction.connect(boost::bind(&CWalletInterface::EraseFromWallet, pwalletIn, _1));
+    g_signals.DisableTransaction.connect(boost::bind(&CWalletInterface::DisableTransaction, pwalletIn, _1));
+    g_signals.UpdatedTransaction.connect(boost::bind(&CWalletInterface::UpdatedTransaction, pwalletIn, _1, _2));
+    g_signals.SetBestChain.connect(boost::bind(&CWalletInterface::SetBestChain, pwalletIn, _1));
+    g_signals.Inventory.connect(boost::bind(&CWalletInterface::Inventory, pwalletIn, _1));
+    g_signals.Broadcast.connect(boost::bind(&CWalletInterface::ResendWalletTransactions, pwalletIn));
 }
 
-void UnregisterAllWallets()
-{
-    LOCK(cs_setpwalletRegistered);
-    setpwalletRegistered.clear();
+void UnregisterWallet(CWalletInterface* pwalletIn) {
+    g_signals.Broadcast.disconnect(boost::bind(&CWalletInterface::ResendWalletTransactions, pwalletIn));
+    g_signals.Inventory.disconnect(boost::bind(&CWalletInterface::Inventory, pwalletIn, _1));
+    g_signals.SetBestChain.disconnect(boost::bind(&CWalletInterface::SetBestChain, pwalletIn, _1));
+    g_signals.UpdatedTransaction.disconnect(boost::bind(&CWalletInterface::UpdatedTransaction, pwalletIn, _1, _2));
+    g_signals.DisableTransaction.disconnect(boost::bind(&CWalletInterface::DisableTransaction, pwalletIn, _1));
+    g_signals.EraseTransaction.disconnect(boost::bind(&CWalletInterface::EraseFromWallet, pwalletIn, _1));
+    g_signals.SyncTransaction.disconnect(boost::bind(&CWalletInterface::SyncTransaction, pwalletIn, _1, _2, _3));
 }
 
-// erases transaction with the given hash from all wallets
-void static EraseFromWallets(uint256 hash)
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->EraseFromWallet(hash);
+void UnregisterAllWallets() {
+    g_signals.Broadcast.disconnect_all_slots();
+    g_signals.Inventory.disconnect_all_slots();
+    g_signals.SetBestChain.disconnect_all_slots();
+    g_signals.UpdatedTransaction.disconnect_all_slots();
+    g_signals.DisableTransaction.disconnect_all_slots();
+    g_signals.EraseTransaction.disconnect_all_slots();
+    g_signals.SyncTransaction.disconnect_all_slots();
 }
 
-// make sure all wallets know about the given transaction, in the given block
-void SyncWithWallets(const uint256 &hash, const CTransaction& tx, const CBlock* pblock, bool fUpdate)
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->AddToWalletIfInvolvingMe(hash, tx, pblock, fUpdate);
+void SyncWithWallets(const uint256 &hash, const CTransaction &tx, const CBlock *pblock) {
+    g_signals.SyncTransaction(hash, tx, pblock);
 }
 
-// notify wallets about a new best chain
-void static SetBestChain(const CBlockLocator& loc)
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->SetBestChain(loc);
-}
-
-// notify wallets about an updated transaction
-void static UpdatedTransaction(const uint256& hashTx, bool fDeleted)
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->UpdatedTransaction(hashTx, fDeleted);
-}
-
-// notify wallets about an incoming inventory (for request counts)
-void static Inventory(const uint256& hash)
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->Inventory(hash);
-}
-
-// ask wallets to resend their transactions
-void static ResendWalletTransactions()
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->ResendWalletTransactions();
-}
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -943,8 +926,8 @@ bool CTxMemPool::accept(CValidationState &state, const CTransaction &tx, bool fL
     ///// are we sure this is ok when loading transactions or restoring block txes
     // If updated, erase old tx from wallet
     if (ptxOld)
-        EraseFromWallets(ptxOld->GetHash());
-    SyncWithWallets(hash, tx, NULL, true);
+        g_signals.EraseTransaction(ptxOld->GetHash());
+    g_signals.SyncTransaction(hash, tx, NULL);
 
     return true;
 }
@@ -2211,7 +2194,7 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
 
     // Watch for transactions paying to me
     for (unsigned int i = 0; i < block.vtx.size(); i++)
-        SyncWithWallets(block.GetTxHash(i), block.vtx[i], &block, true);
+        g_signals.SyncTransaction(block.GetTxHash(i), block.vtx[i], &block);
 
     return true;
 }
@@ -2332,13 +2315,11 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
         if (tx.IsCoinStake()) {
             // Remove coinstake transactions in orphaned blocks
             // First disconnect inputs
-            BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-                if (pwallet->IsFromMe(tx))
-                    pwallet->DisableTransaction(tx);
+            g_signals.DisableTransaction(tx);
 
             uint256 hashTx = tx.GetHash();
-            EraseFromWallets(hashTx);
-            UpdatedTransaction(hashTx, true);
+            g_signals.EraseTransaction(hashTx);
+            g_signals.UpdatedTransaction(hashTx, true);
         } else {
             // ignore validation errors in resurrected transactions
             CValidationState stateDummy;
@@ -2357,7 +2338,7 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
 
     // Update best block in wallet (so we can detect restored wallets)
     if ((pindexNew->nHeight % 20160) == 0 || (!fIsInitialDownload && (pindexNew->nHeight % 144) == 0))
-        ::SetBestChain(chainActive.GetLocator(pindexNew));
+        g_signals.SetBestChain(chainActive.GetLocator(pindexNew));
 
     // New best block
     nTimeBestReceived = GetTime();
@@ -2535,7 +2516,7 @@ bool AddToBlockIndex(CBlock& block, CValidationState& state, const CDiskBlockPos
         CheckForkWarningConditions();
         // Notify UI to display prev block's coinbase if it was ours
         static uint256 hashPrevBestCoinBase;
-        UpdatedTransaction(hashPrevBestCoinBase, false);
+        g_signals.UpdatedTransaction(hashPrevBestCoinBase, false);
         hashPrevBestCoinBase = block.GetTxHash(0);
     } else
         CheckForkWarningConditionsOnNewFork(pindexNew);
@@ -3908,7 +3889,7 @@ void static ProcessGetData(CNode* pfrom)
             }
 
             // Track requests for our stuff.
-            Inventory(inv.hash);
+            g_signals.Inventory(inv.hash);
 
             if (inv.type == MSG_BLOCK || inv.type == MSG_FILTERED_BLOCK)
                 break;
@@ -4186,7 +4167,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             }
 
             // Track requests for our stuff
-            Inventory(inv.hash);
+            g_signals.Inventory(inv.hash);
         }
     }
 
@@ -4850,7 +4831,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
         // transactions become unconfirmed and spams other nodes.
         if (!fReindex && !fImporting && !IsInitialBlockDownload())
         {
-            ResendWalletTransactions();
+            g_signals.Broadcast();
         }
 
         //
