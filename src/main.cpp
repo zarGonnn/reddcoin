@@ -143,14 +143,6 @@ void static UpdatedTransaction(const uint256& hashTx, bool fDeleted)
         pwallet->UpdatedTransaction(hashTx, fDeleted);
 }
 
-// dump all wallets
-void static PrintWallets(const CBlock& block)
-{
-    LOCK(cs_setpwalletRegistered);
-    BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->PrintWallet(block);
-}
-
 // notify wallets about an incoming inventory (for request counts)
 void static Inventory(const uint256& hash)
 {
@@ -3596,8 +3588,6 @@ void PrintBlockTree()
             pindex->GetBlockPos().nFile, pindex->GetBlockPos().nPos,
             DateTimeStrFormat("%Y-%m-%d %H:%M:%S", block.GetBlockTime()).c_str(),
             block.vtx.size());
-
-        PrintWallets(block);
 
         // put the main time-chain first
         vector<CBlockIndex*>& vNext = mapNext[pindex];
