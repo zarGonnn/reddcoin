@@ -81,6 +81,10 @@ set<pair<COutPoint, unsigned int> > setStakeSeenOrphan;
 int64 nReserveBalance = 0;
 extern enum Checkpoints::CPMode CheckpointsMode;
 
+// This is still needed for the SetBestChain function, remove it when
+// we're past that merge.
+#include "wallet.h"
+
 //////////////////////////////////////////////////////////////////////////////
 //
 // dispatching functions
@@ -1091,27 +1095,6 @@ bool CMerkleTx::AcceptToMemoryPool(bool fLimitFree)
 {
     CValidationState state;
     return mempool.accept(state, *this, fLimitFree, NULL);
-}
-
-
-
-bool CWalletTx::AcceptWalletTransaction()
-{
-    {
-        LOCK(mempool.cs);
-        // Add previous supporting transactions first
-        BOOST_FOREACH(CMerkleTx& tx, vtxPrev)
-        {
-            if (!(tx.IsCoinBase() || tx.IsCoinStake()))
-            {
-                uint256 hash = tx.GetHash();
-                if (!mempool.exists(hash) && pcoinsTip->HaveCoins(hash))
-                    tx.AcceptToMemoryPool(false);
-            }
-        }
-        return AcceptToMemoryPool(false);
-    }
-    return false;
 }
 
 
