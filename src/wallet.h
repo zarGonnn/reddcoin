@@ -332,8 +332,6 @@ public:
         return setKeyPool.size();
     }
 
-    bool GetTransaction(const uint256 &hashTx, CWalletTx& wtx);
-
     bool GetTransaction(const uint256 &hash, CTransaction &txOut, uint256 &hashBlock, bool fAllowSlow);
 
     bool SetDefaultKey(const CPubKey &vchPubKey);
