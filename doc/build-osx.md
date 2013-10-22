@@ -1,12 +1,10 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build bitcoind(headless client) for OSX.
+This guide will show you how to build reddcoind(headless client) for OSX.
 
 Notes
 -----
 
-* See [readme-qt.md](readme-qt.md) for instructions on building Reddcoin-Qt, the
-graphical user interface.
 * Tested on OS X 10.5 through 10.8 on Intel processors only. PPC is not
 supported because it is big-endian.
 * All of the commands should be executed in a Terminal application. The

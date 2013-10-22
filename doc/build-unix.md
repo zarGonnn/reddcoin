@@ -9,8 +9,7 @@ To Build
 	./configure
 	make
 
-This will build reddcoin-qt as well if the dependencies are met.
-See [readme-qt.md](readme-qt.md) for more information.
+This will build bitcoin-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
