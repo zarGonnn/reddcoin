@@ -248,7 +248,7 @@ void BitcoinGUI::createActions(bool fIsTestnet)
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
 #else
     aboutQtAction = new QAction(QIcon(":/qt-project.org/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
-#endif	
+#endif
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
@@ -731,9 +731,8 @@ void BitcoinGUI::askFee(qint64 nFeeRequired, bool *payFee)
     QString strMessage = tr("This transaction is over the size limit. You can still send it for a fee of %1, "
         "which goes to the nodes that process your transaction and helps to support the network. "
         "Do you want to pay the fee?").arg(BitcoinUnits::formatWithUnit(clientModel->getOptionsModel()->getDisplayUnit(), nFeeRequired));
-    QMessageBox::StandardButton retval = QMessageBox::question(
-          this, tr("Confirm transaction fee"), strMessage,
-          QMessageBox::Yes|QMessageBox::Cancel, QMessageBox::Yes);
+    QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm transaction fee"), strMessage,
+        QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Yes);
     *payFee = (retval == QMessageBox::Yes);
 }
 
