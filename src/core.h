@@ -466,6 +466,10 @@ public:
 
     // equality test
     friend bool operator==(const CCoins &a, const CCoins &b) {
+        // Empty CCoins objects are always equal.
+        if (a.IsPruned() && b.IsPruned())
+            return true;
+
         if (a.fCoinBase != b.fCoinBase)
             LogPrintf("CCoins: fCoinBase mismatch\n");
         if (a.fCoinStake != b.fCoinStake)
