@@ -1699,15 +1699,15 @@ Value keypoolrefill(const Array& params, bool fHelp)
             + HelpExampleRpc("keypoolrefill", "")
         );
 
-    unsigned int kpSize = max(GetArg("-keypool", 100), (int64_t) 0);
+    // 0 is interpreted by TopUpKeyPool() as the default keypool size given by -keypool
+    unsigned int kpSize = 0;
     if (params.size() > 0) {
         if (params[0].get_int() < 0)
-            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected valid size");
-        kpSize = (unsigned int) params[0].get_int();
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected valid size.");
+        kpSize = (unsigned int)params[0].get_int();
     }
 
     EnsureWalletIsUnlocked();
-
     pwalletMain->TopUpKeyPool(kpSize);
 
     if (pwalletMain->GetKeyPoolSize() < kpSize)
