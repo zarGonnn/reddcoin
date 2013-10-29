@@ -116,8 +116,6 @@ private:
     void createTrayIcon(bool fIsTestnet);
     /** Create system tray menu (or setup the dock menu) */
     void createTrayIconMenu();
-    /** Enable or disable all wallet-related actions */
-    void setWalletActionsEnabled(bool enabled);
 
     /** Enable or disable all wallet-related actions */
     void setWalletActionsEnabled(bool enabled);

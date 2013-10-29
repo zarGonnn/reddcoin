@@ -71,8 +71,22 @@ Value importprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
         throw runtime_error(
-            "importprivkey <reddcoinprivkey> [label] [rescan=true]\n"
-            "Adds a private key (as returned by dumpprivkey) to your wallet.");
+            "importprivkey \"reddcoinprivkey\" ( \"label\" rescan )\n"
+            "\nAdds a private key (as returned by dumpprivkey) to your wallet.\n"
+            "\nArguments:\n"
+            "1. \"reddcoinprivkey\"  (string, required) The private key (see dumpprivkey)\n"
+            "2. \"label\"            (string, optional) an optional label\n"
+            "3. rescan               (boolean, optional, default=true) Rescan the wallet for transactions\n"
+            "\nExamples:\n"
+            "\nDump a private key\n"
+            + HelpExampleCli("dumpprivkey", "\"myaddress\"") +
+            "\nImport the private key\n"
+            + HelpExampleCli("importprivkey", "\"mykey\"") +
+            "\nImport using a label\n"
+            + HelpExampleCli("importprivkey", "\"mykey\" \"testing\" false") +
+            "\nAs a json rpc call\n"
+            + HelpExampleRpc("importprivkey", "\"mykey\", \"testing\", false")
+        );
 
     EnsureWalletIsUnlocked();
 
@@ -123,8 +137,18 @@ Value importwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "importwallet <filename>\n"
-            "Imports keys from a wallet dump file (see dumpwallet).");
+            "importwallet \"filename\"\n"
+            "\nImports keys from a wallet dump file (see dumpwallet).\n"
+            "\nArguments:\n"
+            "1. \"filename\"    (string, required) The wallet file\n"
+            "\nExamples:\n"
+            "\nDump the wallet\n"
+            + HelpExampleCli("dumpwallet", "\"test\"") +
+            "\nImport the wallet\n"
+            + HelpExampleCli("importwallet", "\"test\"") +
+            "\nImport using the json rpc call\n"
+            + HelpExampleRpc("importwallet", "\"test\"")
+        );
 
     EnsureWalletIsUnlocked();
 
@@ -203,8 +227,18 @@ Value dumpprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpprivkey <reddcoinaddress>\n"
-            "Reveals the private key corresponding to <reddcoinaddress>.");
+            "dumpprivkey \"reddcoinaddress\"\n"
+            "\nReveals the private key corresponding to 'reddcoinaddress'.\n"
+            "Then the importprivkey can be used with this output\n"
+            "\nArguments:\n"
+            "1. \"reddcoinaddress\"  (string, required) The Reddcoin address for the private key\n"
+            "\nResult:\n"
+            "\"key\"                (string) The private key\n"
+            "\nExamples:\n"
+            + HelpExampleCli("dumpprivkey", "\"myaddress\"")
+            + HelpExampleCli("importprivkey", "\"mykey\"")
+            + HelpExampleRpc("dumpprivkey", "\"myaddress\"")
+        );
 
     EnsureWalletIsUnlocked();
 
@@ -228,8 +262,14 @@ Value dumpwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpwallet <filename>\n"
-            "Dumps all wallet keys in a human-readable format.");
+            "dumpwallet \"filename\"\n"
+            "\nDumps all wallet keys in a human-readable format.\n"
+            "\nArguments:\n"
+            "1. \"filename\"    (string, required) The filename\n"
+            "\nExamples:\n"
+            + HelpExampleCli("dumpwallet", "\"test\"")
+            + HelpExampleRpc("dumpwallet", "\"test\"")
+        );
 
     EnsureWalletIsUnlocked();
 
