@@ -50,7 +50,6 @@ bool fReindex = false;
 bool fBenchmark = false;
 bool fTxIndex = true;
 unsigned int nCoinCacheSize = 5000;
-bool fHaveGUI = false;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
 int64 CTransaction::nMinTxFee = 100000;
