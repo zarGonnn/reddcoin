@@ -294,7 +294,7 @@ QVariant AddressTableModel::headerData(int section, Qt::Orientation orientation,
 {
     if(orientation == Qt::Horizontal)
     {
-        if(role == Qt::DisplayRole)
+        if(role == Qt::DisplayRole && section < columns.size())
         {
             return columns[section];
         }
