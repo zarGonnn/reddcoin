@@ -13,6 +13,7 @@ FORMS += \
     ../src/qt/forms/aboutdialog.ui \
     ../src/qt/forms/receivecoinsdialog.ui \
     ../src/qt/forms/receiverequestdialog.ui \
+    ../src/qt/forms/openuridialog.ui \
     ../src/qt/forms/coincontroldialog.ui
 
 RESOURCES += \

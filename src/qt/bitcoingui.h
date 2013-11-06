@@ -92,6 +92,7 @@ private:
     QAction *lockWalletAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+    QAction *openAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -117,6 +118,10 @@ private:
     void createTrayIconMenu();
     /** Enable or disable all wallet-related actions */
     void setWalletActionsEnabled(bool enabled);
+
+signals:
+    /** Signal raised when a URI was entered or dragged to the GUI */
+    void receivedURI(const QString &uri);
 
 public slots:
     /** Set number of connections shown in the UI */
@@ -176,6 +181,8 @@ private slots:
     /** Handle tray icon clicked */
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
 #endif
+    /** Show open dialog */
+    void openClicked();
 
     /** Show window if hidden, unminimize when minimized, rise when obscured or show if hidden and fToggleHidden is true */
     void showNormalIfMinimized(bool fToggleHidden = false);
