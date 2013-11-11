@@ -76,6 +76,8 @@ Reddcoin
 -------
 MSYS shell:
 
-	cd \reddcoin\src
-	mingw32-make -f makefile.mingw
+	cd \reddcoin
+	sh autogen.sh
+	sh configure
+	mingw32-make
 	strip reddcoind.exe
