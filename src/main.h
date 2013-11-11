@@ -58,9 +58,6 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 static const int64_t DUST_SOFT_LIMIT = 100000000; // 1 RDD
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
 static const int64_t DUST_HARD_LIMIT = 1000000;   // 0.01 RDD mininput
-/** No amount larger than this (in satoshi) is valid */
-static const int64_t MAX_MONEY = 92233720368 * COIN; // Maximum or compile warning, will fix in future release.
-inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY = 30;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
@@ -356,11 +353,6 @@ bool IsFinalTx(const CTransaction &tx, int nBlockHeight = 0, int64_t nBlockTime 
 
 // ppcoin: get transaction coin age
 bool GetCoinAge(const CTransaction &tx, uint64_t& nCoinAge);
-
-/** Amount of bitcoins spent by the transaction.
-    @return sum of all outputs (note: does not include fees)
- */
-int64_t GetValueOut(const CTransaction& tx);
 
 /** Undo information for a CBlock */
 class CBlockUndo

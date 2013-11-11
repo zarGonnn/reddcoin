@@ -74,7 +74,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                         continue; // last coinstake output
 
                     sub.type = TransactionRecord::Generated;
-                    sub.credit = nNet > 0 ? nNet : GetValueOut(wtx) - nDebit;
+                    sub.credit = nNet > 0 ? nNet : wtx.GetValueOut() - nDebit;
                     hashPrev = hash;
                 }
 
@@ -105,7 +105,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             //
             // Debit
             //
-            int64_t nTxFee = nDebit - GetValueOut(wtx);
+            int64_t nTxFee = nDebit - wtx.GetValueOut();
 
             for (unsigned int nOut = 0; nOut < wtx.vout.size(); nOut++)
             {

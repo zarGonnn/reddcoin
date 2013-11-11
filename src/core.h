@@ -16,6 +16,10 @@
 class CTransaction;
 class CWallet;
 
+/** No amount larger than this (in satoshi) is valid */
+static const int64_t MAX_MONEY = 92233720368 * COIN; // Maximum or compile warning, will fix in future release.
+inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
+
 /** An outpoint - a combination of a transaction hash and an index n into its vout */
 class COutPoint
 {
@@ -246,6 +250,11 @@ public:
     uint256 GetHash() const;
     uint256 GetNormalizedHash() const;
     bool IsNewerThan(const CTransaction& old) const;
+
+    // Return sum of txouts.
+    int64_t GetValueOut() const;
+    // GetValueIn() is a method on CCoinsViewCache, because
+    // inputs must be known to compute value in.
 
     bool IsCoinBase() const
     {
