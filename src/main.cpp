@@ -4243,10 +4243,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         size_t nAvail = vRecv.in_avail();
         bool bPingFinished = false;
         std::string sProblem;
-        
+
         if (nAvail >= sizeof(nonce)) {
             vRecv >> nonce;
-        
+
             // Only process pong message if there is an outstanding ping (old ping without nonce should never pong)
             if (pfrom->nPingNonceSent != 0) {
                 if (nonce == pfrom->nPingNonceSent) {
@@ -4277,7 +4277,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             bPingFinished = true;
             sProblem = "Short payload";
         }
-        
+
         if (!(sProblem.empty())) {
             LogPrint("net", "pong %s %s: %s, %"PRIx64" expected, %"PRIx64" received, %"PRIszu" bytes\n",
                 pfrom->addr.ToString().c_str(),
@@ -4291,8 +4291,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             pfrom->nPingNonceSent = 0;
         }
     }
-    
-    
+
+
     else if (strCommand == "alert")
     {
         CAlert alert;
