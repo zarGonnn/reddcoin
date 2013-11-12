@@ -1,7 +1,6 @@
 include Makefile.include
 
-AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/helpers/memenv \
-  -I$(builddir)
+AM_CPPFLAGS += -I$(builddir)
 
 noinst_LIBRARIES = \
   libreddcoin_server.a \
@@ -159,8 +158,8 @@ reddcoind_LDADD = \
   libreddcoin_server.a \
   libreddcoin_cli.a \
   libreddcoin_common.a \
-  leveldb/libleveldb.a \
-  leveldb/libmemenv.a
+  $(LIBLEVELDB) \
+  $(LIBMEMENV)
 if ENABLE_WALLET
 reddcoind_LDADD += libreddcoin_wallet.a
 endif
@@ -186,6 +185,7 @@ if TARGET_WINDOWS
 reddcoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
+# NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
 leveldb/libleveldb.a: leveldb/libmemenv.a
 
 leveldb/%.a:
