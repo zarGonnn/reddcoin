@@ -119,6 +119,9 @@ private:
     /** Enable or disable all wallet-related actions */
     void setWalletActionsEnabled(bool enabled);
 
+    /** Enable or disable all wallet-related actions */
+    void setWalletActionsEnabled(bool enabled);
+
 signals:
     /** Signal raised when a URI was entered or dragged to the GUI */
     void receivedURI(const QString &uri);
