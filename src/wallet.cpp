@@ -13,7 +13,6 @@
 #include "txdb.h"
 
 #include <inttypes.h>
-#include <stdint.h>
 
 #include <boost/algorithm/string/replace.hpp>
 #include <openssl/rand.h>
