@@ -624,7 +624,7 @@ void CNode::copyStats(CNodeStats &stats)
     X(nRecvBytes);
     X(nBlocksRequested);
     stats.fSyncNode = (this == pnodeSync);
-    
+
     // It is common for nodes with good ping times to suddenly become lagged,
     // due to a new block arriving or other large transfer.
     // Merely reporting pingtime might fool the caller into thinking the node was still responsive,
@@ -635,11 +635,11 @@ void CNode::copyStats(CNodeStats &stats)
     if ((0 != nPingNonceSent) && (0 != nPingUsecStart)) {
         nPingUsecWait = GetTimeMicros() - nPingUsecStart;
     }
-    
+
     // Raw ping time is in microseconds, but show it to user as whole seconds (Bitcoin users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
-    
+
     // Leave string empty if addrLocal invalid (not filled in yet)
     stats.addrLocal = addrLocal.IsValid() ? addrLocal.ToString() : "";
 }
