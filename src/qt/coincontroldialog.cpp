@@ -1,3 +1,7 @@
+// Copyright (c) 2011-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "coincontroldialog.h"
 #include "ui_coincontroldialog.h"
 
@@ -16,7 +20,6 @@
 
 #include <QApplication>
 #include <QCheckBox>
-#include <QClipboard>
 #include <QColor>
 #include <QCursor>
 #include <QDateTime>

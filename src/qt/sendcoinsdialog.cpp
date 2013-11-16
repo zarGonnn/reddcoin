@@ -5,21 +5,17 @@
 #include "sendcoinsdialog.h"
 #include "ui_sendcoinsdialog.h"
 
-#include "init.h"
 #include "addresstablemodel.h"
 #include "bitcoinunits.h"
-#include "coincontrol.h"
 #include "coincontroldialog.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "sendcoinsentry.h"
 #include "walletmodel.h"
-#include "coincontroldialog.h"
-#include "addresstablemodel.h"
 
 #include "base58.h"
-#include "ui_interface.h"
 #include "coincontrol.h"
+#include "ui_interface.h"
 
 #include <QMessageBox>
 #include <QScrollBar>
@@ -39,7 +35,6 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     ui->sendButton->setIcon(QIcon());
 #endif
 #if QT_VERSION >= 0x040700
-    /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a Reddcoin address (starts with R)"));
 #endif
 

@@ -21,19 +21,19 @@ public:
     explicit OptionsModel(QObject *parent = 0);
 
     enum OptionID {
-        StartAtStartup,    // bool
-        MinimizeToTray,    // bool
-        MapPortUPnP,       // bool
-        MinimizeOnClose,   // bool
-        ProxyUse,          // bool
-        ProxyIP,           // QString
-        ProxyPort,         // int
-        ProxySocksVersion, // int
-        Fee,               // qint64
-        DisplayUnit,       // BitcoinUnits::Unit
-        DisplayAddresses,  // bool
-        Language,          // QString
-        CoinControlFeatures, // bool
+        StartAtStartup,         // bool
+        MinimizeToTray,         // bool
+        MapPortUPnP,            // bool
+        MinimizeOnClose,        // bool
+        ProxyUse,               // bool
+        ProxyIP,                // QString
+        ProxyPort,              // int
+        ProxySocksVersion,      // int
+        Fee,                    // qint64
+        DisplayUnit,            // BitcoinUnits::Unit
+        DisplayAddresses,       // bool
+        Language,               // QString
+        CoinControlFeatures,    // bool
         SpendZeroConfChange,    // bool
         OptionIDRowCount,
     };
@@ -56,7 +56,7 @@ public:
     bool getDisplayAddresses() { return bDisplayAddresses; }
     QString getLanguage() { return language; }
     bool getProxySettings(QString& proxyIP, quint16 &proxyPort) const;
-    bool getCoinControlFeatures();
+    bool getCoinControlFeatures() { return fCoinControlFeatures; }
 
 private:
     int nDisplayUnit;
