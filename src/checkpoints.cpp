@@ -100,7 +100,7 @@ namespace Checkpoints {
             return dataRegtest;
     }
 
-    bool CheckHardened(int nHeight, const uint256& hash)
+    bool CheckBlock(int nHeight, const uint256& hash)
     {
         if (!fEnabled)
             return true;
