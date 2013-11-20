@@ -3,10 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-
-
-#include "bitcoinrpc.h"
 #include "checkpoints.h"
+#include "rpcserver.h"
 #include "main.h"
 #include "sync.h"
 
@@ -357,8 +355,8 @@ Value gettxout(const Array& params, bool fHelp)
             "     \"hex\" : \"hex\",        (string) \n"
             "     \"reqSigs\" : n,          (numeric) Number of required signatures\n"
             "     \"type\" : \"pubkeyhash\", (string) The type, eg pubkeyhash\n"
-            "     \"addresses\" : [          (array of string) array of bitcoin addresses\n"
-            "        \"bitcoinaddress\"     (string) bitcoin address\n"
+            "     \"addresses\" : [          (array of string) array of Reddcoin addresses\n"
+            "        \"reddcoinaddress\"    (string) Reddcoin address\n"
             "        ,...\n"
             "     ]\n"
             "  },\n"
