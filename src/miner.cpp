@@ -776,7 +776,7 @@ void static ReddcoinMiner(CWallet *pwallet)
     }
 }
 
-void GenerateReddcoins(bool fGenerate, CWallet* pwallet)
+void GenerateReddcoins(bool fGenerate, CWallet* pwallet, int nThreads)
 {
     static boost::thread_group* minerThreads = NULL;
 
@@ -795,7 +795,6 @@ void GenerateReddcoins(bool fGenerate, CWallet* pwallet)
     // start one thread for PoSV minting
     minerThreads->create_thread(boost::bind(&StakeMiner, pwallet));
 
-    int nThreads = GetArg("-genproclimit", 0);
     if (nThreads == 0)
         return;
     if (nThreads < 0)

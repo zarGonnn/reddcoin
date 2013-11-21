@@ -117,7 +117,7 @@ void Shutdown()
     ShutdownRPCMining();
     if (pwalletMain)
         bitdb.Flush(false);
-    GenerateReddcoins(false, NULL);
+    GenerateReddcoins(false, NULL, 0);
     StopNode();
     {
         LOCK(cs_main);
@@ -1104,7 +1104,7 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
 
     // Generate coins in the background
     if (pwalletMain)
-        GenerateReddcoins(GetBoolArg("-staking", true), pwalletMain);
+        GenerateReddcoins(GetBoolArg("-staking", true), pwalletMain, GetArg("-genproclimit", -1));
 
     // ********************************************************* Step 12: finished
 
