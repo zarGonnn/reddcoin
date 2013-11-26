@@ -4087,7 +4087,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             vWorkQueue.push_back(inv.hash);
             vEraseQueue.push_back(inv.hash);
 
-            LogPrintf("AcceptToMemoryPool: %s %s : accepted %s (poolsz %"PRIszu")\n",
+            LogPrint("mempool", "AcceptToMemoryPool: %s %s : accepted %s (poolsz %"PRIszu")\n",
                 pfrom->addr.ToString().c_str(), pfrom->cleanSubVer.c_str(),
                 tx.GetHash().ToString().c_str(),
                 mempool.mapTx.size());
@@ -4140,9 +4140,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
         int nDoS = 0;
         if (state.IsInvalid(nDoS))
-        {
-            LogPrintf("%s from %s %s was not accepted into the memory pool\n", tx.GetHash().ToString().c_str(),
-                pfrom->addr.ToString().c_str(), pfrom->cleanSubVer.c_str());
+        { 
+            LogPrint("mempool", "%s from %s %s was not accepted into the memory pool: %s\n", tx.GetHash().ToString().c_str(), 
+                pfrom->addr.ToString().c_str(), pfrom->cleanSubVer.c_str(),
+                state.GetRejectReason().c_str());
             pfrom->PushMessage("reject", strCommand, state.GetRejectCode(),
                                state.GetRejectReason(), inv.hash);
             if (nDoS > 0)
@@ -4279,7 +4280,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (!(sProblem.empty())) {
             LogPrint("net", "pong %s %s: %s, %"PRIx64" expected, %"PRIx64" received, %"PRIszu" bytes\n",
                 pfrom->addr.ToString().c_str(),
-                pfrom->strSubVer.c_str(),
+                pfrom->cleanSubVer.c_str(),
                 sProblem.c_str(),
                 pfrom->nPingNonceSent,
                 nonce,
