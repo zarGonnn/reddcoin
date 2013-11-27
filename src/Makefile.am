@@ -3,7 +3,7 @@ include Makefile.include
 AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/helpers/memenv \
   -I$(builddir)
 
-noinst_LIBRARIES = libreddcoin.a
+noinst_LIBRARIES = libreddcoin_server.a libreddcoin_common.a libreddcoin_cli.a
 
 bin_PROGRAMS = reddcoind reddcoin-cli
 
@@ -33,33 +33,50 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 version.o: obj/build.h
 
-libreddcoin_a_SOURCES = addrman.cpp alert.cpp allocators.cpp \
-  rpcclient.cpp \
-  rpcprotocol.cpp \
+libreddcoin_server_a_SOURCES = addrman.cpp alert.cpp \
   rpcserver.cpp \
   bloom.cpp \
-  chainparams.cpp checkpoints.cpp core.cpp coins.cpp crypter.cpp db.cpp hash.cpp \
-  init.cpp key.cpp keystore.cpp leveldbwrapper.cpp main.cpp miner.cpp \
-  netbase.cpp net.cpp noui.cpp protocol.cpp rpcblockchain.cpp rpcdump.cpp \
-  rpcmining.cpp rpcnet.cpp rpcrawtransaction.cpp rpcwallet.cpp script.cpp \
-  sync.cpp txdb.cpp txmempool.cpp util.cpp version.cpp wallet.cpp walletdb.cpp $(JSON_H) \
+  chainparams.cpp checkpoints.cpp coins.cpp crypter.cpp db.cpp \
+  init.cpp keystore.cpp leveldbwrapper.cpp main.cpp miner.cpp \
+  net.cpp noui.cpp rpcblockchain.cpp rpcdump.cpp \
+  rpcmining.cpp rpcnet.cpp rpcrawtransaction.cpp rpcwallet.cpp \
+  txdb.cpp txmempool.cpp wallet.cpp walletdb.cpp $(JSON_H) \
   $(BITCOIN_CORE_H)
 
-nodist_libreddcoin_a_SOURCES = $(top_srcdir)/src/obj/build.h
+libreddcoin_common_a_SOURCES = \
+  allocators.cpp \
+  chainparams.cpp \
+  core.cpp \
+  hash.cpp \
+  key.cpp \
+  netbase.cpp \
+  protocol.cpp \
+  rpcprotocol.cpp \
+  script.cpp \
+  sync.cpp \
+  util.cpp \
+  version.cpp \
+  $(BITCOIN_CORE_H)
+
+libreddcoin_cli_a_SOURCES = \
+  rpcclient.cpp \
+  $(BITCOIN_CORE_H)
+
+nodist_libreddcoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #
 
 # Reddcoin specific
 BITCOIN_CORE_H += scrypt.h kernel.h txdb-leveldb.h
-libreddcoin_a_SOURCES += scrypt.h scrypt.cpp kernel.h kernel.cpp \
+libreddcoin_common_a_SOURCES += scrypt.h scrypt.cpp kernel.h kernel.cpp \
   txdb-leveldb.h txdb-leveldb.cpp
 
 if USE_SSE2
-  libreddcoin_a_SOURCES += scrypt-sse2.cpp
+  libreddcoin_common_a_SOURCES += scrypt-sse2.cpp
   AM_CPPFLAGS += -DUSE_SSE2
 endif
 
-# bitcoind binary #
-reddcoind_LDADD = libreddcoin.a leveldb/libleveldb.a leveldb/libmemenv.a \
+# reddcoind binary #
+reddcoind_LDADD = libreddcoin_server.a libreddcoin_cli.a libreddcoin_common.a leveldb/libleveldb.a leveldb/libmemenv.a \
   $(BOOST_LIBS)
 reddcoind_SOURCES = bitcoind.cpp
 #
@@ -72,15 +89,13 @@ AM_CPPFLAGS += $(BDB_CPPFLAGS)
 reddcoind_LDADD += $(BDB_LIBS)
 
 # reddcoin-cli binary #
-reddcoin_cli_LDADD = libreddcoin.a leveldb/libleveldb.a leveldb/libmemenv.a \
-  $(BOOST_LIBS)
+reddcoin_cli_LDADD = libreddcoin_cli.a libreddcoin_common.a $(BOOST_LIBS)
 reddcoin_cli_SOURCES = bitcoin-cli.cpp
 #
 
 if TARGET_WINDOWS
 reddcoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
-reddcoin_cli_LDADD += $(BDB_LIBS)
 
 leveldb/libleveldb.a: leveldb/libmemenv.a
 
@@ -89,7 +104,7 @@ leveldb/%.a:
 	  CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" $(LEVELDB_TARGET_FLAGS) \
 	  OPT="$(CXXFLAGS) $(CPPFLAGS)"
 
-qt/bitcoinstrings.cpp: $(libreddcoin_a_SOURCES)
+qt/bitcoinstrings.cpp: $(libreddcoin_server_a_SOURCES) $(libreddcoin_common_a_SOURCES) $(libreddcoin_cli_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	@cd $(top_srcdir); XGETTEXT=$(XGETTEXT) share/qt/extract_strings_qt.py
 

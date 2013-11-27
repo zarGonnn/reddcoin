@@ -96,6 +96,7 @@ bool fBloomFilters = true;
 bool fNoListen = false;
 bool fLogTimestamps = false;
 volatile bool fReopenDebugLog = false;
+CClientUIInterface uiInterface;
 
 // Init OpenSSL library multithreading support
 static CCriticalSection** ppmutexOpenSSL;
@@ -1512,3 +1513,4 @@ void RenameThread(const char* name)
     (void)name;
 #endif
 }
+
