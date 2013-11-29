@@ -4,6 +4,9 @@ AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/helpers/memenv \
   -I$(builddir)
 
 noinst_LIBRARIES = libreddcoin_server.a libreddcoin_common.a libreddcoin_cli.a
+if ENABLE_WALLET
+noinst_LIBRARIES += libreddcoin_wallet.a
+endif
 
 bin_PROGRAMS = reddcoind reddcoin-cli
 
@@ -33,14 +36,37 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 version.o: obj/build.h
 
-libreddcoin_server_a_SOURCES = addrman.cpp alert.cpp \
+libreddcoin_server_a_SOURCES = \
+  addrman.cpp \
+  alert.cpp \
+  crypter.cpp \
   rpcserver.cpp \
   bloom.cpp \
-  chainparams.cpp checkpoints.cpp coins.cpp crypter.cpp db.cpp \
-  init.cpp keystore.cpp leveldbwrapper.cpp main.cpp miner.cpp \
-  net.cpp noui.cpp rpcblockchain.cpp rpcdump.cpp \
-  rpcmining.cpp rpcnet.cpp rpcrawtransaction.cpp rpcwallet.cpp \
-  txdb.cpp txmempool.cpp wallet.cpp walletdb.cpp $(JSON_H) \
+  chainparams.cpp \
+  checkpoints.cpp \
+  coins.cpp \
+  init.cpp \
+  keystore.cpp \
+  leveldbwrapper.cpp \
+  main.cpp \
+  net.cpp \
+  noui.cpp \
+  rpcblockchain.cpp \
+  rpcnet.cpp \
+  rpcrawtransaction.cpp \
+  txdb.cpp \
+  txmempool.cpp \
+  $(JSON_H) \
+  $(BITCOIN_CORE_H)
+
+libreddcoin_wallet_a_SOURCES = \
+  db.cpp \
+  miner.cpp \
+  rpcdump.cpp \
+  rpcmining.cpp \
+  rpcwallet.cpp \
+  wallet.cpp \
+  walletdb.cpp \
   $(BITCOIN_CORE_H)
 
 libreddcoin_common_a_SOURCES = \
@@ -78,6 +104,9 @@ endif
 # reddcoind binary #
 reddcoind_LDADD = libreddcoin_server.a libreddcoin_cli.a libreddcoin_common.a leveldb/libleveldb.a leveldb/libmemenv.a \
   $(BOOST_LIBS)
+if ENABLE_WALLET
+reddcoind_LDADD += libreddcoin_wallet.a
+endif
 reddcoind_SOURCES = bitcoind.cpp
 #
 
