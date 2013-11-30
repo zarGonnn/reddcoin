@@ -38,7 +38,7 @@ test_reddcoin_SOURCES = alert_tests.cpp \
   sighash_tests.cpp $(JSON_TEST_FILES) $(RAW_TEST_FILES)
 
 if ENABLE_WALLET
-test_reddcoin_SOURCES += accounting_tests.cpp wallet_tests.cpp miner_tests.cpp
+test_reddcoin_SOURCES += accounting_tests.cpp wallet_tests.cpp miner_tests.cpp rpc_wallet_tests.cpp
 endif
 
 nodist_test_reddcoin_SOURCES = $(BUILT_SOURCES)
