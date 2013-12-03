@@ -97,6 +97,7 @@ public slots:
 
     /** Re-emit encryption status signal */
     void updateEncryptionStatus();
+
 signals:
     /** Signal that we want to show the main window */
     void showNormalIfMinimized();

@@ -432,7 +432,7 @@ void BitcoinGUI::createTrayIcon(bool fIsTestnet)
     trayIcon->show();
 #endif
 
-    notificator = new Notificator(QApplication::applicationName(), trayIcon);
+    notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
 
 void BitcoinGUI::createTrayIconMenu()
