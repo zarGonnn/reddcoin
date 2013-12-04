@@ -307,7 +307,7 @@ void SendCoinsDialog::updateTabsAndLabels()
 
 void SendCoinsDialog::removeEntry(SendCoinsEntry* entry)
 {
-    delete entry;
+    entry->deleteLater();
 
     // If the last entry was removed add an empty one
     if (!ui->entries->count())
