@@ -21,57 +21,8 @@
 using namespace json_spirit;
 using namespace std;
 
-// Return average network hashes per second based on the last 'lookup' blocks,
-// or from the last difficulty change if 'lookup' is nonpositive.
-// If 'height' is nonnegative, compute the estimate at the time when a given block was found.
-Value GetNetworkHashPS(int lookup, int height) {
-    CBlockIndex *pb = chainActive[height];
-
-    if (pb == NULL || !pb->nHeight || pb->nHeight > LAST_POW_BLOCK)
-        return 0;
-
-    // If lookup is -1, then use blocks since last difficulty change.
-    if (lookup <= 0)
-        lookup = pb->nHeight % 120 + 1;
-
-    // If lookup is larger than chain, then set it to chain length.
-    if (lookup > pb->nHeight)
-        lookup = pb->nHeight;
-
-    CBlockIndex *pb0 = pb;
-    for (int i = 0; i < lookup; i++) {
-        pb0 = pb0->pprev;
-    }
-
-    uint256 workDiff = pb->nChainWork - pb0->nChainWork;
-    int64_t timeDiff = lookup * 60;
-
-    return (boost::int64_t)(workDiff.getdouble() / timeDiff);
-}
-
-Value getnetworkhashps(const Array& params, bool fHelp)
-{
-    if (fHelp || params.size() > 2)
-        throw runtime_error(
-            "getnetworkhashps ( blocks height )\n"
-            "\nReturns the estimated network hashes per second based on the last n blocks.\n"
-            "Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.\n"
-            "Pass in [height] to estimate the network speed at the time when a certain block was found.\n"
-            "\nArguments:\n"
-            "1. blocks     (numeric, optional, default=120) The number of blocks, or -1 for blocks since last difficulty change.\n"
-            "2. height     (numeric, optional, default=-1) To estimate at the time of the given height.\n"
-            "\nResult:\n"
-            "x             (numeric) Hashes per second estimated\n"
-            "\nExamples:\n"
-            + HelpExampleCli("getnetworkhashps", "")
-            + HelpExampleRpc("getnetworkhashps", "")
-       );
-
-    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 1, params.size() > 1 ? params[1].get_int() : -1);
-}
-
-
-// Key used by getwork/getblocktemplate miners.
+#ifdef ENABLE_WALLET
+// Key used by getwork miners.
 // Allocated in InitRPCMining, free'd in ShutdownRPCMining
 static CReserveKey* pMiningKey = NULL;
 
@@ -91,7 +42,16 @@ void ShutdownRPCMining()
 
     delete pMiningKey; pMiningKey = NULL;
 }
+#else
+void InitRPCMining()
+{
+}
+void ShutdownRPCMining()
+{
+}
+#endif
 
+#ifdef ENABLE_WALLET
 Value getgenerate(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
@@ -189,7 +149,6 @@ Value setgenerate(const Array& params, bool fHelp)
     return Value::null;
 }
 
-
 Value gethashespersec(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
@@ -208,6 +167,7 @@ Value gethashespersec(const Array& params, bool fHelp)
         return (boost::int64_t)0;
     return (boost::int64_t)dHashesPerSec;
 }
+#endif
 
 
 Value getmininginfo(const Array& params, bool fHelp)
@@ -240,9 +200,7 @@ Value getmininginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("currentblocktx",   (uint64_t)nLastBlockTx));
     obj.push_back(Pair("difficulty",       (double)GetDifficulty()));
     obj.push_back(Pair("errors",           GetWarnings("statusbar")));
-    obj.push_back(Pair("generate",         GetBoolArg("-staking", true)));
     obj.push_back(Pair("genproclimit",     (int)GetArg("-genproclimit", -1)));
-    obj.push_back(Pair("hashespersec",     gethashespersec(params, false)));
     obj.push_back(Pair("networkhashps",    getnetworkhashps(params, false)));
     obj.push_back(Pair("pooledtx",         (uint64_t)mempool.size()));
     obj.push_back(Pair("testnet",          TestNet()));
@@ -256,6 +214,11 @@ Value getmininginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("stakeweight", weight));
     obj.push_back(Pair("stakeinterest",  (uint64_t)COIN_YEAR_REWARD));
     obj.push_back(Pair("netstakeweight", (uint64_t)GetPoSVKernelPS()));
+
+#ifdef ENABLE_WALLET
+    obj.push_back(Pair("generate",         GetBoolArg("-staking", true)));
+    obj.push_back(Pair("hashespersec",     gethashespersec(params, false)));
+#endif
     return obj;
 }
 
@@ -433,6 +396,7 @@ Value getworkex(const Array& params, bool fHelp)
 }
 
 
+#ifdef ENABLE_WALLET
 Value getwork(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -572,7 +536,7 @@ Value getwork(const Array& params, bool fHelp)
         return CheckWork(pblock, *pwalletMain, *pMiningKey);
     }
 }
-
+#endif
 
 Value getblocktemplate(const Array& params, bool fHelp)
 {
@@ -802,4 +766,53 @@ Value submitblock(const Array& params, bool fHelp)
         return "rejected"; // TODO: report validation state
 
     return Value::null;
+}
+
+// Return average network hashes per second based on the last 'lookup' blocks,
+// or from the last difficulty change if 'lookup' is nonpositive.
+// If 'height' is nonnegative, compute the estimate at the time when a given block was found.
+Value GetNetworkHashPS(int lookup, int height) {
+    CBlockIndex *pb = chainActive[height];
+
+    if (pb == NULL || !pb->nHeight || pb->nHeight > LAST_POW_BLOCK)
+        return 0;
+
+    // If lookup is -1, then use blocks since last difficulty change.
+    if (lookup <= 0)
+        lookup = pb->nHeight % 120 + 1;
+
+    // If lookup is larger than chain, then set it to chain length.
+    if (lookup > pb->nHeight)
+        lookup = pb->nHeight;
+
+    CBlockIndex *pb0 = pb;
+    for (int i = 0; i < lookup; i++) {
+        pb0 = pb0->pprev;
+    }
+
+    uint256 workDiff = pb->nChainWork - pb0->nChainWork;
+    int64_t timeDiff = lookup * 60;
+
+    return (boost::int64_t)(workDiff.getdouble() / timeDiff);
+}
+
+Value getnetworkhashps(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 2)
+        throw runtime_error(
+            "getnetworkhashps ( blocks height )\n"
+            "\nReturns the estimated network hashes per second based on the last n blocks.\n"
+            "Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.\n"
+            "Pass in [height] to estimate the network speed at the time when a certain block was found.\n"
+            "\nArguments:\n"
+            "1. blocks     (numeric, optional, default=120) The number of blocks, or -1 for blocks since last difficulty change.\n"
+            "2. height     (numeric, optional, default=-1) To estimate at the time of the given height.\n"
+            "\nResult:\n"
+            "x             (numeric) Hashes per second estimated\n"
+            "\nExamples:\n"
+            + HelpExampleCli("getnetworkhashps", "")
+            + HelpExampleRpc("getnetworkhashps", "")
+       );
+
+    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 1, params.size() > 1 ? params[1].get_int() : -1);
 }
