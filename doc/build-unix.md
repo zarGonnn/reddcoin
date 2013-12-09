@@ -139,7 +139,10 @@ To help make your reddcoin installation more secure by making certain attacks im
 exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 
-./configure --enable-hardening
+Hardening Flags:
+
+	./configure --enable-hardening
+	./configure --disable-hardening
 
 
 Hardening enables the following features:
