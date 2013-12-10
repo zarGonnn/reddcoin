@@ -93,7 +93,7 @@ are installed. Either Qt 4 or Qt 5 is necessary to build the GUI.
 
 To build with Qt 4 you need the following:
 
-    apt-get install libqt4-dev libprotobuf-dev
+    apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
 
 For Qt 5 you need the following:
 
