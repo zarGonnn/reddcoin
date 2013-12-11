@@ -452,7 +452,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         }
     }
 
-    QString sPriorityLabel      = "";
+    QString sPriorityLabel      = tr("none");
     int64_t nAmount             = 0;
     int64_t nPayFee             = 0;
     int64_t nAfterFee           = 0;
@@ -600,10 +600,10 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     l8->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nChange));        // Change
 
     // turn labels "red"
-    l5->setStyleSheet((nBytes >= 5000) ? "color:red;" : "");               // Bytes >= 5000
-    l6->setStyleSheet((!AllowFree(dPriority)) ? "color:red;" : "");         // Priority < "medium"
-    l7->setStyleSheet((fLowOutput) ? "color:red;" : "");                    // Low Output = "yes"
-    l8->setStyleSheet((nChange > 0 && nChange < CENT) ? "color:red;" : ""); // Change < 0.01BTC
+    l5->setStyleSheet((nBytes >= 5000) ? "color:red;" : "");                            // Bytes >= 5000
+    l6->setStyleSheet((dPriority > 0 && !AllowFree(dPriority)) ? "color:red;" : "");    // Priority < "medium"
+    l7->setStyleSheet((fLowOutput) ? "color:red;" : "");                                // Low Output = "yes"
+    l8->setStyleSheet((nChange > 0 && nChange < CENT) ? "color:red;" : "");             // Change < 0.01RDD
 
     // tool tips
     QString toolTip1 = tr("This label turns red, if the transaction size is greater than 5000 bytes.") + "<br /><br />";
@@ -611,7 +611,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     toolTip1 += tr("Can vary +/- 1 byte per input.");
 
     QString toolTip2 = tr("Transactions with higher priority are more likely to get included into a block.") + "<br /><br />";
-    toolTip2 += tr("This label turns red, if the priority is smaller than \"medium\"") + "<br /><br />";
+    toolTip2 += tr("This label turns red, if the priority is smaller than \"medium\".") + "<br /><br />";
     toolTip2 += tr("This means a fee of at least %1 per kB is required.").arg(BitcoinUnits::formatWithUnit(nDisplayUnit, CTransaction::nMinTxFee));
 
     QString toolTip3 = tr("This label turns red, if any recipient receives an amount smaller than %1.").arg(BitcoinUnits::formatWithUnit(nDisplayUnit, CENT)) + "<br /><br />";
