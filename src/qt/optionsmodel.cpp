@@ -14,8 +14,10 @@
 #include "init.h"
 #include "main.h"
 #include "net.h"
+#ifdef ENABLE_WALLET
 #include "wallet.h"
 #include "walletdb.h"
+#endif
 
 #include <QSettings>
 #include <QStringList>
@@ -67,8 +69,10 @@ void OptionsModel::Init()
     // by command-line and show this in the UI.
 
     // Main
+#ifdef ENABLE_WALLET
     if (!settings.contains("nTransactionFee"))
         settings.setValue("nTransactionFee", 0);
+#endif
 
     if (!settings.contains("nDatabaseCache"))
         settings.setValue("nDatabaseCache", 25);
@@ -141,6 +145,7 @@ void OptionsModel::Upgrade()
 
     settings.setValue("bImportFinished", true);
 
+#ifdef ENABLE_WALLET
     // Move settings from old wallet.dat (if any):
     CWalletDB walletdb(strWalletFile);
 
@@ -185,6 +190,7 @@ void OptionsModel::Upgrade()
             walletdb.EraseSetting("addrProxy");
         }
     }
+#endif
 
     Init();
 }
@@ -231,6 +237,7 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
         case ProxySocksVersion:
             return settings.value("nSocksVersion", 5);
 
+#ifdef ENABLE_WALLET
         case Fee:
             // Attention: Init() is called before nTransactionFee is set in AppInit2()!
             // To ensure we can change the fee on-the-fly update our QSetting when
@@ -242,6 +249,7 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("nTransactionFee");
         case SpendZeroConfChange:
             return bSpendZeroConfChange;
+#endif
         case DisplayUnit:
             return nDisplayUnit;
         case DisplayAddresses:
@@ -324,7 +332,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             }
         }
         break;
-
+#ifdef ENABLE_WALLET
         case Fee: // core option - can be changed on-the-fly
             // Todo: Add is valid check  and warn via message, if not
             nTransactionFee = value.toLongLong();
@@ -337,6 +345,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 settings.setValue("bSpendZeroConfChange", value);
             }
             break;
+#endif
         case DisplayUnit:
             nDisplayUnit = value.toInt();
             settings.setValue("nDisplayUnit", nDisplayUnit);
