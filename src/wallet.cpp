@@ -19,6 +19,8 @@
 
 using namespace std;
 
+// Settings
+int64_t nTransactionFee = 0;
 
 bool bSpendZeroConfChange = true;
 

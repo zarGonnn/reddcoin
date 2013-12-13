@@ -562,6 +562,7 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
             return InitError(strprintf(_("Invalid amount for -minrelaytxfee=<amount>: '%s'"), mapArgs["-minrelaytxfee"].c_str()));
     }
 
+#ifdef ENABLE_WALLET
     if (mapArgs.count("-paytxfee"))
     {
         if (!ParseMoney(mapArgs["-paytxfee"], nTransactionFee))
@@ -579,7 +580,6 @@ bool AppInit2(boost::thread_group& threadGroup, bool fForceServer)
             return InitError(strprintf(_("Invalid amount for -mininput=<amount>: '%s'"), mapArgs["-mininput"].c_str()));
     }
 
-#ifdef ENABLE_WALLET
     strWalletFile = GetArg("-wallet", "wallet.dat");
 #endif
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
