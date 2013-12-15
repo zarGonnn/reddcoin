@@ -22,7 +22,6 @@
 #include <QCheckBox>
 #include <QColor>
 #include <QCursor>
-#include <QDateTime>
 #include <QDialogButtonBox>
 #include <QFlags>
 #include <QIcon>
@@ -737,7 +736,7 @@ void CoinControlDialog::updateView()
             itemOutput->setText(COLUMN_AMOUNT_INT64, strPad(QString::number(out.tx->vout[out.i].nValue), 15, " ")); // padding so that sorting works correctly
 
             // date
-            itemOutput->setText(COLUMN_DATE, QDateTime::fromTime_t(out.tx->GetTxTime()).toString("yy-MM-dd hh:mm"));
+            itemOutput->setText(COLUMN_DATE, GUIUtil::dateTimeStr(out.tx->GetTxTime()));
             
             // immature PoS reward
             if (out.tx->IsCoinStake() && out.tx->GetBlocksToMaturity() > 0 && out.tx->GetDepthInMainChain() > 0) {
