@@ -75,8 +75,7 @@ public:
         AmountWithFeeExceedsBalance,
         DuplicateAddress,
         TransactionCreationFailed, // Error returned when wallet is still locked
-        TransactionCommitFailed,
-        Aborted
+        TransactionCommitFailed
     };
 
     enum EncryptionStatus
@@ -104,7 +103,7 @@ public:
     // Return status record for SendCoins, contains error id + information
     struct SendCoinsReturn
     {
-        SendCoinsReturn(StatusCode status = Aborted):
+        SendCoinsReturn(StatusCode status = OK):
             status(status) {}
         StatusCode status;
     };
