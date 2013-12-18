@@ -4,14 +4,13 @@
 
 #include "splashscreen.h"
 
-#include "chainparams.h"
 #include "clientversion.h"
 #include "util.h"
 
 #include <QApplication>
 #include <QPainter>
 
-SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f) :
+SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTestNet) :
     QSplashScreen(pixmap, f)
 {
     // set reference point, paddings
@@ -35,7 +34,7 @@ SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f) :
 
     // load the bitmap for writing some text over it
     QPixmap newPixmap;
-    if(TestNet()) {
+    if(isTestNet) {
         newPixmap     = QPixmap(":/images/splash_testnet");
     }
     else {
