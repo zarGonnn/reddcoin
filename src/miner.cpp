@@ -12,8 +12,9 @@
 #include "main.h"
 #include "net.h"
 #include "scrypt.h"
+#ifdef ENABLE_WALLET
 #include "wallet.h"
-
+#endif
 //////////////////////////////////////////////////////////////////////////////
 //
 // ReddcoinMiner

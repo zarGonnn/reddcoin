@@ -1,11 +1,11 @@
 #define BOOST_TEST_MODULE Reddcoin Test Suite
 
-#include "db.h"
 #include "main.h"
 #include "txdb.h"
 #include "ui_interface.h"
 #include "util.h"
 #ifdef ENABLE_WALLET
+#include "db.h"
 #include "wallet.h"
 #endif
 
