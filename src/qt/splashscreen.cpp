@@ -13,6 +13,8 @@
 SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTestNet) :
     QSplashScreen(pixmap, f)
 {
+    setAutoFillBackground(true);
+
     // set reference point, paddings
     int paddingLeftCol2         = 230;
     int paddingTopCol2          = 376;
