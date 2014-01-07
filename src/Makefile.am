@@ -103,8 +103,7 @@ if USE_SSE2
 endif
 
 # reddcoind binary #
-reddcoind_LDADD = libreddcoin_server.a libreddcoin_cli.a libreddcoin_common.a leveldb/libleveldb.a leveldb/libmemenv.a \
-  $(BOOST_LIBS)
+reddcoind_LDADD = libreddcoin_server.a libreddcoin_cli.a libreddcoin_common.a leveldb/libleveldb.a leveldb/libmemenv.a
 if ENABLE_WALLET
 reddcoind_LDADD += libreddcoin_wallet.a
 endif
@@ -116,7 +115,7 @@ reddcoind_SOURCES += bitcoind-res.rc
 endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
-reddcoind_LDADD += $(BDB_LIBS)
+reddcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
 
 # reddcoin-cli binary #
 reddcoin_cli_LDADD = libreddcoin_cli.a libreddcoin_common.a $(BOOST_LIBS)
