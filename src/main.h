@@ -33,6 +33,7 @@
 class CBlockIndex;
 class CBloomFilter;
 class CInv;
+class COrphanBlock;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
@@ -104,7 +105,7 @@ extern uint64_t nLastBlockTx;
 extern uint64_t nLastBlockSize;
 extern const std::string strMessageMagic;
 extern int64_t nTimeBestReceived;
-extern std::map<uint256, CBlock*> mapOrphanBlocks;
+extern std::map<uint256, COrphanBlock*> mapOrphanBlocks;
 extern bool fImporting;
 extern bool fReindex;
 extern bool fBenchmark;
@@ -219,7 +220,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees);
 int64_t GetBlockValue(int nHeight, int64_t nFees);
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime);
-uint256 WantedByOrphan(const CBlock* pblockOrphan);
+uint256 WantedByOrphan(const COrphanBlock* pblockOrphan);
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 void StakeMiner(CWallet *pwallet);
 

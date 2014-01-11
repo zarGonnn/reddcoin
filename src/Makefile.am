@@ -143,7 +143,7 @@ BITCOIN_CORE_H += \
 
 libreddcoin_common_a_SOURCES += \
   kernel.cpp \
-  kernel.h \ 
+  kernel.h \
   scrypt.cpp \
   scrypt.h \
   txdb-leveldb.cpp \
