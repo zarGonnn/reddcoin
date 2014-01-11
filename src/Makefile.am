@@ -3,7 +3,10 @@ include Makefile.include
 AM_CPPFLAGS += -I$(top_srcdir)/src/leveldb/helpers/memenv \
   -I$(builddir)
 
-noinst_LIBRARIES = libreddcoin_server.a libreddcoin_common.a libreddcoin_cli.a
+noinst_LIBRARIES = \
+  libreddcoin_server.a \
+  libreddcoin_common.a \
+  libreddcoin_cli.a
 if ENABLE_WALLET
 noinst_LIBRARIES += libreddcoin_wallet.a
 endif
@@ -14,20 +17,60 @@ SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
 DIST_SUBDIRS = . qt test
 .PHONY: FORCE
 # bitcoin core #
-BITCOIN_CORE_H = addrman.h alert.h allocators.h base58.h bignum.h \
+BITCOIN_CORE_H = \
+  addrman.h \
+  alert.h \
+  allocators.h \
+  base58.h bignum.h \
+  bloom.h \
+  chainparams.h \
+  checkpoints.h \
+  checkqueue.h \
+  clientversion.h \
+  coincontrol.h \
+  coins.h \
+  compat.h \
+  core.h \
+  crypter.h \
+  db.h \
+  hash.h \
+  init.h \
+  key.h \
+  keystore.h \
+  leveldbwrapper.h \
+  limitedmap.h \
+  main.h \
+  miner.h \
+  mruset.h \
+  netbase.h \
+  net.h \
+  noui.h \
+  protocol.h \
   rpcclient.h \
   rpcprotocol.h \
   rpcserver.h \
-  bloom.h chainparams.h checkpoints.h checkqueue.h \
-  clientversion.h coincontrol.h compat.h core.h coins.h crypter.h db.h hash.h init.h \
-  key.h keystore.h leveldbwrapper.h limitedmap.h main.h miner.h mruset.h \
-  netbase.h net.h noui.h protocol.h script.h serialize.h sync.h threadsafety.h \
-  txdb.h txmempool.h ui_interface.h uint256.h util.h version.h walletdb.h wallet.h
+  script.h \
+  serialize.h \
+  sync.h \
+  threadsafety.h \
+  txdb.h \
+  txmempool.h \
+  ui_interface.h \
+  uint256.h \
+  util.h \
+  version.h \
+  walletdb.h \
+  wallet.h
 
-JSON_H = json/json_spirit.h json/json_spirit_error_position.h \
-  json/json_spirit_reader.h json/json_spirit_reader_template.h \
-  json/json_spirit_stream_reader.h json/json_spirit_utils.h \
-  json/json_spirit_value.h json/json_spirit_writer.h \
+JSON_H = \
+  json/json_spirit.h \
+  json/json_spirit_error_position.h \
+  json/json_spirit_reader.h \
+  json/json_spirit_reader_template.h \
+  json/json_spirit_stream_reader.h \
+  json/json_spirit_utils.h \
+  json/json_spirit_value.h \
+  json/json_spirit_writer.h \
   json/json_spirit_writer_template.h
 
 obj/build.h: FORCE
@@ -93,9 +136,18 @@ nodist_libreddcoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #
 
 # Reddcoin specific
-BITCOIN_CORE_H += scrypt.h kernel.h txdb-leveldb.h
-libreddcoin_common_a_SOURCES += scrypt.h scrypt.cpp kernel.h kernel.cpp \
-  txdb-leveldb.h txdb-leveldb.cpp
+BITCOIN_CORE_H += \
+  kernel.h \
+  scrypt.h \
+  txdb-leveldb.h
+
+libreddcoin_common_a_SOURCES += \
+  kernel.cpp \
+  kernel.h \ 
+  scrypt.cpp \
+  scrypt.h \
+  txdb-leveldb.cpp \
+  txdb-leveldb.h
 
 if USE_SSE2
   libreddcoin_common_a_SOURCES += scrypt-sse2.cpp
@@ -103,7 +155,12 @@ if USE_SSE2
 endif
 
 # reddcoind binary #
-reddcoind_LDADD = libreddcoin_server.a libreddcoin_cli.a libreddcoin_common.a leveldb/libleveldb.a leveldb/libmemenv.a
+reddcoind_LDADD = \
+  libreddcoin_server.a \
+  libreddcoin_cli.a \
+  libreddcoin_common.a \
+  leveldb/libleveldb.a \
+  leveldb/libmemenv.a
 if ENABLE_WALLET
 reddcoind_LDADD += libreddcoin_wallet.a
 endif
@@ -118,7 +175,10 @@ AM_CPPFLAGS += $(BDB_CPPFLAGS)
 reddcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
 
 # reddcoin-cli binary #
-reddcoin_cli_LDADD = libreddcoin_cli.a libreddcoin_common.a $(BOOST_LIBS)
+reddcoin_cli_LDADD = \
+  libreddcoin_cli.a \
+  libreddcoin_common.a \
+  $(BOOST_LIBS)
 reddcoin_cli_SOURCES = bitcoin-cli.cpp
 #
 
