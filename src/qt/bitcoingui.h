@@ -103,9 +103,9 @@ private:
     Notificator *notificator;
     RPCConsole *rpcConsole;
 
-    QMovie *syncIconMovie;
     /** Keep track of previous number of blocks, to detect progress */
     int prevBlocks;
+    int spinnerFrame;
 
     /** local weight for staking */
     uint64_t nAverageWeight;
