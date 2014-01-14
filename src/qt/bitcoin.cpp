@@ -359,7 +359,7 @@ void BitcoinApplication::requestShutdown()
     QWidget *shutdownWindow = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(new QLabel(
-        tr("Reddcoin-Qt is shutting down...\n") +
+        tr("Reddcoin-Qt is shutting down...\n") + "<br /><br />" +
         tr("Do not shut down the computer until this window disappears.")));
     shutdownWindow->setLayout(layout);
 
