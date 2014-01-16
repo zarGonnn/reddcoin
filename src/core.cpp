@@ -9,12 +9,12 @@
 
 std::string COutPoint::ToString() const
 {
-    return strprintf("COutPoint(%s, %u)", hash.ToString().substr(0,10).c_str(), n);
+    return strprintf("COutPoint(%s, %u)", hash.ToString().substr(0,10), n);
 }
 
 void COutPoint::print() const
 {
-    LogPrintf("%s\n", ToString().c_str());
+    LogPrintf("%s\n", ToString());
 }
 
 CTxIn::CTxIn(COutPoint prevoutIn, CScript scriptSigIn, unsigned int nSequenceIn)
@@ -37,9 +37,9 @@ std::string CTxIn::ToString() const
     str += "CTxIn(";
     str += prevout.ToString();
     if (prevout.IsNull())
-        str += strprintf(", coinbase %s", HexStr(scriptSig).c_str());
+        str += strprintf(", coinbase %s", HexStr(scriptSig));
     else
-        str += strprintf(", scriptSig=%s", scriptSig.ToString().substr(0,24).c_str());
+        str += strprintf(", scriptSig=%s", scriptSig.ToString().substr(0,24));
     if (nSequence != std::numeric_limits<unsigned int>::max())
         str += strprintf(", nSequence=%u", nSequence);
     str += ")";
@@ -48,7 +48,7 @@ std::string CTxIn::ToString() const
 
 void CTxIn::print() const
 {
-    LogPrintf("%s\n", ToString().c_str());
+    LogPrintf("%s\n", ToString());
 }
 
 CTxOut::CTxOut(int64_t nValueIn, CScript scriptPubKeyIn)
@@ -64,12 +64,12 @@ uint256 CTxOut::GetHash() const
 
 std::string CTxOut::ToString() const
 {
-    return strprintf("CTxOut(nValue=%"PRId64".%08"PRId64", scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString().substr(0,30).c_str());
+    return strprintf("CTxOut(nValue=%"PRId64".%08"PRId64", scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString().substr(0,30));
 }
 
 void CTxOut::print() const
 {
-    LogPrintf("%s\n", ToString().c_str());
+    LogPrintf("%s\n", ToString());
 }
 
 uint256 CTransaction::GetHash() const
@@ -147,7 +147,7 @@ std::string CTransaction::ToString() const
     std::string str;
     str += IsCoinBase()? "Coinbase" : (IsCoinStake()? "Coinstake" : "CTransaction");
     str += strprintf("(hash=%s, nTime=%d, ver=%d, vin.size=%"PRIszu", vout.size=%"PRIszu", nLockTime=%u)\n",
-        GetHash().ToString().c_str(),
+        GetHash().ToString(),
         nTime,
         nVersion,
         vin.size(),
@@ -162,7 +162,7 @@ std::string CTransaction::ToString() const
 
 void CTransaction::print() const
 {
-    LogPrintf("%s", ToString().c_str());
+    LogPrintf("%s", ToString());
 }
 
 // Amount compression:
@@ -285,7 +285,7 @@ void CBlock::print() const
            hashMerkleRoot.ToString().c_str(),
            nTime, nBits, nNonce,
            vtx.size(),
-           HexStr(vchBlockSig.begin(), vchBlockSig.end()).c_str());
+           HexStr(vchBlockSig.begin(), vchBlockSig.end()));
     for (unsigned int i = 0; i < vtx.size(); i++)
     {
         LogPrintf("  ");
@@ -293,6 +293,6 @@ void CBlock::print() const
     }
     LogPrintf("  vMerkleTree: ");
     for (unsigned int i = 0; i < vMerkleTree.size(); i++)
-        LogPrintf("%s ", vMerkleTree[i].ToString().c_str());
+        LogPrintf("%s ", vMerkleTree[i].ToString());
     LogPrintf("\n");
 }

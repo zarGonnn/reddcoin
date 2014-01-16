@@ -228,7 +228,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 pindexNew->nStakeTime     = diskindex.nStakeTime;
 
                 if (!pindexNew->CheckIndex())
-                    return error("LoadBlockIndex() : CheckIndex failed: %s", pindexNew->ToString().c_str());
+                    return error("LoadBlockIndex() : CheckIndex failed: %s", pindexNew->ToString());
 
                 // ppcoin: build setStakeSeen
                 if (pindexNew->IsProofOfStake())
