@@ -1,4 +1,4 @@
-Name @PACKAGE_NAME@
+Name "@PACKAGE_NAME@ (@WINDOWS_BITS@-bit)"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -28,6 +28,9 @@ SetCompressor /SOLID lzma
 # Included files
 !include Sections.nsh
 !include MUI2.nsh
+!if "@WINDOWS_BITS@" == "64"
+!include x64.nsh
+!endif
 
 # Variables
 Var StartMenuGroup
@@ -45,8 +48,12 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile @abs_top_srcdir@/reddcoin-${VERSION}-win32-setup.exe
+OutFile @abs_top_srcdir@/reddcoin-${VERSION}-win@WINDOWS_BITS@-setup.exe
+!if "@WINDOWS_BITS@" == "64"
+InstallDir $PROGRAMFILES64\Reddcoin
+!else
 InstallDir $PROGRAMFILES\Reddcoin
+!endif
 CRCCheck on
 XPStyle on
 BrandingText " "
@@ -152,6 +159,15 @@ SectionEnd
 # Installer functions
 Function .onInit
     InitPluginsDir
+!if "@WINDOWS_BITS@" == "64"
+    ${If} ${RunningX64}
+      ; disable registry redirection (enable access to 64-bit portion of registry)
+      SetRegView 64
+    ${Else}
+      MessageBox MB_OK|MB_ICONSTOP "Cannot install 64-bit version on a 32-bit system."
+      Abort
+    ${EndIf}
+!endif
 FunctionEnd
 
 # Uninstaller functions
