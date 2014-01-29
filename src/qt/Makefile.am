@@ -280,18 +280,16 @@ BUILT_SOURCES = $(nodist_libreddcoinqt_a_SOURCES)
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-if TARGET_DARWIN
-  libreddcoinqt_a_SOURCES += $(BITCOIN_MM)
-endif
-if TARGET_WINDOWS
-  libreddcoinqt_a_SOURCES += $(BITCOIN_RC)
-endif
-#
-
 # reddcoin-qt binary #
 reddcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
 reddcoin_qt_SOURCES = bitcoin.cpp
+if TARGET_DARWIN
+  reddcoin_qt_SOURCES += $(BITCOIN_MM)
+endif
+if TARGET_WINDOWS
+  reddcoin_qt_SOURCES += $(BITCOIN_RC)
+endif
 reddcoin_qt_LDADD = libreddcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
 reddcoin_qt_LDADD += $(LIBBITCOIN_WALLET)
