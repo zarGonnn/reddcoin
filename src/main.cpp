@@ -1968,7 +1968,7 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
             return state.DoS(100,
                              error("ConnectBlock() : coinbase pays too much (actual=%d vs limit=%d)",
                                    block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight, nFees)),
-                             REJECT_INVALID, "bad-cb-amount");
+                                   REJECT_INVALID, "bad-cb-amount");
     }
     else if (block.IsProofOfStake())
     {
@@ -1977,13 +1977,13 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
         if (!::GetCoinAge(block.vtx[1], nCoinAge))
             return state.DoS(100, error("ConnectBlock() : %s unable to get coin age for coinstake",
                                     block.vtx[1].GetHash().ToString().substr(0,10).c_str()),
-                             REJECT_INVALID, "unable to get coin age");
+                                    REJECT_INVALID, "unable to get coin age");
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
         if (nStakeReward > nCalculatedStakeReward)
             return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)",
                                         nStakeReward, nCalculatedStakeReward),
-                             REJECT_INVALID, "coinstake pays too much");
+                                         REJECT_INVALID, "coinstake pays too much");
     }
 
     // ppcoin: track money supply and mint amount info
@@ -3703,11 +3703,11 @@ void static ProcessGetData(CNode* pfrom)
                     int nHeight = ((*mi).second)->nHeight;
                     CBlockIndex* pcheckpoint = Checkpoints::GetLastCheckpoint(mapBlockIndex);
                     if (pcheckpoint && nHeight < pcheckpoint->nHeight) {
-                       if (!chainActive.Contains((*mi).second))
-                       {
+                        if (!chainActive.Contains((*mi).second))
+                        {
                          LogPrintf("ProcessGetData(): ignoring request for old block that isn't in the main chain\n");
                          send = false;
-                       }
+                        }
                     }
                 } else {
                     send = false;
@@ -4257,7 +4257,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
         int nDoS = 0;
         if (state.IsInvalid(nDoS))
-        { 
+        {
             LogPrint("mempool", "%s from %s %s was not accepted into the memory pool: %s\n", tx.GetHash().ToString(),
                 pfrom->addr.ToString(), pfrom->cleanSubVer,
                 state.GetRejectReason());
