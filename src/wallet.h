@@ -26,9 +26,9 @@
 
 // Settings
 extern int64_t nTransactionFee;
+extern bool bSpendZeroConfChange;
 
 extern bool fWalletUnlockStakingOnly;
-extern bool bSpendZeroConfChange;
 
 class CAccountingEntry;
 class CCoinControl;
