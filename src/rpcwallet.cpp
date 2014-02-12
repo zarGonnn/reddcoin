@@ -1129,7 +1129,10 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
             Object entry;
             entry.push_back(Pair("account", strSentAccount));
             MaybePushAddress(entry, s.first);
-            entry.push_back(Pair("category", "send"));
+            if (wtx.GetDepthInMainChain() < 0)
+                entry.push_back(Pair("category", "conflicted"));
+            else
+                entry.push_back(Pair("category", "send"));
             entry.push_back(Pair("amount", ValueFromAmount(-s.second)));
             entry.push_back(Pair("fee", ValueFromAmount(-nFee)));
             if (fLong)
@@ -1165,7 +1168,10 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
                 }
                 else
                 {
-                    entry.push_back(Pair("category", "receive"));
+                    if (wtx.GetDepthInMainChain() < 0)
+                        entry.push_back(Pair("category", "conflicted"));
+                    else
+                        entry.push_back(Pair("category", "receive"));
                 }
                 if (!wtx.IsCoinStake())
                     entry.push_back(Pair("amount", ValueFromAmount(r.second)));
