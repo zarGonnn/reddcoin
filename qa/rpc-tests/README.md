@@ -17,8 +17,11 @@ Generally useful functions.
 
 Bash-based tests, to be ported to Python:
 -----------------------------------------
+
+Bash scripts that use the RPC interface and command-line bitcoin-cli to test
+full functionality in -regtest mode.
+
 - wallet.sh : Exercise wallet send/receive code.
-- walletbackup.sh : Exercise wallet backup / dump / import
 - txnmall.sh : Test proper accounting of malleable transactions
 - conflictedbalance.sh : More testing of malleable transaction handling
 
