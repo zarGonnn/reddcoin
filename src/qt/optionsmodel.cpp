@@ -76,6 +76,11 @@ void OptionsModel::Init()
     nTransactionFee = settings.value("nTransactionFee").toLongLong(); // if -paytxfee is set, this will be overridden later in init.cpp
     if (mapArgs.count("-paytxfee"))
         strOverriddenByCommandLine += "-paytxfee ";
+
+    if (!settings.contains("bSpendZeroConfChange"))
+        settings.setValue("bSpendZeroConfChange", true);
+    if (!SoftSetBoolArg("-spendzeroconfchange", settings.value("bSpendZeroConfChange").toBool()))
+        strOverriddenByCommandLine += "-spendzeroconfchange ";
 #endif
 
     if (!settings.contains("nDatabaseCache"))
@@ -189,7 +194,7 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             // -paytxfee to update our QSettings!
             return settings.value("nTransactionFee");
         case SpendZeroConfChange:
-            return bSpendZeroConfChange;
+            return settings.value("bSpendZeroConfChange");
 #endif
         case DisplayUnit:
             return nDisplayUnit;
@@ -282,8 +287,8 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             break;
         case SpendZeroConfChange:
             if (settings.value("bSpendZeroConfChange") != value) {
-                bSpendZeroConfChange = value.toBool();
                 settings.setValue("bSpendZeroConfChange", value);
+                setRestartRequired(true);
             }
             break;
 #endif

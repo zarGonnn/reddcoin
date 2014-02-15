@@ -38,9 +38,9 @@ public:
         DisplayAddresses,       // bool
         Language,               // QString
         CoinControlFeatures,    // bool
-        SpendZeroConfChange,    // bool
         ThreadsScriptVerif,     // int
         DatabaseCache,          // int
+        SpendZeroConfChange,    // bool
         OptionIDRowCount,
     };
 
