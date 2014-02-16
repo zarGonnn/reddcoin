@@ -94,12 +94,6 @@ static const int LAST_POW_BLOCK = 260800 - 1;
 static const int64_t COIN_YEAR_REWARD = 5 * CENT; // 5% per year
 
 extern CScript COINBASE_FLAGS;
-
-
-
-
-
-
 extern CCriticalSection cs_main;
 extern CTxMemPool mempool;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
@@ -114,7 +108,6 @@ extern bool fBenchmark;
 extern int nScriptCheckThreads;
 extern bool fTxIndex;
 extern unsigned int nCoinCacheSize;
-extern bool fHaveGUI;
 
 // Reddcoin PoSV
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
