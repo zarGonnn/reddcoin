@@ -13,8 +13,6 @@
 #include "txdb.h"
 #include "checkpoints.h"
 
-#include <inttypes.h>
-
 #include <boost/algorithm/string/replace.hpp>
 #include <openssl/rand.h>
 
