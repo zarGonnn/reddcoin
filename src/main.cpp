@@ -826,7 +826,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
         // Don't accept it if it can't get into a block
         int64_t txMinFee = GetMinFee(tx, nSize, true, GMF_RELAY);
         if (fLimitFree && nFees < txMinFee)
-            return state.DoS(0, error("AcceptToMemoryPool : not enough fees %s, %"PRId64" < %"PRId64,
+            return state.DoS(0, error("AcceptToMemoryPool : not enough fees %s, %d < %d",
                                       hash.ToString(), nFees, txMinFee),
                              REJECT_INSUFFICIENTFEE, "insufficient fee");
 
@@ -855,7 +855,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
         }
 
         if (fRejectInsaneFee && nFees > CTransaction::nMinRelayTxFee * 1000)
-            return error("AcceptToMemoryPool: : insane fees %s, %"PRId64" > %"PRId64,
+            return error("AcceptToMemoryPool: : insane fees %s, %d > %d",
                          hash.ToString(),
                          nFees, CTransaction::nMinRelayTxFee * 1000);
 
@@ -1966,7 +1966,7 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
         // Check coinbase reward
         if (block.vtx[0].GetValueOut() > GetBlockValue(pindex->nHeight, nFees))
             return state.DoS(100,
-                             error("ConnectBlock() : coinbase pays too much (actual=%"PRId64" vs limit=%"PRId64")",
+                             error("ConnectBlock() : coinbase pays too much (actual=%d vs limit=%d)",
                                    block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight, nFees)),
                              REJECT_INVALID, "bad-cb-amount");
     }
@@ -1981,7 +1981,7 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
         if (nStakeReward > nCalculatedStakeReward)
-            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%"PRId64" vs calculated=%"PRId64")",
+            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)",
                                         nStakeReward, nCalculatedStakeReward),
                              REJECT_INVALID, "coinstake pays too much");
     }
@@ -3539,7 +3539,7 @@ bool LoadExternalBlockFile(FILE* fileIn, CDiskBlockPos *dbp)
         AbortNode(_("Error: system error: ") + e.what());
     }
     if (nLoaded > 0)
-        LogPrintf("Loaded %i blocks from external file in %"PRId64"ms\n", nLoaded, GetTimeMillis() - nStart);
+        LogPrintf("Loaded %i blocks from external file in %dms\n", nLoaded, GetTimeMillis() - nStart);
     return nLoaded > 0;
 }
 
@@ -4395,7 +4395,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
 
         if (!(sProblem.empty())) {
-            LogPrint("net", "pong %s %s: %s, %"PRIx64" expected, %"PRIx64" received, %"PRIszu" bytes\n",
+            LogPrint("net", "pong %s %s: %s, %x expected, %x received, %"PRIszu" bytes\n",
                 pfrom->addr.ToString(),
                 pfrom->cleanSubVer,
                 sProblem,
