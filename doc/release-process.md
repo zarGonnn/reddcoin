@@ -197,8 +197,7 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 ###Next steps:
 
-* Code-sign Windows -setup.exe (in a Windows virtual machine) and
-  OSX Bitcoin-Qt.app (Note: only Gavin has the code-signing keys currently)
+* Code-sign Windows -setup.exe (in a Windows virtual machine using signtool)
 
 * upload builds to SourceForge
 
@@ -207,8 +206,6 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 * update reddcoin.com version
   make sure all OS download links go to the right versions
   
-* update download sizes on bitcoin.org/_templates/download.html
-
 * update forum version
 
 * update reddit download links
@@ -223,12 +220,13 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 	brew update
 	brew install qt --HEAD
-	/usr/local/bin/qmake -spec unsupported/macx-clang-libc++ reddcoin-qt.pro USE_UPNP=1 STATIC=1
+	./autogen.sh
+        SDK=$(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk
+        CXXFLAGS="-mmacosx-version-min=10.6 -isysroot $SDK" ./configure --enable-upnp-default
 	make
-	codesign -s "Developer ID" Reddcoin-Qt.app
 	export QTDIR=/usr/local/Cellar/qt/4.8.6/  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
-	python2.7 share/qt/clean_mac_info_plist.py
-	python2.7 contrib/macdeploy/macdeployqtplus Reddcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+        export CODESIGNARGS='--keychain ...path_to_keychain --sign "Developer ID"'
+	python2.7 contrib/macdeploy/macdeployqtplus Reddcoin-Qt.app -sign -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
  Build output expected: Reddcoin-Qt.dmg
