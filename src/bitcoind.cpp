@@ -82,9 +82,9 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("Reddcoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  reddcoind [options]                     " + _("Start Reddcoin server") + "\n" +
+                  "  reddcoind [options]                     " + _("Start Reddcoin Core Daemon") + "\n" +
                 _("Usage (deprecated, use reddcoin-cli):") + "\n" +
-                  "  reddcoind [options] <command> [params]  " + _("Send command to Reddcoin server") + "\n" +
+                  "  reddcoind [options] <command> [params]  " + _("Send command to Reddcoin Core") + "\n" +
                   "  reddcoind [options] help                " + _("List commands") + "\n" +
                   "  reddcoind [options] help <command>      " + _("Get help for a command") + "\n";
 
