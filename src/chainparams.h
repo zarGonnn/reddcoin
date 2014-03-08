@@ -123,8 +123,4 @@ inline bool TestNet() {
     return Params().NetworkID() == CChainParams::TESTNET;
 }
 
-inline bool RegTest() {
-    return Params().NetworkID() == CChainParams::REGTEST;
-}
-
 #endif
