@@ -797,7 +797,7 @@ void GenerateReddcoins(bool fGenerate, CWallet* pwallet, int nThreads)
     if (nThreads < 0)
     {
         if (Params().NetworkID() == CChainParams::REGTEST)
-            nThreads = 1;
+            nThreads = Params().DefaultMinerThreads();
         else
             nThreads = boost::thread::hardware_concurrency();
     }

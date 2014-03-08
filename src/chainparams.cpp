@@ -38,6 +38,7 @@ public:
         nRPCPort = 45443;
         bnProofOfWorkLimit = ~uint256(0) >> 32;
         nSubsidyHalvingInterval = 50000;
+        nMinerThreads = 0;
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
@@ -156,6 +157,7 @@ public:
         pchMessageStart[2] = 0xba;
         pchMessageStart[3] = 0xdf;
         nSubsidyHalvingInterval = 150;
+        nMinerThreads = 1;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1401051600;
         genesis.nBits = 0x207fffff;
