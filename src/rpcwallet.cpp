@@ -2027,6 +2027,3 @@ Value getwalletinfo(const Array& params, bool fHelp)
         obj.push_back(Pair("unlocked_until", (boost::int64_t)nWalletUnlockTime));
     return obj;
 }
-
-
-
