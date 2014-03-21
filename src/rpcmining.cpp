@@ -196,6 +196,7 @@ Value setgenerate(const Array& params, bool fHelp)
     else // Not -regtest: start generate thread, return immediately
     {
         mapArgs["-staking"] = (fGenerate ? "1" : "0");
+        mapArgs ["-genproclimit"] = itostr(nGenProcLimit);
         GenerateReddcoins(fGenerate, pwalletMain, nGenProcLimit);
     }
 
