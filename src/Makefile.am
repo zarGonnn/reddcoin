@@ -135,6 +135,11 @@ libreddcoin_common_a_SOURCES = \
   version.cpp \
   $(BITCOIN_CORE_H)
 
+if GLIBC_BACK_COMPAT
+libreddcoin_common_a_SOURCES += compat/glibc_compat.cpp
+libreddcoin_common_a_SOURCES += compat/glibcxx_compat.cpp
+endif
+
 libreddcoin_cli_a_SOURCES = \
   rpcclient.cpp \
   $(BITCOIN_CORE_H)
