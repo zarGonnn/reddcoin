@@ -129,6 +129,9 @@ public:
     qint64 getStake() const;
     qint64 getUnconfirmedBalance() const;
     qint64 getImmatureBalance() const;
+    qint64 getWatchBalance() const;
+    qint64 getWatchUnconfirmedBalance() const;
+    qint64 getWatchImmatureBalance() const;
     int getNumTransactions() const;
     EncryptionStatus getEncryptionStatus() const;
 
@@ -208,6 +211,9 @@ private:
     qint64 cachedStake;
     qint64 cachedUnconfirmedBalance;
     qint64 cachedImmatureBalance;
+    qint64 cachedWatchOnlyBalance;
+    qint64 cachedWatchUnconfBalance;
+    qint64 cachedWatchImmatureBalance;
     qint64 cachedNumTransactions;
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
@@ -220,7 +226,8 @@ private:
 
 signals:
     // Signal that balance in wallet changed
-    void balanceChanged(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance);
+    void balanceChanged(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance,
+                        qint64 watchOnlyBalance, qint64 watchUnconfBalance, qint64 watchImmatureBalance);
 
     // Number of transactions in wallet changed
     void numTransactionsChanged(int count);
