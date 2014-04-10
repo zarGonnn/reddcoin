@@ -197,7 +197,8 @@ BITCOIN_QT_H = \
   walletframe.h \
   walletmodel.h \
   walletmodeltransaction.h \
-  walletview.h
+  walletview.h \
+  winshutdownmonitor.h
 
 RES_ICONS = \
   res/icons/add.png \
@@ -263,7 +264,8 @@ BITCOIN_QT_CPP = \
   rpcconsole.cpp \
   splashscreen.cpp \
   trafficgraphwidget.cpp \
-  utilitydialog.cpp
+  utilitydialog.cpp \
+  winshutdownmonitor.cpp
 
 if ENABLE_WALLET
 BITCOIN_QT_CPP += \
