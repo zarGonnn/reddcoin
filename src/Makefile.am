@@ -121,6 +121,7 @@ libreddcoin_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 libreddcoin_common_a_SOURCES = \
+  base58.cpp \
   allocators.cpp \
   chainparams.cpp \
   core.cpp \
