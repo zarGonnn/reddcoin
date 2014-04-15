@@ -77,7 +77,7 @@ public:
         qDebug() << "TransactionTablePriv::refreshWallet";
         cachedWallet.clear();
         {
-            LOCK(wallet->cs_wallet);
+            LOCK2(cs_main, wallet->cs_wallet);
             for(std::map<uint256, CWalletTx>::iterator it = wallet->mapWallet.begin(); it != wallet->mapWallet.end(); ++it)
             {
                 if(TransactionRecord::showTransaction(it->second))
@@ -95,7 +95,7 @@ public:
     {
         qDebug() << "TransactionTablePriv::updateWallet : " + QString::fromStdString(hash.ToString()) + " " + QString::number(status);
         {
-            LOCK(wallet->cs_wallet);
+            LOCK2(cs_main, wallet->cs_wallet);
 
             // Find transaction in wallet
             std::map<uint256, CWalletTx>::iterator mi = wallet->mapWallet.find(hash);
@@ -193,18 +193,14 @@ public:
             // If a status update is needed (blocks came in since last check),
             //  update the status of this transaction from the wallet. Otherwise,
             // simply re-use the cached status.
-            TRY_LOCK(cs_main, lockMain);
-            if(lockMain)
+            LOCK2(cs_main, wallet->cs_wallet);
+            if(rec->statusUpdateNeeded())
             {
-                TRY_LOCK(wallet->cs_wallet, lockWallet);
-                if(lockWallet && rec->statusUpdateNeeded())
-                {
-                    std::map<uint256, CWalletTx>::iterator mi = wallet->mapWallet.find(rec->hash);
+                std::map<uint256, CWalletTx>::iterator mi = wallet->mapWallet.find(rec->hash);
 
-                    if(mi != wallet->mapWallet.end())
-                    {
-                        rec->updateStatus(mi->second);
-                    }
+                if(mi != wallet->mapWallet.end())
+                {
+                    rec->updateStatus(mi->second);
                 }
             }
             return rec;
@@ -218,7 +214,7 @@ public:
     QString describe(TransactionRecord *rec, int unit)
     {
         {
-            LOCK(wallet->cs_wallet);
+            LOCK2(cs_main, wallet->cs_wallet);
             std::map<uint256, CWalletTx>::iterator mi = wallet->mapWallet.find(rec->hash);
             if(mi != wallet->mapWallet.end())
             {
@@ -233,15 +229,10 @@ TransactionTableModel::TransactionTableModel(CWallet* wallet, WalletModel *paren
         QAbstractTableModel(parent),
         wallet(wallet),
         walletModel(parent),
-        priv(new TransactionTablePriv(wallet, this)),
-        cachedNumBlocks(0)
+        priv(new TransactionTablePriv(wallet, this))
 {
     columns << QString() << tr("Date") << tr("Type") << tr("Address") << BitcoinUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit());
     priv->refreshWallet();
-
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateConfirmations()));
-    timer->start(MODEL_UPDATE_DELAY);
 
     connect(walletModel->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 }
@@ -268,16 +259,12 @@ void TransactionTableModel::updateTransaction(const QString &hash, int status)
 
 void TransactionTableModel::updateConfirmations()
 {
-    if(chainActive.Height() != cachedNumBlocks)
-    {
-        cachedNumBlocks = chainActive.Height();
-        // Blocks came in since last poll.
-        // Invalidate status (number of confirmations) and (possibly) description
-        //  for all rows. Qt is smart enough to only actually request the data for the
-        //  visible rows.
-        emit dataChanged(index(0, Status), index(priv->size()-1, Status));
-        emit dataChanged(index(0, ToAddress), index(priv->size()-1, ToAddress));
-    }
+    // Blocks came in since last poll.
+    // Invalidate status (number of confirmations) and (possibly) description
+    //  for all rows. Qt is smart enough to only actually request the data for the
+    //  visible rows.
+    emit dataChanged(index(0, Status), index(priv->size()-1, Status));
+    emit dataChanged(index(0, ToAddress), index(priv->size()-1, ToAddress));
 }
 
 int TransactionTableModel::rowCount(const QModelIndex &parent) const

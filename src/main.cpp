@@ -1482,7 +1482,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 
 bool IsInitialBlockDownload()
 {
-    AssertLockHeld(cs_main);
+    LOCK(cs_main);
     if (fImporting || fReindex || chainActive.Height() < Checkpoints::GetTotalBlocksEstimate())
         return true;
     static int64_t nLastUpdate;
@@ -2348,7 +2348,7 @@ void static FindMostWorkChain() {
 
 // Try to activate to the most-work chain (thereby connecting it).
 bool ActivateBestChain(CValidationState &state) {
-    AssertLockHeld(cs_main);
+    LOCK(cs_main);
     CBlockIndex *pindexOldTip = chainActive.Tip();
     bool fComplete = false;
     while (!fComplete) {
@@ -2474,7 +2474,6 @@ bool CBlock::GetCoinAge(uint64_t& nCoinAge) const
 
 bool AddToBlockIndex(CBlock& block, CValidationState& state, const CDiskBlockPos& pos, const uint256 &hashProof)
 {
-    AssertLockHeld(cs_main);
     // Check for duplicate
     uint256 hash = block.GetHash();
     if (mapBlockIndex.count(hash))
@@ -2533,6 +2532,7 @@ bool AddToBlockIndex(CBlock& block, CValidationState& state, const CDiskBlockPos
     if (!ActivateBestChain(state))
         return false;
 
+    LOCK(cs_main);
     if (pindexNew == chainActive.Tip())
     {
         // Clear fork warning if its no longer applicable
@@ -3577,6 +3577,7 @@ bool LoadBlockIndex()
 
 
 bool InitBlockIndex() {
+    LOCK(cs_main);
     // Check whether we're already initialized
     if (chainActive.Genesis() != NULL)
         return true;
@@ -4875,6 +4876,10 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
             }
         }
 
+        TRY_LOCK(cs_main, lockMain); // Acquire cs_main for IsInitialBlockDownload() and CNodeState()
+        if (!lockMain)
+            return true;
+
         // Address refresh broadcast
         static int64_t nLastRebroadcast;
         if (!IsInitialBlockDownload() && (GetTime() - nLastRebroadcast > 24 * 60 * 60))
@@ -4924,10 +4929,6 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
             if (!vAddr.empty())
                 pto->PushMessage("addr", vAddr);
         }
-
-        TRY_LOCK(cs_main, lockMain);
-        if (!lockMain)
-            return true;
 
         CNodeState &state = *State(pto->GetId());
         if (state.fShouldBan) {

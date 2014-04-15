@@ -59,6 +59,7 @@ int ClientModel::getNumConnections(unsigned int flags) const
 
 int ClientModel::getNumBlocks() const
 {
+    LOCK(cs_main);
     return chainActive.Height();
 }
 
@@ -80,6 +81,7 @@ quint64 ClientModel::getTotalBytesSent() const
 
 QDateTime ClientModel::getLastBlockDate() const
 {
+    LOCK(cs_main);
     if (chainActive.Tip())
         return QDateTime::fromTime_t(chainActive.Tip()->GetBlockTime());
     else
@@ -88,6 +90,7 @@ QDateTime ClientModel::getLastBlockDate() const
 
 double ClientModel::getVerificationProgress() const
 {
+    LOCK(cs_main);
     return Checkpoints::GuessVerificationProgress(chainActive.Tip());
 }
 
