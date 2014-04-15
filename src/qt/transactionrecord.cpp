@@ -161,6 +161,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
 
 void TransactionRecord::updateStatus(const CWalletTx &wtx)
 {
+    AssertLockHeld(cs_main);
     // Determine transaction status
 
     // Find the block the tx is in
@@ -245,6 +246,7 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx)
 
 bool TransactionRecord::statusUpdateNeeded()
 {
+    AssertLockHeld(cs_main);
     return status.cur_num_blocks != chainActive.Height();
 }
 
