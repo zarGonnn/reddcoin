@@ -56,7 +56,7 @@ public:
     const MessageStartChars& MessageStart() const { return pchMessageStart; }
     const vector<unsigned char>& AlertKey() const { return vAlertPubKey; }
     int GetDefaultPort() const { return nDefaultPort; }
-    const CBigNum& ProofOfWorkLimit() const { return bnProofOfWorkLimit; }
+    const uint256& ProofOfWorkLimit() const { return bnProofOfWorkLimit; }
     int SubsidyHalvingInterval() const { return nSubsidyHalvingInterval; }
     virtual const CBlock& GenesisBlock() const = 0;
     virtual bool RequireRPCPassword() const { return true; }
@@ -68,8 +68,8 @@ public:
     int RPCPort() const { return nRPCPort; }
     
     // PoSV
-    const CBigNum& ProofOfStakeLimit() const { return bnProofOfStakeLimit; }
-    const CBigNum& ProofOfStakeReset() const { return bnProofOfStakeReset; }
+    const uint256& ProofOfStakeLimit() const { return bnProofOfStakeLimit; }
+    const uint256& ProofOfStakeReset() const { return bnProofOfStakeReset; }
     int LastPoWBlock() const { return nLastPoWBlock; }
     unsigned int StakeMinAge() const { return nStakeMinAge; }
     unsigned int StakeMaxAge() const { return nStakeMaxAge; }
@@ -82,15 +82,15 @@ protected:
     vector<unsigned char> vAlertPubKey;
     int nDefaultPort;
     int nRPCPort;
-    CBigNum bnProofOfWorkLimit;
+    uint256 bnProofOfWorkLimit;
     int nSubsidyHalvingInterval;
     string strDataDir;
     vector<CDNSSeedData> vSeeds;
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
     
     // PoSV
-    CBigNum bnProofOfStakeLimit;
-    CBigNum bnProofOfStakeReset;
+    uint256 bnProofOfStakeLimit;
+    uint256 bnProofOfStakeReset;
     int nLastPoWBlock;
     unsigned int nStakeMinAge;
     unsigned int nStakeMaxAge;

@@ -1155,14 +1155,14 @@ static const int64_t nTargetTimespan = 60 * 60; // Reddcoin: Not used
 //
 // maximum nBits value could possible be required nTime after
 //
-unsigned int static ComputeMaxBits(const CBigNum& bnLimit, unsigned int nBase, int64_t nTime)
+unsigned int static ComputeMaxBits(const uint256& bnLimit, unsigned int nBase, int64_t nTime)
 {
     // Testnet has min-difficulty blocks
     // after nTargetSpacing*2 time between blocks:
     if (TestNet() && nTime > nTargetSpacing*2)
         return bnLimit.GetCompact();
 
-    CBigNum bnResult;
+    uint256 bnResult;
     bnResult.SetCompact(nBase);
     while (nTime > 0 && bnResult < bnLimit)
     {
@@ -1214,8 +1214,8 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
     int64_t   PastRateActualSeconds       = 0;
     int64_t   PastRateTargetSeconds       = 0;
     double  PastRateAdjustmentRatio     = double(1);
-    CBigNum PastDifficultyAverage;
-    CBigNum PastDifficultyAveragePrev;
+    uint256 PastDifficultyAverage;
+    uint256 PastDifficultyAveragePrev;
 
     double EventHorizonDeviation;
     double EventHorizonDeviationFast;
@@ -1253,7 +1253,7 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
         }
         else
         {
-            PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
+            PastDifficultyAverage = ((uint256().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
         }
         PastDifficultyAveragePrev = PastDifficultyAverage;
 
@@ -1294,7 +1294,7 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
 
     }
 
-    CBigNum bnNew(PastDifficultyAverage);
+    uint256 bnNew(PastDifficultyAverage);
 
     if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0)
     {
@@ -1316,8 +1316,8 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
     {
         LogPrintf("Difficulty Retarget - Kimoto Gravity Well\n");
         LogPrintf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-        LogPrintf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString());
-        LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString());
+        LogPrintf("Before: %08x  %s\n", BlockLastSolved->nBits, uint256().SetCompact(BlockLastSolved->nBits).ToString());
+        LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.ToString());
     }
 
      return bnNew.GetCompact();
@@ -1349,15 +1349,17 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 {
-    CBigNum bnTarget;
-    bnTarget.SetCompact(nBits);
+    bool fNegative;
+    bool fOverflow;
+    uint256 bnTarget;
+    bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
 
     // Check range
-    if (bnTarget <= 0 || bnTarget > Params().ProofOfWorkLimit())
+    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > Params().ProofOfWorkLimit())
         return error("CheckProofOfWork() : nBits below minimum work");
 
     // Check proof of work matches claimed amount
-    if (hash > bnTarget.getuint256())
+    if (hash > bnTarget)
         return error("CheckProofOfWork() : hash doesn't match nBits");
 
     return true;
@@ -1394,7 +1396,7 @@ void CheckForkWarningConditions()
     if (pindexBestForkTip && chainActive.Height() - pindexBestForkTip->nHeight >= 72)
         pindexBestForkTip = NULL;
 
-    if (pindexBestForkTip || (pindexBestInvalid && pindexBestInvalid->nChainWork > chainActive.Tip()->nChainWork + (chainActive.Tip()->GetBlockWork() * 6).getuint256()))
+    if (pindexBestForkTip || (pindexBestInvalid && pindexBestInvalid->nChainWork > chainActive.Tip()->nChainWork + (chainActive.Tip()->GetBlockWork() * 6)))
     {
         if (!fLargeWorkForkFound)
         {
@@ -1449,7 +1451,7 @@ void CheckForkWarningConditionsOnNewFork(CBlockIndex* pindexNewForkTip)
     // We define it this way because it allows us to only store the highest fork tip (+ base) which meets
     // the 7-block condition and from this always have the most-likely-to-cause-warning fork
     if (pfork && (!pindexBestForkTip || (pindexBestForkTip && pindexNewForkTip->nHeight > pindexBestForkTip->nHeight)) &&
-            pindexNewForkTip->nChainWork - pfork->nChainWork > (pfork->GetBlockWork() * 7).getuint256() &&
+            pindexNewForkTip->nChainWork - pfork->nChainWork > (pfork->GetBlockWork() * 7) &&
             chainActive.Height() - pindexNewForkTip->nHeight < 72)
     {
         pindexBestForkTip = pindexNewForkTip;
@@ -1464,10 +1466,6 @@ void static InvalidChainFound(CBlockIndex* pindexNew)
     if (!pindexBestInvalid || pindexNew->nChainWork > pindexBestInvalid->nChainWork)
     {
         pindexBestInvalid = pindexNew;
-        // The current code doesn't actually read the BestInvalidWork entry in
-        // the block database anymore, as it is derived from the flags in block
-        // index entry. We only write it for backward compatibility.
-        pblocktree->WriteBestInvalidWork(CBigNum(pindexBestInvalid->nChainWork));
         uiInterface.NotifyBlocksChanged();
     }
     LogPrintf("InvalidChainFound: invalid block=%s  height=%d  log2_work=%.8g  date=%s\n",
@@ -2328,7 +2326,7 @@ bool AddToBlockIndex(CBlock& block, CValidationState& state, const CDiskBlockPos
         pindexNew->nHeight = pindexNew->pprev->nHeight + 1;
     }
     pindexNew->nTx = block.vtx.size();
-    pindexNew->nChainWork = (pindexNew->pprev ? pindexNew->pprev->nChainWork : 0) + pindexNew->GetBlockWork().getuint256();
+    pindexNew->nChainWork = (pindexNew->pprev ? pindexNew->pprev->nChainWork : 0) + pindexNew->GetBlockWork();
 
     // ppcoin: compute stake entropy bit for stake modifier
     if (!pindexNew->SetStakeEntropyBit(block.GetStakeEntropyBit()))
@@ -2783,9 +2781,9 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
         if (deltaTime < 0)
             return state.DoS(100, error("ProcessBlock() : block with timestamp before last checkpoint"),
                              REJECT_CHECKPOINT, "time-too-old");
-        CBigNum bnNewBlock;
+        uint256 bnNewBlock;
         bnNewBlock.SetCompact(pblock->nBits);
-        CBigNum bnRequired;
+        uint256 bnRequired;
 
         if (pblock->IsProofOfStake())
             bnRequired.SetCompact(ComputeMinStake(GetLastBlockIndex(pcheckpoint, true)->nBits, deltaTime));
@@ -3215,7 +3213,7 @@ bool static LoadBlockIndexDB()
     BOOST_FOREACH(const PAIRTYPE(int, CBlockIndex*)& item, vSortedByHeight)
     {
         CBlockIndex* pindex = item.second;
-        pindex->nChainWork = (pindex->pprev ? pindex->pprev->nChainWork : 0) + pindex->GetBlockWork().getuint256();
+        pindex->nChainWork = (pindex->pprev ? pindex->pprev->nChainWork : 0) + pindex->GetBlockWork();
         pindex->nChainTx = (pindex->pprev ? pindex->pprev->nChainTx : 0) + pindex->nTx;
         if ((pindex->nStatus & BLOCK_VALID_MASK) >= BLOCK_VALID_TRANSACTIONS && !(pindex->nStatus & BLOCK_FAILED_MASK))
             setBlockIndexValid.insert(pindex);

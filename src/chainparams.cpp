@@ -36,7 +36,7 @@ public:
         vAlertPubKey = ParseHex("0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1");
         nDefaultPort = 45444;
         nRPCPort = 45443;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit = ~uint256(0) >> 32;
         nSubsidyHalvingInterval = 50000;
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -85,8 +85,8 @@ public:
         }
         
         // PoSV
-        bnProofOfStakeLimit = CBigNum(~uint256(0) >> 20);
-        bnProofOfStakeReset = CBigNum(~uint256(0) >> 32); // 1
+        bnProofOfStakeLimit = ~uint256(0) >> 20;
+        bnProofOfStakeReset = ~uint256(0) >> 32; // 1
         nLastPoWBlock = 260800 - 1; // 2nd August 2014
         nStakeMinAge = 8 * 60 * 60; // 8 hours
         nStakeMaxAge = 45 * 24 *  60 * 60; // 45 days
@@ -156,7 +156,7 @@ public:
         pchMessageStart[2] = 0xba;
         pchMessageStart[3] = 0xdf;
         nSubsidyHalvingInterval = 150;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
+        bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1401051600;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 3;

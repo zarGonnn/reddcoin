@@ -342,12 +342,12 @@ bool CheckStakeKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned 
     if (nTimeBlockFrom + Params().StakeMinAge() > nTimeTx) // Min age requirement
         return error("CheckStakeKernelHash() : min age violation");
 
-    CBigNum bnTargetPerCoinDay;
+    uint256 bnTargetPerCoinDay;
     bnTargetPerCoinDay.SetCompact(nBits);
     int64_t nValueIn = txPrev.vout[prevout.n].nValue;
     uint256 hashBlockFrom = blockFrom.GetHash();
-    CBigNum bnCoinDayWeight = CBigNum(nValueIn) * GetCoinAgeWeight((int64_t)nTimeTxPrev, (int64_t)nTimeTx) / COIN / (24 * 60 * 60);
-    targetProofOfStake = (bnCoinDayWeight * bnTargetPerCoinDay).getuint256();
+    uint256 bnCoinDayWeight = uint256(nValueIn) * GetCoinAgeWeight((int64_t)nTimeTxPrev, (int64_t)nTimeTx) / COIN / (24 * 60 * 60);
+    targetProofOfStake = bnCoinDayWeight * bnTargetPerCoinDay;
 
     // Calculate hash
     CDataStream ss(SER_GETHASH, 0);
@@ -375,7 +375,7 @@ bool CheckStakeKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned 
     }
 
     // Now check if proof-of-stake hash meets target protocol
-    if (CBigNum(hashProofOfStake) > bnCoinDayWeight * bnTargetPerCoinDay)
+    if (uint256(hashProofOfStake) > bnCoinDayWeight * bnTargetPerCoinDay)
         return false;
     else
         return true;
