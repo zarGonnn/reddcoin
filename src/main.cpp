@@ -81,25 +81,25 @@ int64_t nMinimumInputValue = DUST_HARD_LIMIT;
 
 // Internal stuff
 namespace {
-struct CBlockIndexWorkComparator
-{
-    bool operator()(CBlockIndex *pa, CBlockIndex *pb) {
-        if (pa->nChainWork > pb->nChainWork) return false;
-        if (pa->nChainWork < pb->nChainWork) return true;
+    struct CBlockIndexWorkComparator
+    {
+        bool operator()(CBlockIndex *pa, CBlockIndex *pb) {
+            if (pa->nChainWork > pb->nChainWork) return false;
+            if (pa->nChainWork < pb->nChainWork) return true;
 
-        if (pa->GetBlockHash() < pb->GetBlockHash()) return false;
-        if (pa->GetBlockHash() > pb->GetBlockHash()) return true;
+            if (pa->GetBlockHash() < pb->GetBlockHash()) return false;
+            if (pa->GetBlockHash() > pb->GetBlockHash()) return true;
 
-        return false; // identical blocks
-    }
-};
+            return false; // identical blocks
+        }
+    };
 
-CBlockIndex *pindexBestInvalid;
-set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexValid; // may contain all CBlockIndex*'s that have validness >=BLOCK_VALID_TRANSACTIONS, and must contain those who aren't failed
+    CBlockIndex *pindexBestInvalid;
+    set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexValid; // may contain all CBlockIndex*'s that have validness >=BLOCK_VALID_TRANSACTIONS, and must contain those who aren't failed
 
-CCriticalSection cs_LastBlockFile;
-CBlockFileInfo infoLastBlockFile;
-int nLastBlockFile = 0;
+    CCriticalSection cs_LastBlockFile;
+    CBlockFileInfo infoLastBlockFile;
+    int nLastBlockFile = 0;
 }
 
 // ppcoin
