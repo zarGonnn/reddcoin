@@ -8,6 +8,7 @@
 #include "miner.h"
 
 #include "core.h"
+#include "checkpoints.h"
 #include "kernel.h"
 #include "main.h"
 #include "net.h"
@@ -585,7 +586,7 @@ void StakeMiner(CWallet *pwallet)
         if (fTryToSync)
         {
             fTryToSync = false;
-            if (vNodes.size() < 3 || chainActive.Height() < GetNumBlocksOfPeers())
+            if (vNodes.size() < 3 || Checkpoints::GuessVerificationProgress(chainActive.Tip()) < 0.99)
             {
                 MilliSleep(60000);
                 continue;
