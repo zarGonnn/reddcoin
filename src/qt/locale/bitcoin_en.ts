@@ -1791,6 +1791,11 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+60"/>
+        <source>Reddcoin Core didn&apos;t yet exit safely...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../guiutil.cpp" line="+82"/>
         <source>Enter a Reddcoin address (starts with R)</source>
         <translation type="unfinished">Enter a Reddcoin address (starts with R)</translation>
