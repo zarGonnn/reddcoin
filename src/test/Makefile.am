@@ -32,6 +32,7 @@ endif
 test_reddcoin_LDADD += $(BDB_LIBS)
 
 test_reddcoin_SOURCES = \
+  bignum.h \
   alert_tests.cpp \
   allocator_tests.cpp \
   base32_tests.cpp \
