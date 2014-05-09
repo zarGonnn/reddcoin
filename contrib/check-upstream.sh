@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	5d891489ab7828ad8db15e85bb63e2f13f021a6a
+	1fc57d568b704f929890363a99d2a793956a15fe
 
 check litecoin \
 	master-0.8 \
@@ -57,6 +57,14 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin
 
+f679b2900a3a9f863f888cfb0b1a5e593628e37b MaxOSX: settings fixes (#2371)
+  Already merged
+25c0cce7fb494fcb871d134e28b26504d30e34d3 Qt5 compatibility
+  Already merged
+d98bf10f23e0e633ff2ff33075a353d30bf862b4 Move pMiningKey init out of StartRPCThreads
+  Already merged
+bb70bbfc5d561af230c2efcf08e660e2add1b0f1 Made more generic by removing specific version references
+  Gitian scripts will be updated after merge
 8c8132be73b680d04b9f6dff9dee0ae277c1bebb Prepare for 0.9 merge window
   Release specific stuff
 c25e98186d0f716451ef000e55646d25e014f573 Squashed 'src/leveldb/' content from commit aca1ffc
