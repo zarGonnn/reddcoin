@@ -5,7 +5,6 @@
 #include "transactiontablemodel.h"
 
 #include "addresstablemodel.h"
-#include "bitcoinunits.h"
 #include "guiconstants.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -435,9 +434,9 @@ QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
     return QVariant();
 }
 
-QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed) const
+QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed, BitcoinUnits::SeparatorStyle separators, bool fAlign) const
 {
-    QString str = BitcoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit);
+    QString str = BitcoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit, false, separators, fAlign);
     if(showUnconfirmed)
     {
         if(!wtx->status.countsForBalance)
@@ -522,7 +521,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case ToAddress:
             return formatTxToAddress(rec, false);
         case Amount:
-            return formatTxAmount(rec);
+            return formatTxAmount(rec, true, BitcoinUnits::separatorAlways, true);
         }
         break;
     case Qt::EditRole:
@@ -579,7 +578,8 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
     case ConfirmedRole:
         return rec->status.countsForBalance;
     case FormattedAmountRole:
-        return formatTxAmount(rec, false);
+	// Used for copy/export, so don't include separators
+        return formatTxAmount(rec, false, BitcoinUnits::separatorNever);
     case StatusRole:
         return rec->status.status;
     }
