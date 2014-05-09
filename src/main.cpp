@@ -2239,7 +2239,7 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
 // age (trust score) of competing branches.
 bool GetCoinAge(const CTransaction& tx, uint64_t& nCoinAge)
 {
-    CBigNum bnCentSecond = 0;  // coin age in the unit of cent-seconds
+    uint256 bnCentSecond = 0;  // coin age in the unit of cent-seconds
     nCoinAge = 0;
 
     if (tx.IsCoinBase())
@@ -2272,17 +2272,17 @@ bool GetCoinAge(const CTransaction& tx, uint64_t& nCoinAge)
 
         int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
         int64_t nTimeWeight = GetCoinAgeWeight(txPrev.nTime, tx.nTime);
-        bnCentSecond += CBigNum(nValueIn) * nTimeWeight / CENT;
+        bnCentSecond += uint256(nValueIn) * nTimeWeight / CENT;
 
         if (GetBoolArg("-printcoinage", false))
             LogPrintf("coin age nValueIn=%d nTime=%d, txPrev.nTime=%d, nTimeWeight=%d bnCentSecond=%s\n",
                 nValueIn, tx.nTime, txPrev.nTime, nTimeWeight, bnCentSecond.ToString().c_str());
     }
 
-    CBigNum bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
+    uint256 bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
     if (GetBoolArg("-printcoinage", false))
         LogPrintf("coin age bnCoinDay=%s\n", bnCoinDay.ToString().c_str());
-    nCoinAge = bnCoinDay.getuint64();
+    nCoinAge = bnCoinDay.GetLow64();
     return true;
 }
 

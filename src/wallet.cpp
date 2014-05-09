@@ -1638,12 +1638,12 @@ bool CWallet::GetStakeWeight(const CKeyStore& keystore, uint64_t& nAverageWeight
         unsigned int nTimeTx = tx.nTime ? tx.nTime : mapBlockIndex[hashBlock]->nTime;
 
         int64_t nTimeWeight = GetCoinAgeWeight((int64_t)nTimeTx, (int64_t)GetTime());
-        CBigNum bnCoinDayWeight = CBigNum(pcoin.first->vout[pcoin.second].nValue) * nTimeWeight / COIN / (24 * 60 * 60);
+        uint256 bnCoinDayWeight = uint256(pcoin.first->vout[pcoin.second].nValue) * nTimeWeight / COIN / (24 * 60 * 60);
 
         // Weight is greater than zero
         if (nTimeWeight > 0)
         {
-            nTotalWeight += bnCoinDayWeight.getuint64();
+            nTotalWeight += bnCoinDayWeight.GetLow64();
             nWeightCount++;
         }
     }
