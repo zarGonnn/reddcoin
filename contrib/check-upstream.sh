@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	346427f01bddc7d83fd5b54ecff9828180626909
+	be77b637fcf5983286382a9b9677fb97b026abe2
 
 check litecoin \
 	master-0.8 \
@@ -57,6 +57,8 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin
 
+1d626952f9fac57b8febec6bfad14b059b4184d8 Added GNU/kFreeBSD kernel name (TARGET_OS)
+  Already merged
 f679b2900a3a9f863f888cfb0b1a5e593628e37b MaxOSX: settings fixes (#2371)
   Already merged
 25c0cce7fb494fcb871d134e28b26504d30e34d3 Qt5 compatibility
