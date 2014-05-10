@@ -14,6 +14,7 @@
 #include "db.h"
 #include "wallet.h"
 #endif
+
 #include <stdint.h>
 
 #include "json/json_spirit_utils.h"

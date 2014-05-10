@@ -4,10 +4,9 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "checkpoints.h"
-#include "rpcserver.h"
 #include "main.h"
+#include "rpcserver.h"
 #include "sync.h"
-#include "checkpoints.h"
 
 #include <stdint.h>
 

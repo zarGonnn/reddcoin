@@ -2375,7 +2375,6 @@ bool AddToBlockIndex(CBlock& block, CValidationState& state, const CDiskBlockPos
     return true;
 }
 
-
 bool FindBlockPos(CValidationState &state, CDiskBlockPos &pos, unsigned int nAddSize, unsigned int nHeight, uint64_t nTime, bool fKnown = false)
 {
     bool fUpdatedLast = false;

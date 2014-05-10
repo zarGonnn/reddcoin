@@ -12,10 +12,11 @@
 
 class CBlock;
 class CBlockIndex;
-struct CBlockTemplate;
 class CReserveKey;
 class CScript;
 class CWallet;
+
+struct CBlockTemplate;
 
 /** Run the miner threads */
 void GenerateReddcoins(bool fGenerate, CWallet* pwallet, int nThreads);
