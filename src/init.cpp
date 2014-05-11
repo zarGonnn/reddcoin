@@ -26,6 +26,7 @@
 #endif
 
 #include <stdint.h>
+#include <stdio.h>
 
 #ifndef WIN32
 #include <signal.h>
@@ -557,6 +558,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     fServer = GetBoolArg("-server", false);
     fPrintToConsole = GetBoolArg("-printtoconsole", false);
     fLogTimestamps = GetBoolArg("-logtimestamps", true);
+    setvbuf(stdout, NULL, _IOLBF, 0);
 #ifdef ENABLE_WALLET
     bool fDisableWallet = GetBoolArg("-disablewallet", false);
 #endif
