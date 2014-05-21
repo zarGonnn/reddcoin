@@ -45,7 +45,7 @@
          <item>
           <widget class="QValidatedLineEdit" name="addressIn_SM">
            <property name="toolTip">
-            <string>The address to sign the message with (Starts with R)</string>
+            <string>The Reddcoin address to sign the message with</string>
            </property>
           </widget>
          </item>
@@ -255,7 +255,7 @@
          <item>
           <widget class="QValidatedLineEdit" name="addressIn_VM">
            <property name="toolTip">
-            <string>The address the message was signed with (Starts with R)</string>
+            <string>The Reddcoin address the message was signed with</string>
            </property>
           </widget>
          </item>
