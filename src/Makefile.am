@@ -190,7 +190,6 @@ endif
 # reddcoind binary #
 reddcoind_LDADD = \
   libreddcoin_server.a \
-  libreddcoin_cli.a \
   libreddcoin_common.a \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
