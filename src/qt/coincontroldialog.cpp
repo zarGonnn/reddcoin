@@ -17,6 +17,7 @@
 #include "wallet.h"
 
 #include <inttypes.h>
+#include <boost/assign/list_of.hpp> // for 'map_list_of()'
 
 #include <QApplication>
 #include <QCheckBox>
@@ -402,21 +403,24 @@ void CoinControlDialog::viewItemChanged(QTreeWidgetItem* item, int column)
 }
 
 // return human readable label for priority number
-QString CoinControlDialog::getPriorityLabel(double dPriority)
+QString CoinControlDialog::getPriorityLabel(const CTxMemPool& pool, double dPriority)
 {
-    if (AllowFree(dPriority)) // at least medium
+    // confirmations -> textual description
+    typedef std::map<unsigned int, QString> PriorityDescription;
+    static PriorityDescription priorityDescriptions = boost::assign::map_list_of
+        (1, tr("highest"))(2, tr("higher"))(3, tr("high"))
+        (5, tr("medium-high"))(6, tr("medium"))
+        (10, tr("low-medium"))(15, tr("low"))
+        (20, tr("lower"));
+
+    BOOST_FOREACH(const PriorityDescription::value_type& i, priorityDescriptions)
     {
-        if      (AllowFree(dPriority / 10000))  return tr("highest");
-        else if (AllowFree(dPriority / 1000))   return tr("high");
-        else if (AllowFree(dPriority / 100))    return tr("medium-high");
-        else                                    return tr("medium");
+        double p = mempool.estimatePriority(i.first);
+        if (p > 0 && dPriority >= p) return i.second;
     }
-    else
-    {
-        if      (AllowFree(dPriority * 100))    return tr("low-medium");
-        else if (AllowFree(dPriority * 10000))  return tr("low");
-        else                                    return tr("lowest");
-    }
+    // Note: if mempool hasn't accumulated enough history (estimatePriority
+    // returns -1) we're conservative and classify as "lowest"
+    return tr("lowest");
 }
 
 // shows count of locked unspent outputs
@@ -464,6 +468,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     double dPriority            = 0;
     double dPriorityInputs      = 0;
     unsigned int nQuantity      = 0;
+    int nQuantityUncompressed   = 0;
 
     vector<COutPoint> vCoinControl;
     vector<COutput>   vOutputs;
@@ -498,7 +503,11 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
             CPubKey pubkey;
             CKeyID *keyid = boost::get<CKeyID>(&address);
             if (keyid && model->getPubKey(*keyid, pubkey))
+            {
                 nBytesInputs += (pubkey.IsCompressed() ? 148 : 180);
+                if (!pubkey.IsCompressed())
+                    nQuantityUncompressed++;
+            }
             else
                 nBytesInputs += 148; // in all error cases, simply assume 148 here
         }
@@ -512,19 +521,22 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         nBytes = nBytesInputs + ((CoinControlDialog::payAmounts.size() > 0 ? CoinControlDialog::payAmounts.size() + 1 : 2) * 34) + 10; // always assume +1 output for change here
         
         // Priority
-        dPriority = dPriorityInputs / nBytes;
-        sPriorityLabel = CoinControlDialog::getPriorityLabel(dPriority);
-        
+        dPriority = dPriorityInputs / (nBytes - nBytesInputs + (nQuantityUncompressed * 29)); // 29 = 180 - 151 (uncompressed public keys are over the limit. max 151 bytes of the input are ignored for priority)
+        sPriorityLabel = CoinControlDialog::getPriorityLabel(mempool, dPriority);
+
         // Fee
         int64_t nFee = payTxFee.GetFee(max((unsigned int)1000, nBytes));
 
         // Min Fee
-        int64_t nMinFee = GetMinFee(txDummy, nBytes, AllowFree(dPriority), GMF_SEND);
-        if (AllowFree(dPriority) && nBytes < 5000)
-            nMinFee = 0;
-        
-        nPayFee = max(nFee, nMinFee);
-        
+        nPayFee = CWallet::GetMinimumFee(nBytes, nTxConfirmTarget, mempool);
+
+        double dPriorityNeeded = mempool.estimatePriority(nTxConfirmTarget);
+        if (dPriorityNeeded <= 0) // Not enough mempool history: never send free
+            dPriorityNeeded = std::numeric_limits<double>::max();
+
+        if (nBytes <= MAX_FREE_TRANSACTION_CREATE_SIZE && dPriority >= dPriorityNeeded)
+            nPayFee = 0;
+
         if (nPayAmount > 0)
         {
             nChange = nAmount - nPayFee - nPayAmount;
@@ -588,7 +600,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     }
 
     // turn labels "red"
-    l5->setStyleSheet((nBytes >= 5000) ? "color:red;" : "");                            // Bytes >= 5000
+    l5->setStyleSheet((nBytes >= MAX_FREE_TRANSACTION_CREATE_SIZE) ? "color:red;" : "");// Bytes >= 5000
     l6->setStyleSheet((dPriority > 0 && !AllowFree(dPriority)) ? "color:red;" : "");    // Priority < "medium"
     l7->setStyleSheet((fDust) ? "color:red;" : "");                                     // Dust = "yes"
 
@@ -735,7 +747,7 @@ void CoinControlDialog::updateView()
 
             // priority
             double dPriority = ((double)out.tx->vout[out.i].nValue  / (nInputSize + 78)) * (out.nDepth+1); // 78 = 2 * 34 + 10
-            itemOutput->setText(COLUMN_PRIORITY, CoinControlDialog::getPriorityLabel(dPriority));
+            itemOutput->setText(COLUMN_PRIORITY, CoinControlDialog::getPriorityLabel(mempool, dPriority));
             itemOutput->setText(COLUMN_PRIORITY_INT64, strPad(QString::number((int64_t)dPriority), 20, " "));
             dPrioritySum += (double)out.tx->vout[out.i].nValue  * (out.nDepth+1);
             nInputSum    += nInputSize;
@@ -768,7 +780,7 @@ void CoinControlDialog::updateView()
             itemWalletAddress->setText(COLUMN_CHECKBOX, "(" + QString::number(nChildren) + ")");
             itemWalletAddress->setText(COLUMN_AMOUNT, BitcoinUnits::format(nDisplayUnit, nSum));
             itemWalletAddress->setText(COLUMN_AMOUNT_INT64, strPad(QString::number(nSum), 15, " "));
-            itemWalletAddress->setText(COLUMN_PRIORITY, CoinControlDialog::getPriorityLabel(dPrioritySum));
+            itemWalletAddress->setText(COLUMN_PRIORITY, CoinControlDialog::getPriorityLabel(mempool, dPrioritySum));
             itemWalletAddress->setText(COLUMN_PRIORITY_INT64, strPad(QString::number((int64_t)dPrioritySum), 20, " "));
         }
     }
