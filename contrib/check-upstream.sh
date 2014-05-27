@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	0e4b31755534fac4ea6c20a60f719e3694252220
+	2a4d3464fd5e61a3c89a46d12f6729aeeac919f1
 
 check litecoin \
 	master-0.8 \
