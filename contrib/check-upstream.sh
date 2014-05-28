@@ -55,8 +55,16 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 570f4b03eba23abb3c09045a673105d956103847 Litecoin: Add checkpoints to testnet
   Litecoin specific, we don't have checkpoints in our testnet (yet)
 
-# Not merged from Bitcoin
+# Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+d4e2b040ed5dc4f068c89039bc1a8610b68df5c7 Bugfix: Move boost/version include from db.cpp to walletdb.cpp where BOOST_VERSION is used
+  Already merged
+e5c4dfdfc02b91027ba58816546d28499b0581cc Make the rand tests determinstic. (fixes #2714)
+  Already merged
+e9bfe6572900451e79fea7686625fd1a13eb9929 Made the build/release process completable verbatim as listed in release-process.md
+  Gitian will be done separatel
+a6635f6e95d3e5fbc9de3f8d13a9de669995a4b5 Add wtogami to gitian download scripts.
+  Gitian will be done separatel
 091aa8dae9b7345a1cd81e2733766463dfbf4b82 RPC: add getbestblockhash, to return tip of best chain
   Already merged
 adae78ea9940f4d44382967d1296e7db0b54a4de Squashed 'src/leveldb/' changes from aca1ffc..ae6c262
