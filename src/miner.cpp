@@ -10,6 +10,7 @@
 #include "miner.h"
 #include "kernel.h"
 #include "main.h"
+#include "scrypt.h"
 
 
 
