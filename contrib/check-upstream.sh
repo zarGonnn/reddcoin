@@ -22,7 +22,9 @@ check litecoin \
 	ccd9a1f5f72235244886d108f014d40d2d6c7bd5
 
 echo ""
-echo "In the output files, commits prefixed with a + are not yet merged from upstream for some reason."
+echo "In the output files, commits prefixed with a + are not yet merged from upstream for some reason"
+echo "or they are merged but the diffs don't match."
+echo ""
 echo "After checking them update the pointer to were you checked in this script."
 echo ""
 echo "If you don't include a commit for some reason, explain why at the bottom of this script."
