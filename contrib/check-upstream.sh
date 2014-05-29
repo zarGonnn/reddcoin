@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	923602f11d441435aabfa7772b2f2bc5869bb334
+	c6cb40f04bdad2bb9f60aa1c177a9b12122a0d0e
 
 check litecoin \
 	master-0.8 \
@@ -59,7 +59,8 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
-
+2b6a8993fbcb94e318d32e4e157795e5b654bfb8 Add missing 0x prefix in chainparams.cpp
+  Bitcoin specific, was already correct
 8f6f92c72bc560ecf8d12fc7235a3e2222d7c033 Revert "Truncate oversize 'tx' messages before relaying/storing."
   Was not committed in the first place (see below)
 d4e2b040ed5dc4f068c89039bc1a8610b68df5c7 Bugfix: Move boost/version include from db.cpp to walletdb.cpp where BOOST_VERSION is used
