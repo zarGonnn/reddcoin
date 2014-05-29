@@ -28,7 +28,7 @@ the Proof-of-Work (PoW) hash algorithm.
  - difficulty retarget: every block using Kimoto's gravity well
 
 For more information, as well as an immediately useable, binary version of
-the Reddcoin wallet client, please visit http://www.reddcoin.com.
+the Reddcoin client software, see http://www.reddcoin.com.
 
 License
 -------
