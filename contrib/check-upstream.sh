@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	2a4d3464fd5e61a3c89a46d12f6729aeeac919f1
+	923602f11d441435aabfa7772b2f2bc5869bb334
 
 check litecoin \
 	master-0.8 \
@@ -57,6 +57,9 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+
+8f6f92c72bc560ecf8d12fc7235a3e2222d7c033 Revert "Truncate oversize 'tx' messages before relaying/storing."
+  Was not committed in the first place (see below)
 d4e2b040ed5dc4f068c89039bc1a8610b68df5c7 Bugfix: Move boost/version include from db.cpp to walletdb.cpp where BOOST_VERSION is used
   Already merged
 e5c4dfdfc02b91027ba58816546d28499b0581cc Make the rand tests determinstic. (fixes #2714)
@@ -70,7 +73,7 @@ a6635f6e95d3e5fbc9de3f8d13a9de669995a4b5 Add wtogami to gitian download scripts.
 adae78ea9940f4d44382967d1296e7db0b54a4de Squashed 'src/leveldb/' changes from aca1ffc..ae6c262
   Already at 1.15
 c40a5aaaf484855a4350fd702e8e72fd21a68155 Truncate oversize 'tx' messages before relaying/storing.
-  Undone by future changes so no need to merge
+  Reverted in future commit so no need to merge
 1d626952f9fac57b8febec6bfad14b059b4184d8 Added GNU/kFreeBSD kernel name (TARGET_OS)
   Already merged
 f679b2900a3a9f863f888cfb0b1a5e593628e37b MaxOSX: settings fixes (#2371)
