@@ -1,11 +1,6 @@
-AM_CPPFLAGS =  $(INCLUDES) \
-  -I$(builddir)/obj \
-  $(BDB_CPPFLAGS) \
-  $(BOOST_CPPFLAGS) $(BOOST_INCLUDES)
-AM_CPPFLAGS += $(LEVELDB_CPPFLAGS)
+AM_CPPFLAGS =  $(INCLUDES)
 AM_LDFLAGS = $(PTHREAD_CFLAGS)
 
-AM_CPPFLAGS += -I$(builddir)
 
 if EMBEDDED_LEVELDB
 LEVELDB_CPPFLAGS += -I$(srcdir)/leveldb/include
@@ -22,11 +17,14 @@ $(LIBLEVELDB) $(LIBMEMENV):
           OPT="$(CXXFLAGS) $(CPPFLAGS)"
 endif
 
+BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
+
 noinst_LIBRARIES = \
   libreddcoin_server.a \
   libreddcoin_common.a \
   libreddcoin_cli.a
 if ENABLE_WALLET
+BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
 noinst_LIBRARIES += libreddcoin_wallet.a
 endif
 
@@ -106,6 +104,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 version.o: obj/build.h
 
+libreddcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
@@ -130,6 +129,7 @@ libreddcoin_server_a_SOURCES = \
   $(JSON_H) \
   $(BITCOIN_CORE_H)
 
+libreddcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_wallet_a_SOURCES = \
   db.cpp \
   crypter.cpp \
@@ -139,6 +139,7 @@ libreddcoin_wallet_a_SOURCES = \
   walletdb.cpp \
   $(BITCOIN_CORE_H)
 
+libreddcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_common_a_SOURCES = \
   base58.cpp \
   allocators.cpp \
@@ -183,7 +184,7 @@ libreddcoin_common_a_SOURCES += \
 
 if USE_SSE2
   libreddcoin_common_a_SOURCES += scrypt-sse2.cpp
-  AM_CPPFLAGS += -DUSE_SSE2
+  libreddcoin_common_a_CPPFLAGS += -DUSE_SSE2
 endif
 
 # reddcoind binary #
@@ -203,8 +204,8 @@ if TARGET_WINDOWS
 reddcoind_SOURCES += bitcoind-res.rc
 endif
 
-AM_CPPFLAGS += $(BDB_CPPFLAGS)
 reddcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
+reddcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
 
 # reddcoin-cli binary #
 reddcoin_cli_LDADD = \
@@ -212,6 +213,7 @@ reddcoin_cli_LDADD = \
   libreddcoin_common.a \
   $(BOOST_LIBS)
 reddcoin_cli_SOURCES = bitcoin-cli.cpp
+reddcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
 if TARGET_WINDOWS
