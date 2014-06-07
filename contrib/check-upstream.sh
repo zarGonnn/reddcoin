@@ -59,6 +59,14 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+1bb86d6f154da45464eb8b009c298dccd1cb3dab Squashed 'src/leveldb/' changes from a02ddf9..be1b0ff
+  Already at 1.15
+bb237705d08bcf0a5963219c9ac4866e2f60b485 Checkpoint at block 250,000
+  Obvious
+84d6d69fc69662b2709fffbeaf3c3b4f53c535b1 Squashed 'src/leveldb/' changes from ae6c262..a02ddf9
+  Already at 1.15
+f0784ac470a5541343e7985ceb0cb3c28d9a964e Fix non-standard disconnected transactions causing mempool orphans
+  Already merged
 2b6a8993fbcb94e318d32e4e157795e5b654bfb8 Add missing 0x prefix in chainparams.cpp
   Bitcoin specific, was already correct
 8f6f92c72bc560ecf8d12fc7235a3e2222d7c033 Revert "Truncate oversize 'tx' messages before relaying/storing."
