@@ -2527,19 +2527,18 @@ bool GetCoinAge(const CTransaction& tx, uint64_t& nCoinAge)
             continue; // only count coins meeting min age requirement
 
         // deal with missing timestamps in PoW blocks
-        if (txPrev.nTime == 0)
-            txPrev.nTime = block.nTime;
+        unsigned int nPrevTime = (txPrev.nTime == 0) ? block.nTime : txPrev.nTime;
 
-        if (tx.nTime < txPrev.nTime)
+        if (tx.nTime < nPrevTime)
             return false;  // Transaction timestamp violation
 
         int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
-        int64_t nTimeWeight = GetCoinAgeWeight(txPrev.nTime, tx.nTime);
+        int64_t nTimeWeight = GetCoinAgeWeight(nPrevTime, tx.nTime);
         bnCentSecond += uint256(nValueIn) * nTimeWeight / CENT;
 
         if (GetBoolArg("-printcoinage", false))
             LogPrintf("coin age nValueIn=%d nTime=%d, txPrev.nTime=%d, nTimeWeight=%d bnCentSecond=%s\n",
-                nValueIn, tx.nTime, txPrev.nTime, nTimeWeight, bnCentSecond.ToString().c_str());
+                nValueIn, tx.nTime, nPrevTime, nTimeWeight, bnCentSecond.ToString().c_str());
     }
 
     uint256 bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
@@ -3206,7 +3205,7 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
     static int64_t nLastCoinStakeSearchTime = GetAdjustedTime(); // startup timestamp
 
     CKey key;
-    CTransaction txCoinStake;
+    CMutableTransaction txCoinStake;
     int64_t nSearchTime = txCoinStake.nTime; // search to current time
 
     if (nSearchTime > nLastCoinStakeSearchTime)
@@ -3220,7 +3219,9 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
             {
                 // make sure coinstake would meet timestamp protocol
                 //    as it would be the same as the block timestamp
-                vtx[0].nTime = nTime = txCoinStake.nTime;
+                CMutableTransaction txFirst(vtx[0]);
+                txFirst.nTime = nTime = txCoinStake.nTime;
+                vtx[0] = txFirst;
                 nTime = max(pindexBest->GetMedianTimePast()+1, GetMaxTransactionTime());
                 nTime = max(GetBlockTime(), PastDrift(pindexBest->GetBlockTime()));
 

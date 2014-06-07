@@ -44,7 +44,7 @@ public:
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         const char* pszTimestamp = "January 21st 2014 was such a nice day...";
-        CTransaction txNew(1390280400); // nTime
+        CMutableTransaction txNew(1390280400); // nTime
         txNew.nVersion = 1;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -123,7 +123,9 @@ public:
         nLastPoWBlock = 150;
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = genesis.vtx[0].nTime = 1399544585;
+        CMutableTransaction txGenesis = genesis.vtx[0];
+        genesis.nTime = txGenesis.nTime = 1399544585;
+        genesis.vtx[0] = txGenesis;
         genesis.nNonce = 1403777;
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x46db8d519c64586e3f0bf16153f61fdcf1d30b71ab159bf4a5b46dbcbc79d814"));

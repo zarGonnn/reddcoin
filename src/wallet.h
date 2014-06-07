@@ -278,7 +278,7 @@ public:
     // ppcoin
     int64_t GetStake() const;
     bool GetStakeWeight(const CKeyStore& keystore, uint64_t& nAverageWeight, uint64_t& nTotalWeight);
-    bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, int64_t nFees, CTransaction& txNew, CKey& key);
+    bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, int64_t nFees, CMutableTransaction& txNew, CKey& key);
 
     std::string SendMoney(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);
 

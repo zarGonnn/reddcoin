@@ -8,6 +8,7 @@
 #include "kernel.h"
 #include "txdb.h"
 #include "script.h"
+#include "timedata.h"
 
 using namespace std;
 
