@@ -23,7 +23,8 @@ BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BITCOIN_CONFIG_INCLUDES) $(BO
 noinst_LIBRARIES = \
   libreddcoin_server.a \
   libreddcoin_common.a \
-  libreddcoin_cli.a
+  libreddcoin_cli.a \
+  crypto/libreddcoin_crypto.a
 if ENABLE_WALLET
 BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
 noinst_LIBRARIES += libreddcoin_wallet.a
@@ -76,10 +77,6 @@ BITCOIN_CORE_H = \
   rpcserver.h \
   script.h \
   serialize.h \
-  crypto/common.h \
-  crypto/sha2.h \
-  crypto/sha1.h \
-  crypto/ripemd160.h \
   sync.h \
   threadsafety.h \
   tinyformat.h \
@@ -108,7 +105,7 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libbitcoin_common_a-version.$(OBJEXT): obj/build.h
+libreddcoin_common_a-version.$(OBJEXT): obj/build.h
 
 libreddcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_server_a_SOURCES = \
@@ -145,6 +142,16 @@ libreddcoin_wallet_a_SOURCES = \
   walletdb.cpp \
   $(BITCOIN_CORE_H)
 
+crypto_libreddcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
+crypto_libreddcoin_crypto_a_SOURCES = \
+  crypto/sha1.cpp \
+  crypto/sha2.cpp \
+  crypto/ripemd160.cpp \
+  crypto/common.h \
+  crypto/sha2.h \
+  crypto/sha1.h \
+  crypto/ripemd160.h
+
 libreddcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_common_a_SOURCES = \
   base58.cpp \
@@ -157,9 +164,6 @@ libreddcoin_common_a_SOURCES = \
   protocol.cpp \
   rpcprotocol.cpp \
   script.cpp \
-  crypto/sha1.cpp \
-  crypto/sha2.cpp \
-  crypto/ripemd160.cpp \
   sync.cpp \
   util.cpp \
   version.cpp \
@@ -202,6 +206,7 @@ endif
 reddcoind_LDADD = \
   libreddcoin_server.a \
   libreddcoin_common.a \
+  crypto/libreddcoin_crypto.a \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 if ENABLE_WALLET
@@ -221,6 +226,7 @@ reddcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
 reddcoin_cli_LDADD = \
   libreddcoin_cli.a \
   libreddcoin_common.a \
+  crypto/libreddcoin_crypto.a \
   $(BOOST_LIBS)
 reddcoin_cli_SOURCES = bitcoin-cli.cpp
 reddcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
@@ -257,6 +263,7 @@ LIBBITCOIN_SERVER=libreddcoin_server.a
 LIBBITCOIN_WALLET=libreddcoin_wallet.a
 LIBBITCOIN_COMMON=libreddcoin_common.a
 LIBBITCOIN_CLI=libreddcoin_cli.a
+LIBBITCOIN_CRYPTO=crypto/libreddcoin_crypto.a
 LIBBITCOINQT=qt/libreddcoinqt.a
 
 if ENABLE_TESTS
