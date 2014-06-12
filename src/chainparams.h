@@ -65,8 +65,6 @@ public:
     bool AllowMinDifficultyBlocks() const { return fAllowMinDifficultyBlocks; }
     /* Make standard checks */
     bool RequireStandard() const { return fRequireStandard; }
-    /* Make standard checks */
-    bool RPCisTestNet() const { return fRPCisTestNet; }
     const std::string& DataDir() const { return strDataDir; }
     /* Make miner stop after a block is found. In RPC, don't return
      * until nGenProcLimit blocks are generated */
@@ -117,7 +115,6 @@ protected:
     bool fDefaultCheckMemPool;
     bool fAllowMinDifficultyBlocks;
     bool fRequireStandard;
-    bool fRPCisTestNet;
     bool fMineBlocksOnDemand;
 };
 
