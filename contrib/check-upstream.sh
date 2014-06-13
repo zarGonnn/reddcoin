@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	c6cb40f04bdad2bb9f60aa1c177a9b12122a0d0e
+	e5e9904c1c87fcdddf01e563ffe28cc56aea4f29
 
 check litecoin \
 	master-0.8 \
@@ -59,6 +59,13 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+
+f1dbed9233fb138026c646db0ac34e83ae2114f1 miner: constify CreateNewBlock() arg scriptPubKeyIn
+  Already merged
+24e5d7d5ae735b41beaaa7ef5feed845607c8280 Fix out-of-bounds check
+  Already merged
+7e1701899534151972ddff3c08cc964a9db64bc5 CreateNewBlock() now takes scriptPubKey argument, rather than a key.
+  Already merged
 1bb86d6f154da45464eb8b009c298dccd1cb3dab Squashed 'src/leveldb/' changes from a02ddf9..be1b0ff
   Already at 1.15
 bb237705d08bcf0a5963219c9ac4866e2f60b485 Checkpoint at block 250,000
