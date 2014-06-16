@@ -18,6 +18,8 @@
 #include <stdint.h>
 #include <string>
 
+using namespace std;
+
 QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
 {
     if (!IsFinalTx(wtx, chainActive.Height() + 1))
