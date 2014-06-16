@@ -591,7 +591,10 @@ void static ReddcoinMiner(CWallet *pwallet)
 
         auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey));
         if (!pblocktemplate.get())
+        {
+            LogPrintf("Error in BitcoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
             return;
+        }
         CBlock *pblock = &pblocktemplate->block;
         // exit if received a PoSV block template
         if (pblock->vtx[0].vout[0].IsEmpty())
