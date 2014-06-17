@@ -59,7 +59,8 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
-
+9d14e689c86a395c11a530767db4ddf895446ba8 [raw] reject insanely high fees by default in sendrawtransaction
+  Already merged
 f1dbed9233fb138026c646db0ac34e83ae2114f1 miner: constify CreateNewBlock() arg scriptPubKeyIn
   Already merged
 24e5d7d5ae735b41beaaa7ef5feed845607c8280 Fix out-of-bounds check
