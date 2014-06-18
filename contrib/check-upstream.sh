@@ -15,11 +15,11 @@ function check(){
 
 check bitcoin \
 	master \
-	e5e9904c1c87fcdddf01e563ffe28cc56aea4f29
+	2e9c8aed310bb90b607954f3b0d5135545f55a10
 
 check litecoin \
 	master-0.8 \
-	ccd9a1f5f72235244886d108f014d40d2d6c7bd5
+	fab1907372397423e2debb44416385dc53ffd079
 
 echo ""
 echo "In the output files, commits prefixed with a + are not yet merged from upstream for some reason"
@@ -34,6 +34,14 @@ echo "If you don't include a commit for some reason, explain why at the bottom o
 
 # Not merged from Litecoin
 
+fab1907372397423e2debb44416385dc53ffd079 Litecoin v0.8.7.2
+  Obvious
+cc924b775c04326e3695d897739d6f791fd76b26 Litecoin: Checkpoint at block 585010
+  Obvious
+73f892b5907a41af0800158ac676ede61eaf98ce upgrade to openssl-1.0.1h for CVE-2014-0224
+  Gitian done separately
+c2cf47946aefa4b799343be39bb740ff0b38c75e Changed old bitcoin links
+  Reddcoin has own documentation
 dc4cd268f521ab7ae503692eb2c56f581087ef9f Update Qt 4.8.3 download link
   Reddcoin has own release documentation
 a8f8323fa9b369f8473511f1c2864ddcac997572 Change release-process.md to sign release tags
@@ -59,6 +67,12 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+9a4a7d3c6a6413b952dde12c899cf74a3fab8452 qt: english translation update
+  Translations done separately
+d64eef48a45d1bbbbab5adf39d6ba1fe4537cea1 Add getnetworkhashps to get the calculated network hashrate
+  Already merged
+08081e393b6d3249c19395f91537a7d824ec7333 included-tests: update gitian descriptors for hexdump dependency
+  Gitian will be done separate
 9d14e689c86a395c11a530767db4ddf895446ba8 [raw] reject insanely high fees by default in sendrawtransaction
   Already merged
 f1dbed9233fb138026c646db0ac34e83ae2114f1 miner: constify CreateNewBlock() arg scriptPubKeyIn
@@ -84,9 +98,9 @@ d4e2b040ed5dc4f068c89039bc1a8610b68df5c7 Bugfix: Move boost/version include from
 e5c4dfdfc02b91027ba58816546d28499b0581cc Make the rand tests determinstic. (fixes #2714)
   Already merged
 e9bfe6572900451e79fea7686625fd1a13eb9929 Made the build/release process completable verbatim as listed in release-process.md
-  Gitian will be done separatel
+  Gitian will be done separate
 a6635f6e95d3e5fbc9de3f8d13a9de669995a4b5 Add wtogami to gitian download scripts.
-  Gitian will be done separatel
+  Gitian will be done separate
 091aa8dae9b7345a1cd81e2733766463dfbf4b82 RPC: add getbestblockhash, to return tip of best chain
   Already merged
 adae78ea9940f4d44382967d1296e7db0b54a4de Squashed 'src/leveldb/' changes from aca1ffc..ae6c262
