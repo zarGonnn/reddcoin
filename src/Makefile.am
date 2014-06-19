@@ -79,6 +79,7 @@ BITCOIN_CORE_H = \
   serialize.h \
   sync.h \
   threadsafety.h \
+  timedata.h \
   tinyformat.h \
   txdb.h \
   txmempool.h \
@@ -165,6 +166,7 @@ libreddcoin_common_a_SOURCES = \
   rpcprotocol.cpp \
   script.cpp \
   sync.cpp \
+  timedata.cpp \
   util.cpp \
   version.cpp \
   compat/glibc_sanity.cpp \

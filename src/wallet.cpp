@@ -11,6 +11,7 @@
 #include "coincontrol.h"
 #include "kernel.h"
 #include "net.h"
+#include "timedata.h"
 #include "txdb.h"
 
 #include <boost/algorithm/string/replace.hpp>

@@ -9,6 +9,7 @@
 #include "script.h"
 #include "scrypt.h"
 #include "serialize.h"
+#include "timedata.h"
 #include "uint256.h"
 
 #include <stdint.h>
