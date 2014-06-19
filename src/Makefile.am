@@ -20,10 +20,19 @@ endif
 BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
 BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
+LIBBITCOIN_SERVER=libreddcoin_server.a
+LIBBITCOIN_WALLET=libreddcoin_wallet.a
+LIBBITCOIN_COMMON=libreddcoin_common.a
+LIBBITCOIN_CLI=libreddcoin_cli.a
+LIBBITCOIN_UTIL=libreddcoin_util.a
+LIBBITCOIN_CRYPTO=crypto/libreddcoin_crypto.a
+LIBBITCOINQT=qt/libreddcoinqt.a
+
 noinst_LIBRARIES = \
   libreddcoin_server.a \
   libreddcoin_common.a \
   libreddcoin_cli.a \
+  libreddcoin_util.a \
   crypto/libreddcoin_crypto.a
 if ENABLE_WALLET
 BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
@@ -50,6 +59,7 @@ BITCOIN_CORE_H = \
   base58.h \
   bloom.h \
   chainparams.h \
+  chainparamsbase.h \
   checkpoints.h \
   checkqueue.h \
   clientversion.h \
@@ -106,8 +116,9 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libreddcoin_common_a-version.$(OBJEXT): obj/build.h
+libreddcoin_util_a-version.$(OBJEXT): obj/build.h
 
+# server: shared between reddcoind and reddcoin-qt
 libreddcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -133,6 +144,8 @@ libreddcoin_server_a_SOURCES = \
   $(JSON_H) \
   $(BITCOIN_CORE_H)
 
+# wallet: shared between reddcoind and reddcoin-qt, but only linked
+# when wallet enabled
 libreddcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_wallet_a_SOURCES = \
   db.cpp \
@@ -143,6 +156,7 @@ libreddcoin_wallet_a_SOURCES = \
   walletdb.cpp \
   $(BITCOIN_CORE_H)
 
+# crypto primitives library
 crypto_libreddcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
 crypto_libreddcoin_crypto_a_SOURCES = \
   crypto/sha1.cpp \
@@ -153,6 +167,7 @@ crypto_libreddcoin_crypto_a_SOURCES = \
   crypto/sha1.h \
   crypto/ripemd160.h
 
+# common: shared between reddcoind, and reddcoin-qt and non-server tools
 libreddcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_common_a_SOURCES = \
   base58.cpp \
@@ -163,8 +178,16 @@ libreddcoin_common_a_SOURCES = \
   key.cpp \
   netbase.cpp \
   protocol.cpp \
-  rpcprotocol.cpp \
   script.cpp \
+  $(BITCOIN_CORE_H)
+
+# util: shared between all executables.
+# This library *must* be included to make sure that the glibc
+# backward-compatibility objects and their sanity checks are linked.
+libreddcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
+libreddcoin_util_a_SOURCES = \
+  chainparamsbase.cpp \
+  rpcprotocol.cpp \
   sync.cpp \
   timedata.cpp \
   util.cpp \
@@ -174,15 +197,16 @@ libreddcoin_common_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libreddcoin_common_a_SOURCES += compat/glibc_compat.cpp
-libreddcoin_common_a_SOURCES += compat/glibcxx_compat.cpp
+libreddcoin_util_a_SOURCES += compat/glibc_compat.cpp
+libreddcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
+# cli: shared between bitcoin-cli and bitcoin-qt
 libreddcoin_cli_a_SOURCES = \
   rpcclient.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libreddcoin_common_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libreddcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # Reddcoin specific
@@ -206,9 +230,10 @@ endif
 
 # reddcoind binary #
 reddcoind_LDADD = \
-  libreddcoin_server.a \
-  libreddcoin_common.a \
-  crypto/libreddcoin_crypto.a \
+  $(LIBBITCOIN_SERVER) \
+  $(LIBBITCOIN_COMMON) \
+  $(LIBBITCOIN_UTIL) \
+  $(LIBBITCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 if ENABLE_WALLET
@@ -226,11 +251,13 @@ reddcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
 
 # reddcoin-cli binary #
 reddcoin_cli_LDADD = \
-  libreddcoin_cli.a \
-  libreddcoin_common.a \
-  crypto/libreddcoin_crypto.a \
+  $(LIBBITCOIN_CLI) \
+  $(LIBBITCOIN_COMMON) \
+  $(LIBBITCOIN_UTIL) \
+  $(LIBBITCOIN_CRYPTO) \
   $(BOOST_LIBS)
-reddcoin_cli_SOURCES = bitcoin-cli.cpp
+reddcoin_cli_SOURCES = \
+  bitcoin-cli.cpp
 reddcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
@@ -260,13 +287,6 @@ clean-local:
 %.pb.cc %.pb.h: %.proto
 	@test -f $(PROTOC)
 	$(AM_V_GEN) $(PROTOC) --cpp_out=$(@D) --proto_path=$(abspath $(<D) $<)
-
-LIBBITCOIN_SERVER=libreddcoin_server.a
-LIBBITCOIN_WALLET=libreddcoin_wallet.a
-LIBBITCOIN_COMMON=libreddcoin_common.a
-LIBBITCOIN_CLI=libreddcoin_cli.a
-LIBBITCOIN_CRYPTO=crypto/libreddcoin_crypto.a
-LIBBITCOINQT=qt/libreddcoinqt.a
 
 if ENABLE_TESTS
 include Makefile.test.include

@@ -25,7 +25,7 @@ unsigned int pnSeed[] =
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
-        networkID = CChainParams::MAIN;
+        networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -36,7 +36,6 @@ public:
         pchMessageStart[3] = 0xdb;
         vAlertPubKey = ParseHex("0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1");
         nDefaultPort = 45444;
-        nRPCPort = 45443;
         bnProofOfWorkLimit = ~uint256(0) >> 32;
         nSubsidyHalvingInterval = 50000;
         nMinerThreads = 0;
@@ -109,7 +108,7 @@ static CMainParams mainParams;
 class CTestNetParams : public CMainParams {
 public:
     CTestNetParams() {
-        networkID = CChainParams::TESTNET;
+        networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -120,9 +119,7 @@ public:
         pchMessageStart[3] = 0xde;
         vAlertPubKey = ParseHex("048b75ab041ee9965f6f57ee299395c02daf5105f208fc49e908804aad3ace5a77c7f87b3aae74d6698124f20c3d1bea31c9fcdd350c9c61c0113fd988ecfb5c09");
         nDefaultPort = 55444;
-        nRPCPort = 55443;
         nLastPoWBlock = 150;
-        strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = genesis.vtx[0].nTime = 1399544585;
@@ -156,7 +153,7 @@ static CTestNetParams testNetParams;
 class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
-        networkID = CChainParams::REGTEST;
+        networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
         pchMessageStart[0] = 0xff;
         pchMessageStart[1] = 0xc4;
@@ -170,7 +167,6 @@ public:
         genesis.nNonce = 3;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 56444;
-        strDataDir = "regtest";
         assert(hashGenesisBlock == uint256("0472dc040de80ded8bd385a2b6bc6e4e05cb6432047efa07692724c6ccef40ac"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
@@ -185,21 +181,23 @@ public:
 };
 static CRegTestParams regTestParams;
 
-static CChainParams *pCurrentParams = &mainParams;
+static CChainParams *pCurrentParams = 0;
 
 const CChainParams &Params() {
+    assert(pCurrentParams);
     return *pCurrentParams;
 }
 
-void SelectParams(CChainParams::Network network) {
+void SelectParams(CBaseChainParams::Network network) {
+    SelectBaseParams(network);
     switch (network) {
-        case CChainParams::MAIN:
+        case CBaseChainParams::MAIN:
             pCurrentParams = &mainParams;
             break;
-        case CChainParams::TESTNET:
+        case CBaseChainParams::TESTNET:
             pCurrentParams = &testNetParams;
             break;
-        case CChainParams::REGTEST:
+        case CBaseChainParams::REGTEST:
             pCurrentParams = &regTestParams;
             break;
         default:
@@ -209,19 +207,9 @@ void SelectParams(CChainParams::Network network) {
 }
 
 bool SelectParamsFromCommandLine() {
-    bool fRegTest = GetBoolArg("-regtest", false);
-    bool fTestNet = GetBoolArg("-testnet", false);
-
-    if (fTestNet && fRegTest) {
+    if (!SelectBaseParamsFromCommandLine())
         return false;
-    }
 
-    if (fRegTest) {
-        SelectParams(CChainParams::REGTEST);
-    } else if (fTestNet) {
-        SelectParams(CChainParams::TESTNET);
-    } else {
-        SelectParams(CChainParams::MAIN);
-    }
+    SelectParams(BaseParams().NetworkID());
     return true;
 }
