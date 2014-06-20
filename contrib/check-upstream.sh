@@ -67,6 +67,26 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+b0730874d95e42953736f49d8041221d698ed95a Support absence of wallet (pwalletMain==NULL) in several locations, notably RPC.
+  Already merged
+738b8598aea6aa42d253d1520234809cd7c90471 Hardcode string in miniupnpcstring.h and remove wine requirement from deps-win32.yml
+  Gitian will be done separate
+f65dddc7b28e3cc8d660b3a7cf336b27c18b1ce7 misc small spelling/indentation fixes
+  Already merged
+b5ab7f34f8c6d2319dec3c565721bc9431c64abc Fix gitian qt-win32.yml build
+  Gitian will be done separate
+cd4d495ed483fad22cac765d42196481b8d19553 Update Qt 4.8.3 download link
+  Gitian will be done separate
+f2bc1d35d6900e044209e76533dc514d31f768fe Upgrade gitian win32 to boost-1.54.0
+  Gitian will be done separate
+af6c2c71ed7282791f0f09fd9e5aadb948e5bbbf Upgrade gitian win32 to Precise 12.04.
+  Gitian will be done separate
+c589f5f2bdc18c76d16107e557757e0d9698e6b6 build: add libcrypt32 dep for new mingw. Also ensure that libgcc/libstdc++ are static-linked regardless of the toolchain config
+  Gitian will be done separate
+7010e505f5c87104afecb847ecf5bf9892ddc493 Adjust weight for michagogo in gitian download scripts
+  Gitian will be done separate
+0766e6ced5f1b914518837c2af7a2d77c0ed276d Add michagogo to gitian download scripts
+  Gitian will be done separate
 9a4a7d3c6a6413b952dde12c899cf74a3fab8452 qt: english translation update
   Translations done separately
 d64eef48a45d1bbbbab5adf39d6ba1fe4537cea1 Add getnetworkhashps to get the calculated network hashrate
