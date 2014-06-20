@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	2e9c8aed310bb90b607954f3b0d5135545f55a10
+	26702e6930519c7d063796f2572a5b4ef5f29b06
 
 check litecoin \
 	master-0.8 \
@@ -67,6 +67,22 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+62568f9a1e98065bd51069649f23a337eab89f94 doc: build with qt5 is currently not possible
+  It works again
+b2ba55c42b563418e7be4adb38cdbf1852e6c78d Avoid core dump if rpc port is in use.
+  Already merged
+c00237de9d4a4bce9f9e536e9e71fa2b5b0ffef5 Update michagogo's gitian pgp key, adding UIDs
+  Gitian will be done separate
+5ea66c54fb210a53a6d0f639b8bbd240670bf128 style-police: fixed badly readable code in ProcessMessage()
+  Already merged
+fbed9c9d6356f86e5507b3fc032f263a17137d57 special case DoS value == 0 in ProcessMessage()
+  Already merged
+61823c47dbdb371ecbffa3eb371e0a4fc8d3fee2 HTTPS-ify the downloads for the deps
+  Gitian will be done separate
+d18f5bf12c077c945507170276b71367fc5be9ad Switch the order of win32 deps and win32 qt in release-process.md
+  Gitian will be done separate
+7048443e8b5b5ca85b7440be973609bd61b31402 Fix and improve release-process.md
+  Gitian will be done separate
 b0730874d95e42953736f49d8041221d698ed95a Support absence of wallet (pwalletMain==NULL) in several locations, notably RPC.
   Already merged
 738b8598aea6aa42d253d1520234809cd7c90471 Hardcode string in miniupnpcstring.h and remove wine requirement from deps-win32.yml
