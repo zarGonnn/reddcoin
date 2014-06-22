@@ -231,6 +231,7 @@ void StakeMiner(CWallet *pwallet);
 
 struct CNodeStateStats {
     int nMisbehavior;
+    int nSyncHeight;
 };
 
 struct CDiskBlockPos
