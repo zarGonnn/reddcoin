@@ -103,6 +103,7 @@ extern bool fBloomFilters;
 extern bool fLogTimestamps;
 extern volatile bool fReopenDebugLog;
 
+bool GetRandBytes(unsigned char *buf, int num);
 void RandAddSeed();
 void RandAddSeedPerfmon();
 void SetupEnvironment();
