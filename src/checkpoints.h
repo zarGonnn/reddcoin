@@ -22,8 +22,8 @@ class uint256;
 /** Block-chain checkpoints are compiled-in sanity checks.
  * They are updated every release or three.
  */
-namespace Checkpoints
-{
+namespace Checkpoints {
+
     /** Checkpointing mode */
     enum CPMode
     {
@@ -64,7 +64,7 @@ namespace Checkpoints
     bool SetCheckpointPrivKey(std::string strPrivKey);
     bool SendSyncCheckpoint(uint256 hashCheckpoint);
     bool IsMatureSyncCheckpoint();
-}
+} //namespace Checkpoints
 
 // ppcoin: synchronized checkpoint
 class CUnsignedSyncCheckpoint

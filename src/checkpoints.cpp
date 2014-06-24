@@ -16,8 +16,8 @@
 // Reddcoin: auto-select a checkpoint among the latest blocks
 static const int nCheckpointSpan = 10;
 
-namespace Checkpoints
-{
+namespace Checkpoints {
+
     typedef std::map<int, uint256> MapCheckpoints;
 
     // How many times we expect transactions after the last checkpoint to
@@ -478,7 +478,7 @@ namespace Checkpoints
         return (chainActive.Height() >= pindexSync->nHeight + COINBASE_MATURITY ||
                 pindexSync->GetBlockTime() + Params().StakeMinAge() < GetAdjustedTime());
     }
-}
+} // namespace Checkpoints
 
 // Reddcoin: sync-checkpoint master key
 const std::string CSyncCheckpoint::strMasterPubKey = "0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1";
@@ -546,3 +546,4 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
     LogPrintf("ProcessSyncCheckpoint: sync-checkpoint at %s\n", hashCheckpoint.ToString().c_str());
     return true;
 }
+

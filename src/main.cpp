@@ -79,6 +79,7 @@ int64_t nMinimumInputValue = DUST_HARD_LIMIT;
 
 // Internal stuff
 namespace {
+
     struct CBlockIndexWorkComparator
     {
         bool operator()(CBlockIndex *pa, CBlockIndex *pb) {
@@ -98,7 +99,7 @@ namespace {
     CCriticalSection cs_LastBlockFile;
     CBlockFileInfo infoLastBlockFile;
     int nLastBlockFile = 0;
-}
+} // anon namespace
 
 // ppcoin
 set<pair<COutPoint, unsigned int> > setStakeSeen;
@@ -118,6 +119,7 @@ extern enum Checkpoints::CPMode CheckpointsMode;
 // These functions dispatch to one or all registered wallets
 
 namespace {
+
 struct CMainSignals {
     // Notifies listeners of updated transaction data (passing hash, transaction, and optionally the block it is found in.
     boost::signals2::signal<void (const uint256 &, const CTransaction &, const CBlock *)> SyncTransaction;
@@ -134,7 +136,8 @@ struct CMainSignals {
     // Tells listeners to broadcast their data.
     boost::signals2::signal<void ()> Broadcast;
 } g_signals;
-}
+
+} // anon namespace
 
 void RegisterWallet(CWalletInterface* pwalletIn) {
     g_signals.SyncTransaction.connect(boost::bind(&CWalletInterface::SyncTransaction, pwalletIn, _1, _2, _3));
@@ -218,7 +221,8 @@ void FinalizeNode(NodeId nodeid) {
     LOCK(cs_main);
     mapNodeState.erase(nodeid);
 }
-}
+
+} // anon namespace
 
 bool GetNodeStateStats(NodeId nodeid, CNodeStateStats &stats) {
     LOCK(cs_main);
