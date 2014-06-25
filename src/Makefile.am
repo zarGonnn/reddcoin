@@ -125,9 +125,7 @@ libreddcoin_server_a_SOURCES = \
   alert.cpp \
   bloom.cpp \
   checkpoints.cpp \
-  coins.cpp \
   init.cpp \
-  keystore.cpp \
   leveldbwrapper.cpp \
   main.cpp \
   miner.cpp \
@@ -170,12 +168,14 @@ crypto_libreddcoin_crypto_a_SOURCES = \
 # common: shared between reddcoind, and reddcoin-qt and non-server tools
 libreddcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_common_a_SOURCES = \
-  base58.cpp \
   allocators.cpp \
+  base58.cpp \
   chainparams.cpp \
+  coins.cpp \
   core.cpp \
   hash.cpp \
   key.cpp \
+  keystore.cpp \
   netbase.cpp \
   protocol.cpp \
   script.cpp \
