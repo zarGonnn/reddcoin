@@ -90,6 +90,7 @@ BITCOIN_CORE_H = \
   net.h \
   noui.h \
   protocol.h \
+  random.h \
   rpcclient.h \
   rpcprotocol.h \
   rpcserver.h \
@@ -194,15 +195,16 @@ libreddcoin_common_a_SOURCES = \
 # backward-compatibility objects and their sanity checks are linked.
 libreddcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libreddcoin_util_a_SOURCES = \
+  compat/glibc_sanity.cpp \
+  compat/glibcxx_sanity.cpp \
   chainparamsbase.cpp \
+  random.cpp \
   rpcprotocol.cpp \
   sync.cpp \
   timedata.cpp \
   uint256.cpp \
   util.cpp \
   version.cpp \
-  compat/glibc_sanity.cpp \
-  compat/glibcxx_sanity.cpp \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
