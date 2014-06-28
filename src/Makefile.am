@@ -190,6 +190,7 @@ libreddcoin_util_a_SOURCES = \
   rpcprotocol.cpp \
   sync.cpp \
   timedata.cpp \
+  uint256.cpp \
   util.cpp \
   version.cpp \
   compat/glibc_sanity.cpp \
