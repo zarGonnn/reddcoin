@@ -116,6 +116,7 @@ extern bool fBenchmark;
 extern int nScriptCheckThreads;
 extern bool fTxIndex;
 extern unsigned int nCoinCacheSize;
+extern CFeeRate minRelayTxFee;
 
 // Reddcoin PoSV
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
