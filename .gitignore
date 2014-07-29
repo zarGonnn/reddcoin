@@ -1,11 +1,10 @@
 *.tar.gz
 
 *.exe
-src/*.exe
-src/*/*.exe
 src/reddcoin
 src/reddcoind
 src/reddcoin-cli
+src/reddcoin-tx
 src/test/test_reddcoin
 src/qt/test/test_reddcoin-qt
 
