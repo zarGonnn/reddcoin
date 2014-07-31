@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	26702e6930519c7d063796f2572a5b4ef5f29b06
+	a616206865d62106944300d7b912e3af8d357610
 
 check litecoin \
 	master-0.8 \
@@ -67,6 +67,8 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+1ce418929a17c063a0a2e3b176b82d280ef053a6 Split MIN_PROTO_VERSION into INIT_PROTO_VERSION and MIN_PEER_PROTO_VERSION
+  Already merged
 62568f9a1e98065bd51069649f23a337eab89f94 doc: build with qt5 is currently not possible
   It works again
 b2ba55c42b563418e7be4adb38cdbf1852e6c78d Avoid core dump if rpc port is in use.
