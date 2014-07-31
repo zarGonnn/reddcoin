@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	a616206865d62106944300d7b912e3af8d357610
+	caca6aa4eb54b71b5e4e9ccfa69341f985b178d9
 
 check litecoin \
 	master-0.8 \
@@ -67,6 +67,10 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+d5d1425657d0dd2dc76f4938c8141a387a81a5a8 Bug fix: CDataStream::GetAndClear() when nReadPos > 0
+  Already merged
+b33b9a6fefbe832bf45a6c7717d0537f27597bff Fix comparison tool by asking for blocks more aggressively
+  Already merged
 1ce418929a17c063a0a2e3b176b82d280ef053a6 Split MIN_PROTO_VERSION into INIT_PROTO_VERSION and MIN_PEER_PROTO_VERSION
   Already merged
 62568f9a1e98065bd51069649f23a337eab89f94 doc: build with qt5 is currently not possible
