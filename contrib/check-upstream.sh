@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	146ba964e4b784171c29600e959a0fae3e2e0c03
+	4a85e067502a5df340e1b8c49df21e4c30a0de68
 
 check litecoin \
 	master-0.8 \
@@ -82,7 +82,7 @@ ba6a4ea344e28d61224dc54a8f816276afa2bfa3 Add some additional logging to give ext
 3a8915d9a85b37f6c58a512fc11457eaa3d3570e doc: replace DOS with MSYS shell to be more consistent
   Already merged
 69aada346f74c978b5d8be59a5d7c79be966ef8c Bump protocol version to 70002
-  We are alredy further
+  We are already further
 17faf562629cd27f00fc138e218ebcc1ce071765 Refactor: pull alert string sanitization into util
   Already merged
 75ef87dd936cd9c84d9a9fd3afce6198409636c4 process received messages one at a time without sleeping between messages
