@@ -67,6 +67,16 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+cc75306ceb9154761a1eb4234ebc058389c89aef Change release-process.md to sign release tags
+  Release process in the end
+c51e49b1a367b328c8567f908b7b5c28263d0bb5 Fix file hash verification error in deps-win32.yml
+  Gitian will be done separate
+ba6a4ea344e28d61224dc54a8f816276afa2bfa3 Add some additional logging to give extra network insight.
+  Already merged
+6a4c196dd64da2fd33dc7ae77a8cdd3e4cf0eff1 Drop fees by 10x due to the persistently higher exchange rate.
+  Need to review fees afterwards
+106f133de6bdb577c4135847fd703d08f525ba46 Fix uninitialized variable added in b33b9a6fe
+  Already merged
 22d1ac44dc57fa4e1f9cad3512cc139986b4f3fe qt: language update from transifex
   To be done later
 3a8915d9a85b37f6c58a512fc11457eaa3d3570e doc: replace DOS with MSYS shell to be more consistent
