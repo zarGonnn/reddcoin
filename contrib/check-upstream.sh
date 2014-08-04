@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	caca6aa4eb54b71b5e4e9ccfa69341f985b178d9
+	146ba964e4b784171c29600e959a0fae3e2e0c03
 
 check litecoin \
 	master-0.8 \
@@ -67,6 +67,18 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+3a8915d9a85b37f6c58a512fc11457eaa3d3570e doc: replace DOS with MSYS shell to be more consistent
+  Already merged
+69aada346f74c978b5d8be59a5d7c79be966ef8c Bump protocol version to 70002
+  We are alredy further
+17faf562629cd27f00fc138e218ebcc1ce071765 Refactor: pull alert string sanitization into util
+  Already merged
+75ef87dd936cd9c84d9a9fd3afce6198409636c4 process received messages one at a time without sleeping between messages
+  Already merged
+959e62f0c889788e7775d5953668ce0cc5c1fea8 make -logtimestamps default on and rework help-message
+  Already merged
+b31482844b682e888a5c81739b488a182128ce12 Check integrity of gitian input source tarballs
+  Gitian will be done separate
 d5d1425657d0dd2dc76f4938c8141a387a81a5a8 Bug fix: CDataStream::GetAndClear() when nReadPos > 0
   Already merged
 b33b9a6fefbe832bf45a6c7717d0537f27597bff Fix comparison tool by asking for blocks more aggressively
