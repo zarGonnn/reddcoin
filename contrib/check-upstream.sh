@@ -67,6 +67,8 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+22d1ac44dc57fa4e1f9cad3512cc139986b4f3fe qt: language update from transifex
+  To be done later
 3a8915d9a85b37f6c58a512fc11457eaa3d3570e doc: replace DOS with MSYS shell to be more consistent
   Already merged
 69aada346f74c978b5d8be59a5d7c79be966ef8c Bump protocol version to 70002
