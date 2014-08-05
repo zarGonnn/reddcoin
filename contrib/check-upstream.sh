@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	55fe4de96056cf7b6bdf708a2912927dc9857207
+	7d9d134bf95cb6a2ce9623c7e6a3535432a61af2
 
 check litecoin \
 	master-0.8 \
@@ -68,6 +68,30 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
 
+f622232bcf8ebc7398f4c8988711155c22705fd4 gitian: Windows 64 bit support
+  Later
+d8b4b49667f3eaf5ac16c218aaba2136ece907d8 Don't store or send side-chain blocks lower than last checkpoint.
+  Another implementation already there, to be checked
+060fdb41fc58e962a694021f2883f765e3246748 Squashed 'src/leveldb/' changes from e991315..9094c7f
+  Later
+77f1b4ae196f5cf1300ded5c5b786426918f2d8c gitian: add optimization to win32 protobuf
+  Later
+1cbbeb6a270d974b89c68d01e6a8544136a3c562 gitian: Add openssl to linux deps
+  Later
+64be7f7892d00734ae33e8a16ed5f80d23a981dd gitian: Build boost dependency for linux
+  Later
+7eb99a844f6048bc1e1f7c67c7189de819453e44 gitian: Reduce build time for boost windows dependency
+  Later
+f4e72bf8d20f590738a1307fff0787bb2aa870c8 Make gitian builds consistent across platforms
+  Later
+04257151b14da2a7dbfce8fd6f8d5d5835169ea1 gitian: add explicit dependency build for linux
+  Later
+279af1a2af7ea044845da3bbf1a72660f7e520dd build: use Ubuntu 12.04 for linux gitian build
+  Later
+1e3abb4e3d9812945b63452b1fe5b4f058cbd9a2 build: upgrade Qt used by windows build to 5.2.0
+  Later
+2f158dfc93188010f40a7bc96430042797fe52fc build: Update the other win32 deps
+  Later
 0d512a9ee7f01dbd6c06e83c2b3321d185790184 gitian: Add -O2 for win32 build
   Later
 56fce1fdbb688e9c48ba689d8f69bf66501d91c5 Upgrade gitian win32 to boost-1.55.
@@ -151,8 +175,6 @@ cd4d495ed483fad22cac765d42196481b8d19553 Update Qt 4.8.3 download link
 f2bc1d35d6900e044209e76533dc514d31f768fe Upgrade gitian win32 to boost-1.54.0
   Gitian will be done separate
 af6c2c71ed7282791f0f09fd9e5aadb948e5bbbf Upgrade gitian win32 to Precise 12.04.
-  Gitian will be done separate
-c589f5f2bdc18c76d16107e557757e0d9698e6b6 build: add libcrypt32 dep for new mingw. Also ensure that libgcc/libstdc++ are static-linked regardless of the toolchain config
   Gitian will be done separate
 7010e505f5c87104afecb847ecf5bf9892ddc493 Adjust weight for michagogo in gitian download scripts
   Gitian will be done separate
