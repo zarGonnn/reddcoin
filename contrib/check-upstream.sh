@@ -15,7 +15,7 @@ function check(){
 
 check bitcoin \
 	master \
-	4a85e067502a5df340e1b8c49df21e4c30a0de68
+	55fe4de96056cf7b6bdf708a2912927dc9857207
 
 check litecoin \
 	master-0.8 \
@@ -67,6 +67,31 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+
+0d512a9ee7f01dbd6c06e83c2b3321d185790184 gitian: Add -O2 for win32 build
+  Later
+56fce1fdbb688e9c48ba689d8f69bf66501d91c5 Upgrade gitian win32 to boost-1.55.
+  Later
+6d697e9fa45b3f3bf67d79cc3d17717b68a43825 qt: Update translations
+  Later
+cdc11b3228a833f32640f1d81314f5fe92cf945b Added new DNS seed from bitcoinstats.com.
+  Duh
+d78f35a909aac7c4456cee24bad2125205288d16 Explicitly ensure that wallet is unlocked in `importprivkey`
+  Already merged
+c8af33aa7568c450edffe15c4863895c20bac54f Fix heading in README.md
+  To be looked at
+9c6546c90e3f2b93102d06614dffd5ee05db7c93 Rebrand README.md
+  To be looked at
+46469d0f8610587c472d6c627baad327aeda5b49 some more small re-branding changes (Bitcoin Core)
+  To be looked at
+16ec9044d1f2eda7c5c86fcb73c839e17fb35db3 Don't create empty transactions when reading corrupted wallet
+  Already merged
+22f0135df0f6ee94c137d6c59209bdfbd93533fc Rebrand to `Bitcoin Core`
+  To be looked at
+55c68902946c8c9bacea748c159be456a7c9c180 Squashed 'src/leveldb/' changes from 936b461..e991315
+  Check leveldb in the end
+4f99b1601ba3723fb71653784166350c13d95c1b Release process: add section about announcing new release
+  Release process in the end
 cc75306ceb9154761a1eb4234ebc058389c89aef Change release-process.md to sign release tags
   Release process in the end
 c51e49b1a367b328c8567f908b7b5c28263d0bb5 Fix file hash verification error in deps-win32.yml
