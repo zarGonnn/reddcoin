@@ -67,7 +67,8 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
-
+e5aadb25c5793f975a7929d2014daa27cedeb257 Updated fallback seed nodes from sipa's DNS seeds
+  Duh
 f622232bcf8ebc7398f4c8988711155c22705fd4 gitian: Windows 64 bit support
   Later
 d8b4b49667f3eaf5ac16c218aaba2136ece907d8 Don't store or send side-chain blocks lower than last checkpoint.
@@ -100,7 +101,7 @@ f4e72bf8d20f590738a1307fff0787bb2aa870c8 Make gitian builds consistent across pl
   Later
 cdc11b3228a833f32640f1d81314f5fe92cf945b Added new DNS seed from bitcoinstats.com.
   Duh
-d78f35a909aac7c4456cee24bad2125205288d16 Explicitly ensure that wallet is unlocked in `importprivkey`
+d78f35a909aac7c4456cee24bad2125205288d16 Explicitly ensure that wallet is unlocked in importprivkey
   Already merged
 c8af33aa7568c450edffe15c4863895c20bac54f Fix heading in README.md
   To be looked at
@@ -110,7 +111,7 @@ c8af33aa7568c450edffe15c4863895c20bac54f Fix heading in README.md
   To be looked at
 16ec9044d1f2eda7c5c86fcb73c839e17fb35db3 Don't create empty transactions when reading corrupted wallet
   Already merged
-22f0135df0f6ee94c137d6c59209bdfbd93533fc Rebrand to `Bitcoin Core`
+22f0135df0f6ee94c137d6c59209bdfbd93533fc Rebrand to Bitcoin Core
   To be looked at
 55c68902946c8c9bacea748c159be456a7c9c180 Squashed 'src/leveldb/' changes from 936b461..e991315
   Check leveldb in the end
