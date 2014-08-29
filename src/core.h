@@ -211,6 +211,11 @@ public:
         SetNull();
     }
 
+    CTransaction(unsigned int nCreateTime)
+    {
+        SetNull(nCreateTime);
+    }
+
     IMPLEMENT_SERIALIZE
     (
         READWRITE(this->nVersion);
@@ -235,11 +240,16 @@ public:
 
     void SetNull()
     {
+        SetNull(GetAdjustedTime());
+    }
+    
+    void SetNull(unsigned int nCreateTime)
+    {
         nVersion = CTransaction::CURRENT_VERSION;
         vin.clear();
         vout.clear();
         nLockTime = 0;
-        nTime = GetAdjustedTime(); // ppcoin
+        nTime = nCreateTime;
     }
 
     bool IsNull() const
