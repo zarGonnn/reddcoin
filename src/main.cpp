@@ -3501,7 +3501,7 @@ bool LoadExternalBlockFile(FILE* fileIn, CDiskBlockPos *dbp)
                         break;
                 }
             } catch (std::exception &e) {
-                LogPrintf("%s : Deserialize or I/O error - %s", __PRETTY_FUNCTION__, e.what());
+                LogPrintf("%s : Deserialize or I/O error - %s\n", __PRETTY_FUNCTION__, e.what());
             }
         }
         fclose(fileIn);
