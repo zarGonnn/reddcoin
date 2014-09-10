@@ -219,14 +219,11 @@ public:
     IMPLEMENT_SERIALIZE
     (
         READWRITE(this->nVersion);
-        // nVersion = this->nVersion;
+        nVersion = this->nVersion;
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
-        if (this->nVersion > POW_TX_VERSION &&
-            ((nType == SER_NETWORK && nVersion > POW_PROTOCOL_VERSION) ||
-             (nType == SER_GETHASH && nVersion > POW_PROTOCOL_VERSION) ||
-             (nType == SER_DISK    && nVersion > POW_CLIENT_VERSION)))
+        if (this->nVersion > POW_TX_VERSION)
         {
             // ppcoin
             READWRITE(nTime);
@@ -466,10 +463,7 @@ public:
     (
         READWRITE(*(CBlockHeader*)this);
         READWRITE(vtx);
-        if (this->nVersion > POW_BLOCK_VERSION &&
-            ((nType == SER_NETWORK && nVersion > POW_PROTOCOL_VERSION) ||
-             (nType == SER_GETHASH && nVersion > POW_PROTOCOL_VERSION) ||
-             (nType == SER_DISK    && nVersion > POW_CLIENT_VERSION)))
+        if (this->nVersion > POW_BLOCK_VERSION)
             READWRITE(vchBlockSig); // ppcoin
     )
 
