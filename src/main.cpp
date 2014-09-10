@@ -1286,10 +1286,13 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
     }
 
      /// debug print
-    LogPrintf("Difficulty Retarget - Kimoto Gravity Well\n");
-    LogPrintf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-    LogPrintf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString());
-    LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString());
+    if (fDebug)
+    {
+        LogPrintf("Difficulty Retarget - Kimoto Gravity Well\n");
+        LogPrintf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+        LogPrintf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString());
+        LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString());
+    }
 
      return bnNew.GetCompact();
 }
@@ -1846,7 +1849,8 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
         bool fProofOfStake = pindex->nHeight > LAST_POW_BLOCK;
         for (unsigned int i = fProofOfStake ? 1 : 0; i < block.vtx.size(); i++) {
             uint256 hash = block.GetTxHash(i);
-            LogPrintf("CBlock::ConnectBlock : nHeight=%u, PoSV=%d, vts=%u\n", pindex->nHeight, fProofOfStake, i);
+            if (fDebug)
+                LogPrintf("CBlock::ConnectBlock : nHeight=%u, PoSV=%d, vts=%u\n", pindex->nHeight, fProofOfStake, i);
             if (view.HaveCoins(hash) && !view.GetCoins(hash).IsPruned())
                 return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
                                  REJECT_INVALID, "BIP30");
@@ -2846,7 +2850,8 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
         mapOrphanBlocksByPrev.erase(hashPrev);
     }
 
-    LogPrintf("ProcessBlock: ACCEPTED\n");
+    if (fDebug)
+        LogPrintf("ProcessBlock: ACCEPTED\n");
 
     // ppcoin: if responsible for sync-checkpoint send it
     if (pfrom && !CSyncCheckpoint::strMasterPrivKey.empty())
