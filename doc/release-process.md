@@ -113,7 +113,7 @@ Release Process
  From the build directory created above
 
 	export SIGNER=(your PGP key used for gitian)
-	export VERSION=1.3.1.0
+	export VERSION=1.3.1.2
 	cd ../gitian-builder
 
  Build reddcoind and reddcoin-qt on Linux32, Linux64:
@@ -154,7 +154,7 @@ Release Process
 
  From the gitian-builder directory created above
 
-	export VERSION=1.3.1.0
+	export VERSION=1.3.1.2
 	mkdir reddcoin-${VERSION}-linux-gitian
 	pushd reddcoin-${VERSION}-linux-gitian
 	unzip ../reddcoin-${VERSION}-linux-gitian.zip
@@ -225,7 +225,8 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 	brew install qt --HEAD
 	/usr/local/bin/qmake -spec unsupported/macx-clang-libc++ reddcoin-qt.pro USE_UPNP=1 STATIC=1
 	make
-	export QTDIR=/usr/local/Cellar/qt/4.8.5/  # needed to find translations/qt_*.qm files
+	codesign -s "Developer ID" Reddcoin-Qt.app
+	export QTDIR=/usr/local/Cellar/qt/4.8.6/  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
 	python2.7 share/qt/clean_mac_info_plist.py
 	python2.7 contrib/macdeploy/macdeployqtplus Reddcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist

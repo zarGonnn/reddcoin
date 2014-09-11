@@ -25,13 +25,16 @@ int64_t nTransactionFee = 0;
 bool bSpendZeroConfChange = true;
 
 typedef vector<unsigned char> valtype;
-// we split the coinstake value in two to avoid concentrating
-// too many coins in one output.
+
+// we split the coinstake output in two to avoid concentrating
+// too many coins in one output. currently almost always split.
 unsigned int nStakeSplitAge = 45 * 24 * 60 * 60; // 45 days
 // avoid concentrated transactions. on average, each block contains:
-// generated interest  ~= 27.5b * 5% / 365 / 1440 ~= 2.6k
-// corresponding stake ~= 27.5b / 365 / 1440 ~= 52k
-int64_t nStakeCombineThreshold = 50000 * COIN;
+// generated interest  ~= 27b * 5% / 365 / 1440 ~= 2.5k
+// corresponding stake ~= 27b / 365 / 1440 ~= 50k
+// optimally each output stakes once every week so 50k * 52 = 2.6m
+// but only a fraction of the total money supply is staked on the network
+int64_t nStakeCombineThreshold = 2000000 * COIN;
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -1673,14 +1676,12 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                             LogPrintf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
                         break;  // unable to find corresponding public key
                     }
-
-                if (key.GetPubKey() != vchPubKey)
-                {
-                    if (GetBoolArg("-printcoinstake", false))
-                        LogPrintf("CreateCoinStake : invalid key for kernel type=%d\n", whichType);
+                    if (key.GetPubKey() != vchPubKey)
+                    {
+                        if (fDebug && GetBoolArg("-printcoinstake", false))
+                            LogPrintf("CreateCoinStake : invalid key for kernel type=%d\n", whichType);
                         break; // keys mismatch
                     }
-
                     scriptPubKeyOut = scriptPubKeyKernel;
                 }
 
@@ -1690,7 +1691,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                 vwtxPrev.push_back(pcoin.first);
                 txNew.vout.push_back(CTxOut(0, scriptPubKeyOut));
 
-                if (GetCoinAgeWeight(block.GetBlockTime(), (int64_t)txNew.nTime) < nStakeSplitAge)
+                if (GetCoinAgeWeight(block.GetBlockTime(), (int64_t)txNew.nTime) < nStakeSplitAge && nCredit >= nStakeCombineThreshold)
                     txNew.vout.push_back(CTxOut(0, scriptPubKeyOut)); //split stake
                 if (GetBoolArg("-printcoinstake", false))
                     LogPrintf("CreateCoinStake : added kernel type=%d\n", whichType);

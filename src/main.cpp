@@ -55,9 +55,9 @@ bool fTxIndex = true;
 unsigned int nCoinCacheSize = 5000;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64_t CTransaction::nMinTxFee = 100000;
+int64_t CTransaction::nMinTxFee = 1000000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
-int64_t CTransaction::nMinRelayTxFee = 100000;
+int64_t CTransaction::nMinRelayTxFee = 1000000;
 
 static CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
 

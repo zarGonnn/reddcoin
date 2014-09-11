@@ -490,7 +490,6 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
 
 void BitcoinGUI::createTrayIcon(bool fIsTestnet)
 {
-#ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
 
     if (!fIsTestnet)
@@ -505,7 +504,6 @@ void BitcoinGUI::createTrayIcon(bool fIsTestnet)
     }
 
     trayIcon->show();
-#endif
 
     notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
@@ -513,7 +511,6 @@ void BitcoinGUI::createTrayIcon(bool fIsTestnet)
 void BitcoinGUI::createTrayIconMenu()
 {
     QMenu *trayIconMenu;
-#ifndef Q_OS_MAC
     // return if trayIcon is unset (only on non-Mac OSes)
     if (!trayIcon)
         return;
@@ -523,7 +520,8 @@ void BitcoinGUI::createTrayIconMenu()
 
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
-#else
+
+#ifdef Q_OS_MAC
     // Note: On Mac, the dock icon is used to provide the tray's functionality.
     MacDockIconHandler *dockIconHandler = MacDockIconHandler::instance();
     dockIconHandler->setMainWindow((QMainWindow *)this);
@@ -547,7 +545,6 @@ void BitcoinGUI::createTrayIconMenu()
 #endif
 }
 
-#ifndef Q_OS_MAC
 void BitcoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason == QSystemTrayIcon::Trigger)
@@ -556,7 +553,6 @@ void BitcoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
         toggleHideAction->trigger();
     }
 }
-#endif
 
 void BitcoinGUI::optionsClicked()
 {
@@ -993,7 +989,7 @@ void BitcoinGUI::updateStakingIcon()
     if (nLastCoinStakeSearchInterval && nAverageWeight)
     {
         uint64_t nNetworkWeight = GetPoSVKernelPS();
-        unsigned nEstimateTime = nTargetSpacing * nNetworkWeight / nTotalWeight;
+        uint64_t nEstimateTime = nTargetSpacing * nNetworkWeight / nTotalWeight;
 
         QString text;
         if (nEstimateTime < 60)
@@ -1014,7 +1010,7 @@ void BitcoinGUI::updateStakingIcon()
         }
 
         labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-        labelStakingIcon->setToolTip(tr("Staking.<br>Your average weight is %1<br>Your total weight is %2<br>Network weight is %3<br>Expected time to earn reward is %4").arg(nAverageWeight).arg(nTotalWeight).arg(nNetworkWeight).arg(text));
+        labelStakingIcon->setToolTip(tr("Staking.<br>Your average weight is %1<br>Your total weight is %2<br>Network weight is %3<br>Expected to earn reward once every %4").arg(nAverageWeight).arg(nTotalWeight).arg(nNetworkWeight).arg(text));
     }
     else
     {

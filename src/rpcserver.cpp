@@ -298,10 +298,11 @@ static const CRPCCommand vRPCCommands[] =
     { "listlockunspent",        &listlockunspent,        false,     false,      true },
     { "settxfee",               &settxfee,               false,     false,      true },
 
-    // ppcoin
+    // posv
     { "getstakinginfo",         &getstakinginfo,         true,      false,      false },
     { "getcheckpoint",          &getcheckpoint,          true,      true,       false },
     { "reservebalance",         &reservebalance,         false,     false,      false },
+    { "getinterest",            &getinterest,            false,     false,      true },
 
     /* Wallet-enabled mining */
     { "getgenerate",            &getgenerate,            true,      false,      false },

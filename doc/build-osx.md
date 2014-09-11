@@ -75,7 +75,7 @@ Note: After you have installed the dependencies, you should check that the Homeb
 
         openssl version
 
-into Terminal. You should see OpenSSL 1.0.1f 6 Jan 2014.
+into Terminal. You should see OpenSSL 1.0.1f 6 Jan 2014  or newer version.
 
 If not, you can ensure that the Homebrew OpenSSL is correctly linked by running
 
