@@ -199,7 +199,7 @@ std::string HelpMessage(HelpMessageMode hmm)
     strUsage += "  -conf=<file>           " + _("Specify configuration file (default: reddcoin.conf)") + "\n";
     strUsage += "  -datadir=<dir>         " + _("Specify data directory") + "\n";
     strUsage += "  -testnet               " + _("Use the test network") + "\n";
-    strUsage += "  -pid=<file>            " + _("Specify pid file (default: bitcoind.pid)") + "\n";
+    strUsage += "  -pid=<file>            " + _("Specify pid file (default: reddcoind.pid)") + "\n";
     strUsage += "  -staking               " + _("Stake your coins to support network and gain reward (default: 1)") + "\n";
     strUsage += "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 25)") + "\n";
     strUsage += "  -timeout=<n>           " + _("Specify connection timeout in milliseconds (default: 5000)") + "\n";

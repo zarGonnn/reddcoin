@@ -51,7 +51,7 @@
       <item>
        <widget class="QValidatedLineEdit" name="payTo">
         <property name="toolTip">
-         <string>The address to send the payment to (e.g. Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</string>
+         <string>The address to send the payment to (Starts with R)</string>
         </property>
        </widget>
       </item>
