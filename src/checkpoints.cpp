@@ -308,7 +308,8 @@ namespace Checkpoints
 
         LOCK(cs_hashSyncCheckpoint);
         // sync-checkpoint should always be accepted block
-        LogPrintf("CheckSync: accepted? %s\n", hashSyncCheckpoint.ToString().c_str());
+        if (fDebug)
+            LogPrintf("CheckSync: accepted? %s\n", hashSyncCheckpoint.ToString().c_str());
         assert(mapBlockIndex.count(hashSyncCheckpoint));
         const CBlockIndex* pindexSync = mapBlockIndex[hashSyncCheckpoint];
 
