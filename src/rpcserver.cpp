@@ -298,7 +298,13 @@ static const CRPCCommand vRPCCommands[] =
     { "listlockunspent",        &listlockunspent,        false,     false,      true },
     { "settxfee",               &settxfee,               false,     false,      true },
 
-    // posv
+    // Electrum
+    { "createhdseed",           &createhdseed,           false,      false,      true },
+    { "gethdseed",              &gethdseed,              false,      false,      true },
+    { "gethdmpk",               &gethdmpk,               false,      false,      true },
+    { "gethdpubkey",            &gethdpubkey,            false,      false,      true },
+
+    // PoSV
     { "getstakinginfo",         &getstakinginfo,         true,      false,      false },
     { "getcheckpoint",          &getcheckpoint,          true,      true,       false },
     { "reservebalance",         &reservebalance,         false,     false,      false },

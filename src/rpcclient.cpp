@@ -180,6 +180,8 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "getrawmempool"          && n > 0) ConvertTo<bool>(params[0]);
     if (strMethod == "reservebalance"         && n > 0) ConvertTo<bool>(params[0]);
     if (strMethod == "reservebalance"         && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "gethdpubkey"            && n > 0) ConvertTo<boost::int64_t>(params[0]);
+    if (strMethod == "gethdpubkey"            && n > 1) ConvertTo<bool>(params[1]);
 
     return params;
 }

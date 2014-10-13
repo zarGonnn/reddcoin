@@ -14,6 +14,7 @@
 #include "ui_interface.h"
 #include "util.h"
 #include "walletdb.h"
+#include "hd/hd.h"
 
 #include <algorithm>
 #include <map>
@@ -95,7 +96,7 @@ public:
 /** A CWallet is an extension of a keystore, which also maintains a set of transactions and balances,
  * and provides the ability to create new transactions.
  */
-class CWallet : public CCryptoKeyStore, public CWalletInterface
+class CWallet : public CCryptoKeyStore, public CWalletInterface, public CHDWalletInterface
 {
 private:
     bool SelectCoinsSimple(int64_t nTargetValue, unsigned int nSpendTime, int nMinConf, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64_t& nValueRet) const;
@@ -117,6 +118,14 @@ private:
     TxConflicts mapTxConflicts;
     void AddToConflicts(const uint256& wtxhash);
     void SyncMetaData(std::pair<TxConflicts::iterator, TxConflicts::iterator>);
+
+    // HD wallet
+    std::string strRootName;
+    std::string strRootDerivation;
+    CHDSeed hdSeed;
+    CExtPubKey xpub_;                                // master public key
+    std::map<std::string, CExtKey> account_xprv_;    // master private key for an account
+    std::map<std::string, CExtPubKey> account_xpub_; // master public key for an account
 
 public:
     /// Main wallet lock.
@@ -146,7 +155,11 @@ public:
         nOrderPosNext = 0;
         nNextResend = 0;
         nLastResend = 0;
+        // HD wallet
+        strRootName = "x/";
+        strRootDerivation = "m/44'/4'";
     }
+
     CWallet(std::string strWalletFileIn)
     {
         nWalletVersion = FEATURE_BASE;
@@ -158,6 +171,9 @@ public:
         nOrderPosNext = 0;
         nNextResend = 0;
         nLastResend = 0;
+        // HD wallet
+        strRootName = "x/";
+        strRootDerivation = "m/44'/4'";
     }
 
     std::map<uint256, CWalletTx> mapWallet;
@@ -256,6 +272,17 @@ public:
     int64_t GetStake() const;
     bool GetStakeWeight(const CKeyStore& keystore, uint64_t& nAverageWeight, uint64_t& nTotalWeight);
     bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, int64_t nFees, CTransaction& txNew, CKey& key);
+
+    // CHDWalletInterface
+    bool HDCreateMainAccount();
+    bool HDNewSeed();
+    bool HDNewSeed(const std::vector<unsigned char>& seed);
+    bool HDGetSeed(CHDSeed& seed);
+    bool HDGetMnemonic(std::string& mnemonic);
+    bool HDSetMasterPubKey(const CExtPubKey& mpk);
+    bool HDGetMasterPubKey(CExtPubKey& mpk) const;
+    bool HDGenerateSecret(CExtKey &out, unsigned int n, bool fChange);
+    bool HDGeneratePubKey(CExtPubKey &out, unsigned int n, bool fChange);
 
     std::string SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew);
     std::string SendMoneyToDestination(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);

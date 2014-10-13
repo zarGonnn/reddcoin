@@ -26,6 +26,8 @@ share/setup.nsi
 share/qt/Info.plist
 
 src/leveldb/.deps/
+src/hd/.deps/
+src/hd/.dirstamp
 
 src/test/.deps
 src/test/.dirstamp

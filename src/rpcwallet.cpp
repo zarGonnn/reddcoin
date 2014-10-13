@@ -2003,4 +2003,88 @@ Value settxfee(const Array& params, bool fHelp)
     return true;
 }
 
+// HD wallet RPC calls
+Value createhdseed(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 0)
+        throw runtime_error(
+            "createhdseed\n"
+            "\nCreate a new seed for the hierarchical deterministic wallet.\n"
+            "\nResult\n"
+            "seed mnemonic        (string)a list of words joined by space\n"
+        );
 
+    pwalletMain->HDNewSeed();
+    std::string mnemonic;
+    pwalletMain->HDGetMnemonic(mnemonic);
+    return mnemonic;
+}
+
+Value gethdseed(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 0)
+        throw runtime_error(
+            "gethdseed\n"
+            "\nReturn the seed for the hierarchical deterministic wallet.\n"
+            "\nResult\n"
+            "seed mnemonic        (string)a list of words joined by space\n"
+        );
+
+    std::string mnemonic;
+    pwalletMain->HDGetMnemonic(mnemonic);
+    return mnemonic;
+}
+
+Value gethdmpk(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 0)
+        throw runtime_error(
+            "gethdmpk\n"
+            "\nReturn the master public key of the hierarchical deterministic wallet.\n"
+            "\nResult\n"
+            "\"key\"                (string) The master public key\n"
+        );
+
+    CHDSeed seed;
+    if (!pwalletMain->HDGetSeed(seed))
+        pwalletMain->HDNewSeed();
+
+    unsigned char code[74];
+    CExtPubKey mpk;
+    pwalletMain->HDGetMasterPubKey(mpk);
+    mpk.Encode(code);
+    std::vector<unsigned char> vch = Params().Base58Prefix(CChainParams::EXT_PUBLIC_KEY);
+    vch.insert(vch.end(), code, code + 74);
+    return EncodeBase58Check(vch);
+}
+
+Value gethdpubkey(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 2)
+        throw runtime_error(
+            "gethdpubkey\n"
+            "\nReturn a child public key of the hierarchical deterministic wallet.\n"
+            "\nArguments:\n"
+            "1. child         (numeric, required) The index of the child key\n"
+            "2. change        (boolean, optional) Whether it's a change address (default 0)\n"
+            "\nResult\n"
+            "\"key\"          (string) The child public key\n"
+        );
+
+    unsigned int n = (unsigned int)params[0].get_int();
+    if ((n >> 31) != 0)
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid index for child key, must be < 2^31.");
+
+    bool fChange = false;
+    if (params.size() > 1)
+        fChange = params[1].get_bool();
+
+    CHDSeed seed;
+    if (!pwalletMain->HDGetSeed(seed))
+        pwalletMain->HDNewSeed();
+
+    CExtPubKey child;
+    pwalletMain->HDGeneratePubKey(child, n, fChange);
+    CKeyID keyID = child.pubkey.GetID();
+    return CBitcoinAddress(keyID).ToString();
+}

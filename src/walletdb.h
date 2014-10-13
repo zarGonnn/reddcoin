@@ -7,6 +7,7 @@
 
 #include "db.h"
 #include "key.h"
+#include "hd/hd.h"
 
 #include <list>
 #include <stdint.h>
@@ -90,6 +91,12 @@ public:
     bool WriteKey(const CPubKey& vchPubKey, const CPrivKey& vchPrivKey, const CKeyMetadata &keyMeta);
     bool WriteCryptedKey(const CPubKey& vchPubKey, const std::vector<unsigned char>& vchCryptedSecret, const CKeyMetadata &keyMeta);
     bool WriteMasterKey(unsigned int nID, const CMasterKey& kMasterKey);
+
+    // HD wallet
+    bool ReadHDSeed(CHDSeed& seed);
+    bool WriteHDSeed(const CHDSeed& seed);
+    bool ReadCryptedHDSeed(std::vector<unsigned char>& seedCrypted);
+    bool WriteCryptedHDSeed(const std::vector<unsigned char>& seedCrypted);
 
     bool WriteCScript(const uint160& hash, const CScript& redeemScript);
 

@@ -547,7 +547,7 @@ bool CExtKey::Derive(CExtKey &out, unsigned int nChild) const {
 }
 
 void CExtKey::SetMaster(const unsigned char *seed, unsigned int nSeedLen) {
-    static const char hashkey[] = {'B','i','t','c','o','i','n',' ','s','e','e','d'};
+    static const char hashkey[] = {'R','e','d','d','c','o','i','n',' ','s','e','e','d'};
     HMAC_SHA512_CTX ctx;
     HMAC_SHA512_Init(&ctx, hashkey, sizeof(hashkey));
     HMAC_SHA512_Update(&ctx, seed, nSeedLen);

@@ -108,6 +108,28 @@ bool CWalletDB::WriteMasterKey(unsigned int nID, const CMasterKey& kMasterKey)
     return Write(std::make_pair(std::string("mkey"), nID), kMasterKey, true);
 }
 
+bool CWalletDB::ReadHDSeed(CHDSeed& seed)
+{
+    return Read(std::string("hdmkey"), seed);
+}
+
+bool CWalletDB::WriteHDSeed(const CHDSeed& seed)
+{
+    nWalletDBUpdated++;
+    return Write(std::string("hdmkey"), seed, true);
+}
+
+bool CWalletDB::ReadCryptedHDSeed(std::vector<unsigned char>& seedCrypted)
+{
+    return Read(std::string("chdmkey"), seedCrypted);
+}
+
+bool CWalletDB::WriteCryptedHDSeed(const std::vector<unsigned char>& seedCrypted)
+{
+    nWalletDBUpdated++;
+    return Write(std::string("chdmkey"), seedCrypted, true);
+}
+
 bool CWalletDB::WriteCScript(const uint160& hash, const CScript& redeemScript)
 {
     nWalletDBUpdated++;

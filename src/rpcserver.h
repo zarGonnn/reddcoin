@@ -192,10 +192,16 @@ extern json_spirit::Value gettxoutsetinfo(const json_spirit::Array& params, bool
 extern json_spirit::Value gettxout(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value verifychain(const json_spirit::Array& params, bool fHelp);
 
-// posv
+// PoSV
 extern json_spirit::Value getstakinginfo(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getcheckpoint(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value reservebalance(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getinterest(const json_spirit::Array& params, bool fHelp);
+
+// Electrum
+extern json_spirit::Value createhdseed(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value gethdseed(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value gethdmpk(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value gethdpubkey(const json_spirit::Array& params, bool fHelp);
 
 #endif
