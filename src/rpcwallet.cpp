@@ -2045,8 +2045,7 @@ Value gethdmpk(const Array& params, bool fHelp)
             "\"key\"                (string) The master public key\n"
         );
 
-    CHDSeed seed;
-    if (!pwalletMain->HDGetSeed(seed))
+    if (!pwalletMain->HDGetSeed())
         pwalletMain->HDNewSeed();
 
     unsigned char code[74];
@@ -2079,8 +2078,7 @@ Value gethdpubkey(const Array& params, bool fHelp)
     if (params.size() > 1)
         fChange = params[1].get_bool();
 
-    CHDSeed seed;
-    if (!pwalletMain->HDGetSeed(seed))
+    if (!pwalletMain->HDGetSeed())
         pwalletMain->HDNewSeed();
 
     CExtPubKey child;

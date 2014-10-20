@@ -45,8 +45,9 @@ enum WalletFeature
 
     FEATURE_WALLETCRYPT = 40000, // wallet encryption
     FEATURE_COMPRPUBKEY = 60000, // compressed public keys
+    FEATURE_HDWALLET    = 2000000, // hierarchical deterministic wallet
 
-    FEATURE_LATEST = 60000
+    FEATURE_LATEST = 2000000
 };
 
 
@@ -56,16 +57,26 @@ class CKeyPool
 public:
     int64_t nTime;
     CPubKey vchPubKey;
+    int64_t nChild;
 
     CKeyPool()
     {
         nTime = GetTime();
+        nChild = -1;
     }
 
     CKeyPool(const CPubKey& vchPubKeyIn)
     {
         nTime = GetTime();
         vchPubKey = vchPubKeyIn;
+        nChild = -1;
+    }
+
+    CKeyPool(const CPubKey& vchPubKeyIn, int64_t nIndex)
+    {
+        nTime = GetTime();
+        vchPubKey = vchPubKeyIn;
+        nChild = nIndex;
     }
 
     IMPLEMENT_SERIALIZE
@@ -74,6 +85,7 @@ public:
             READWRITE(nVersion);
         READWRITE(nTime);
         READWRITE(vchPubKey);
+        READWRITE(nChild);
     )
 };
 
@@ -204,7 +216,7 @@ public:
 
     // keystore implementation
     // Generate a new key
-    CPubKey GenerateNewKey();
+    CKeyPool GenerateNewKey();
     // Adds a key to the store, and saves it to disk.
     bool AddKeyPubKey(const CKey& key, const CPubKey &pubkey);
     // Adds a key to the store, without saving it to disk (used by LoadWallet)
@@ -277,7 +289,7 @@ public:
     bool HDCreateMainAccount();
     bool HDNewSeed();
     bool HDNewSeed(const std::vector<unsigned char>& seed);
-    bool HDGetSeed(CHDSeed& seed);
+    bool HDGetSeed();
     bool HDGetMnemonic(std::string& mnemonic);
     bool HDSetMasterPubKey(const CExtPubKey& mpk);
     bool HDGetMasterPubKey(CExtPubKey& mpk) const;

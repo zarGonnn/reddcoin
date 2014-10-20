@@ -76,7 +76,7 @@ protected:
 
     virtual bool HDNewSeed() =0;
     virtual bool HDNewSeed(const std::vector<unsigned char>& entropy) =0;
-    virtual bool HDGetSeed(CHDSeed& seed) =0;
+    virtual bool HDGetSeed() =0;
     virtual bool HDGetMnemonic(std::string& mnemonic) =0;
 
     virtual bool HDSetMasterPubKey(const CExtPubKey& mpk) =0;

@@ -27,6 +27,7 @@ std::string CHDSeed::ElectrumHash(const unsigned char *seed, unsigned int nSeedL
 void CHDSeed::New()
 {
     std::vector<unsigned char> vch2(nSize, 0);
+    RandAddSeedPerfmon();
     while(!RAND_bytes(&vch2[0], vch2.size()));
 
     CBigNum entropy = CBigNum(vch2);
@@ -40,9 +41,6 @@ void CHDSeed::New()
     } while (true);
 
     vch = vch2;
-    std::string words;
-    GetMnemonic(words);
-    LogPrintf("CHSeed::New: %s\n", words.c_str());
 }
 
 bool CHDSeed::GetMnemonic(std::string& words) const
@@ -56,7 +54,8 @@ bool CHDSeed::GetMnemonic(std::string& words) const
 
 bool CWallet::HDCreateMainAccount()
 {
-    if (!hdSeed.IsValid()) return false;
+    if (!HDGetSeed())
+        HDNewSeed();
 
     account_xprv_.erase(strRootName);
     account_xpub_.erase(strRootName);
@@ -96,6 +95,7 @@ bool CWallet::HDCreateMainAccount()
 
     account_xprv_[strRootName] = out;
     account_xpub_[strRootName] = out.Neuter();
+    LogPrintf("CWallet::HDCreateMainAccount: completed\n");
     return true;
 }
 
@@ -132,14 +132,10 @@ bool CWallet::HDNewSeed(const std::vector<unsigned char>& entropy)
     }
 }
 
-bool CWallet::HDGetSeed(CHDSeed& seed)
+bool CWallet::HDGetSeed()
 {
-    if (hdSeed.IsValid())
-    {
-        seed = hdSeed;
-        return true;
-    }
-    else
+    if (hdSeed.IsValid()) return true;
+
     {
         LOCK(cs_wallet);
         bool ret;
@@ -149,7 +145,6 @@ bool CWallet::HDGetSeed(CHDSeed& seed)
             ret = CWalletDB(strWalletFile).ReadHDSeed(hdSeed);
 
         if (ret && hdSeed.IsValid()) {
-            seed = hdSeed;
             return true;
         } else {
             return false;
@@ -160,9 +155,8 @@ bool CWallet::HDGetSeed(CHDSeed& seed)
 
 bool CWallet::HDGetMnemonic(std::string& words)
 {
-    CHDSeed seed;
-    HDGetSeed(seed);
-    return seed.GetMnemonic(words);
+    HDGetSeed();
+    return hdSeed.GetMnemonic(words);
 }
 
 bool CWallet::HDSetMasterPubKey(const CExtPubKey& mpk)
@@ -201,6 +195,7 @@ bool CWallet::HDGenerateSecret(CExtKey &out, unsigned int n, bool fChange)
     if (!account_xprv_[strRootName].Derive(parent, int(fChange)))
         return false;
 
+    LogPrintf("CWallet::HDGenerateSecret: n=%u\n", n);
     return parent.Derive(out, n);
 }
 
@@ -214,5 +209,6 @@ bool CWallet::HDGeneratePubKey(CExtPubKey &out, unsigned int n, bool fChange)
     if (!account_xpub_[strRootName].Derive(parent, int(fChange)))
         return false;
 
+    LogPrintf("CWallet::HDGeneratePubKey: n=%u\n", n);
     return parent.Derive(out, n);
 }
