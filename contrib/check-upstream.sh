@@ -67,6 +67,48 @@ f389e65c8dcb1544a023caff33da41c71fe61a80 Add testnet DNS seed from xurious.com
 
 # Not merged from Bitcoin (since the original fork of Litecoin upto the commit specified above)
 
+f582eda4ed0b5729c9406b63479e637d8d011139 Make qa/rpc-tests/ compatible with OSX
+  Already merged
+87fe71e1fc810ee120a10063fdd26c3245686d54 Add HasCanonicalPushes(), and use it in IsStandardTx
+  Already merged
+4ce9106ff8400ee9cd35c51a9859b19e6122c7b1 gitian: sort generated source distribution archive for windows
+  Later
+6b55e6b97d333a5252f9516a20414f7204e3363a gitian: Post-process .a libraries for win to be deterministic
+  Later
+c13a13efec0051e1fe84749c36c6676dc6e267af gitian: add -D flag to ar for deterministic output for linux deps
+  Later
+3078b582cc6c2e8389ef8e6b5807a51ebae7bf67 linearize.py: Harmonize rpcpass to rpcpassword
+  Already fixed
+1552145ae56bf12f3deaef1cdd8a78b2e923a80e gitian: Sort generated source distribution archive
+  Later
+b7f591555e83cef02f19b3c612aae0961ad741ec doc: add gist link to 'reject' P2P message mention in release notes
+  We roll our own
+e3fff058e031155de983d9e7c6de8dbd864840ce Correct/add/merge a few release notes entries
+  We roll our own
+31a4b898be9beef6041006fbc9063b2880f488a6 Cleanup v0.9 release notes
+  We roll our own
+c43d1e5549f548efd221043bbc8069700ee22183 gitian: Make windows dependencies outputs fully deterministic
+  Later
+0ad474ee276cd1bfa4e7064d5e9d099844bca207 doc: add preliminary release notes for 0.9.0
+  We roll our own  
+12edce56138fa8aa21c755f4dc2c16daebdab2a8 Update the address for downloading libpng
+  Already fixed
+aabcd11ba69022c6ae24c36d56e107b530fee8ad gitian: Make linux boost dependency completely deterministic
+  Later
+aa9348563c88b984d9c42c41aa5d227145c8ac4b gitian: Make linux build of OpenSSL deterministic
+  Later
+65615a3a784c01128b408a915ab375c35640fb0a Gitian fixes for 0.9.0rc1 build
+  Later
+69baec96473ca2dc28ac016093770a46650a4ac9 doc: Add historical release notes
+  We roll our own
+f9a2f088820574ce3c6d06bd9f4ea711184eadad Bump version numbers for 0.9.0rc1 release
+  Not needed
+c3d966690c8719f474532392c0fbe7db9c700763 qt: Transifex pull before 0.9.0rc1
+  No translations
+4412c5a759affdcdb8c9c81b64465979aaba147a Fix `getaddednodeinfo` RPC call with dns=false
+  Already merged
+2383e4883d2ba8ff21fc21a766a95ea711aa0bd7 Re-add newline to error() messages
+  Already fixed
 e5aadb25c5793f975a7929d2014daa27cedeb257 Updated fallback seed nodes from sipa's DNS seeds
   Duh
 f622232bcf8ebc7398f4c8988711155c22705fd4 gitian: Windows 64 bit support
