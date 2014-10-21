@@ -55,25 +55,18 @@ CKeyPool CWallet::GenerateNewKey()
     CWalletDB walletdb(strWalletFile);
 
     int64_t nChild = 0;
-    for (std::set<int64_t>::const_reverse_iterator rit = setKeyPool.rbegin(); rit != setKeyPool.rend(); ++rit)
+    if (!mapKeyPool.empty())
     {
-        int64_t nIndex = *rit;
-        CKeyPool keypool;
-        if (!walletdb.ReadPool(nIndex, keypool))
-            throw runtime_error("CWallet::GenerateNewKey() : read failed");
-
-        if (keypool.nChild >= 0)
-        {
-            nChild = keypool.nChild + 1;
-            break;
-        }
+        std::map<int64_t, CKeyPool>::const_reverse_iterator rit = mapKeyPool.rbegin();
+        nChild = rit->second.nChild + 1;
+        assert (nChild >= 0);
     }
 
-    CExtKey extSecret;
-    if (!HDGenerateSecret(extSecret, nChild, false))
+    CExtKey xsecret;
+    if (!HDGenerateSecret(xsecret, nChild, false))
         throw std::runtime_error(strprintf("CWallet::GenerateNewKey() : HDGenerateSecret failed for nChild=%u", (unsigned int)nChild));
 
-    CKey secret = extSecret.key;
+    CKey secret = xsecret.key;
     CPubKey pubkey = secret.GetPubKey();
     SetMinVersion(FEATURE_HDWALLET);
 
@@ -2003,8 +1996,8 @@ DBErrors CWallet::LoadWallet(bool& fFirstRunRet)
 
     if (nLoadWalletRet != DB_LOAD_OK)
         return nLoadWalletRet;
-    fFirstRunRet = !vchDefaultKey.IsValid();
 
+    fFirstRunRet = !vchDefaultKey.IsValid();
     return DB_LOAD_OK;
 }
 
@@ -2157,7 +2150,7 @@ bool CWallet::NewKeyPool()
         LOCK(cs_wallet);
         CWalletDB walletdb(strWalletFile);
         BOOST_FOREACH(int64_t nIndex, setKeyPool)
-            walletdb.ErasePool(nIndex);
+            mapKeyPool.erase(nIndex);
         setKeyPool.clear();
 
         if (IsLocked())
@@ -2167,37 +2160,41 @@ bool CWallet::NewKeyPool()
         int64_t nKeys = max(GetArg("-keypool", 100), nGapLimit);
 
         std::map<CTxDestination, int64_t> balances = GetAddressBalances();
-        std::vector<CKey> vSecret;
-        std::vector<CPubKey> vPubKey;
         std::vector<CKeyPool> vKeyPool;
+        std::vector<CKey> vSecret;
+        std::vector<CPubKey> vAllHDKey;
+        std::vector<CKeyID> vUsedHDKey;
+
         unsigned int i = 0;
         for(i = 0; (int64_t)vKeyPool.size() < nKeys; i++)
         {
-            CExtKey extSecret;
-            if (!HDGenerateSecret(extSecret, i, false))
+            CExtKey xsecret;
+            if (!HDGenerateSecret(xsecret, i, false))
                 throw runtime_error(strprintf("CWallet::NewKeyPool failed to generate HD child key %u\n", i));
 
-            CKey secret = extSecret.key;
+            CKey secret = xsecret.key;
             CPubKey pubkey = secret.GetPubKey();
+            vAllHDKey.push_back(pubkey);
+
             if (balances.count(CBitcoinAddress(pubkey.GetID()).Get()))
             {
-                vSecret.clear();
-                vPubKey.clear();
+                vUsedHDKey.push_back(pubkey.GetID());
                 vKeyPool.clear();
+                vSecret.clear();
             }
             else
             {
-                vSecret.push_back(secret);
-                vPubKey.push_back(pubkey);
                 vKeyPool.push_back(CKeyPool(pubkey, (int64_t)i));
+                vSecret.push_back(secret);
             }
         }
 
         SetMinVersion(FEATURE_HDWALLET);
+
         for (i = 0; i < nKeys; i++)
         {
             CKey secret = vSecret[i];
-            CPubKey pubkey = vPubKey[i];
+            CPubKey pubkey = secret.GetPubKey();
 
             int64_t nCreationTime = GetTime();
             mapKeyMetadata[pubkey.GetID()] = CKeyMetadata(nCreationTime);
@@ -2208,10 +2205,31 @@ bool CWallet::NewKeyPool()
                 throw std::runtime_error("CWallet::NewKeyPool() : AddKey failed");
 
             int64_t nIndex = i + 1;
-            walletdb.WritePool(nIndex, vKeyPool[i]);
+            mapKeyPool[nIndex] = vKeyPool[i];
             setKeyPool.insert(nIndex);
         }
         LogPrintf("CWallet::NewKeyPool wrote %"PRId64" new keys\n", nKeys);
+
+        std::pair<CTxDestination, int64_t> balance;
+        BOOST_FOREACH(balance, balances)
+        {
+            CKeyID keyID;
+            if (balance.second <= 0 || !CBitcoinAddress(balance.first).GetKeyID(keyID))
+                continue;
+
+            if(std::find(vUsedHDKey.begin(), vUsedHDKey.end(), keyID) == vUsedHDKey.end())
+            {
+                CPubKey pubkey;
+                if (GetPubKey(keyID, pubkey))
+                {
+                    CPubKey hdkey = vAllHDKey[mapHDStaking.size()];
+                    mapHDStaking[pubkey] = hdkey;
+                    LogPrintf("CWallet::NewKeyPool %s is mapped to %s\n",
+                        CBitcoinAddress(pubkey.GetID()).ToString(),
+                        CBitcoinAddress(hdkey.GetID()).ToString());
+                }
+            }
+        }
     }
     return true;
 }
@@ -2242,8 +2260,7 @@ bool CWallet::TopUpKeyPool(unsigned int kpSize)
         while (setKeyPool.size() < nTargetSize)
         {
             int64_t nEnd = *(setKeyPool.rbegin()) + 1;
-            if (!walletdb.WritePool(nEnd, GenerateNewKey()))
-                throw runtime_error("TopUpKeyPool() : writing generated key failed");
+            mapKeyPool[nEnd] = GenerateNewKey();
             setKeyPool.insert(nEnd);
             LogPrintf("keypool added key %"PRId64", size=%"PRIszu"\n", nEnd, setKeyPool.size());
         }
@@ -2269,8 +2286,9 @@ void CWallet::ReserveKeyFromKeyPool(int64_t& nIndex, CKeyPool& keypool)
 
         nIndex = *(setKeyPool.begin());
         setKeyPool.erase(setKeyPool.begin());
-        if (!walletdb.ReadPool(nIndex, keypool))
+        if (!mapKeyPool.count(nIndex))
             throw runtime_error("ReserveKeyFromKeyPool() : read failed");
+        keypool = mapKeyPool[nIndex];
         if (!HaveKey(keypool.vchPubKey.GetID()))
             throw runtime_error("ReserveKeyFromKeyPool() : unknown key in key pool");
         assert(keypool.vchPubKey.IsValid());
@@ -2285,8 +2303,7 @@ int64_t CWallet::AddReserveKey(const CKeyPool& keypool)
         CWalletDB walletdb(strWalletFile);
 
         int64_t nIndex = 1 + *(setKeyPool.rbegin());
-        if (!walletdb.WritePool(nIndex, keypool))
-            throw runtime_error("AddReserveKey() : writing added key failed");
+        mapKeyPool[nIndex] = keypool;
         setKeyPool.insert(nIndex);
         return nIndex;
     }
@@ -2296,11 +2313,7 @@ int64_t CWallet::AddReserveKey(const CKeyPool& keypool)
 void CWallet::KeepKey(int64_t nIndex)
 {
     // Remove from key pool
-    if (fFileBacked)
-    {
-        CWalletDB walletdb(strWalletFile);
-        walletdb.ErasePool(nIndex);
-    }
+    mapKeyPool.erase(nIndex);
     LogPrintf("keypool keep %"PRId64"\n", nIndex);
 }
 
@@ -2550,7 +2563,7 @@ void CReserveKey::ReturnKey()
     vchPubKey = CPubKey();
 }
 
-void CWallet::GetAllReserveKeys(set<CKeyID>& setAddress) const
+void CWallet::GetAllReserveKeys(set<CKeyID>& setAddress)
 {
     setAddress.clear();
 
@@ -2560,8 +2573,9 @@ void CWallet::GetAllReserveKeys(set<CKeyID>& setAddress) const
     BOOST_FOREACH(const int64_t& id, setKeyPool)
     {
         CKeyPool keypool;
-        if (!walletdb.ReadPool(id, keypool))
+        if (!mapKeyPool.count(id))
             throw runtime_error("GetAllReserveKeyHashes() : read failed");
+        keypool = mapKeyPool[id];
         assert(keypool.vchPubKey.IsValid());
         CKeyID keyID = keypool.vchPubKey.GetID();
         if (!HaveKey(keyID))

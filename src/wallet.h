@@ -151,7 +151,14 @@ public:
     std::string strWalletFile;
 
     std::set<int64_t> setKeyPool;
+    std::map<int64_t, CKeyPool> mapKeyPool;
+
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
+
+    // As a mechanism of migrating away from non-HD keys,
+    // if input of a coinstake tx belongs to a non-HD key,
+    // its output goes to a corresponding HD key.
+    std::map<CPubKey, CPubKey> mapHDStaking;
 
     typedef std::map<unsigned int, CMasterKey> MasterKeyMap;
     MasterKeyMap mapMasterKeys;
@@ -307,7 +314,7 @@ public:
     void ReturnKey(int64_t nIndex);
     bool GetKeyFromPool(CPubKey &key);
     int64_t GetOldestKeyPoolTime();
-    void GetAllReserveKeys(std::set<CKeyID>& setAddress) const;
+    void GetAllReserveKeys(std::set<CKeyID>& setAddress);
 
     std::set< std::set<CTxDestination> > GetAddressGroupings();
     std::map<CTxDestination, int64_t> GetAddressBalances();
