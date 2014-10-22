@@ -158,7 +158,7 @@ public:
     // As a mechanism of migrating away from non-HD keys,
     // if input of a coinstake tx belongs to a non-HD key,
     // its output goes to a corresponding HD key.
-    std::map<CPubKey, CPubKey> mapHDStaking;
+    std::map<CPubKey, CKey> mapHDStaking;
 
     typedef std::map<unsigned int, CMasterKey> MasterKeyMap;
     MasterKeyMap mapMasterKeys;

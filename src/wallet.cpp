@@ -1767,6 +1767,14 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                     scriptPubKeyOut = scriptPubKeyKernel;
                 }
 
+                // if input belongs to a non-HD key, try to find a HD key for output
+                CPubKey pubkey = key.GetPubKey();
+                if (mapHDStaking.count(pubkey))
+                {
+                    key = mapHDStaking[pubkey];
+                    scriptPubKeyOut.SetDestination(CBitcoinAddress(pubkey.GetID()).Get());
+                }
+
                 txNew.nTime -= n;
                 txNew.vin.push_back(CTxIn(pcoin.first->GetHash(), pcoin.second));
                 nCredit += pcoin.first->vout[pcoin.second].nValue;
@@ -2162,7 +2170,7 @@ bool CWallet::NewKeyPool()
         std::map<CTxDestination, int64_t> balances = GetAddressBalances();
         std::vector<CKeyPool> vKeyPool;
         std::vector<CKey> vSecret;
-        std::vector<CPubKey> vAllHDKey;
+        std::vector<CKey> vAllHDKey;
         std::vector<CKeyID> vUsedHDKey;
 
         unsigned int i = 0;
@@ -2174,7 +2182,7 @@ bool CWallet::NewKeyPool()
 
             CKey secret = xsecret.key;
             CPubKey pubkey = secret.GetPubKey();
-            vAllHDKey.push_back(pubkey);
+            vAllHDKey.push_back(secret);
 
             if (balances.count(CBitcoinAddress(pubkey.GetID()).Get()))
             {
@@ -2214,7 +2222,8 @@ bool CWallet::NewKeyPool()
         BOOST_FOREACH(balance, balances)
         {
             CKeyID keyID;
-            if (balance.second <= 0 || !CBitcoinAddress(balance.first).GetKeyID(keyID))
+            if (!mapAddressBook.count(balance.first) || balance.second <= 0 ||
+                !CBitcoinAddress(balance.first).GetKeyID(keyID))
                 continue;
 
             if(std::find(vUsedHDKey.begin(), vUsedHDKey.end(), keyID) == vUsedHDKey.end())
@@ -2222,11 +2231,11 @@ bool CWallet::NewKeyPool()
                 CPubKey pubkey;
                 if (GetPubKey(keyID, pubkey))
                 {
-                    CPubKey hdkey = vAllHDKey[mapHDStaking.size()];
+                    CKey hdkey = vAllHDKey[mapHDStaking.size()];
                     mapHDStaking[pubkey] = hdkey;
                     LogPrintf("CWallet::NewKeyPool %s is mapped to %s\n",
                         CBitcoinAddress(pubkey.GetID()).ToString(),
-                        CBitcoinAddress(hdkey.GetID()).ToString());
+                        CBitcoinAddress(hdkey.GetPubKey().GetID()).ToString());
                 }
             }
         }
