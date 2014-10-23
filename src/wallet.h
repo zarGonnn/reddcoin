@@ -297,6 +297,7 @@ public:
     bool HDNewSeed();
     bool HDNewSeed(const std::vector<unsigned char>& seed);
     bool HDGetSeed();
+    bool HDSetSeed(const std::string &mnemonic);
     bool HDGetMnemonic(std::string& mnemonic);
     bool HDSetMasterPubKey(const CExtPubKey& mpk);
     bool HDGetMasterPubKey(CExtPubKey& mpk) const;

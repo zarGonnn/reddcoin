@@ -45,126 +45,131 @@ void CHDSeed::New()
 
 bool CHDSeed::GetMnemonic(std::string& words) const
 {
-    if (!IsValid()) return false;
-
-    mnemonic.Encode(CBigNum(vch), words);
-    LogPrintf("CHDSeed::GetMnemonic: %s\n", words);
-    return true;
+    return IsValid() && mnemonic.Encode(CBigNum(vch), words);
 }
 
-bool CWallet::HDCreateMainAccount()
+bool CHDSeed::SetMnemonic(const std::string& words)
 {
-    if (!HDGetSeed())
-        HDNewSeed();
-
-    account_xprv_.erase(strRootName);
-    account_xpub_.erase(strRootName);
-
-    std::vector<std::string> vNodes;
-    boost::split(vNodes, strRootDerivation, boost::is_any_of("/"));
-    CExtKey parent, out;
-
-    std::vector<unsigned char> entropy;
-    hdSeed.GetEntropy(entropy);
-    parent.SetMaster(&entropy[0], entropy.size());
-
-    for (std::vector<std::string>::const_iterator it = vNodes.begin(); it != vNodes.end(); ++it)
+    CBigNum entropy;
+    if (mnemonic.Decode(entropy, words))
     {
-        std::string node = *it;
-        if (node == "" || (node == "m" && it == vNodes.begin()))
-            continue;
-        bool hardened = node[node.size() - 1] == '\'';
-        if (hardened)
-            node = node.substr(0, node.size()-1);
-
-        try
+        std::vector<unsigned char> vch2 = entropy.getvch();
+        std::string key = ElectrumHash((const unsigned char *)&vch2[0], vch2.size());
+        if (key.substr(0, 2) == strPrefix)
         {
-            unsigned int child = boost::lexical_cast<unsigned int>(node);
-            if (hardened)
-                child += BIP32_PRIME;
-            if (!parent.Derive(out, child))
-                return false;
-            else
-                parent = out;
-        }
-        catch(const boost::bad_lexical_cast &)
-        {
-            return false;
-        }
-    }
-
-    account_xprv_[strRootName] = out;
-    account_xpub_[strRootName] = out.Neuter();
-    LogPrintf("CWallet::HDCreateMainAccount: completed\n");
-    return true;
-}
-
-bool CWallet::HDNewSeed()
-{
-    hdSeed.New();
-    {
-        LOCK(cs_wallet);
-        if (pwalletdbEncryption)
-            return pwalletdbEncryption->WriteHDSeed(hdSeed);
-        else
-            return CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
-    }
-}
-
-bool CWallet::HDNewSeed(const std::vector<unsigned char>& entropy)
-{
-    LogPrintf("CWallet::HDSetSeed: nSize=%d\n", entropy.size());
-    hdSeed = CHDSeed(entropy);
-    if (!hdSeed.IsValid()) return false;
-
-    // if (!fFileBacked)
-    //     return false;
-    // TODO
-    // if (IsCrypted())
-    //     return false;
-
-    {
-        LOCK(cs_wallet);
-        if (pwalletdbEncryption)
-            return pwalletdbEncryption->WriteHDSeed(hdSeed);
-        else
-            return CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
-    }
-}
-
-bool CWallet::HDGetSeed()
-{
-    if (hdSeed.IsValid()) return true;
-
-    {
-        LOCK(cs_wallet);
-        bool ret;
-        if (pwalletdbEncryption)
-            ret = pwalletdbEncryption->ReadHDSeed(hdSeed);
-        else
-            ret = CWalletDB(strWalletFile).ReadHDSeed(hdSeed);
-
-        if (ret && hdSeed.IsValid()) {
+            vch = vch2;
             return true;
-        } else {
-            return false;
         }
     }
     return false;
 }
 
+bool CWallet::HDCreateMainAccount()
+{
+    {
+        LOCK(cs_wallet);
+
+        if (!HDGetSeed())
+            HDNewSeed();
+
+        account_xprv_.erase(strRootName);
+        account_xpub_.erase(strRootName);
+
+        std::vector<std::string> vNodes;
+        boost::split(vNodes, strRootDerivation, boost::is_any_of("/"));
+        CExtKey parent, out;
+
+        std::vector<unsigned char> entropy;
+        hdSeed.GetEntropy(entropy);
+        parent.SetMaster(&entropy[0], entropy.size());
+
+        for (std::vector<std::string>::const_iterator it = vNodes.begin(); it != vNodes.end(); ++it)
+        {
+            std::string node = *it;
+            if (node == "" || (node == "m" && it == vNodes.begin()))
+                continue;
+            bool hardened = node[node.size() - 1] == '\'';
+            if (hardened)
+                node = node.substr(0, node.size()-1);
+
+            try
+            {
+                unsigned int child = boost::lexical_cast<unsigned int>(node);
+                if (hardened)
+                    child += BIP32_PRIME;
+                if (!parent.Derive(out, child))
+                    return false;
+                else
+                    parent = out;
+            }
+            catch(const boost::bad_lexical_cast &)
+            {
+                return false;
+            }
+        }
+
+        account_xprv_[strRootName] = out;
+        account_xpub_[strRootName] = out.Neuter();
+        LogPrintf("CWallet::HDCreateMainAccount: completed\n");
+        return true;
+    }
+}
+
+bool CWallet::HDNewSeed()
+{
+    {
+        LOCK(cs_wallet);
+        hdSeed.New();
+        return CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
+    }
+}
+
+bool CWallet::HDNewSeed(const std::vector<unsigned char>& entropy)
+{
+    {
+        LOCK(cs_wallet);
+        hdSeed = CHDSeed(entropy);
+        return hdSeed.IsValid() && CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
+    }
+}
+
+bool CWallet::HDGetSeed()
+{
+    if (hdSeed.IsValid())
+        return true;
+
+    {
+        LOCK(cs_wallet);
+        return CWalletDB(strWalletFile).ReadHDSeed(hdSeed) && hdSeed.IsValid();
+    }
+}
+
+bool CWallet::HDSetSeed(const std::string& words)
+{
+    {
+        LOCK(cs_wallet);
+        return hdSeed.SetMnemonic(words) && CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
+    }
+}
+
 bool CWallet::HDGetMnemonic(std::string& words)
 {
-    HDGetSeed();
-    return hdSeed.GetMnemonic(words);
+    {
+        LOCK(cs_wallet);
+        return HDGetSeed() && hdSeed.GetMnemonic(words);
+    }
 }
 
 bool CWallet::HDSetMasterPubKey(const CExtPubKey& mpk)
 {
     // Don't set master public key if a seed already exists.
-    if (hdSeed.IsValid()) return false;
+    if (hdSeed.IsValid())
+        return false;
 
-    xpub_ = mpk;
+    {
+        LOCK(cs_wallet);
+        xpub_ = mpk;
+    }
     return true;
 }
 

@@ -1822,7 +1822,7 @@ Value reservebalance(const Array& params, bool fHelp)
     return result;
 }
 
-// posv: interest received
+// PoSV: interest received
 Value getinterest(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
@@ -2033,6 +2033,22 @@ Value gethdseed(const Array& params, bool fHelp)
     std::string mnemonic;
     pwalletMain->HDGetMnemonic(mnemonic);
     return mnemonic;
+}
+
+Value sethdseed(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "sethdseed\n"
+            "\nSet the seed for the hierarchical deterministic wallet.\n"
+            "\nArguments:\n"
+            "1. mnemonic       (string, required) 13 words separated by space.\n"
+            "\nResult\n"
+            "true|false        (boolean) Returns true if successful\n"
+        );
+
+    std::string mnemonic = params[0].get_str();
+    return pwalletMain->HDSetSeed(mnemonic);
 }
 
 Value gethdmpk(const Array& params, bool fHelp)

@@ -301,6 +301,7 @@ static const CRPCCommand vRPCCommands[] =
     // Electrum
     { "createhdseed",           &createhdseed,           false,      false,      true },
     { "gethdseed",              &gethdseed,              false,      false,      true },
+    { "sethdseed",              &sethdseed,              false,      false,      true },
     { "gethdmpk",               &gethdmpk,               false,      false,      true },
     { "gethdpubkey",            &gethdpubkey,            false,      false,      true },
 

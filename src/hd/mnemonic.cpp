@@ -15,8 +15,6 @@ bool CElectrumMnemonic::Encode(CBigNum entropy, std::string& words) const
     CBigNum x;
     std::vector<std::string> result;
 
-    LogPrintf("CElectrumMnemonic::Encode: entropy=%s\n", entropy.getuint256().ToString());
-
     while (entropy.getuint256() > 0)
     {
         x = entropy % n;
@@ -25,9 +23,6 @@ bool CElectrumMnemonic::Encode(CBigNum entropy, std::string& words) const
     }
 
     words = boost::algorithm::join(result, " ");
-
-    LogPrintf("CElectrumMnemonic::Encode: wordlist_.size=%u, result.size=%u\n", n.getuint(), result.size());
-    LogPrintf("CElectrumMnemonic::Encode: %s\n", words);
     return true;
 }
 
@@ -36,7 +31,7 @@ bool CElectrumMnemonic::Decode(CBigNum& entropy, const std::string& words) const
     const CBigNum n = CBigNum((unsigned int)wordlist_.size());
     CBigNum i = CBigNum(0);
     std::vector<std::string> result;
-    boost::split(result, words, boost::is_any_of("-"));
+    boost::split(result, words, boost::is_any_of(" "));
 
     for (std::vector<std::string>::const_reverse_iterator rit = result.rbegin(); rit != result.rend(); ++rit)
     {

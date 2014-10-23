@@ -84,16 +84,7 @@ CKeyPool CWallet::GenerateNewKey()
 bool CWallet::AddKeyPubKey(const CKey& secret, const CPubKey &pubkey)
 {
     AssertLockHeld(cs_wallet); // mapKeyMetadata
-    if (!CCryptoKeyStore::AddKeyPubKey(secret, pubkey))
-        return false;
-    if (!fFileBacked)
-        return true;
-    if (!IsCrypted()) {
-        return CWalletDB(strWalletFile).WriteKey(pubkey,
-                                                 secret.GetPrivKey(),
-                                                 mapKeyMetadata[pubkey.GetID()]);
-    }
-    return true;
+    return CCryptoKeyStore::AddKeyPubKey(secret, pubkey);
 }
 
 bool CWallet::AddCryptedKey(const CPubKey &vchPubKey,
@@ -2216,7 +2207,7 @@ bool CWallet::NewKeyPool()
             mapKeyPool[nIndex] = vKeyPool[i];
             setKeyPool.insert(nIndex);
         }
-        LogPrintf("CWallet::NewKeyPool wrote %"PRId64" new keys\n", nKeys);
+        LogPrintf("CWallet::NewKeyPool wrote %"PRId64" new keys\n", (int64_t)mapKeyPool.size());
 
         std::pair<CTxDestination, int64_t> balance;
         BOOST_FOREACH(balance, balances)

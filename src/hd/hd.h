@@ -45,7 +45,8 @@ public:
 
     bool IsValid() const
     {
-        return vch.size() == nSize;
+        std::string key = ElectrumHash((const unsigned char *)&vch[0], vch.size());
+        return key.substr(0, 2) == strPrefix;
     }
 
     void New();
@@ -59,6 +60,7 @@ public:
     }
 
     bool GetMnemonic(std::string& words) const;
+    bool SetMnemonic(const std::string& words);
 
     IMPLEMENT_SERIALIZE
     (
@@ -77,6 +79,7 @@ protected:
     virtual bool HDNewSeed() =0;
     virtual bool HDNewSeed(const std::vector<unsigned char>& entropy) =0;
     virtual bool HDGetSeed() =0;
+    virtual bool HDSetSeed(const std::string &mnemonic) =0;
     virtual bool HDGetMnemonic(std::string& mnemonic) =0;
 
     virtual bool HDSetMasterPubKey(const CExtPubKey& mpk) =0;

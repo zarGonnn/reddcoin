@@ -201,6 +201,7 @@ extern json_spirit::Value getinterest(const json_spirit::Array& params, bool fHe
 // Electrum
 extern json_spirit::Value createhdseed(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value gethdseed(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value sethdseed(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value gethdmpk(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value gethdpubkey(const json_spirit::Array& params, bool fHelp);
 
