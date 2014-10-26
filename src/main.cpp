@@ -743,7 +743,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
         return state.DoS(100, error("AcceptToMemoryPool: : coinstake as individual tx"));
 
     // PoSV: refuse transactions with old versions
-    if(chainActive.Tip()->nHeight >= LAST_POW_BLOCK && tx.nVersion <= POW_TX_VERSION)
+    if(chainActive.Tip()->nHeight >= Params().LastPoWBlock() && tx.nVersion <= POW_TX_VERSION)
         return state.DoS(100, error("AcceptToMemoryPool: : tx with old pre-PoSV version"));
 
     // Rather not work on nonstandard transactions (unless -testnet/-regtest)
@@ -1221,14 +1221,14 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
     double EventHorizonDeviationSlow;
 
     bool fProofOfStake = false;
-    if (pindexLast && pindexLast->nHeight >= LAST_POW_BLOCK)
+    if (pindexLast && pindexLast->nHeight >= Params().LastPoWBlock())
         fProofOfStake = true;
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64_t)BlockLastSolved->nHeight < PastBlocksMin)
     {
         return Params().ProofOfWorkLimit().GetCompact();
     }
-    else if (fProofOfStake && (uint64_t)(BlockLastSolved->nHeight - LAST_POW_BLOCK) < PastBlocksMin)
+    else if (fProofOfStake && (uint64_t)(BlockLastSolved->nHeight - Params().LastPoWBlock()) < PastBlocksMin)
     {
         // difficulty is reset at the first PoSV blocks
         if (TestNet())
@@ -1237,7 +1237,7 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
             return Params().ProofOfStakeReset().GetCompact();
     }
 
-    for (unsigned int i = 1; BlockReading && BlockReading->nHeight > (fProofOfStake ? LAST_POW_BLOCK : 0); i++)
+    for (unsigned int i = 1; BlockReading && BlockReading->nHeight > (fProofOfStake ? Params().LastPoWBlock() : 0); i++)
     {
         if (PastBlocksMax > 0 && i > PastBlocksMax)
         {
@@ -1325,7 +1325,7 @@ unsigned int KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
     // always mine PoW blocks at the lowest diff on testnet
-    if (TestNet() && pindexLast->nHeight < LAST_POW_BLOCK)
+    if (TestNet() && pindexLast->nHeight < Params().LastPoWBlock())
         return Params().ProofOfWorkLimit().GetCompact();
 
     static const int64_t BlocksTargetSpacing = 1 * 60; // 1 Minute
@@ -1871,7 +1871,7 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
     bool fEnforceBIP30 = true;
 
     if (fEnforceBIP30) {
-        bool fProofOfStake = pindex->nHeight > LAST_POW_BLOCK;
+        bool fProofOfStake = pindex->nHeight > Params().LastPoWBlock();
         for (unsigned int i = fProofOfStake ? 1 : 0; i < block.vtx.size(); i++) {
             uint256 hash = block.GetTxHash(i);
             if (fDebug)
@@ -2583,7 +2583,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         pindexPrev = (*mi).second;
         nHeight = pindexPrev->nHeight+1;
 
-        if (block.IsProofOfWork() && nHeight > LAST_POW_BLOCK)
+        if (block.IsProofOfWork() && nHeight > Params().LastPoWBlock())
             return state.DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
         // Check proof-of-work or proof-of-stake
         if (block.nBits != GetNextWorkRequired(pindexPrev, &block))

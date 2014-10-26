@@ -55,7 +55,7 @@ double GetPoSVKernelPS()
 {
     const CBlockIndex* pindexBest = chainActive.Tip();
     
-    if (pindexBest == NULL || pindexBest->nHeight <= LAST_POW_BLOCK || !pindexBest->IsProofOfStake())
+    if (pindexBest == NULL || pindexBest->nHeight <= Params().LastPoWBlock() || !pindexBest->IsProofOfStake())
         return 0;
 
     double dStakeKernelsTriedAvg = GetDifficulty(pindexBest) * 4294967296.0; // 2^32
