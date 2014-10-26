@@ -21,7 +21,7 @@ private:
 public:
 	CElectrumMnemonic()
 	{
-		wordlist_ = std::vector<std::string>(wordlist_en, std::end(wordlist_en));
+		wordlist_ = std::vector<std::string>(wordlist_en, wordlist_en+2048);
 	}
 
 	bool Encode(CBigNum entropy, std::string& words) const;

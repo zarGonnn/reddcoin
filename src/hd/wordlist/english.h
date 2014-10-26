@@ -1,4 +1,7 @@
-const char *wordlist_en[] = {
+#ifndef HD_WORDLIST_ENGLISH_H
+#define HD_WORDLIST_ENGLISH_H
+
+const static char *wordlist_en[] = {
 "abandon",
 "ability",
 "able",
@@ -2048,3 +2051,5 @@ const char *wordlist_en[] = {
 "zone",
 "zoo"
 };
+
+#endif

@@ -147,20 +147,19 @@ nodist_libreddcoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 BITCOIN_CORE_H += \
   kernel.h \
   scrypt.h \
-  txdb-leveldb.h \
+  txdb-leveldb.h
+
+libreddcoin_wallet_a_SOURCES += \
+  hd/mnemonic.cpp \
+  hd/hd.cpp \
   hd/wordlist/wordlist_en.h \
   hd/mnemonic.h \
   hd/hd.h
 
 libreddcoin_common_a_SOURCES += \
   kernel.cpp \
-  kernel.h \
   scrypt.cpp \
-  scrypt.h \
-  txdb-leveldb.cpp \
-  txdb-leveldb.h \
-  hd/mnemonic.cpp \
-  hd/hd.cpp
+  txdb-leveldb.cpp
 
 if USE_SSE2
   libreddcoin_common_a_SOURCES += scrypt-sse2.cpp
