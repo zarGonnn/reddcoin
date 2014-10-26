@@ -61,7 +61,7 @@ Value GetNetworkHashPS(int lookup, int height) {
     if (height >= 0 && height < chainActive.Height())
         pb = chainActive[height];
 
-    if (pb == NULL || !pb->nHeight || pb->nHeight > LAST_POW_BLOCK)
+    if (pb == NULL || !pb->nHeight || pb->nHeight > Params().LastPoWBlock())
         return 0;
 
     // If lookup is -1, then use blocks since last difficulty change.
@@ -324,7 +324,7 @@ Value getworkex(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Reddcoin is downloading blocks...");
 
-    if (chainActive.Tip()->nHeight >= LAST_POW_BLOCK)
+    if (chainActive.Tip()->nHeight >= Params().LastPoWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -479,7 +479,7 @@ Value getwork(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Reddcoin is downloading blocks...");
 
-    if (chainActive.Tip()->nHeight >= LAST_POW_BLOCK)
+    if (chainActive.Tip()->nHeight >= Params().LastPoWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -677,7 +677,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Reddcoin is downloading blocks...");
 
-    if (chainActive.Tip()->nHeight >= LAST_POW_BLOCK)
+    if (chainActive.Tip()->nHeight >= Params().LastPoWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     // Update block

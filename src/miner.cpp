@@ -121,7 +121,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     CBlock *pblock = &pblocktemplate->block; // pointer for convenience
     CBlockIndex* pindexPrev = chainActive.Tip();
 
-    bool fProofOfStake = pindexPrev->nHeight >= LAST_POW_BLOCK;
+    bool fProofOfStake = pindexPrev->nHeight >= Params().LastPoWBlock();
 
     // Create coinbase tx
     CTransaction txNew;
@@ -589,7 +589,7 @@ void StakeMiner(CWallet *pwallet)
             }
         }
 
-        while (chainActive.Tip()->nHeight < LAST_POW_BLOCK)
+        while (chainActive.Tip()->nHeight < Params().LastPoWBlock())
             MilliSleep(60000);
 
         //
