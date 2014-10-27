@@ -2908,7 +2908,8 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
 
     if (nSearchTime > nLastCoinStakeSearchTime)
     {
-        LogPrintf("CBlock::SignBlock : about to create coinstake: nFees=%"PRId64"\n", nFees);
+        if (fDebug)
+            LogPrintf("CBlock::SignBlock : about to create coinstake: nFees=%"PRId64"\n", nFees);
         
         if (wallet.CreateCoinStake(wallet, nBits, nSearchTime-nLastCoinStakeSearchTime, nFees, txCoinStake, key))
         {
