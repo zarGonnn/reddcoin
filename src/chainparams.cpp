@@ -121,7 +121,7 @@ public:
         vAlertPubKey = ParseHex("048b75ab041ee9965f6f57ee299395c02daf5105f208fc49e908804aad3ace5a77c7f87b3aae74d6698124f20c3d1bea31c9fcdd350c9c61c0113fd988ecfb5c09");
         nDefaultPort = 55444;
         nRPCPort = 55443;
-        nLastPoWBlock = 30000 - 1;
+        nLastPoWBlock = 150;
         strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
