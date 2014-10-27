@@ -1142,7 +1142,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
     int64_t nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
 
     if (GetBoolArg("-printcreation", false))
-        LogPrintf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
+        LogPrintf("GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
 
     return nSubsidy + nFees;
 }
@@ -2268,7 +2268,7 @@ bool GetCoinAge(const CTransaction& tx, uint64_t& nCoinAge)
         bnCentSecond += CBigNum(nValueIn) * nTimeWeight / CENT;
 
         if (GetBoolArg("-printcoinage", false))
-            LogPrintf("coin age nValueIn=%"PRId64" nTime=%d, txPrev.nTime=%d, nTimeWeight=%"PRId64" bnCentSecond=%s\n",
+            LogPrintf("coin age nValueIn=%d nTime=%d, txPrev.nTime=%d, nTimeWeight=%d bnCentSecond=%s\n",
                 nValueIn, tx.nTime, txPrev.nTime, nTimeWeight, bnCentSecond.ToString().c_str());
     }
 
@@ -2296,7 +2296,7 @@ bool CBlock::GetCoinAge(uint64_t& nCoinAge) const
     if (nCoinAge == 0) // block coin age minimum 1 coin-day
         nCoinAge = 1;
     if (GetBoolArg("-printcoinage", false))
-        LogPrintf("block coin age total nCoinDays=%"PRId64"\n", nCoinAge);
+        LogPrintf("block coin age total nCoinDays=%d\n", nCoinAge);
     return true;
 }
 
@@ -2336,7 +2336,7 @@ bool AddToBlockIndex(CBlock& block, CValidationState& state, const CDiskBlockPos
     pindexNew->SetStakeModifier(nStakeModifier, fGeneratedStakeModifier);
     pindexNew->nStakeModifierChecksum = GetStakeModifierChecksum(pindexNew);
     if (!CheckStakeModifierCheckpoints(pindexNew->nHeight, pindexNew->nStakeModifierChecksum))
-        return state.Invalid(error("AddToBlockIndex() : Rejected by stake modifier checkpoint height=%d, modifier=0x%016"PRIx64, pindexNew->nHeight, nStakeModifier));
+        return state.Invalid(error("AddToBlockIndex() : Rejected by stake modifier checkpoint height=%d, modifier=0x%016x", pindexNew->nHeight, nStakeModifier));
 
     pindexNew->nChainTx = (pindexNew->pprev ? pindexNew->pprev->nChainTx : 0) + pindexNew->nTx;
     pindexNew->nFile = pos.nFile;
@@ -2514,7 +2514,7 @@ bool CheckBlock(const CBlock& block, CValidationState &state, bool fCheckPOW, bo
 
         // Check coinstake timestamp
         if (!CheckCoinStakeTimestamp(block.GetBlockTime(), (int64_t)block.vtx[1].nTime))
-            return state.DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%"PRId64" nTimeTx=%u", block.GetBlockTime(), block.vtx[1].nTime));
+            return state.DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%d nTimeTx=%u", block.GetBlockTime(), block.vtx[1].nTime));
 
         // NovaCoin: check proof-of-stake block signature
         if (fCheckSig && !block.CheckBlockSignature())
@@ -2528,7 +2528,7 @@ bool CheckBlock(const CBlock& block, CValidationState &state, bool fCheckPOW, bo
 
         // ppcoin: check transaction timestamp
         if (block.IsProofOfStake() && block.GetBlockTime() < (int64_t)tx.nTime)
-            return error("CheckBlock() : block timestamp=%"PRId64" earlier than transaction timestamp=%u", block.GetBlockTime(), tx.nTime);
+            return error("CheckBlock() : block timestamp=%d earlier than transaction timestamp=%u", block.GetBlockTime(), tx.nTime);
     }
 
     // Build the merkle tree already. We need it anyway later, and it makes the
@@ -2907,7 +2907,7 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
 
     if (nSearchTime > nLastCoinStakeSearchTime)
     {
-        LogPrintf("CBlock::SignBlock : about to create coinstake: nFees=%"PRId64"\n", nFees);
+        LogPrintf("CBlock::SignBlock : about to create coinstake: nFees=%d\n", nFees);
         
         if (wallet.CreateCoinStake(wallet, nBits, nSearchTime-nLastCoinStakeSearchTime, nFees, txCoinStake, key))
         {
@@ -3216,7 +3216,7 @@ bool static LoadBlockIndexDB()
         // ppcoin: calculate stake modifier checksum
         pindex->nStakeModifierChecksum = GetStakeModifierChecksum(pindex);
         if (!CheckStakeModifierCheckpoints(pindex->nHeight, pindex->nStakeModifierChecksum))
-            return error("LoadBlockIndexDB(): Failed stake modifier checkpoint height=%d, modifier=0x%016"PRIx64, pindex->nHeight, pindex->nStakeModifier);
+            return error("LoadBlockIndexDB(): Failed stake modifier checkpoint height=%d, modifier=0x%016x", pindex->nHeight, pindex->nStakeModifier);
     }
 
     // Load block file info
