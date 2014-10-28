@@ -77,7 +77,8 @@ CKeyPool CWallet::GenerateNewKey()
     if (!nTimeFirstKey || nCreationTime < nTimeFirstKey)
         nTimeFirstKey = nCreationTime;
 
-    AddKeyPubKey(secret, pubkey);
+    if (!AddKeyPubKey(secret, pubkey))
+        throw std::runtime_error("CWallet::GenerateNewKey() : AddKey failed");
 
     return CKeyPool(pubkey, nChild);
 }
@@ -2210,9 +2211,9 @@ bool CWallet::NewKeyPool()
             if (!nTimeFirstKey || nCreationTime < nTimeFirstKey)
                 nTimeFirstKey = nCreationTime;
 
-            // The key pair may have already been saved in the wallet db.
-            // Ignore the return status.
-            AddKeyPubKey(secret, pubkey);
+            if (!AddKeyPubKey(secret, pubkey))
+                throw std::runtime_error("CWallet::NewKeyPool() : AddKey failed");
+
             CKeyPool keypool = vKeyPool[i];
             int64_t nChild = keypool.nChild;
             mapKeyPool[nChild] = keypool;
