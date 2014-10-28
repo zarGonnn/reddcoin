@@ -120,7 +120,7 @@ bool CWallet::HDNewSeed()
     {
         LOCK(cs_wallet);
         hdSeed.New();
-        return CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
+        return CWalletDB(strWalletFile).WriteSeed(hdSeed);
     }
 }
 
@@ -129,7 +129,7 @@ bool CWallet::HDNewSeed(const std::vector<unsigned char>& entropy)
     {
         LOCK(cs_wallet);
         hdSeed = CHDSeed(entropy);
-        return hdSeed.IsValid() && CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
+        return hdSeed.IsValid() && CWalletDB(strWalletFile).WriteSeed(hdSeed);
     }
 }
 
@@ -140,7 +140,7 @@ bool CWallet::HDGetSeed()
 
     {
         LOCK(cs_wallet);
-        return CWalletDB(strWalletFile).ReadHDSeed(hdSeed) && hdSeed.IsValid();
+        return CWalletDB(strWalletFile).ReadSeed(hdSeed) && hdSeed.IsValid();
     }
 }
 
@@ -148,7 +148,7 @@ bool CWallet::HDSetSeed(const std::string& words)
 {
     {
         LOCK(cs_wallet);
-        return hdSeed.SetMnemonic(words) && CWalletDB(strWalletFile).WriteHDSeed(hdSeed);
+        return hdSeed.SetMnemonic(words) && CWalletDB(strWalletFile).WriteSeed(hdSeed);
     }
 }
 

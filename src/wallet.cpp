@@ -55,10 +55,11 @@ CKeyPool CWallet::GenerateNewKey()
     CWalletDB walletdb(strWalletFile);
 
     int64_t nChild = 0;
-    if (!mapKeyPool.empty())
+    if (!setKeyPool.empty())
     {
-        std::map<int64_t, CKeyPool>::const_reverse_iterator rit = mapKeyPool.rbegin();
-        nChild = rit->second.nChild + 1;
+        int64_t nLast = *(setKeyPool.rbegin());
+        nChild = mapKeyPool[nLast].nChild + 1;
+        LogPrintf("CWallet::GenerateNewKey nChild=%d\n", nChild);
         assert (nChild >= 0);
     }
 
@@ -76,15 +77,24 @@ CKeyPool CWallet::GenerateNewKey()
     if (!nTimeFirstKey || nCreationTime < nTimeFirstKey)
         nTimeFirstKey = nCreationTime;
 
-    if (!AddKeyPubKey(secret, pubkey))
-        throw std::runtime_error("CWallet::GenerateNewKey() : AddKey failed");
+    AddKeyPubKey(secret, pubkey);
+
     return CKeyPool(pubkey, nChild);
 }
 
 bool CWallet::AddKeyPubKey(const CKey& secret, const CPubKey &pubkey)
 {
     AssertLockHeld(cs_wallet); // mapKeyMetadata
-    return CCryptoKeyStore::AddKeyPubKey(secret, pubkey);
+    if (!CCryptoKeyStore::AddKeyPubKey(secret, pubkey))
+       return false;
+    if (!fFileBacked)
+        return true;
+    if (!IsCrypted()) {
+        return CWalletDB(strWalletFile).WriteKey(pubkey,
+                                                 secret.GetPrivKey(),
+                                                 mapKeyMetadata[pubkey.GetID()]);
+    }
+    return true;
 }
 
 bool CWallet::AddCryptedKey(const CPubKey &vchPubKey,
@@ -2200,12 +2210,13 @@ bool CWallet::NewKeyPool()
             if (!nTimeFirstKey || nCreationTime < nTimeFirstKey)
                 nTimeFirstKey = nCreationTime;
 
-            if (!AddKeyPubKey(secret, pubkey))
-                throw std::runtime_error("CWallet::NewKeyPool() : AddKey failed");
-
-            int64_t nIndex = i + 1;
-            mapKeyPool[nIndex] = vKeyPool[i];
-            setKeyPool.insert(nIndex);
+            // The key pair may have already been saved in the wallet db.
+            // Ignore the return status.
+            AddKeyPubKey(secret, pubkey);
+            CKeyPool keypool = vKeyPool[i];
+            int64_t nChild = keypool.nChild;
+            mapKeyPool[nChild] = keypool;
+            setKeyPool.insert(nChild);
         }
         LogPrintf("CWallet::NewKeyPool wrote %"PRId64" new keys\n", (int64_t)mapKeyPool.size());
 

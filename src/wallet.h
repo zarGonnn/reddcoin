@@ -65,13 +65,6 @@ public:
         nChild = -1;
     }
 
-    CKeyPool(const CPubKey& vchPubKeyIn)
-    {
-        nTime = GetTime();
-        vchPubKey = vchPubKeyIn;
-        nChild = -1;
-    }
-
     CKeyPool(const CPubKey& vchPubKeyIn, int64_t nIndex)
     {
         nTime = GetTime();

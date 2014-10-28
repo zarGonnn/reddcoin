@@ -93,10 +93,10 @@ public:
     bool WriteMasterKey(unsigned int nID, const CMasterKey& kMasterKey);
 
     // HD wallet
-    bool ReadHDSeed(CHDSeed& seed);
-    bool WriteHDSeed(const CHDSeed& seed);
-    bool ReadCryptedHDSeed(std::vector<unsigned char>& seedCrypted);
-    bool WriteCryptedHDSeed(const std::vector<unsigned char>& seedCrypted);
+    bool ReadSeed(CHDSeed& seed);
+    bool WriteSeed(const CHDSeed& seed);
+    bool ReadCryptedSeed(std::vector<unsigned char>& vchCryptedSeed);
+    bool WriteCryptedSeed(const std::vector<unsigned char>& vchCryptedSeed);
 
     bool WriteCScript(const uint160& hash, const CScript& redeemScript);
 

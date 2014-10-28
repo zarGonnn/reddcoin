@@ -108,26 +108,26 @@ bool CWalletDB::WriteMasterKey(unsigned int nID, const CMasterKey& kMasterKey)
     return Write(std::make_pair(std::string("mkey"), nID), kMasterKey, true);
 }
 
-bool CWalletDB::ReadHDSeed(CHDSeed& seed)
+bool CWalletDB::ReadSeed(CHDSeed& seed)
 {
-    return Read(std::string("hdmkey"), seed);
+    return Read(std::string("hdseed"), seed);
 }
 
-bool CWalletDB::WriteHDSeed(const CHDSeed& seed)
+bool CWalletDB::WriteSeed(const CHDSeed& seed)
 {
     nWalletDBUpdated++;
-    return Write(std::string("hdmkey"), seed, true);
+    return Write(std::string("hdseed"), seed, true);
 }
 
-bool CWalletDB::ReadCryptedHDSeed(std::vector<unsigned char>& seedCrypted)
+bool CWalletDB::ReadCryptedSeed(std::vector<unsigned char>& vchCryptedSeed)
 {
-    return Read(std::string("chdmkey"), seedCrypted);
+    return Read(std::string("chdseed"), vchCryptedSeed);
 }
 
-bool CWalletDB::WriteCryptedHDSeed(const std::vector<unsigned char>& seedCrypted)
+bool CWalletDB::WriteCryptedSeed(const std::vector<unsigned char>& vchCryptedSeed)
 {
     nWalletDBUpdated++;
-    return Write(std::string("chdmkey"), seedCrypted, true);
+    return Write(std::string("chdseed"), vchCryptedSeed, true);
 }
 
 bool CWalletDB::WriteCScript(const uint160& hash, const CScript& redeemScript)
