@@ -499,8 +499,8 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
         const payments::PaymentDetails& details = request.getDetails();
 
         // Payment request network matches client network?
-        if ((details.network() == "main" && TestNet()) ||
-            (details.network() == "test" && !TestNet()))
+        if ((details.network() == "main" && Params().RPCisTestNet()) ||
+            (details.network() == "test" && !Params().RPCisTestNet()))
         {
             emit message(tr("Payment request rejected"), tr("Payment request network doesn't match client network."),
                 CClientUIInterface::MSG_ERROR);
