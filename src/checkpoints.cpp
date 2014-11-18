@@ -171,6 +171,7 @@ namespace Checkpoints {
         return NULL;
     }
 
+    /*
     // ppcoin: synchronized checkpoint (centrally broadcasted)
     uint256 hashSyncCheckpoint = Params().HashGenesisBlock();
     uint256 hashPendingCheckpoint = 0;
@@ -478,8 +479,10 @@ namespace Checkpoints {
         return (chainActive.Height() >= pindexSync->nHeight + COINBASE_MATURITY ||
                 pindexSync->GetBlockTime() + Params().StakeMinAge() < GetAdjustedTime());
     }
+    */
 } // namespace Checkpoints
 
+/*
 // Reddcoin: sync-checkpoint master key
 const std::string CSyncCheckpoint::strMasterPubKey = "0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1";
 
@@ -547,3 +550,4 @@ bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
     return true;
 }
 
+*/

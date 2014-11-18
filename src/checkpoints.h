@@ -48,6 +48,7 @@ namespace Checkpoints {
 
     extern bool fEnabled;
 
+    /*
     extern uint256 hashSyncCheckpoint;
     extern CSyncCheckpoint checkpointMessage;
     extern uint256 hashInvalidCheckpoint;
@@ -64,8 +65,10 @@ namespace Checkpoints {
     bool SetCheckpointPrivKey(std::string strPrivKey);
     bool SendSyncCheckpoint(uint256 hashCheckpoint);
     bool IsMatureSyncCheckpoint();
+    */
 } //namespace Checkpoints
 
+/*
 // ppcoin: synchronized checkpoint
 class CUnsignedSyncCheckpoint
 {
@@ -155,5 +158,6 @@ public:
     bool CheckSignature();
     bool ProcessSyncCheckpoint(CNode* pfrom);
 };
+*/
 
 #endif

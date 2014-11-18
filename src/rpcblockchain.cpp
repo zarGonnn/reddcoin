@@ -496,6 +496,7 @@ Value getblockchaininfo(const Array& params, bool fHelp)
     return obj;
 }
 
+/*
 // ppcoin: get information of sync-checkpoint
 Value getcheckpoint(const Array& params, bool fHelp)
 {
@@ -525,3 +526,4 @@ Value getcheckpoint(const Array& params, bool fHelp)
 
     return result;
 }
+*/

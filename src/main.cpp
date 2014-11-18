@@ -19,6 +19,7 @@
 #include "txmempool.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "wallet.h"
 
 #include <sstream>
 
@@ -2693,6 +2694,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
             hashProof = block.GetPoWHash();
         }
 
+        /*
         bool cpSatisfies = Checkpoints::CheckSync(hash, pindexPrev);
 
         // Check that the block satisfies synchronized checkpoint
@@ -2702,6 +2704,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
 
         if (CheckpointsMode == Checkpoints::ADVISORY && !cpSatisfies)
             strMiscWarning = _("WARNING: syncronized checkpoint violation detected, but skipped!");
+        */
 
         // Don't accept any forks from the main chain prior to last checkpoint
         CBlockIndex* pcheckpoint = Checkpoints::GetLastCheckpoint(mapBlockIndex);
@@ -2762,8 +2765,10 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
                 pnode->PushInventory(CInv(MSG_BLOCK, hash));
     }
 
+    /*
     // ppcoin: check pending sync-checkpoint
     Checkpoints::AcceptPendingSyncCheckpoint();
+    */
 
     return true;
 }
@@ -2807,7 +2812,8 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
     // ppcoin: check proof-of-stake
     // Limited duplicity on stake: prevents block flood attack
     // Duplicate stake allowed only when there is orphan child block
-    if (pblock->IsProofOfStake() && setStakeSeen.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
+//    if (pblock->IsProofOfStake() && setStakeSeen.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
+    if (pblock->IsProofOfStake() && setStakeSeen.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash))
         return error("ProcessBlock() : duplicate proof-of-stake (%s, %d) for block %s", pblock->GetProofOfStake().first.ToString().c_str(), pblock->GetProofOfStake().second, hash.ToString().c_str());
 
     // Preliminary checks
@@ -2818,12 +2824,13 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
     }
 
     CBlockIndex* pcheckpoint = NULL;
-    if (pblock->IsProofOfWork())
+//    if (pblock->IsProofOfWork())
         pcheckpoint = Checkpoints::GetLastCheckpoint(mapBlockIndex);
-    else if (pblock->IsProofOfStake())
-        pcheckpoint = Checkpoints::GetLastSyncCheckpoint();
+//    else if (pblock->IsProofOfStake())
+//        pcheckpoint = Checkpoints::GetLastSyncCheckpoint();
 
-    if (pcheckpoint && pblock->hashPrevBlock != (chainActive.Tip() ? chainActive.Tip()->GetBlockHash() : uint256(0)) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
+//    if (pcheckpoint && pblock->hashPrevBlock != (chainActive.Tip() ? chainActive.Tip()->GetBlockHash() : uint256(0)) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
+    if (pcheckpoint && pblock->hashPrevBlock != (chainActive.Tip() ? chainActive.Tip()->GetBlockHash() : uint256(0)))
     {
         // Extra checks to prevent "fill up memory by spamming with bogus blocks"
         int64_t deltaTime = pblock->GetBlockTime() - pcheckpoint->nTime;
@@ -2850,9 +2857,11 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
         }
     }
 
+    /*
     // ppcoin: ask for pending sync-checkpoint if any
     if (!IsInitialBlockDownload())
         Checkpoints::AskForPendingSyncCheckpoint(pfrom);
+    */
 
     // If we don't already have its previous block, shunt it off to holding area until we get it
     if (pblock->hashPrevBlock != 0 && !mapBlockIndex.count(pblock->hashPrevBlock))
@@ -2876,7 +2885,8 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
             {
                 // Limited duplicity on stake: prevents block flood attack
                 // Duplicate stake allowed only when there is orphan child block
-                if (setStakeSeenOrphan.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
+//                if (setStakeSeenOrphan.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
+                if (setStakeSeenOrphan.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash))
                     return error("ProcessBlock() : duplicate proof-of-stake (%s, %d) for orphan block %s", pblock->GetProofOfStake().first.ToString().c_str(), pblock->GetProofOfStake().second, hash.ToString().c_str());
                 else
                     setStakeSeenOrphan.insert(pblock->GetProofOfStake());
@@ -2933,9 +2943,11 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
     if (fDebug)
         LogPrintf("ProcessBlock: ACCEPTED\n");
 
+    /*
     // ppcoin: if responsible for sync-checkpoint send it
     if (pfrom && !CSyncCheckpoint::strMasterPrivKey.empty())
         Checkpoints::SendSyncCheckpoint(Checkpoints::AutoSelectSyncCheckpoint());
+    */
 
     return true;
 }
@@ -3420,13 +3432,14 @@ bool LoadBlockIndex()
     // Load block index from databases
     if (!fReindex && !LoadBlockIndexDB())
     {
-        // (partially) missing blockchain. reset checkpoint.
-        if (!Checkpoints::ResetSyncCheckpoint())
-            return error("LoadBlockIndex() : failed to reset sync-checkpoint");
-        else
+//        // (partially) missing blockchain. reset checkpoint.
+//        if (!Checkpoints::ResetSyncCheckpoint())
+//            return error("LoadBlockIndex() : failed to reset sync-checkpoint");
+        //else
             return false;
     }
 
+    /*
     string strPubKey = "";
     CTxDB txdb("cr+");
 
@@ -3449,6 +3462,7 @@ bool LoadBlockIndex()
         return error("LoadBlockIndex() : hashSyncCheckpoint not loaded");
 
     LogPrintf("LoadBlockIndex() : synchronized checkpoint %s\n", Checkpoints::hashSyncCheckpoint.ToString().c_str());
+    */
     return true;
 }
 
@@ -3478,8 +3492,8 @@ bool InitBlockIndex() {
             if (!AddToBlockIndex(block, state, blockPos, Params().HashGenesisBlock()))
                 return error("InitBlockIndex() : genesis block not accepted");
             // ppcoin: initialize synchronized checkpoint
-            if (!Checkpoints::WriteSyncCheckpoint(Params().HashGenesisBlock()))
-                return error("InitBlockIndex() : failed to init sync checkpoint");
+//            if (!Checkpoints::WriteSyncCheckpoint(Params().HashGenesisBlock()))
+//                return error("InitBlockIndex() : failed to init sync checkpoint");
         } catch(std::runtime_error &e) {
             return error("InitBlockIndex() : failed to initialize block database: %s", e.what());
         }
@@ -3674,12 +3688,14 @@ string GetWarnings(string strFor)
         strStatusBar = strRPC = _("Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.");
     }
 
+    /*
     // ppcoin: if detected invalid checkpoint enter safe mode
     if (Checkpoints::hashInvalidCheckpoint != 0)
     {
         nPriority = 3000;
         strStatusBar = strRPC = _("WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.");
     }
+    */
 
     // Alerts
     {
@@ -3983,12 +3999,14 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 item.second.RelayTo(pfrom);
         }
 
+        /*
         // Relay sync-checkpoint
         {
             LOCK(Checkpoints::cs_hashSyncCheckpoint);
             if (!Checkpoints::checkpointMessage.IsNull())
                 Checkpoints::checkpointMessage.RelayTo(pfrom);
         }
+        */
 
         pfrom->fSuccessfullyConnected = true;
 
@@ -3996,9 +4014,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         AddTimeData(pfrom->addr, nTime);
 
+        /*
         // ppcoin: ask for pending sync-checkpoint if any
         if (!IsInitialBlockDownload())
             Checkpoints::AskForPendingSyncCheckpoint(pfrom);
+        */
     }
 
 
@@ -4193,6 +4213,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             }
         }
     }
+    /*
     else if (strCommand == "checkpoint")
     {
         CSyncCheckpoint checkpoint;
@@ -4208,6 +4229,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 checkpoint.RelayTo(pnode);
         }
     }
+    */
 
     else if (strCommand == "getheaders")
     {

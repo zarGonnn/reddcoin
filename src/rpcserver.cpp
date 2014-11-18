@@ -304,7 +304,7 @@ static const CRPCCommand vRPCCommands[] =
 
     // posv
     { "getstakinginfo",         &getstakinginfo,         true,      false,      false },
-    { "getcheckpoint",          &getcheckpoint,          true,      true,       false },
+//    { "getcheckpoint",          &getcheckpoint,          true,      true,       false },
     { "reservebalance",         &reservebalance,         false,     false,      false },
     { "getinterest",            &getinterest,            false,     false,      true },
 
