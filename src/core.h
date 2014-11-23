@@ -460,6 +460,25 @@ public:
     {
         return (int64_t)nTime;
     }
+
+    uint256 GetPoWHash() const
+    {
+        uint256 thash;
+        scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
+        return thash;
+    }
+
+    // Reddcoin: two types of block: proof-of-work or proof-of-stake
+    bool IsProofOfStake() const
+    {
+        return nVersion > POW_BLOCK_VERSION;
+    }
+
+    bool IsProofOfWork() const
+    {
+        return !IsProofOfStake();
+    }
+
 };
     
 class CBlock : public CBlockHeader
@@ -489,7 +508,7 @@ public:
     (
         READWRITE(*(CBlockHeader*)this);
         READWRITE(vtx);
-        if (this->nVersion > POW_BLOCK_VERSION)
+        if (IsProofOfStake())
             READWRITE(vchBlockSig); // ppcoin
     )
 
@@ -500,13 +519,6 @@ public:
         vMerkleTree.clear();
         vchBlockSig.clear(); // ppcoin
     }
-
-    uint256 GetPoWHash() const
-    {
-        uint256 thash;
-        scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
-        return thash;
-    }
     
     // ppcoin: entropy bit for stake modifier if chosen by modifier
     unsigned int GetStakeEntropyBit() const
@@ -516,17 +528,6 @@ public:
         if (GetBoolArg("-printstakemodifier", false))
             LogPrintf("GetStakeEntropyBit: hashBlock=%s nEntropyBit=%u\n", GetHash().ToString().c_str(), nEntropyBit);
         return nEntropyBit;
-    }
-
-    // ppcoin: two types of block: proof-of-work or proof-of-stake
-    bool IsProofOfStake() const
-    {
-        return (vtx.size() > 1 && vtx[1].IsCoinStake());
-    }
-
-    bool IsProofOfWork() const
-    {
-        return !IsProofOfStake();
     }
 
     std::pair<COutPoint, unsigned int> GetProofOfStake() const
