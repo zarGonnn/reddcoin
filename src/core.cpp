@@ -140,7 +140,8 @@ double CTransaction::ComputePriority(double dPriorityInputs, unsigned int nTxSiz
 std::string CTransaction::ToString() const
 {
     std::string str;
-    str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u, nTime=%u)\n",
+    str += IsCoinBase()? "Coinbase" : (IsCoinStake()? "Coinstake" : "CTransaction");
+    str += strprintf("(hash=%s, ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u, nTime=%u)\n",
         GetHash().ToString().substr(0,10),
         nVersion,
         vin.size(),
@@ -216,6 +217,32 @@ uint64_t CTxOutCompressor::DecompressAmount(uint64_t x)
 uint256 CBlockHeader::GetHash() const
 {
     return Hash(BEGIN(nVersion), END(nNonce));
+}
+
+// PoSV
+bool CBlock::CheckBlockSignature() const
+{
+    if (IsProofOfWork())
+        return vchBlockSig.empty();
+
+    std::vector<std::vector<unsigned char> > vSolutions;
+    txnouttype whichType;
+
+    const CTxOut& txout = vtx[1].vout[1];
+
+    if (!Solver(txout.scriptPubKey, whichType, vSolutions))
+        return false;
+
+    if (whichType == TX_PUBKEY)
+    {
+        std::vector<unsigned char>& vchPubKey = vSolutions[0];
+        CPubKey key(vchPubKey);
+        if (vchBlockSig.empty())
+            return false;
+        return key.Verify(GetHash(), vchBlockSig);
+    }
+
+    return false;
 }
 
 uint256 CBlock::BuildMerkleTree() const

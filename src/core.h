@@ -9,6 +9,7 @@
 #include "script.h"
 #include "serialize.h"
 #include "uint256.h"
+#include "bignum.h"
 
 #include <stdint.h>
 
@@ -149,6 +150,17 @@ public:
         return (nValue == -1);
     }
 
+    void SetEmpty()
+    {
+        nValue = 0;
+        scriptPubKey.clear();
+    }
+
+    bool IsEmpty() const
+    {
+        return (nValue == 0 && scriptPubKey.empty());
+    }
+
     uint256 GetHash() const;
 
     bool IsDust(int64_t nMinRelayTxFee) const
@@ -195,9 +207,10 @@ public:
     unsigned int nLockTime;
     unsigned int nTime;
 
-    CTransaction()
+    CTransaction(int64_t nTime = GetAdjustedTime())
     {
         SetNull();
+        this->nTime = (unsigned int)nTime;
     }
 
     IMPLEMENT_SERIALIZE
@@ -238,6 +251,12 @@ public:
     bool IsCoinBase() const
     {
         return (vin.size() == 1 && vin[0].prevout.IsNull());
+    }
+
+    // PoSV: the coinstake transaction is marked with the empty first output
+    bool IsCoinStake() const
+    {
+        return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
     }
 
     friend bool operator==(const CTransaction& a, const CTransaction& b)
@@ -437,6 +456,43 @@ public:
         vMerkleTree.clear();
         vchBlockSig.clear();
     }
+
+    // PoSV: two types of block: proof-of-work or proof-of-stake
+    bool IsProofOfStake() const
+    {
+        return (vtx.size() > 1 && vtx[1].IsCoinStake());
+    }
+
+    bool IsProofOfWork() const
+    {
+        return !IsProofOfStake();
+    }
+
+    // PoSV: entropy bit for stake modifier if chosen by modifier
+    unsigned int GetStakeEntropyBit() const
+    {
+        // Take last bit of block hash as entropy bit
+        unsigned int nEntropyBit = (GetHash().GetLow64() & 1llu);
+        if (GetBoolArg("-printstakemodifier", false))
+            LogPrintf("GetStakeEntropyBit: hashBlock=%s nEntropyBit=%u\n", GetHash().ToString().c_str(), nEntropyBit);
+        return nEntropyBit;
+    }
+
+    std::pair<COutPoint, unsigned int> GetProofOfStake() const
+    {
+        return IsProofOfStake()? std::make_pair(vtx[1].vin[0].prevout, vtx[1].nTime) : std::make_pair(COutPoint(), (unsigned int)0);
+    }
+
+    // PoSV: get max transaction timestamp
+    int64_t GetMaxTransactionTime() const
+    {
+        int64_t maxTransactionTime = 0;
+        BOOST_FOREACH(const CTransaction& tx, vtx)
+            maxTransactionTime = std::max(maxTransactionTime, (int64_t)tx.nTime);
+        return maxTransactionTime;
+    }
+
+    bool CheckBlockSignature() const;
 
     CBlockHeader GetBlockHeader() const
     {
