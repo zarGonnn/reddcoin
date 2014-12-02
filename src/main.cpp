@@ -870,6 +870,10 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
     if (tx.IsCoinStake())
         return state.DoS(100, error("AcceptToMemoryPool: : coinstake as individual tx"));
 
+    // PoSV: refuse transactions with old versions
+    if(chainActive.Tip()->nHeight >= Params().LastProofOfWorkHeight() && tx.nVersion <= POW_TX_VERSION)
+        return state.DoS(100, error("AcceptToMemoryPool: : tx with old pre-PoSV version"));
+
     // Rather not work on nonstandard transactions (unless -testnet/-regtest)
     string reason;
     if (Params().NetworkID() == CChainParams::MAIN && !IsStandardTx(tx, reason))
@@ -1166,7 +1170,7 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos)
     }
 
     // Check the header
-    if (block.IsProofOfWork() && !CheckProofOfWork(block.GetHash(), block.nBits))
+    if (block.GetBlockTime() > CHECK_POW_FROM_NTIME && block.IsProofOfWork() && !CheckProofOfWork(block.GetPoWHash(), block.nBits))
         return error("ReadBlockFromDisk : Errors in block header");
 
     return true;
@@ -1232,15 +1236,27 @@ uint256 WantedByOrphan(const COrphanBlock* pblockOrphan)
 
 int64_t GetBlockValue(int nHeight, int64_t nFees)
 {
-    int64_t nSubsidy = 50 * COIN;
-    int halvings = nHeight / Params().SubsidyHalvingInterval();
+    int64_t nSubsidy = 100000 * COIN;
 
-    // Force block reward to zero when right shift is undefined.
-    if (halvings >= 64)
-        return nFees;
-
-    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
-    nSubsidy >>= halvings;
+    if (nHeight == 0) {
+        // Genesis block
+        nSubsidy = 10000 * COIN;
+    } else if (nHeight < 11) {
+        // Premine: First 10 block are 545,000,000 RDD (5% of the total coin)
+        nSubsidy = 545000000 * COIN;
+    } else if (nHeight < 10000) {
+        // Bonus reward for block 10-9,999 of 300,000 coins
+        nSubsidy = 300000 * COIN;
+    } else if (nHeight < 20000) {
+        // Bonus reward for block 10,000 - 19,999 of 200,000 coins
+        nSubsidy = 200000 * COIN;
+    } else if (nHeight < 30000) {
+        // Bonus reward for block 20,000 - 29,999 of 150,000 coins
+        nSubsidy = 150000 * COIN;
+    } else if (nHeight >= 140000) {
+      // Subsidy is cut in half every 50,000 blocks starting at block 140000
+      nSubsidy >>= ((nHeight - 140000 + 50000) / 50000);
+    }
 
     return nSubsidy + nFees;
 }
@@ -1261,7 +1277,6 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 
 static const int64_t nTargetTimespan = 24 * 60 * 60; // 24 hours
 const int64_t nTargetSpacing = 60; // 1 minute
-static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -1297,66 +1312,143 @@ const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfSta
     return pindex;
 }
 
-unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
+unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader *pblock, uint64_t TargetBlocksSpacingSeconds, uint64_t PastBlocksMin, uint64_t PastBlocksMax)
 {
-    unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit().GetCompact();
+    const CBlockIndex  *BlockLastSolved = pindexLast;
+    const CBlockIndex  *BlockReading    = pindexLast;
 
-    // Genesis block
-    if (pindexLast == NULL)
-        return nProofOfWorkLimit;
+    uint64_t  PastBlocksMass        = 0;
+    int64_t   PastRateActualSeconds = 0;
+    int64_t   PastRateTargetSeconds = 0;
+    double  PastRateAdjustmentRatio = double(1);
+    CBigNum PastDifficultyAverage;
+    CBigNum PastDifficultyAveragePrev;
+    CBigNum bnProofOfWorkLimit = Params().ProofOfWorkLimit();
+    CBigNum bnProofOfStakeLimit = Params().ProofOfStakeLimit();
+    CBigNum bnProofOfStakeReset(~uint256(0) >> 32); // 1
 
-    // Only change once per interval
-    if ((pindexLast->nHeight+1) % nInterval != 0)
+    double EventHorizonDeviation;
+    double EventHorizonDeviationFast;
+    double EventHorizonDeviationSlow;
+
+    bool fProofOfStake = false;
+    if (pindexLast && pindexLast->nHeight >= Params().LastProofOfWorkHeight())
+        fProofOfStake = true;
+
+    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64_t)BlockLastSolved->nHeight < PastBlocksMin)
     {
+        return bnProofOfWorkLimit.GetCompact();
+    }
+    else if (fProofOfStake && (uint64_t)(BlockLastSolved->nHeight - Params().LastProofOfWorkHeight()) < PastBlocksMin)
+    {
+        // difficulty is reset at the first PoSV blocks
         if (TestNet())
-        {
-            // Special difficulty rule for testnet:
-            // If the new block's timestamp is more than 2 minutes
-            // then allow mining of a min-difficulty block.
-            if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
-                return nProofOfWorkLimit;
-            else
-            {
-                // Return the last non-special-min-difficulty-rules-block
-                const CBlockIndex* pindex = pindexLast;
-                while (pindex->pprev && pindex->nHeight % nInterval != 0 && pindex->nBits == nProofOfWorkLimit)
-                    pindex = pindex->pprev;
-                return pindex->nBits;
-            }
-        }
-        return pindexLast->nBits;
+            return bnProofOfStakeLimit.GetCompact();
+        else
+            return bnProofOfStakeReset.GetCompact();
     }
 
-    // Go back by what we want to be 24 hours worth of blocks
-    const CBlockIndex* pindexFirst = pindexLast;
-    for (int i = 0; pindexFirst && i < nInterval-1; i++)
-        pindexFirst = pindexFirst->pprev;
-    assert(pindexFirst);
+    for (unsigned int i = 1; BlockReading && BlockReading->nHeight > (fProofOfStake ? Params().LastProofOfWorkHeight() : 0); i++)
+    {
+        if (PastBlocksMax > 0 && i > PastBlocksMax)
+            break;
 
-    // Limit adjustment step
-    int64_t nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-    LogPrintf("  nActualTimespan = %d  before bounds\n", nActualTimespan);
-    if (nActualTimespan < nTargetTimespan/4)
-        nActualTimespan = nTargetTimespan/4;
-    if (nActualTimespan > nTargetTimespan*4)
-        nActualTimespan = nTargetTimespan*4;
+        PastBlocksMass++;
 
-    // Retarget
-    CBigNum bnNew;
-    bnNew.SetCompact(pindexLast->nBits);
-    bnNew *= nActualTimespan;
-    bnNew /= nTargetTimespan;
+        if (i == 1)
+        {
+            PastDifficultyAverage.SetCompact(BlockReading->nBits);
+        }
+        else
+        {
+            PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
+        }
+        PastDifficultyAveragePrev = PastDifficultyAverage;
 
-    if (bnNew > Params().ProofOfWorkLimit())
-        bnNew = Params().ProofOfWorkLimit();
+        PastRateActualSeconds = BlockLastSolved->GetBlockTime() - BlockReading->GetBlockTime();
+        PastRateTargetSeconds = TargetBlocksSpacingSeconds * PastBlocksMass;
+        PastRateAdjustmentRatio = double(1);
 
-    /// debug print
-    LogPrintf("GetNextWorkRequired RETARGET\n");
-    LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
-    LogPrintf("Before: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString());
-    LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString());
+        if (PastRateActualSeconds < 0)
+            PastRateActualSeconds = 0;
 
-    return bnNew.GetCompact();
+        if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0)
+            PastRateAdjustmentRatio = double(PastRateTargetSeconds) / double(PastRateActualSeconds);
+
+        EventHorizonDeviation = 1 + (0.7084 * pow((double(PastBlocksMass)/double(144)), -1.228));
+        EventHorizonDeviationFast = EventHorizonDeviation;
+        EventHorizonDeviationSlow = 1 / EventHorizonDeviation;
+
+        if (PastBlocksMass >= PastBlocksMin)
+        {
+            if ((PastRateAdjustmentRatio <= EventHorizonDeviationSlow) || (PastRateAdjustmentRatio >= EventHorizonDeviationFast))
+            {
+                assert(BlockReading);
+                break;
+            }
+        }
+
+        if (BlockReading->pprev == NULL)
+        {
+            assert(BlockReading);
+            break;
+        }
+
+        BlockReading = BlockReading->pprev;
+
+    }
+
+    CBigNum bnNew(PastDifficultyAverage);
+
+    if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0)
+    {
+        bnNew *= PastRateActualSeconds;
+        bnNew /= PastRateTargetSeconds;
+    }
+
+    if (!fProofOfStake && bnNew > bnProofOfWorkLimit)
+    {
+        bnNew = bnProofOfWorkLimit;
+    }
+    else if (fProofOfStake && bnNew > bnProofOfStakeLimit)
+    {
+        bnNew = bnProofOfStakeLimit;
+    }
+
+     /// debug print
+    if (fDebug)
+    {
+        printf("Difficulty Retarget - Kimoto Gravity Well\n");
+        printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+        printf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
+        printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    }
+
+     return bnNew.GetCompact();
+}
+
+unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
+{
+    // always mine PoW blocks at the lowest diff on testnet
+    if (TestNet() && chainActive.Tip()->nHeight < Params().LastProofOfWorkHeight())
+        return Params().ProofOfWorkLimit().GetCompact();
+
+    static const int64_t BlocksTargetSpacing = 1 * 60; // 1 Minute
+    unsigned int TimeDaySeconds = 60 * 60 * 24;
+
+    int64_t PastSecondsMin = TimeDaySeconds * 0.25;
+    int64_t PastSecondsMax = TimeDaySeconds * 7;
+
+    if (chainActive.Tip()->nHeight < 6000)
+    {
+        PastSecondsMin = TimeDaySeconds * 0.01;
+        PastSecondsMax = TimeDaySeconds * 0.14;
+    }
+
+    uint64_t PastBlocksMin = PastSecondsMin / BlocksTargetSpacing;
+    uint64_t PastBlocksMax = PastSecondsMax / BlocksTargetSpacing;
+
+    return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
 }
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
@@ -2445,7 +2537,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                          REJECT_INVALID, "bad-blk-length");
 
     // Check proof of work matches claimed amount
-    if (fCheckPOW && block.IsProofOfWork() && !CheckProofOfWork(block.GetHash(), block.nBits))
+    if (block.GetBlockTime() > CHECK_POW_FROM_NTIME && fCheckPOW && block.IsProofOfWork() && !CheckProofOfWork(block.GetPoWHash(), block.nBits))
         return state.DoS(50, error("CheckBlock() : proof of work failed"),
                          REJECT_INVALID, "high-hash");
 
@@ -2578,31 +2670,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         if (pcheckpoint && nHeight < pcheckpoint->nHeight)
             return state.DoS(100, error("AcceptBlock() : forked chain older than last checkpoint (height %d)", nHeight));
 
-        // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
-        if (block.nVersion < 2)
-        {
-            if ((!TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 950, 1000)) ||
-                (TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 75, 100)))
-            {
-                return state.Invalid(error("AcceptBlock() : rejected nVersion=1 block"),
-                                     REJECT_OBSOLETE, "bad-version");
-            }
-        }
-        // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
-        if (block.nVersion >= 2)
-        {
-            // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
-            if ((!TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 750, 1000)) ||
-                (TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 51, 100)))
-            {
-                CScript expect = CScript() << nHeight;
-                if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
-                    !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin()))
-                    return state.DoS(100, error("AcceptBlock() : block height mismatch in coinbase"),
-                                     REJECT_INVALID, "bad-cb-height");
-            }
-        }
-
+        uint256 hashProof;
         // Verify hash target and signature of coinstake tx
         if (block.IsProofOfStake())
         {
@@ -2616,7 +2684,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         else if (block.IsProofOfWork())
         {
             // PoW is checked in CheckBlock()
-            hashProof = block.GetHash();
+            hashProof = block.GetPoWHash();
         }
     }
 
@@ -2722,7 +2790,7 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
         bnNewBlock.SetCompact(pblock->nBits);
         CBigNum bnRequired;
         bnRequired.SetCompact(ComputeMinWork(GetLastBlockIndex(pcheckpoint, pblock->IsProofOfStake())->nBits, deltaTime, pblock->IsProofOfStake()));
-        if (bnNewBlock > bnRequired)
+        if (pblock->GetBlockTime() > CHECK_POW_FROM_NTIME && bnNewBlock > bnRequired)
         {
             return state.DoS(100, error("ProcessBlock() : block with too little proof-of-%s", pblock->IsProofOfStake()? "stake" : "work"),
                              REJECT_INVALID, "bad-diffbits");

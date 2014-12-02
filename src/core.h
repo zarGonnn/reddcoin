@@ -10,6 +10,7 @@
 #include "serialize.h"
 #include "uint256.h"
 #include "bignum.h"
+#include "scrypt.h"
 
 #include <stdint.h>
 
@@ -220,7 +221,16 @@ public:
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
-        READWRITE(nTime);
+        if (this->nVersion > POW_TX_VERSION)
+        {
+            // PoSV
+            READWRITE(nTime);
+        }
+        else if (fRead)
+        {
+            CTransaction* pthis = const_cast<CTransaction*>(this);
+            pthis->nTime = 0;
+        }
     )
 
     void SetNull()
@@ -446,7 +456,9 @@ public:
     (
         READWRITE(*(CBlockHeader*)this);
         READWRITE(vtx);
-        READWRITE(vchBlockSig);
+        // PoSV
+        if (this->nVersion > POW_BLOCK_VERSION)
+            READWRITE(vchBlockSig);
     )
 
     void SetNull()
@@ -455,6 +467,13 @@ public:
         vtx.clear();
         vMerkleTree.clear();
         vchBlockSig.clear();
+    }
+
+    uint256 GetPoWHash() const
+    {
+        uint256 thash;
+        scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
+        return thash;
     }
 
     // PoSV: two types of block: proof-of-work or proof-of-stake

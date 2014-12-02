@@ -128,6 +128,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
         if (fDebug)
            LogPrintf("CreateNewBlock : new PoW block\n");
 
+        pblock->nVersion = POW_BLOCK_VERSION;
+        txNew.nVersion = POW_TX_VERSION;
         txNew.vout[0].scriptPubKey = scriptPubKeyIn;
     }
     else
@@ -182,6 +184,17 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
             const CTransaction& tx = mi->second.GetTx();
             if (tx.IsCoinBase() || tx.IsCoinStake() || !IsFinalTx(tx, pindexPrev->nHeight + 1))
                 continue;
+
+            if (fProofOfStake && tx.nVersion <= POW_TX_VERSION)
+            {
+                // In PoSV blocks, stop processing transactions of older versions.
+                continue;
+            }
+            else if (!fProofOfStake && tx.nVersion > POW_TX_VERSION)
+            {
+                // In PoW blocks, stop processing transactions of newer versions.
+                continue;
+            }
 
             COrphan* porphan = NULL;
             double dPriority = 0;
@@ -490,7 +503,7 @@ CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey)
 
 bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 {
-    uint256 hash = pblock->GetHash();
+    uint256 hash = pblock->GetPoWHash();
     uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
 
     if(!pblock->IsProofOfWork())
