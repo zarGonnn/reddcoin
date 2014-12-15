@@ -96,6 +96,7 @@ libreddcoin_server_a_SOURCES = \
   coins.cpp \
   init.cpp \
   keystore.cpp \
+  kernel.cpp \
   leveldbwrapper.cpp \
   main.cpp \
   miner.cpp \
@@ -127,7 +128,6 @@ libreddcoin_common_a_SOURCES = \
   chainparams.cpp \
   core.cpp \
   hash.cpp \
-  kernel.cpp \
   key.cpp \
   netbase.cpp \
   protocol.cpp \

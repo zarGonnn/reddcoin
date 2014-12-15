@@ -1748,7 +1748,7 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
 
     // Calculate coin age reward
     {
-        uint64_t nCoinAge = txNew.GetCoinAge();
+        uint64_t nCoinAge = GetCoinAge(txNew);
         if (!nCoinAge)
             return error("CreateCoinStake : failed to calculate coin age");
 

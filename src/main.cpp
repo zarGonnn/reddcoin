@@ -1932,7 +1932,7 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
     else if (block.IsProofOfStake())
     {
         // PoSV: coinstake tx earns reward instead of paying fee
-        uint64_t nCoinAge = block.vtx[1].GetCoinAge();
+        uint64_t nCoinAge = GetCoinAge(block.vtx[1]);
         if (!nCoinAge)
             return state.DoS(100, error("ConnectBlock() : %s unable to get coin age for coinstake", block.vtx[1].GetHash().ToString().substr(0,10).c_str()));
 

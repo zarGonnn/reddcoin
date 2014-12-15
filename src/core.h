@@ -259,9 +259,6 @@ public:
         return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
     }
 
-    // PoSV: get transaction coin age
-    uint64_t GetCoinAge() const;
-
     friend bool operator==(const CTransaction& a, const CTransaction& b)
     {
         return (a.nVersion  == b.nVersion &&
@@ -495,8 +492,6 @@ public:
         return maxTransactionTime;
     }
 
-    // PoSV: calculate total coin age spent in block
-    uint64_t GetCoinAge() const;
     bool CheckBlockSignature() const;
 
     CBlockHeader GetBlockHeader() const

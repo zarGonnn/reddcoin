@@ -447,3 +447,75 @@ bool CheckStakeModifierCheckpoints(int nHeight, uint64_t nStakeModifierChecksum)
         return nStakeModifierChecksum == checkpoints[nHeight];
     return true;
 }
+
+
+// PoSV: total coin age spent in transaction, in the unit of coin-days.
+// Only those coins meeting minimum age requirement counts. As those
+// transactions not in main chain are not currently indexed so we
+// might not find out about their coin age. Older transactions are
+// guaranteed to be in main chain by sync-checkpoint. This rule is
+// introduced to help nodes establish a consistent view of the coin
+// age (trust score) of competing branches.
+uint64_t GetCoinAge(const CTransaction& tx)
+{
+    CBigNum bnCentSecond = 0;  // coin age in the unit of cent-seconds
+    uint64_t nCoinAge = 0;
+
+    if (tx.IsCoinBase())
+        return 0;
+
+    BOOST_FOREACH(const CTxIn& txin, tx.vin)
+    {
+        // First try finding the previous transaction in database
+        CTransaction txPrev;
+        uint256 hashTxPrev = txin.prevout.hash;
+        uint256 hashBlock = 0;
+        if (!GetTransaction(hashTxPrev, txPrev, hashBlock, true))
+            continue;  // previous transaction not in main chain
+
+        // Read block header
+        CBlock block;
+        if (!mapBlockIndex.count(hashBlock))
+            return 0; // unable to read block of previous transaction
+        if (!ReadBlockFromDisk(block, mapBlockIndex[hashBlock]))
+            return 0; // unable to read block of previous transaction
+        if (block.nTime + Params().StakeMinAge() > tx.nTime)
+            continue; // only count coins meeting min age requirement
+
+        // deal with missing timestamps in PoW blocks
+        if (txPrev.nTime == 0)
+            txPrev.nTime = block.nTime;
+
+        if (tx.nTime < txPrev.nTime)
+            return 0;  // Transaction timestamp violation
+
+        int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
+        int64_t nTimeWeight = GetCoinAgeWeight(txPrev.nTime, tx.nTime);
+        bnCentSecond += CBigNum(nValueIn) * nTimeWeight / CENT;
+
+        if (fDebug && GetBoolArg("-printcoinage", false))
+            LogPrintf("coin age nValueIn=%s nTime=%d, txPrev.nTime=%d, nTimeWeight=%s bnCentSecond=%s\n",
+                nValueIn, tx.nTime, txPrev.nTime, nTimeWeight, bnCentSecond.ToString().c_str());
+    }
+
+    CBigNum bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
+    if (fDebug && GetBoolArg("-printcoinage", false))
+        LogPrintf("coin age bnCoinDay=%s\n", bnCoinDay.ToString().c_str());
+    nCoinAge = bnCoinDay.getuint64();
+    return nCoinAge;
+}
+
+// PoSV: total coin age spent in block, in the unit of coin-days.
+uint64_t GetCoinAge(const CBlock& block)
+{
+    uint64_t nCoinAge = 0;
+
+    BOOST_FOREACH(const CTransaction& tx, block.vtx)
+        nCoinAge += GetCoinAge(tx);
+
+    if (fDebug && GetBoolArg("-printcoinage", false))
+        LogPrintf("block coin age total nCoinDays=%s\n", nCoinAge);
+    return nCoinAge;
+}
+
+
