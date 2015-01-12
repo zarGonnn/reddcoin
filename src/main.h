@@ -74,8 +74,8 @@ static const int fHaveUPnP = false;
 #endif
 
 // ppcoin
-inline int64 PastDrift(int64 nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
-inline int64 FutureDrift(int64 nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
+inline int64 PastDrift(int64 nTime)   { return nTime - 2 * 60 * 60; } // up to 2 hours from the past
+inline int64 FutureDrift(int64 nTime) { return nTime + 2 * 60 * 60; } // up to 2 hours from the future
 
 // Reddcoin PoSV
 static const int LAST_POW_BLOCK = 260800 - 1;
