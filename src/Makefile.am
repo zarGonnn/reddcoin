@@ -83,6 +83,11 @@ JSON_H = \
   json/json_spirit_writer.h \
   json/json_spirit_writer_template.h
 
+HD_H = \
+  hd/mnemonic.h \
+  hd/seed.h \
+  hd/wordlist/english.h
+
 obj/build.h: FORCE
 	@$(MKDIR_P) $(abs_top_builddir)/src/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
@@ -121,7 +126,9 @@ libbitcoin_wallet_a_SOURCES = \
   rpcwallet.cpp \
   wallet.cpp \
   walletdb.cpp \
-  $(BITCOIN_CORE_H)
+  hd/seed.cpp \
+  $(BITCOIN_CORE_H) \
+  $(HD_H)
 
 libbitcoin_common_a_SOURCES = \
   base58.cpp \
