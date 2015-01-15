@@ -15,6 +15,7 @@
 #include "util.h"
 #include "walletdb.h"
 #include "kernel.h"
+#include "hd/wallet.h"
 
 #include <algorithm>
 #include <map>
@@ -49,8 +50,9 @@ enum WalletFeature
 
     FEATURE_WALLETCRYPT = 40000, // wallet encryption
     FEATURE_COMPRPUBKEY = 60000, // compressed public keys
+    FEATURE_HDWALLET    = 2000000, // hierarchical deterministic wallet
 
-    FEATURE_LATEST = 60000
+    FEATURE_LATEST = 2000000
 };
 
 
@@ -100,7 +102,7 @@ public:
 /** A CWallet is an extension of a keystore, which also maintains a set of transactions and balances,
  * and provides the ability to create new transactions.
  */
-class CWallet : public CCryptoKeyStore, public CWalletInterface
+class CWallet : public CCryptoKeyStore, public CWalletInterface, public CHdWalletInterface
 {
 private:
     bool SelectCoins(int64_t nTargetValue, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64_t& nValueRet, const CCoinControl *coinControl = NULL) const;
@@ -126,6 +128,13 @@ private:
     void AddToSpends(const uint256& wtxid);
 
     void SyncMetaData(std::pair<TxSpends::iterator, TxSpends::iterator>);
+
+    // HD wallet
+    std::string strRootName;
+    std::string strRootDerivation;
+    CHdSeed hdSeed;
+    CExtKey masterKey;       // account master private key for non-change addresses
+    CExtKey masterKeyChange; // account master private key for change addresses
 
 public:
     /// Main wallet lock.
@@ -167,6 +176,9 @@ public:
         nNextResend = 0;
         nLastResend = 0;
         nTimeFirstKey = 0;
+        // HD wallet
+        strRootName = "x/";
+        strRootDerivation = "m/44'/4'/0";
     }
 
     std::map<uint256, CWalletTx> mapWallet;
@@ -271,6 +283,16 @@ public:
     bool GetStakeWeight(uint64_t& nAverageWeight, uint64_t& nTotalWeight);
     bool CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64_t nFees, CTransaction& txNew, CKey& key);
     bool SignBlock(CBlock *pblock, int64_t nFees);
+
+    // CHdWalletInterface
+    bool CreateHdMainAccount();
+    bool GenerateNewHdSeed();
+    bool GetHdSeed();
+    bool GetHdMnemonic(std::string& mnemonic);
+    bool SetHdSeed(const std::string &mnemonic);
+    bool GetHdMasterPubKey(CExtPubKey& mpk, bool fChange) const;
+    bool DeriveHdSecret(CExtKey &out, unsigned int n, bool fChange);
+    bool DeriveHdPubKey(CExtPubKey &out, unsigned int n, bool fChange);
 
     bool NewKeyPool();
     bool TopUpKeyPool(unsigned int kpSize = 0);

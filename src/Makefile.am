@@ -86,6 +86,7 @@ JSON_H = \
 HD_H = \
   hd/mnemonic.h \
   hd/seed.h \
+  hd/wallet.h \
   hd/wordlist/english.h
 
 obj/build.h: FORCE

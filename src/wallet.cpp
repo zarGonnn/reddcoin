@@ -11,6 +11,7 @@
 #include "net.h"
 
 #include <boost/algorithm/string/replace.hpp>
+#include <boost/lexical_cast.hpp>
 #include <openssl/rand.h>
 
 using namespace std;
@@ -1837,6 +1838,119 @@ bool CWallet::SignBlock(CBlock *pblock, int64_t nFees)
 
     return false;
 }
+
+//
+// HD wallet
+//
+bool CWallet::CreateHdMainAccount()
+{
+    LOCK(cs_wallet);
+
+    if (!GetHdSeed())
+        GenerateNewHdSeed();
+
+    std::vector<std::string> vNodes;
+    boost::split(vNodes, strRootDerivation, boost::is_any_of("/"));
+    CExtKey parent, out;
+
+    std::vector<unsigned char> entropy;
+    hdSeed.GetEntropy(entropy);
+    parent.SetMaster(&entropy[0], entropy.size());
+
+    for (std::vector<std::string>::const_iterator it = vNodes.begin(); it != vNodes.end(); ++it)
+    {
+        std::string node = *it;
+        if (node == "" || (node == "m" && it == vNodes.begin()))
+            continue;
+        bool hardened = node[node.size() - 1] == '\'';
+        if (hardened)
+            node = node.substr(0, node.size()-1);
+
+        try
+        {
+            unsigned int child = boost::lexical_cast<unsigned int>(node);
+            if (hardened)
+                child += BIP32_PRIME;
+            if (!parent.Derive(out, child))
+                return false;
+            else
+                parent = out;
+        }
+        catch(const boost::bad_lexical_cast &)
+        {
+            return false;
+        }
+    }
+
+    if (!out.Derive(masterKey, 0))
+        return false;
+
+    if (!out.Derive(masterKeyChange, 1))
+        return false;
+
+    LogPrintf("CWallet::CreateHdMainAccount: completed\n");
+    return true;
+}
+
+bool CWallet::GenerateNewHdSeed()
+{
+    LOCK(cs_wallet);
+    hdSeed.Generate();
+    return true;
+}
+
+
+bool CWallet::GetHdSeed()
+{
+    return hdSeed.IsValid();
+}
+
+bool CWallet::GetHdMnemonic(std::string& words)
+{
+    LOCK(cs_wallet);
+    return GetHdSeed() && hdSeed.GetMnemonic(words);
+}
+
+bool CWallet::SetHdSeed(const std::string& words)
+{
+    LOCK(cs_wallet);
+    return hdSeed.SetMnemonic(words);
+}
+
+bool CWallet::GetHdMasterPubKey(CExtPubKey& mpk, bool fChange) const
+{
+    CExtKey mk = fChange? masterKeyChange : masterKey;
+    if (!mk.key.IsValid())
+        return false;
+    mpk = mk.Neuter();
+    return true;
+}
+
+bool CWallet::DeriveHdSecret(CExtKey &out, unsigned int n, bool fChange)
+{
+    CExtKey parent = fChange ? masterKeyChange : masterKey;
+    if (!parent.key.IsValid())
+        return false;
+
+    LogPrintf("CWallet::DeriveHdSecret: n=%u\n", n);
+    return parent.Derive(out, n);
+}
+
+bool CWallet::DeriveHdPubKey(CExtPubKey &out, unsigned int n, bool fChange)
+{
+    CExtKey parent = fChange ? masterKeyChange : masterKey;
+    if (!parent.key.IsValid())
+        return false;
+
+    LogPrintf("CWallet::DeriveHdSecret: n=%u\n", n);
+    CExtKey child;
+    if (!parent.Derive(child, n))
+        return false;
+
+    out = child.Neuter();
+    return true;
+}
+
 
 // Call after CreateTransaction unless you want to abort
 bool CWallet::CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey)
