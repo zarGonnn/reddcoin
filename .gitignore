@@ -28,6 +28,7 @@ src/qt/test/moc*.cpp
 
 .deps
 .dirstamp
+.idea
 .*.swp
 *.*~*
 *.bak
@@ -53,6 +54,7 @@ src/qt/test/moc*.cpp
 Makefile
 bitcoin-qt
 Bitcoin-Qt.app
+CMakeLists.txt
 
 # Unit-tests
 Makefile.test
