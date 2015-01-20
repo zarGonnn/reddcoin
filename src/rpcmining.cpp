@@ -10,6 +10,7 @@
 #include "main.h"
 #include "miner.h"
 #ifdef ENABLE_WALLET
+#include "key.h"
 #include "db.h"
 #include "wallet.h"
 #endif
@@ -24,7 +25,7 @@ using namespace std;
 #ifdef ENABLE_WALLET
 // Key used by getwork miners.
 // Allocated in InitRPCMining, free'd in ShutdownRPCMining
-static CReserveKey* pMiningKey = NULL;
+static CPubKey* pMiningKey = NULL;
 
 void InitRPCMining()
 {
@@ -32,7 +33,8 @@ void InitRPCMining()
         return;
 
     // getwork/getblocktemplate mining rewards paid here:
-    pMiningKey = new CReserveKey(pwalletMain);
+    pMiningKey = new CPubKey();
+    pwalletMain->GenerateNewKey(*pMiningKey);
 }
 
 void ShutdownRPCMining()
@@ -443,7 +445,7 @@ Value getwork(const Array& params, bool fHelp)
         pblock->hashMerkleRoot = pblock->BuildMerkleTree();
 
         assert(pwalletMain != NULL);
-        return CheckWork(pblock, *pwalletMain, *pMiningKey);
+        return CheckWork(pblock, *pwalletMain);
     }
 }
 #endif

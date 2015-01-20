@@ -491,17 +491,13 @@ unsigned int static ScanHash_CryptoPP(char* pmidstate, char* pdata, char* phash1
     }
 }
 
-CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey)
+CBlockTemplate* CreateNewBlockWithKey(CPubKey& pubkey)
 {
-    CPubKey pubkey;
-    if (!reservekey.GetReservedKey(pubkey))
-        return NULL;
-
     CScript scriptPubKey = CScript() << pubkey << OP_CHECKSIG;
     return CreateNewBlock(scriptPubKey);
 }
 
-bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
+bool CheckWork(CBlock* pblock, CWallet& wallet)
 {
     uint256 hash = pblock->GetPoWHash();
     uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
@@ -523,9 +519,6 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
             return error("ReddcoinMiner : mined block is stale");
 
-        // Remove key from key pool
-        reservekey.KeepKey();
-
         // Track how many getdata requests this block gets
         {
             LOCK(wallet.cs_wallet);
@@ -541,7 +534,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     return true;
 }
 
-bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
+bool CheckStake(CBlock* pblock, CWallet& wallet)
 {
     uint256 hash = pblock->GetHash();
     uint256 hashStake = 0, hashTarget = 0;
@@ -565,9 +558,6 @@ bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
             return error("ReddcoinStaker : minted block is stale");
 
-        // Remove key from key pool
-        reservekey.KeepKey();
-
         // Track how many getdata requests this block gets
         {
             LOCK(wallet.cs_wallet);
@@ -590,7 +580,8 @@ void ReddcoinStaker(CWallet *pwallet)
 
     // Make this thread recognisable as the staking thread
     RenameThread("reddcoin-staker");
-    CReserveKey reservekey(pwallet);
+    CPubKey pubkey;
+	pwallet->GenerateNewKey(pubkey);
 
     try { while (true) {
         if (Params().NetworkID() != CChainParams::REGTEST) {
@@ -615,7 +606,7 @@ void ReddcoinStaker(CWallet *pwallet)
         //
         // Create a new block
         //
-        auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey));
+        auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(pubkey));
         if (!pblocktemplate.get())
             return;
         CBlock *pblock = &pblocktemplate->block;
@@ -625,7 +616,7 @@ void ReddcoinStaker(CWallet *pwallet)
         if (pwallet->SignBlock(pblock, nFees))
         {
             SetThreadPriority(THREAD_PRIORITY_NORMAL);
-            CheckStake(pblock, *pwallet, reservekey);
+            CheckStake(pblock, *pwallet);
             SetThreadPriority(THREAD_PRIORITY_LOWEST);
             MilliSleep(500);
         }
@@ -649,7 +640,8 @@ void static ReddcoinMiner(CWallet *pwallet)
     RenameThread("reddcoin-miner");
 
     // Each thread has its own key and counter
-    CReserveKey reservekey(pwallet);
+    CPubKey pubkey;
+	pwallet->GenerateNewKey(pubkey);
     unsigned int nExtraNonce = 0;
 
     try { while (true) {
@@ -666,7 +658,7 @@ void static ReddcoinMiner(CWallet *pwallet)
         unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
         CBlockIndex* pindexPrev = chainActive.Tip();
 
-        auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey));
+        auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(pubkey));
         if (!pblocktemplate.get())
             return;
         CBlock *pblock = &pblocktemplate->block;
@@ -718,7 +710,7 @@ void static ReddcoinMiner(CWallet *pwallet)
                     assert(hash == pblock->GetHash());
 
                     SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                    CheckWork(pblock, *pwallet, reservekey);
+                    CheckWork(pblock, *pwallet);
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
                     // In regression test mode, stop mining after a block is found. This
