@@ -4,6 +4,7 @@
 
 #include "bitcoinamountfield.h"
 
+#include "util.h"
 #include "qvaluecombobox.h"
 #include "bitcoinunits.h"
 #include "guiconstants.h"
@@ -48,9 +49,15 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent):
 void BitcoinAmountField::setText(const QString &text)
 {
     if (text.isEmpty())
+    {
         amount->clear();
+    }
     else
-        amount->setValue(text.toDouble());
+    {
+        // remove the space delimiter for every 3 digits
+        QString value = text;
+        amount->setValue(value.replace(" ", "").toDouble());
+    }
 }
 
 void BitcoinAmountField::clear()
