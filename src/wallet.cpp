@@ -1811,7 +1811,7 @@ bool CWallet::SignBlock(CBlock *pblock, int64_t nFees)
     if (nSearchTime > nLastCoinStakeSearchTime)
     {
         if (fDebug)
-            printf("SignBlock : about to create coinstake: nFees=%lld\n", nFees);
+            printf("SignBlock : about to create coinstake: nFees=%ld\n", nFees);
         if (CreateCoinStake(pblock->nBits, nSearchTime-nLastCoinStakeSearchTime, nFees, txCoinStake, key))
         {
             printf("SignBlock : coinstake created\n");

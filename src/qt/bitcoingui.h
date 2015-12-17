@@ -5,6 +5,8 @@
 #ifndef BITCOINGUI_H
 #define BITCOINGUI_H
 
+#include "uint256.h"
+
 #if defined(HAVE_CONFIG_H)
 #include "bitcoin-config.h"
 #endif
