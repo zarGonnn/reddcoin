@@ -42,6 +42,7 @@ BITCOIN_CORE_H = \
   db.h \
   hash.h \
   init.h \
+  kernel.h \
   key.h \
   keystore.h \
   leveldbwrapper.h \
@@ -95,6 +96,7 @@ libbitcoin_server_a_SOURCES = \
   coins.cpp \
   init.cpp \
   keystore.cpp \
+  kernel.cpp \
   leveldbwrapper.cpp \
   main.cpp \
   miner.cpp \
