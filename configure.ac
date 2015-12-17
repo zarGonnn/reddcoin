@@ -238,25 +238,12 @@ case $host in
 
        AC_CHECK_PROG([BREW],brew, brew)
        if test x$BREW = xbrew; then
-         dnl These Homebrew packages may be bottled, meaning that they won't be found
-         dnl in expected paths because they may conflict with system files. Ask
-         dnl Homebrew where each one is located, then adjust paths accordingly.
-         dnl It's safe to add these paths even if the functionality is disabled by
-         dnl the user (--without-wallet or --without-gui for example).
-
-         openssl_prefix=`$BREW --prefix openssl 2>/dev/null`
-         bdb_prefix=`$BREW --prefix berkeley-db4 2>/dev/null`
-         qt5_prefix=`$BREW --prefix qt5 2>/dev/null`
-         if test x$openssl_prefix != x; then
-           export PKG_CONFIG_PATH="$openssl_prefix/lib/pkgconfig:$PKG_CONFIG_PATH"
-         fi
-         if test x$bdb_prefix != x; then
-           CPPFLAGS="$CPPFLAGS -I$bdb_prefix/include"
-           LIBS="$LIBS -L$bdb_prefix/lib"
-         fi
-         if test x$qt5_prefix != x; then
-           export PKG_CONFIG_PATH="$qt5_prefix/lib/pkgconfig:$PKG_CONFIG_PATH"
-         fi
+         dnl add default homebrew paths
+         openssl_prefix=`$BREW --prefix openssl`
+         bdb_prefix=`$BREW --prefix berkeley-db4`
+         export PKG_CONFIG_PATH="$openssl_prefix/lib/pkgconfig:$PKG_CONFIG_PATH"
+         CPPFLAGS="$CPPFLAGS -I$bdb_prefix/include"
+         LIBS="$LIBS -L$bdb_prefix/lib"
        fi
      else
        case $build_os in
@@ -663,7 +650,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_bitcoin-qt])
+  AC_MSG_CHECKING([whether to build test_reddcoin-qt])
   if test x$use_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="test"
@@ -681,7 +668,7 @@ else
   use_sse2=no
 fi
 AC_MSG_RESULT($use_sse2)
-AC_MSG_CHECKING([whether to build test_bitcoin])
+AC_MSG_CHECKING([whether to build test_reddcoin])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="test"
