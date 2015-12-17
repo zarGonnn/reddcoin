@@ -914,7 +914,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "bitcoin";
+    const char* pszModule = "reddcoin";
 #endif
     if (pex)
         return strprintf(
@@ -947,7 +947,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Redddcoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Reddcoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -959,10 +959,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "Redddcoin";
+    return pathRet / "Reddcoin";
 #else
     // Unix
-    return pathRet / ".redddcoin";
+    return pathRet / ".reddcoin";
 #endif
 #endif
 }
@@ -1044,7 +1044,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "reddcoind.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "reddcoin.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
