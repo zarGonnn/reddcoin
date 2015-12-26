@@ -1044,7 +1044,7 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
-    return max(0, (COINBASE_MATURITY+1) - GetDepthInMainChain());
+    return max(0, (COINBASE_MATURITY+20) - GetDepthInMainChain());
 }
 
 
@@ -1418,10 +1418,10 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
      /// debug print
     if (fDebug)
     {
-        printf("Difficulty Retarget - Kimoto Gravity Well\n");
-        printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-        printf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
-        printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+        LogPrintf("Difficulty Retarget - Kimoto Gravity Well\n");
+        LogPrintf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+        LogPrintf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
+        LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
     }
 
      return bnNew.GetCompact();
@@ -1931,12 +1931,18 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
     // This rule was originally applied all blocks whose timestamp was after March 15, 2012, 0:00 UTC.
     bool fEnforceBIP30 = !pindex->phashBlock; // Enforce on CreateNewBlock invocations which don't have a hash.
     if (fEnforceBIP30) {
-        for (unsigned int i = block.IsProofOfStake() ? 1 : 0; i < block.vtx.size(); i++) {
+        bool fProofOfStake = pindex->nHeight > Params().LastProofOfWorkHeight();
+        for (unsigned int i = fProofOfStake ? 1 : 0; i < block.vtx.size(); i++) {
             uint256 hash = block.GetTxHash(i);
+            if(fDebug) {
+                LogPrintf("CBlock::ConnectBlock : nHeight=%u, PoSV=%d, vts=%u, vtx.size=%u\n", pindex->nHeight, fProofOfStake, i, block.vtx.size());
+                block.print();
+            }
             if (view.HaveCoins(hash) && !view.GetCoins(hash).IsPruned())
                 return state.DoS(100, error("ConnectBlock() : tried to overwrite transaction"),
                                  REJECT_INVALID, "bad-txns-BIP30");
         }
+        LogPrintf("fEnforceBIP30: Passed\n");
     }
 
     unsigned int flags = SCRIPT_VERIFY_NOCACHE | SCRIPT_VERIFY_P2SH;
