@@ -164,6 +164,7 @@ public:
         pchMessageStart[3] = 0xdf;
         nSubsidyHalvingInterval = 150;
         bnProofOfWorkLimit = bnProofOfStakeLimit = CBigNum(~uint256(0) >> 1);
+        nLastProofOfWorkHeight = 350 - 1;
         genesis.nTime = 1401051600;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 3;
