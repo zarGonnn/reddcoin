@@ -810,6 +810,10 @@ void GenerateReddcoins(bool fGenerate, CWallet* pwallet, int nThreads)
         return;
 
     minerThreads = new boost::thread_group();
+    
+    // start one thread for PoSV minting
+    minerThreads->create_thread(boost::bind(&ReddcoinStaker, pwallet));
+
     for (int i = 0; i < nThreads; i++)
         minerThreads->create_thread(boost::bind(&ReddcoinMiner, pwallet));
 }
