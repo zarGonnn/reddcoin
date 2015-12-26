@@ -670,6 +670,14 @@ void static ReddcoinMiner(CWallet *pwallet)
         if (!pblocktemplate.get())
             return;
         CBlock *pblock = &pblocktemplate->block;
+
+        // exit if received a PoSV block template
+        if (pblock->vtx[0].vout[0].IsEmpty())
+        {
+            LogPrintf("ReddcoinMiner : no more PoW blocks\n");
+            return;
+        }
+
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
         LogPrintf("Running ReddcoinMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
