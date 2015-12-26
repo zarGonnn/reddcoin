@@ -1529,7 +1529,7 @@ bool CWallet::GetStakeWeight(uint64_t& nAverageWeight, uint64_t& nTotalWeight)
     set<pair<const CWalletTx*,unsigned int> > setCoins;
     int64_t nValueIn = 0;
 
-    if (!SelectCoinsSimple(nBalance - nReserveBalance, setCoins, nValueIn, GetTime(), COINBASE_MATURITY+1))
+    if (!SelectCoinsSimple(nBalance - nReserveBalance, setCoins, nValueIn, GetTime(), COINBASE_MATURITY+20))
         return false;
 
     if (setCoins.empty())
@@ -1597,7 +1597,7 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
     int64_t nValueIn = 0;
 
     // Select coins with suitable depth
-    if (!SelectCoinsSimple(nBalance - nReserveBalance, setCoins, nValueIn, txNew.nTime, COINBASE_MATURITY+1))
+    if (!SelectCoinsSimple(nBalance - nReserveBalance, setCoins, nValueIn, txNew.nTime, COINBASE_MATURITY+20))
         return false;
 
     if (setCoins.empty())
