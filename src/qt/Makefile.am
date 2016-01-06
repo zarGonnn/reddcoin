@@ -249,6 +249,8 @@ RES_ICONS = \
   res/icons/receive.png \
   res/icons/remove.png \
   res/icons/send.png \
+  res/icons/staking_off.png \
+  res/icons/staking_on.png \
   res/icons/synced.png \
   res/icons/toolbar.png \
   res/icons/toolbar_testnet.png \
