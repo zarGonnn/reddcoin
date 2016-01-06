@@ -139,7 +139,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         vSeeds.push_back(CDNSSeedData("reddcoin.com", "testnet-seed.reddcoin.com"));
-        vSeeds.push_back(CDNSSeedData("testnet-dnsseed.redd.ink", "testnet-dnsseed.redd.ink"));
+        vSeeds.push_back(CDNSSeedData("redd.ink", "testnet-dnsseed.redd.ink"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
