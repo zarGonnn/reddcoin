@@ -133,11 +133,11 @@ public:
             if (a.fCoinStake != b.fCoinStake)
                 LogPrintf("CCoins: fCoinStake mismatch\n");
             if (a.nTime != b.nTime)
-                LogPrintf("CCoins: nTime mismatch\n");
+                LogPrintf("CCoins: nTime mismatch a == %i b == %i\n", a.nTime, b.nTime );
             if (a.nHeight != b.nHeight)
-                LogPrintf("CCoins: nHeight mismatch\n");
+                LogPrintf("CCoins: nHeight mismatch a == %i b == %i\n", a.nHeight, b.nHeight);
             if (a.nVersion != b.nVersion)
-                LogPrintf("CCoins: nVersion mismatch\n");
+                LogPrintf("CCoins: nVersion mismatch a == %i b == %i\n", a.nVersion, b.nVersion);
             if (a.vout != b.vout)
                 LogPrintf("CCoins: vout mismatch\n");
         }
