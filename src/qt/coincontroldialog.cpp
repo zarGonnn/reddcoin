@@ -528,7 +528,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         int64_t nFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
 
         // Min Fee
-        int64_t nMinFee = GetMinFee(txDummy, nBytes, AllowFree(dPriority), GMF_SEND);
+        int64_t nMinFee = GetMinFee(txDummy, 1, nBytes, AllowFree(dPriority), GMF_SEND);
 
         nPayFee = max(nFee, nMinFee);
 

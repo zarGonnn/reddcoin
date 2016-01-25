@@ -1358,6 +1358,10 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
         return false;
     }
 
+    // Transactions in PoW phase should have the old version.
+    if (chainActive.Tip()->nHeight < Params().LastProofOfWorkHeight())
+        wtxNew.nVersion = POW_TX_VERSION;
+
     wtxNew.BindWallet(this);
 
     {
@@ -1491,7 +1495,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 // Check that enough fee is included
                 int64_t nPayFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
                 bool fAllowFree = AllowFree(dPriority);
-                int64_t nMinFee = GetMinFee(wtxNew, nBytes, fAllowFree, GMF_SEND);
+                int64_t nMinFee = GetMinFee(wtxNew, 1, nBytes, fAllowFree, GMF_SEND);
                 if (nFeeRet < max(nPayFee, nMinFee))
                 {
                     nFeeRet = max(nPayFee, nMinFee);
