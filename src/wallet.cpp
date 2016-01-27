@@ -1815,10 +1815,10 @@ bool CWallet::SignBlock(CBlock *pblock, int64_t nFees)
     if (nSearchTime > nLastCoinStakeSearchTime)
     {
         if (fDebug)
-            printf("SignBlock : about to create coinstake: nFees=%ld\n", nFees);
+            LogPrintf("SignBlock : about to create coinstake: nFees=%ld\n", nFees);
         if (CreateCoinStake(pblock->nBits, nSearchTime-nLastCoinStakeSearchTime, nFees, txCoinStake, key))
         {
-            printf("SignBlock : coinstake created\n");
+            LogPrintf("SignBlock : coinstake created: nFees=%ld\n", nFees);
             if (txCoinStake.nTime >= max(pindexBest->GetMedianTimePast()+1, PastDrift(pindexBest->GetBlockTime())))
             {
                 // make sure coinstake would meet timestamp protocol
