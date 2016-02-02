@@ -56,7 +56,6 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
     entry.push_back(Pair("txid", tx.GetHash().GetHex()));
     entry.push_back(Pair("version", tx.nVersion));
     entry.push_back(Pair("locktime", (int64_t)tx.nLockTime));
-    entry.push_back(Pair("time", (int64_t)tx.nLockTime));
     Array vin;
     BOOST_FOREACH(const CTxIn& txin, tx.vin)
     {
@@ -100,7 +99,7 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
             if (chainActive.Contains(pindex))
             {
                 entry.push_back(Pair("confirmations", 1 + chainActive.Height() - pindex->nHeight));
-                entry.push_back(Pair("time", (int64_t)pindex->nTime));
+                entry.push_back(Pair("time", (int64_t)tx.nTime));
                 entry.push_back(Pair("blocktime", (int64_t)pindex->nTime));
             }
             else
@@ -130,7 +129,7 @@ Value getrawtransaction(const Array& params, bool fHelp)
             "  \"hex\" : \"data\",       (string) The serialized, hex-encoded data for 'txid'\n"
             "  \"txid\" : \"id\",        (string) The transaction id (same as provided)\n"
             "  \"version\" : n,          (numeric) The version\n"
-            "  \"locktime\" : ttt,       (numeric) The lock time\n"
+            "  \"locktime\" : ttt,       (numeric) The lock time\n"           
             "  \"vin\" : [               (array of json objects)\n"
             "     {\n"
             "       \"txid\": \"id\",    (string) The transaction id\n"
