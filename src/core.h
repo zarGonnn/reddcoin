@@ -211,7 +211,7 @@ public:
     IMPLEMENT_SERIALIZE
     (
         READWRITE(this->nVersion);
-        nVersion = this->nVersion;
+        //nVersion = this->nVersion;
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
