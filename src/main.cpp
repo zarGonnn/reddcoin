@@ -51,9 +51,9 @@ bool fTxIndex = true;
 unsigned int nCoinCacheSize = 5000;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64_t CTransaction::nMinTxFee = 10000;  // Override with -mintxfee
+int64_t CTransaction::nMinTxFee = 100000;  // Override with -mintxfee
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
-int64_t CTransaction::nMinRelayTxFee = 10000;
+int64_t CTransaction::nMinRelayTxFee = 100000;
 
 struct COrphanBlock {
     uint256 hashBlock;
@@ -997,10 +997,10 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
             dFreeCount += nSize;
         }
 
-        if (fRejectInsaneFee && nFees > CTransaction::nMinRelayTxFee * 10000)
+        if (fRejectInsaneFee && nFees > CTransaction::nMinRelayTxFee * 1000)
             return error("AcceptToMemoryPool: : insane fees %s, %d > %d",
                          hash.ToString(),
-                         nFees, CTransaction::nMinRelayTxFee * 10000);
+                         nFees, CTransaction::nMinRelayTxFee * 1000);
 
         // Check against previous transactions
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.
