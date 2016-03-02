@@ -599,6 +599,7 @@ void ReddcoinStaker(CWallet *pwallet)
             // on an obsolete chain. In regtest mode we expect to fly solo.
             while (vNodes.empty())
             {
+                LogPrintf("ReddcoinStaker : Waiting for network online.\n");
                 nLastCoinStakeSearchInterval = 0;
                 MilliSleep(1000);
             }
@@ -606,12 +607,16 @@ void ReddcoinStaker(CWallet *pwallet)
 
         while (pwallet->IsLocked())
         {
+            LogPrintf("ReddcoinStaker : Wallet is locked.\n");
             nLastCoinStakeSearchInterval = 0;
             MilliSleep(1000);
         }
 
         while (chainActive.Tip()->nHeight < Params().LastProofOfWorkHeight())
+        {
+            LogPrintf("ReddcoinStaker : Chaintip < Last POW.\n");
             MilliSleep(60000);
+        }
 
         //
         // Create a new block
@@ -801,13 +806,6 @@ void GenerateReddcoins(bool fGenerate, CWallet* pwallet, int nThreads)
 {
     static boost::thread_group* minerThreads = NULL;
 
-    if (nThreads < 0) {
-        if (Params().NetworkID() == CChainParams::REGTEST)
-            nThreads = 1;
-        else
-            nThreads = boost::thread::hardware_concurrency();
-    }
-
     if (minerThreads != NULL)
     {
         minerThreads->interrupt_all();
@@ -819,9 +817,18 @@ void GenerateReddcoins(bool fGenerate, CWallet* pwallet, int nThreads)
         return;
 
     minerThreads = new boost::thread_group();
-    
+
     // start one thread for PoSV minting
     minerThreads->create_thread(boost::bind(&ReddcoinStaker, pwallet));
+
+    if (nThreads < 0) {
+        if (Params().NetworkID() == CChainParams::REGTEST)
+            nThreads = 1;
+        else
+            nThreads = boost::thread::hardware_concurrency();
+    }
+
+   
 
     for (int i = 0; i < nThreads; i++)
         minerThreads->create_thread(boost::bind(&ReddcoinMiner, pwallet));
