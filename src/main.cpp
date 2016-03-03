@@ -1965,9 +1965,9 @@ bool ConnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, C
 
     unsigned int flags = SCRIPT_VERIFY_NOCACHE | SCRIPT_VERIFY_P2SH;
 
-    if (block.nVersion >= 3 &&
-        ((!TestNet() && CBlockIndex::IsSuperMajority(3, pindex->pprev, 750, 1000)) ||
-            (TestNet() && CBlockIndex::IsSuperMajority(3, pindex->pprev, 51, 100)))) {
+    if (block.nVersion >= 4 &&
+        ((!TestNet() && CBlockIndex::IsSuperMajority(4, pindex->pprev, 7500, 10000)) ||
+            (TestNet() && CBlockIndex::IsSuperMajority(4, pindex->pprev, 510, 1000)))) {
         flags |= SCRIPT_VERIFY_DERSIG;
     }
 
@@ -2700,6 +2700,45 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         if (pcheckpoint && nHeight < pcheckpoint->nHeight)
             return state.DoS(100, error("AcceptBlock() : forked chain older than last checkpoint (height %d)", nHeight));
 
+        // Reject block.nVersion=2 blocks when 95% (75% on testnet) of the network has upgraded:
+        if (block.nVersion < 3)
+        {
+            if ((!TestNet() && CBlockIndex::IsSuperMajority(3, pindexPrev, 9500, 10000)) ||
+                (TestNet() && CBlockIndex::IsSuperMajority(3, pindexPrev, 750, 1000)))
+            {
+                return state.Invalid(error("AcceptBlock() : rejected nVersion=2 block"),
+                                     REJECT_OBSOLETE, "bad-version");
+            }
+        }
+        // Reject block.nVersion=3 blocks when 95% (75% on testnet) of the network has upgraded:
+        if (block.nVersion < 4)
+        {
+            if ((!TestNet() && CBlockIndex::IsSuperMajority(4, pindexPrev, 9500, 10000)) ||
+                (TestNet() && CBlockIndex::IsSuperMajority(4, pindexPrev, 750, 1000)))
+            {
+                return state.Invalid(error("AcceptBlock() : rejected nVersion=3 block"),
+                                     REJECT_OBSOLETE, "bad-version");
+            }
+        }
+        // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
+        // Reddcoin did not enable this BIP 34
+        // TBD
+        /*
+        if (block.nVersion >= 3)
+        {
+            // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
+            if ((!TestNet() && CBlockIndex::IsSuperMajority(3, pindexPrev, 7500, 10000)) ||
+                (TestNet() && CBlockIndex::IsSuperMajority(3, pindexPrev, 510, 1000)))
+            {
+                CScript expect = CScript() << nHeight;
+                if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
+                    !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin()))
+                    return state.DoS(100, error("AcceptBlock() : block height mismatch in coinbase"),
+                                     REJECT_INVALID, "bad-cb-height");
+            }
+        }
+        */
+
         uint256 hashProof;
         // Verify hash target and signature of coinstake tx
         if (block.IsProofOfStake())
@@ -2757,6 +2796,7 @@ bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, uns
             ++nFound;
         pstart = pstart->pprev;
     }
+    LogPrintf("Select SuperMajority BestChain: %d of last %d blocks above version %d\n", nFound, nToCheck, (int)CBlock::CURRENT_VERSION);
     return (nFound >= nRequired);
 }
 
