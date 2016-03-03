@@ -375,7 +375,12 @@ class CBlockHeader
 {
 public:
     // header
-    static const int CURRENT_VERSION=3;
+    // Block versions
+    // Block Version 1 : Genesis Block
+    // Block Version 2 : Requirement to have block height in the coinbase
+    // Block Version 3 : Introduction of POSV Block
+    // Block Version 4 : Introduction of BIP66
+    static const int CURRENT_VERSION=4;
     int nVersion;
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
