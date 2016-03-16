@@ -2796,7 +2796,7 @@ bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, uns
             ++nFound;
         pstart = pstart->pprev;
     }
-    LogPrintf("Select SuperMajority BestChain: %d of last %d blocks above version %d\n", nFound, nToCheck, (int)CBlock::CURRENT_VERSION);
+    LogPrintf("Select SuperMajority BestChain: %d of last %d blocks equal or above version %d\n", nFound, nToCheck, (int)CBlock::CURRENT_VERSION);
     return (nFound >= nRequired);
 }
 
@@ -3530,7 +3530,7 @@ string GetWarnings(string strFor)
         strRPC = "test";
 
     if (!CLIENT_VERSION_IS_RELEASE)
-        strStatusBar = _("This is a pre-release test build - use at your own risk - do not use for mining or merchant applications");
+        strStatusBar = _("This is a pre-release test build - use at your own risk - do not use for staking or merchant applications");
 
     // Misc warnings like out of disk space and clock is wrong
     if (strMiscWarning != "")
