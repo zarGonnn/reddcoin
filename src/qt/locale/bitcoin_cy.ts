@@ -138,12 +138,16 @@
         <translation>Gadael rhaglen</translation>
     </message>
     <message>
-        <source>Show information about Bitcoin</source>
-        <translation>Dangos gwybodaeth am Bitcoin</translation>
+        <source>Show information about Reddcoin</source>
+        <translation>Dangos gwybodaeth am Reddcoin</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
         <translation>&amp;Opsiynau</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Datgloi'r waled</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -168,18 +172,6 @@
     <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Gwall</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Rhybudd</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Gwybodaeth</translation>
     </message>
     <message>
         <source>Up to date</source>
@@ -214,10 +206,6 @@
     <message>
         <source>Address</source>
         <translation>Cyfeiriad</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Dyddiad</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -275,10 +263,6 @@
     </context>
 <context>
     <name>Intro</name>
-    <message>
-        <source>Error</source>
-        <translation>Gwall</translation>
-    </message>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -312,10 +296,6 @@
     </context>
 <context>
     <name>RPCConsole</name>
-    <message>
-        <source>&amp;Information</source>
-        <translation>Gwybodaeth</translation>
-    </message>
     </context>
 <context>
     <name>ReceiveCoinsDialog</name>
@@ -334,24 +314,12 @@
         <source>Label</source>
         <translation>Label</translation>
     </message>
-    <message>
-        <source>Message</source>
-        <translation>Neges</translation>
-    </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
-        <source>Date</source>
-        <translation>Dyddiad</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Label</translation>
-    </message>
-    <message>
-        <source>Message</source>
-        <translation>Neges</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -375,10 +343,6 @@
     <message>
         <source>Confirm the send action</source>
         <translation>Cadarnhau'r gweithrediad anfon</translation>
-    </message>
-    <message>
-        <source>%1 to %2</source>
-        <translation>%1 i %2</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -442,28 +406,12 @@
         <source>Open until %1</source>
         <translation>Agor tan %1</translation>
     </message>
-    <message>
-        <source>Date</source>
-        <translation>Dyddiad</translation>
-    </message>
-    <message>
-        <source>Message</source>
-        <translation>Neges</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Dyddiad</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Math</translation>
-    </message>
     <message>
         <source>Address</source>
         <translation>Cyfeiriad</translation>
@@ -475,22 +423,6 @@
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Today</source>
-        <translation>Heddiw</translation>
-    </message>
-    <message>
-        <source>This year</source>
-        <translation>Eleni</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Dyddiad</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Math</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>Label</translation>
@@ -515,17 +447,5 @@
     </context>
 <context>
     <name>bitcoin-core</name>
-    <message>
-        <source>Information</source>
-        <translation>Gwybodaeth</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Rhybudd</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Gwall</translation>
-    </message>
     </context>
 </TS>

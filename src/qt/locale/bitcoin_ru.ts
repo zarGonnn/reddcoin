@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Bitcoin Core</source>
-        <translation>О Bitcoin Core</translation>
+        <source>About Reddcoin Core</source>
+        <translation>О ядре Reddcoin</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Bitcoin Core&lt;/b&gt; version</source>
-        <translation>версия &lt;b&gt;Bitcoin Core&lt;/b&gt;</translation>
+        <source>&lt;b&gt;Reddcoin Core&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Ядро Reddcoin&lt;/b&gt; версия</translation>
     </message>
     <message>
         <source>
@@ -16,8 +16,7 @@ This is experimental software.
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Это экспериментальная программа.
+        <translation>Это экспериментальная программа.
 
 Распространяется на правах лицензии MIT/X11, см. файл license.txt или http://www.opensource.org/licenses/mit-license.php.
 
@@ -28,8 +27,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Все права защищены</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Разработчики Bitcoin Core</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Разработчики Reddcoin</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -40,7 +39,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <name>AddressBookPage</name>
     <message>
         <source>Double-click to edit address or label</source>
-        <translation>Для того, чтобы изменить адрес или метку, дважды кликните по изменяемому объекту</translation>
+        <translation>Дважды нажмите, чтобы изменить адрес или метку</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -103,12 +102,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Адреса получения</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Это ваши адреса Bitcoin для отправки платежей. Всегда проверяйте количество и адрес получателя перед отправкой перевода.</translation>
+        <source>These are your Reddcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ваши адреса для получения средств. Совет: проверьте сумму и адрес назначения перед переводом.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Это ваши адреса Bitcoin для приёма платежей. Рекомендуется использовать новый адрес получения для каждой транзакции.</translation>
+        <source>These are your Reddcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Это Ваши адреса Reddcoin для получения платежей. Рекомендуется использовать новый адрес получения для каждой сделки.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -169,6 +168,14 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Повторите новый пароль</translation>
     </message>
     <message>
+        <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
+        <translation>Служит для отключения тривиально отправить деньги, когда ОС аккаунт скомпрометирован. Не обеспечивает реальную безопасность.</translation>
+    </message>
+    <message>
+        <source>For staking only</source>
+        <translation>Только для майнинга</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Введите новый пароль для бумажника. &lt;br/&gt; Пожалуйста, используйте фразы из &lt;b&gt;10 или более случайных символов,&lt;/b&gt; или &lt;b&gt;восьми и более слов.&lt;/b&gt;</translation>
     </message>
@@ -205,8 +212,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Подтвердите шифрование бумажника</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>Внимание: если вы зашифруете бумажник и потеряете пароль, вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ ВАШИ БИТКОЙНЫ&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR REDDCOINS&lt;/b&gt;!</source>
+        <translation>Предупреждение: Если Вы зашифруете свой кошелёк и потеряете свой пароль, &lt;b&gt;ВЫ ПОТЕРЯЕТЕ ВСЕ СВОИ REDDCOIN МОНЕТЫ&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -225,8 +232,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Бумажник зашифрован</translation>
     </message>
     <message>
-        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Сейчас программа закроется для завершения процесса шифрования. Помните, что шифрование вашего бумажника не может полностью защитить ваши биткойны от кражи с помощью инфицирования вашего компьютера вредоносным ПО.</translation>
+        <source>Reddcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your reddcoins from being stolen by malware infecting your computer.</source>
+        <translation>Сейчас программа закроется для завершения процесса шифрования. Помните, что шифрование вашего кошелька не может полностью защитить ваши Reddcoin от кражи с помощью инфицирования вашего компьютера вредоносным ПО.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -280,6 +287,14 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Показать общий обзор действий с бумажником</translation>
     </message>
     <message>
+        <source>&amp;Request</source>
+        <translation>&amp;Запрос</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and reddcoin: URIs)</source>
+        <translation>Запросы платежей (генерирует QR-коды и reddcoin: адреса)</translation>
+    </message>
+    <message>
         <source>&amp;Transactions</source>
         <translation>&amp;Транзакции</translation>
     </message>
@@ -296,8 +311,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Закрыть приложение</translation>
     </message>
     <message>
-        <source>Show information about Bitcoin</source>
-        <translation>Показать информацию о Bitcoin</translation>
+        <source>Show information about Reddcoin</source>
+        <translation>Показать информацию о Reddcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -309,7 +324,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>Опции</translation>
+        <translation>&amp;Опции</translation>
     </message>
     <message>
         <source>&amp;Encrypt Wallet...</source>
@@ -324,6 +339,22 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Изменить пароль...</translation>
     </message>
     <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Открыть кошелёк...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Открыть кошелёк</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Закрыть кошелёк</translation>
+    </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Закрыть кошелёк</translation>
+    </message>
+    <message>
         <source>&amp;Sending addresses...</source>
         <translation>&amp;Адреса отправки...</translation>
     </message>
@@ -336,6 +367,14 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Открыть &amp;URI...</translation>
     </message>
     <message>
+        <source>Open a reddcoin: URI or payment request</source>
+        <translation>Откройте reddcoin: URI или запрос платежа</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core client</source>
+        <translation>Reddcoin клиент</translation>
+    </message>
+    <message>
         <source>Importing blocks from disk...</source>
         <translation>Импортируются блоки с диска...</translation>
     </message>
@@ -343,13 +382,45 @@ This product includes software developed by the OpenSSL Project for use in the O
         <source>Reindexing blocks on disk...</source>
         <translation>Идёт переиндексация блоков на диске...</translation>
     </message>
-    <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Отправить монеты на указанный адрес Bitcoin</translation>
+    <message numerus="yes">
+        <source>%n second(s)</source>
+        <translation><numerusform>%n секунда</numerusform><numerusform>%n секунды</numerusform><numerusform>%n секунды</numerusform><numerusform>%n секунды</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n minute(s)</source>
+        <translation><numerusform>%n минута</numerusform><numerusform>%n минуты</numerusform><numerusform>%n минуты</numerusform><numerusform>%n минуты</numerusform></translation>
     </message>
     <message>
-        <source>Modify configuration options for Bitcoin</source>
-        <translation>Изменить параметры конфигурации Bitcoin</translation>
+        <source>Staking.&lt;br&gt;Your average weight is %1&lt;br&gt;Your total weight is %2&lt;br&gt;Network weight is %3&lt;br&gt;Expected to earn reward once every %4</source>
+        <translation>Майнинг.&lt;br&gt;Твой средний вес %1&lt;br&gt;Твой полный вес %2&lt;br&gt;Вес сети %3&lt;br&gt;Расчётное время получения награды через %4</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is locked</source>
+        <translation>Не майнится, потому что кошелек заблокирован</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is offline</source>
+        <translation>Не майнится, потому что кошелёк находится в офлайне</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is syncing</source>
+        <translation>Не майнится, потому что кошелёк синхронизируется</translation>
+    </message>
+    <message>
+        <source>Not staking because you don't have mature coins</source>
+        <translation>Не майнится, поскольку Вы не должны зрелые монет</translation>
+    </message>
+    <message>
+        <source>Not staking</source>
+        <translation>Не майнится</translation>
+    </message>
+    <message>
+        <source>Send coins to a Reddcoin address</source>
+        <translation>Отправить монеты на указанный адрес Reddcoin</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for Reddcoin</source>
+        <translation>Изменить параметры конфигурации Reddcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -372,8 +443,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Проверить сообщение...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin</source>
+        <translation>Reddcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -382,10 +453,6 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>&amp;Send</source>
         <translation>&amp;Отправить</translation>
-    </message>
-    <message>
-        <source>&amp;Receive</source>
-        <translation>&amp;Получить</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -400,12 +467,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Зашифровать приватные ключи, принадлежащие вашему бумажнику</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Подписать сообщения вашим адресом Bitcoin, чтобы доказать, что вы им владеете</translation>
+        <source>Sign messages with your Reddcoin addresses to prove you own them</source>
+        <translation>Подписать сообщения вашим адресом Reddcoin, чтобы доказать, что вы им владеете</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определённым адресом Bitcoin</translation>
+        <source>Verify messages to ensure they were signed with specified Reddcoin addresses</source>
+        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определённым адресом Reddcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,16 +495,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>[тестовая сеть]</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Ядро Reddcoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Запросить платежи (создаёт QR-коды и bitcoin: ссылки)</translation>
-    </message>
-    <message>
-        <source>&amp;About Bitcoin Core</source>
-        <translation>&amp;О Bitcoin Core</translation>
+        <source>&amp;About Reddcoin Core</source>
+        <translation>&amp;О ядре Reddcoin</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -448,32 +511,20 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Показать список использованных адресов и меток получения</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Открыть bitcoin: URI или запрос платежа</translation>
-    </message>
-    <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Опции командной строки</translation>
     </message>
     <message>
-        <source>Show the Bitcoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Показать помощь по Bitcoin Core и получить список доступных опций командной строки.</translation>
-    </message>
-    <message>
-        <source>Bitcoin client</source>
-        <translation>Bitcoin клиент</translation>
+        <source>Show the Reddcoin Core help message to get a list with possible Reddcoin command-line options</source>
+        <translation>Показать справку Reddcoin ядра для получения списка возможных Reddcoin параметров командной строки</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n активное соединение с сетью</numerusform><numerusform>%n активных соединений с сетью</numerusform><numerusform>%n активных соединений с сетью Bitcoin</numerusform><numerusform>%n активных соединений с сетью Bitcoin</numerusform></translation>
+        <source>%n active connection(s) to Reddcoin network</source>
+        <translation><numerusform>%n активное соединение с сетью</numerusform><numerusform>%n активных соединений с сетью</numerusform><numerusform>%n активных соединений с сетью</numerusform><numerusform>%n активных соединений с сетью</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
         <translation>Источник блоков недоступен...</translation>
-    </message>
-    <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>Обработано %1 из %2 (примерно) блоков истории транзакций.</translation>
     </message>
     <message>
         <source>Processed %1 blocks of transaction history.</source>
@@ -560,8 +611,8 @@ Address: %4
         <translation>Бумажник &lt;b&gt;зашифрован&lt;/b&gt; и в настоящее время &lt;b&gt;заблокирован&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>Произошла неисправимая ошибка. Bitcoin не может безопасно продолжать работу и будет закрыт.</translation>
+        <source>A fatal error occurred. Reddcoin can no longer continue safely and will quit.</source>
+        <translation>Произошла неисправимая ошибка. Reddcoin не может безопасно продолжать работу и будет закрыт.</translation>
     </message>
 </context>
 <context>
@@ -611,7 +662,7 @@ Address: %4
     </message>
     <message>
         <source>(un)select all</source>
-        <translation>Отменить выбор всего</translation>
+        <translation>(один)выбрать всё</translation>
     </message>
     <message>
         <source>Tree mode</source>
@@ -782,10 +833,6 @@ Address: %4
         <translation>Это значит, что требуется комиссия как минимум %1.</translation>
     </message>
     <message>
-        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation>Суммы ниже, чем 0.546 минимальных комиссий ретрансляции, показаны как пыль.</translation>
-    </message>
-    <message>
         <source>This label turns red, if the change is smaller than %1.</source>
         <translation>Эта пометка становится красной, если сдача меньше %1.</translation>
     </message>
@@ -845,8 +892,8 @@ Address: %4
         <translation>Введённый адрес «%1» уже находится в адресной книге.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>Введённый адрес "%1" не является правильным Bitcoin-адресом.</translation>
+        <source>The entered address "%1" is not a valid Reddcoin address.</source>
+        <translation>Введённый адрес "%1" не является правильным Reddcoin-адресом.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,12 +930,12 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Bitcoin Core - Command-line options</source>
-        <translation>Bitcoin Core - опции командной строки</translation>
+        <source>Reddcoin Core - Command-line options</source>
+        <translation>Reddcoin Core - Параметры командной строки</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Ядро Reddcoin</translation>
     </message>
     <message>
         <source>version</source>
@@ -904,7 +951,7 @@ Address: %4
     </message>
     <message>
         <source>UI options</source>
-        <translation>Опции интерфейса</translation>
+        <translation>UI опции</translation>
     </message>
     <message>
         <source>Set language, for example "de_DE" (default: system locale)</source>
@@ -934,16 +981,16 @@ Address: %4
         <translation>Добро пожаловать</translation>
     </message>
     <message>
-        <source>Welcome to Bitcoin Core.</source>
-        <translation>Добро пожаловать в Bitcoin Core.</translation>
+        <source>Welcome to Reddcoin Core.</source>
+        <translation>Добро пожаловать в ядро Reddcoin</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Bitcoin Core will store its data.</source>
-        <translation>Так как вы впервые запустили программу, вы можете выбрать, где Bitcoin Core будет хранить данные.</translation>
+        <source>As this is the first time the program is launched, you can choose where Reddcoin Core will store its data.</source>
+        <translation>Так как вы впервые запустили программу, вы можете выбрать, где Reddcoin Core будет хранить данные.</translation>
     </message>
     <message>
-        <source>Bitcoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Bitcoin Core скачает и сохранит копию цепи блоков. Как минимум, %1ГБ данных будет храниться в этом каталоге, и со временем он будет расти. Бумажник будет также сохранён в этом каталоге.</translation>
+        <source>Reddcoin Core will download and store a copy of the Reddcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Reddcoin Core скачает и сохранит копию цепи блоков. Как минимум, %1ГБ данных будет храниться в этом каталоге, и со временем он будет расти. Бумажник будет также сохранён в этом каталоге.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -954,8 +1001,8 @@ Address: %4
         <translation>Использовать другой каталог данных:</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Ядро Reddcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" can not be created.</source>
@@ -1016,12 +1063,12 @@ Address: %4
         <translation>Заплатить ко&amp;миссию</translation>
     </message>
     <message>
-        <source>Automatically start Bitcoin after logging in to the system.</source>
-        <translation>Автоматически запускать Bitcoin после входа в систему</translation>
+        <source>Automatically start Reddcoin after logging in to the system.</source>
+        <translation>Автоматически запускать Reddcoin после входа в систему</translation>
     </message>
     <message>
-        <source>&amp;Start Bitcoin on system login</source>
-        <translation>&amp;Запускать Bitcoin при входе в систему</translation>
+        <source>&amp;Start Reddcoin on system login</source>
+        <translation>&amp;Запускать Reddcoin при входе в систему</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1036,8 +1083,8 @@ Address: %4
         <translation>Число потоков проверки &amp;сценария</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS proxy.</source>
-        <translation>Подключаться к сети Bitcoin через прокси SOCKS.</translation>
+        <source>Connect to the Reddcoin network through a SOCKS proxy.</source>
+        <translation>Подключаться к сети Reddcoin через прокси SOCKS.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
@@ -1096,8 +1143,8 @@ Address: %4
         <translation>&amp;Тратить неподтверждённую сдачу</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматически открыть порт для Bitcoin-клиента на роутере. Работает только если Ваш роутер поддерживает UPnP, и данная функция включена.</translation>
+        <source>Automatically open the Reddcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматически открыть порт для Reddcoin-клиента на роутере. Работает только если Ваш роутер поддерживает UPnP, и данная функция включена.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1152,8 +1199,8 @@ Address: %4
         <translation>&amp;Язык интерфейса:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
-        <translation>Здесь можно выбрать язык интерфейса. Настройки вступят в силу после перезапуска Bitcoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Reddcoin.</source>
+        <translation>Здесь можно выбрать язык интерфейса. Настройки вступят в силу после перезапуска Reddcoin.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1164,8 +1211,8 @@ Address: %4
         <translation>Выберите единицу измерения монет при отображении и отправке.</translation>
     </message>
     <message>
-        <source>Whether to show Bitcoin addresses in the transaction list or not.</source>
-        <translation>Показывать ли адреса Bitcoin в списке транзакций.</translation>
+        <source>Whether to show Reddcoin addresses in the transaction list or not.</source>
+        <translation>Показывать ли адреса Reddcoin в списке транзакций.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1219,8 +1266,8 @@ Address: %4
         <translation>Форма</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью Bitcoin после подключения, но этот процесс пока не завершён.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Reddcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Отображаемая информация может быть устаревшей. Ваш кошелёк автоматически синхронизируется с сетью Reddcoin после подключения, но этот процесс пока не завершён.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1233,6 +1280,10 @@ Address: %4
     <message>
         <source>Your current spendable balance</source>
         <translation>Ваш текущий расходный баланс</translation>
+    </message>
+    <message>
+        <source>Stake:</source>
+        <translation>Ставка:</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -1274,8 +1325,8 @@ Address: %4
         <translation>Обработка URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>Не удалось разобрать URI! Это может быть связано с неверным адресом Bitcoin или неправильными параметрами URI.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Reddcoin address or malformed URI parameters.</source>
+        <translation>Не удалось разобрать URI! Это может быть связано с неверным адресом Reddcoin или неправильными параметрами URI.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1286,8 +1337,8 @@ Address: %4
         <translation>Ошибка запроса платежа</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>Не удаётся запустить bitcoin: обработчик click-to-pay</translation>
+        <source>Cannot start reddcoin: click-to-pay handler</source>
+        <translation>Не удаётся запустить reddcoin: обработчик click-to-pay</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1341,8 +1392,8 @@ Address: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Ядро Reddcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -1357,12 +1408,12 @@ Address: %4
         <translation>Ошибка: неверная комбинация -regtest и -testnet.</translation>
     </message>
     <message>
-        <source>Bitcoin Core didn't yet exit safely...</source>
-        <translation>Bitcoin Core ещё не завершился безопасно...</translation>
+        <source>Reddcoin Core didn't yet exit safely...</source>
+        <translation>Reddcoin Core ещё не завершился безопасно...</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Введите Bitcoin-адрес (например 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Введите адрес Reddcoin (например RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
 </context>
 <context>
@@ -1439,10 +1490,6 @@ Address: %4
         <translation>Текущее число блоков</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>Расчётное число блоков</translation>
-    </message>
-    <message>
         <source>Last block time</source>
         <translation>Время последнего блока</translation>
     </message>
@@ -1452,11 +1499,11 @@ Address: %4
     </message>
     <message>
         <source>&amp;Console</source>
-        <translation>Консоль</translation>
+        <translation>&amp;Консоль</translation>
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation>Сетевой &amp;трафик</translation>
+        <translation>&amp;Сетевой трафик</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
@@ -1483,16 +1530,16 @@ Address: %4
         <translation>Отладочный лог-файл</translation>
     </message>
     <message>
-        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Открыть отладочный лог-файл Bitcoin из текущего каталога данных. Это может занять несколько секунд для больших лог-файлов.</translation>
+        <source>Open the Reddcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Открыть отладочный лог-файл Reddcoin из текущего каталога данных. Это может занять несколько секунд для больших лог-файлов.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>Очистить консоль</translation>
     </message>
     <message>
-        <source>Welcome to the Bitcoin RPC console.</source>
-        <translation>Добро пожаловать в RPC-консоль Bitcoin.</translation>
+        <source>Welcome to the Reddcoin RPC console.</source>
+        <translation>Добро пожаловать в RPC-консоль Reddcoin.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1504,23 +1551,23 @@ Address: %4
     </message>
     <message>
         <source>%1 B</source>
-        <translation>%1 Б</translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation>%1 КБ</translation>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation>%1 МБ</translation>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation>%1 ГБ</translation>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation>%1 мин</translation>
+        <translation>%1 м</translation>
     </message>
     <message>
         <source>%1 h</source>
@@ -1528,7 +1575,7 @@ Address: %4
     </message>
     <message>
         <source>%1 h %2 m</source>
-        <translation>%1 ч %2 мин</translation>
+        <translation>%1 ч %2 м</translation>
     </message>
 </context>
 <context>
@@ -1543,7 +1590,7 @@ Address: %4
     </message>
     <message>
         <source>&amp;Message:</source>
-        <translation>&amp;Сообщение</translation>
+        <translation>&amp;Сообщение:</translation>
     </message>
     <message>
         <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
@@ -1552,10 +1599,6 @@ Address: %4
     <message>
         <source>R&amp;euse an existing receiving address (not recommended)</source>
         <translation>&amp;Повторно использовать существующий адрес получения (не рекомендуется)</translation>
-    </message>
-    <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса. Заметьте: сообщение не будет отправлено вместе с платежом через сеть Bitcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1867,8 +1910,8 @@ Address: %4
         <translation>Транзакция была отклонена! Такое может произойти, если некоторые монеты уже были потрачены, например, если Вы используете одну копию бумажника (wallet.dat), а монеты были потрачены из другой копии, но не были отмечены как потраченные в этой.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation>Внимание: неверный адрес Bitcoin</translation>
+        <source>Warning: Invalid Reddcoin address</source>
+        <translation>Предупреждение: недопустимый Reddcoin адрес</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1903,11 +1946,7 @@ Address: %4
     </message>
     <message>
         <source>Pay &amp;To:</source>
-        <translation>Полу&amp;чатель:</translation>
-    </message>
-    <message>
-        <source>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Адрес, на который будет выслан платёж (например 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <translation>П&amp;олучатель:</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
@@ -1924,6 +1963,10 @@ Address: %4
     <message>
         <source>This is a normal payment.</source>
         <translation>Это нормальный платёж.</translation>
+    </message>
+    <message>
+        <source>The Reddcoin address to send the payment to (e.g. Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</source>
+        <translation>Адрес Reddcoin для отправки платежа (например Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1946,16 +1989,16 @@ Address: %4
         <translation>Сообщение:</translation>
     </message>
     <message>
+        <source>A message that was attached to the reddcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Reddcoin network.</source>
+        <translation>К reddcoin: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Заметьте: сообщение не будет отправлено через сеть Reddcoin.</translation>
+    </message>
+    <message>
         <source>This is a verified payment request.</source>
         <translation>Это проверенный запрос платежа.</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to the list of used addresses</source>
         <translation>Введите метку для этого адреса, чтобы добавить его в список использованных</translation>
-    </message>
-    <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>К bitcoin: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Заметьте: сообщение не будет отправлено через сеть Bitcoin.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1973,8 +2016,8 @@ Address: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Bitcoin Core is shutting down...</source>
-        <translation>Bitcoin Core выключается...</translation>
+        <source>Reddcoin Core is shutting down...</source>
+        <translation>Reddcoin Core выключается...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1994,10 +2037,6 @@ Address: %4
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Вы можете подписывать сообщения своими адресами, чтобы доказать владение ими. Будьте осторожны, не подписывайте что-то неопределённое, так как фишинговые атаки могут обманным путём заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
-    </message>
-    <message>
-        <source>The address to sign the message with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Адрес, которым вы хотите подписать сообщение  (напр. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2028,8 +2067,8 @@ Address: %4
         <translation>Скопировать текущую подпись в системный буфер обмена</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Bitcoin</translation>
+        <source>Sign the message to prove you own this Reddcoin address</source>
+        <translation>Подписать сообщение, чтобы доказать владение адресом Reddcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2052,12 +2091,12 @@ Address: %4
         <translation>Введите ниже адрес для подписи, сообщение (убедитесь, что переводы строк, пробелы, табы и т.п. в точности скопированы) и подпись, чтобы проверить сообщение. Убедитесь, что не скопировали лишнего в подпись, по сравнению с самим подписываемым сообщением, чтобы не стать жертвой атаки "man-in-the-middle".</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Адрес, которым было подписано сообщение (напр. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>The Reddcoin address the message was signed with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Сообщение адреса Reddcoin было подписано с (например, RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Bitcoin</translation>
+        <source>Verify the message to ensure it was signed with the specified Reddcoin address</source>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Reddcoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2068,16 +2107,16 @@ Address: %4
         <translation>Сбросить все поля проверки сообщения</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Введите адрес Bitcoin (напр. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
         <source>Click "Sign Message" to generate signature</source>
         <translation>Нажмите "Подписать сообщение" для создания подписи</translation>
     </message>
     <message>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Введите адрес Reddcoin (например RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
+    </message>
+    <message>
         <source>The entered address is invalid.</source>
-        <translation>Введённый адрес неверен</translation>
+        <translation>Введённый адрес неверен.</translation>
     </message>
     <message>
         <source>Please check the address and try again.</source>
@@ -2085,7 +2124,7 @@ Address: %4
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>Введённый адрес не связан с ключом</translation>
+        <translation>Введённый адрес не связан с ключом.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
@@ -2093,15 +2132,15 @@ Address: %4
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
-        <translation>Для введённого адреса недоступен закрытый ключ</translation>
+        <translation>Для введённого адреса недоступен закрытый ключ.</translation>
     </message>
     <message>
         <source>Message signing failed.</source>
-        <translation>Не удалось подписать сообщение</translation>
+        <translation>Не удалось подписать сообщение.</translation>
     </message>
     <message>
         <source>Message signed.</source>
-        <translation>Сообщение подписано</translation>
+        <translation>Сообщение подписано.</translation>
     </message>
     <message>
         <source>The signature could not be decoded.</source>
@@ -2127,12 +2166,12 @@ Address: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Ядро Reddcoin</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Разработчики Bitcoin Core</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Разработчики Reddcoin</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2143,7 +2182,7 @@ Address: %4
     <name>TrafficGraphWidget</name>
     <message>
         <source>KB/s</source>
-        <translation>КБ/сек</translation>
+        <translation>Кб/с</translation>
     </message>
 </context>
 <context>
@@ -2154,19 +2193,19 @@ Address: %4
     </message>
     <message>
         <source>conflicted</source>
-        <translation>в противоречии</translation>
+        <translation>конфликт</translation>
     </message>
     <message>
         <source>%1/offline</source>
-        <translation>%1/отключен</translation>
+        <translation>%1/офлайн</translation>
     </message>
     <message>
         <source>%1/unconfirmed</source>
-        <translation>%1/не подтверждено</translation>
+        <translation>%1/неподтвержденный</translation>
     </message>
     <message>
         <source>%1 confirmations</source>
-        <translation>%1 подтверждений</translation>
+        <translation>%1 подтверждёный</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2293,7 +2332,7 @@ Address: %4
     </message>
     <message>
         <source>This pane shows a detailed description of the transaction</source>
-        <translation>Эта панель отображает детальное описание транзакции.</translation>
+        <translation>Данный диалог показывает детализированную статистику по выбранной транзакции</translation>
     </message>
 </context>
 <context>
@@ -2340,15 +2379,15 @@ Address: %4
     </message>
     <message>
         <source>Offline</source>
-        <translation>Нет активных соединений с сетью</translation>
+        <translation>Офлайн</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>Неподтверждено</translation>
+        <translation>Неподтвержденный</translation>
     </message>
     <message>
         <source>Conflicted</source>
-        <translation>В противоречии</translation>
+        <translation>Конфликт</translation>
     </message>
     <message>
         <source>Received with</source>
@@ -2367,12 +2406,12 @@ Address: %4
         <translation>Отправлено себе</translation>
     </message>
     <message>
-        <source>Mined</source>
-        <translation>Добыто</translation>
+        <source>Generated</source>
+        <translation>Сгенерированно</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>[не доступно]</translation>
+        <translation>(не доступно)</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
@@ -2415,7 +2454,7 @@ Address: %4
     </message>
     <message>
         <source>Last month</source>
-        <translation>В прошлом месяце</translation>
+        <translation>За последний месяц</translation>
     </message>
     <message>
         <source>This year</source>
@@ -2438,10 +2477,6 @@ Address: %4
         <translation>Отправленные себе</translation>
     </message>
     <message>
-        <source>Mined</source>
-        <translation>Добытые</translation>
-    </message>
-    <message>
         <source>Other</source>
         <translation>Другое</translation>
     </message>
@@ -2451,7 +2486,7 @@ Address: %4
     </message>
     <message>
         <source>Min amount</source>
-        <translation>Мин. сумма</translation>
+        <translation>Минимальная сумма</translation>
     </message>
     <message>
         <source>Copy address</source>
@@ -2463,7 +2498,7 @@ Address: %4
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Скопировать сумму</translation>
+        <translation>Копировать сумму</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
@@ -2479,11 +2514,11 @@ Address: %4
     </message>
     <message>
         <source>Export Transaction History</source>
-        <translation>Экспортировать историю транзакций</translation>
+        <translation>Экспорт истории транзакции</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Экспорт не удался</translation>
+        <translation>Ошибка экспорта</translation>
     </message>
     <message>
         <source>There was an error trying to save the transaction history to %1.</source>
@@ -2502,8 +2537,12 @@ Address: %4
         <translation>Текст, разделённый запятыми (*.csv)</translation>
     </message>
     <message>
+        <source>Generated</source>
+        <translation>Сгенерированно</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
-        <translation>Подтверждено</translation>
+        <translation>Подтвержденный</translation>
     </message>
     <message>
         <source>Date</source>
@@ -2523,7 +2562,7 @@ Address: %4
     </message>
     <message>
         <source>Amount</source>
-        <translation>Сумма</translation>
+        <translation>Количество</translation>
     </message>
     <message>
         <source>ID</source>
@@ -2542,7 +2581,7 @@ Address: %4
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
-        <translation>Не был загружен ни один бумажник.</translation>
+        <translation>Ни один кошелёк не был загружен.</translation>
     </message>
 </context>
 <context>
@@ -2564,11 +2603,11 @@ Address: %4
     </message>
     <message>
         <source>Backup Wallet</source>
-        <translation>Сделать резервную копию бумажника</translation>
+        <translation>Сделать резервную копию кошелька</translation>
     </message>
     <message>
         <source>Wallet Data (*.dat)</source>
-        <translation>Данные бумажника (*.dat)</translation>
+        <translation>Данные кошелька (*.dat)</translation>
     </message>
     <message>
         <source>Backup Failed</source>
@@ -2595,8 +2634,7 @@ Address: %4
     </message>
     <message>
         <source>List commands</source>
-        <translation>Список команд
-</translation>
+        <translation>Список команд</translation>
     </message>
     <message>
         <source>Get help for a command</source>
@@ -2607,20 +2645,8 @@ Address: %4
         <translation>Опции:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: bitcoin.conf)</source>
-        <translation>Указать конфигурационный файл (по умолчанию: bitcoin.conf)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: bitcoind.pid)</source>
-        <translation>Задать pid-файл (по умолчанию: bitcoin.pid)</translation>
-    </message>
-    <message>
         <source>Specify data directory</source>
         <translation>Задать каталог данных</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Принимать входящие подключения на &lt;port&gt; (по умолчанию: 8333 или 18333 в тестовой сети)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -2647,16 +2673,8 @@ Address: %4
         <translation>Произошла ошибка при открытии RPC-порта %u для прослушивания на IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Прослушивать подключения JSON-RPC на &lt;порту&gt; (по умолчанию: 8332 или для testnet: 18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Принимать командную строку и команды JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Bitcoin Core RPC client version</source>
-        <translation>Версия RPC-клиента Bitcoin Core</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2674,25 +2692,24 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=reddcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
 </source>
         <translation>%s, вы должны установить опцию rpcpassword в конфигурационном файле:
  %s
 Рекомендуется использовать следующий случайный пароль:
-rpcuser=bitcoinrpc
+rpcuser=reddcoinrpc
 rpcpassword=%s
 (вам не нужно запоминать этот пароль)
 Имя и пароль ДОЛЖНЫ различаться.
 Если файл не существует, создайте его и установите права доступа только для владельца, только для чтения.
 Также рекомендуется включить alertnotify для оповещения о проблемах;
-Например: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
-</translation>
+Например: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com</translation>
     </message>
     <message>
         <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
@@ -2719,12 +2736,8 @@ rpcpassword=%s
         <translation>Войти в режим тестирования на регрессии, в котором используется специальная цепь, где блоки находятся мгновенно.</translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>Ошибка: не удалось начать прослушивание входящих подключений (прослушивание вернуло ошибку %d)</translation>
-    </message>
-    <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Ошибка: транзакция была отклонена! Это могло произойти в случае, если некоторые монеты в вашем бумажнике уже были потрачены, например, если вы используете копию wallet.dat, и монеты были использованы в копии, но не отмечены как потраченные здесь.</translation>
+        <translation>Ошибка: транзакция была отклонена! Это могло произойти в случае, если некоторые монеты в вашем кошельке уже были потрачены, например, если вы используете копию wallet.dat, и монеты были использованы в копии, но не отмечены как потраченные здесь.</translation>
     </message>
     <message>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
@@ -2732,7 +2745,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Выполнить команду, когда меняется транзакция в бумажнике (%s в команде заменяется на TxID)</translation>
+        <translation>Выполнить команду, когда меняется транзакция в кошельке (%s в команде заменяется на TxID)</translation>
     </message>
     <message>
         <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
@@ -2751,20 +2764,12 @@ rpcpassword=%s
         <translation>В этом режиме -genproclimit определяет, сколько блоков генерируется немедленно.</translation>
     </message>
     <message>
+        <source>Log transaction priority and fee per kB when staking blocks (default: 0)</source>
+        <translation>Журнал транзакций приоритета и плата за кб при майнинге блока (по умолчанию: 0)</translation>
+    </message>
+    <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Задать число потоков проверки скрипта (от %u до %d, 0=авто, &lt;0 = оставить столько ядер свободными, по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>Задать лимит процессора, когда генерация работает (-1 = безлимитно, по умолчанию: -1)</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Это пре-релизная тестовая сборка - используйте на свой страх и риск - не используйте для добычи или торговых приложений</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. Bitcoin Core is probably already running.</source>
-        <translation>Не удалось забиндиться на %s на этом компьютере. Возможно, Bitcoin Core уже запущен.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
@@ -2775,8 +2780,8 @@ rpcpassword=%s
         <translation>Внимание: установлено очень большое значение -paytxfee. Это комиссия, которую вы заплатите при проведении транзакции.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
-        <translation>Внимание: убедитесь, что дата и время на Вашем компьютере выставлены верно. Если Ваши часы идут неправильно, Bitcoin будет работать некорректно.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Reddcoin will not work properly.</source>
+        <translation>Внимание: убедитесь, что дата и время на Вашем компьютере выставлены верно. Если Ваши часы идут неправильно, Reddcoin будет работать некорректно.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2811,10 +2816,6 @@ rpcpassword=%s
         <translation>Попытаться восстановить приватные ключи из повреждённого wallet.dat</translation>
     </message>
     <message>
-        <source>Bitcoin Core Daemon</source>
-        <translation>Демон Bitcoin Core</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Параметры создания блоков:</translation>
     </message>
@@ -2829,10 +2830,6 @@ rpcpassword=%s
     <message>
         <source>Connect through SOCKS proxy</source>
         <translation>Подключаться через SOCKS прокси</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Подключаться к JSON-RPC на &lt;порт&gt; (по умолчанию: 8332 или testnet: 18332)</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2868,7 +2865,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Error initializing wallet database environment %s!</source>
-        <translation>Ошибка инициализации окружения БД бумажника %s!</translation>
+        <translation>Ошибка инициализации окружения БД кошелька %s!</translation>
     </message>
     <message>
         <source>Error loading block database</source>
@@ -2884,7 +2881,11 @@ rpcpassword=%s
     </message>
     <message>
         <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Ошибка: бумажник заблокирован, невозможно создать транзакцию!</translation>
+        <translation>Ошибка: Кошелёк заблокирован, невозможно создать транзакцию!</translation>
+    </message>
+    <message>
+        <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
+        <translation>Ошибка: Кошелек разблокирован для ставки только, и не в состоянии создать транзакцию.</translation>
     </message>
     <message>
         <source>Error: system error: </source>
@@ -2943,16 +2944,8 @@ rpcpassword=%s
         <translation>Комиссии меньшие этого значения считаются нулевыми (для ретрансляции) (по умолчанию:</translation>
     </message>
     <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Искать узлы с помощью DNS (по умолчанию: 1, если не указан -connect)</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: 0)</source>
         <translation>Принудительный безопасный режим (по умолчанию: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Включить добычу монет (по умолчанию: 0)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: 288, 0 = all)</source>
@@ -2964,7 +2957,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Importing...</source>
-        <translation>Импорт ...</translation>
+        <translation>Импорт...</translation>
     </message>
     <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
@@ -2975,12 +2968,20 @@ rpcpassword=%s
         <translation>Неверный -onion адрес: '%s'</translation>
     </message>
     <message>
+        <source>Maintain a full transaction index (default: 1)</source>
+        <translation>Держать полный индекс транзакций (по умолчанию: 1)</translation>
+    </message>
+    <message>
         <source>Not enough file descriptors available.</source>
         <translation>Недостаточно файловых дескрипторов.</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: 1)</source>
         <translation>Дописывать отметки времени к отладочному выводу (по умолчанию: 1)</translation>
+    </message>
+    <message>
+        <source>RPC SSL options: (see the wiki.reddcoin.com for SSL setup instructions)</source>
+        <translation>Параметры RPC SSL: (см. wiki.reddcoin.com вики для инструкций по настройке SSL)</translation>
     </message>
     <message>
         <source>RPC client options:</source>
@@ -3004,7 +3005,15 @@ rpcpassword=%s
     </message>
     <message>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Задать число потоков выполнения(по умолчанию: 4)</translation>
+        <translation>Задать число потоков выполнения (по умолчанию: 4)</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: reddcoin.conf)</source>
+        <translation>Указать конфигурационный файл (по умолчанию: reddcoin.conf)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: reddcoind.pid)</source>
+        <translation>Задать pid-файл (по умолчанию: reddcoin.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -3019,16 +3028,12 @@ rpcpassword=%s
         <translation>Это рассчитано на инструменты регрессионного тестирования и разработку приложений.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use bitcoin-cli):</source>
-        <translation>Использование (устарело, используйте bitcoin-cli):</translation>
-    </message>
-    <message>
         <source>Verifying blocks...</source>
         <translation>Проверка блоков...</translation>
     </message>
     <message>
         <source>Verifying wallet...</source>
-        <translation>Проверка бумажника...</translation>
+        <translation>Проверка кошелька...</translation>
     </message>
     <message>
         <source>Wait for RPC server to start</source>
@@ -3040,7 +3045,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Wallet options:</source>
-        <translation>Опции бумажника:</translation>
+        <translation>Параметры кошелька:</translation>
     </message>
     <message>
         <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
@@ -3055,8 +3060,12 @@ rpcpassword=%s
         <translation>Импортировать блоки из внешнего файла blk000??.dat</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Bitcoin Core is probably already running.</source>
-        <translation>Не удалось установить блокировку на каталог данных %s. Возможно, Bitcoin Core уже запущен.</translation>
+        <source>Cannot obtain a lock on data directory %s. Reddcoin Core is probably already running.</source>
+        <translation>Не удалось установить блокировку на каталог данных %s. Возможно, Reddcoin Core уже запущен.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Ошибка: не удалось начать прослушивание входящих подключений (прослушивание вернуло ошибку %s)</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
@@ -3076,23 +3085,15 @@ rpcpassword=%s
     </message>
     <message>
         <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Неверная сумма в параметре -minrelaytxfee=&lt;кол-во&gt;: '%s'</translation>
+        <translation>Неверное количество в параметре -minrelaytxfee=&lt;кол-во&gt;: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Неверная сумма в параметре -mintxfee=&lt;кол-во&gt;: '%s'</translation>
+        <translation>Неверное количество в параметре -mintxfee=&lt;кол-во&gt;: '%s'</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
         <translation>Ограничить размер кэша подписей &lt;n&gt; записями (по умолчанию: 50000)</translation>
-    </message>
-    <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>Записывать в лог приоритет транзакции и комиссию на килобайт во время добычи блоков (по умолчанию: 0)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Держать полный индекс транзакций (по умолчанию: 0)</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
@@ -3119,10 +3120,6 @@ rpcpassword=%s
         <translation>Печатать дерево блоков при запуске (по умолчанию: 0)</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Параметры RPC SSL: (см. Bitcoin вики для инструкций по настройке SSL)</translation>
-    </message>
-    <message>
         <source>RPC server options:</source>
         <translation>Параметры сервера RPC:</translation>
     </message>
@@ -3139,13 +3136,17 @@ rpcpassword=%s
         <translation>Запустить поток для периодического сохранения бумажника (по умолчанию: 1)</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <source>SSL options: (see the Reddcoin Wiki for SSL setup instructions)</source>
         <translation>
-Параметры SSL: (см. Bitcoin Wiki для инструкций по настройке SSL)</translation>
+Параметры SSL: (см. Reddcoin Wiki для инструкций по настройке SSL)</translation>
     </message>
     <message>
-        <source>Send command to Bitcoin Core</source>
-        <translation>Отправить команду Bitcoin Core</translation>
+        <source>Send command to Reddcoin Core</source>
+        <translation>Отправить команду Reddcoin</translation>
+    </message>
+    <message>
+        <source>Send command to reddcoin Core</source>
+        <translation>Отправить команду reddcoin</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -3177,11 +3178,11 @@ rpcpassword=%s
     </message>
     <message>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Тайм-аут соединения в миллисекундах (по умолчанию: 5000)</translation>
+        <translation>Таймаут соединения в миллисекундах (по умолчанию: 5000)</translation>
     </message>
     <message>
-        <source>Start Bitcoin Core Daemon</source>
-        <translation>Запустить Bitcoin Core демон</translation>
+        <source>Start Reddcoin Core Daemon</source>
+        <translation>Запустить Reddcoin Core демон</translation>
     </message>
     <message>
         <source>System error: </source>
@@ -3189,15 +3190,19 @@ rpcpassword=%s
     </message>
     <message>
         <source>Transaction amount too small</source>
-        <translation>Сумма транзакции слишком мала</translation>
+        <translation>Объём транзакции слишком мал</translation>
     </message>
     <message>
         <source>Transaction amounts must be positive</source>
-        <translation>Сумма транзакции должна быть положительна</translation>
+        <translation>Объём транзакции должен быть положителен</translation>
     </message>
     <message>
         <source>Transaction too large</source>
         <translation>Транзакция слишком большая</translation>
+    </message>
+    <message>
+        <source>Usage (deprecated, use reddcoin-cli):</source>
+        <translation>Использование (устарело, используйте reddcoin-cli):</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
@@ -3221,7 +3226,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
-        <translation>Стираем все транзакции из кошелька...</translation>
+        <translation>Переключить все транзакции из кошелька...</translation>
     </message>
     <message>
         <source>on startup</source>
@@ -3253,7 +3258,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
-        <translation>Обновить бумажник до последнего формата</translation>
+        <translation>Обновить кошелёк до последнего формата</translation>
     </message>
     <message>
         <source>Set key pool size to &lt;n&gt; (default: 100)</source>
@@ -3261,7 +3266,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Перепроверить цепь блоков на предмет отсутствующих в бумажнике транзакций</translation>
+        <translation>Перепроверить цепь блоков на предмет отсутствующих в кошельке транзакций</translation>
     </message>
     <message>
         <source>Use OpenSSL (https) for JSON-RPC connections</source>
@@ -3280,10 +3285,6 @@ rpcpassword=%s
         <translation>Эта справка</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>Невозможно привязаться к %s на этом компьютере (bind вернул ошибку %d, %s)</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Разрешить поиск в DNS для -addnode, -seednode и -connect</translation>
     </message>
@@ -3293,15 +3294,15 @@ rpcpassword=%s
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
-        <translation>Ошибка загрузки wallet.dat: Бумажник поврежден</translation>
+        <translation>Ошибка загрузки wallet.dat: Кошелёк поврежден</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
-        <translation>Ошибка загрузки wallet.dat: бумажник требует более новую версию Bitcoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Reddcoin</source>
+        <translation>Ошибка загрузки wallet.dat: Кошелёк требует более новую версию Reddcoin</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
-        <translation>Необходимо перезаписать бумажник, перезапустите Bitcoin для завершения операции.</translation>
+        <source>Wallet needed to be rewritten: restart Reddcoin to complete</source>
+        <translation>Необходимо перезаписать кошелёк, перезапустите Reddcoin для завершения операции.</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
@@ -3329,15 +3330,15 @@ rpcpassword=%s
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Неверная сумма в параметре -paytxfee=&lt;кол-во&gt;: '%s'</translation>
+        <translation>Неверное количество в параметре -paytxfee=&lt;кол-во&gt;: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount</source>
-        <translation>Неверная сумма</translation>
+        <translation>Неверное количество</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Недостаточно монет</translation>
+        <translation>Недостаточно средств</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -3349,7 +3350,7 @@ rpcpassword=%s
     </message>
     <message>
         <source>Loading wallet...</source>
-        <translation>Загрузка бумажника...</translation>
+        <translation>Загрузка кошелька...</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>

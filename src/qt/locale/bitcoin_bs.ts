@@ -13,14 +13,6 @@
     </context>
 <context>
     <name>BitcoinGUI</name>
-    <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
-    </message>
-    <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezrga</translation>
-    </message>
     </context>
 <context>
     <name>ClientModel</name>
@@ -36,17 +28,9 @@
     </context>
 <context>
     <name>HelpMessageDialog</name>
-    <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezrga</translation>
-    </message>
     </context>
 <context>
     <name>Intro</name>
-    <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
-    </message>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -62,10 +46,6 @@
     </context>
 <context>
     <name>QObject</name>
-    <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
-    </message>
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -87,35 +67,15 @@
     </context>
 <context>
     <name>SendCoinsEntry</name>
-    <message>
-        <source>Alt+A</source>
-        <translation>Alt+A</translation>
-    </message>
-    <message>
-        <source>Alt+P</source>
-        <translation>Alt+P</translation>
-    </message>
     </context>
 <context>
     <name>ShutdownWindow</name>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
-    <message>
-        <source>Alt+A</source>
-        <translation>Alt+A</translation>
-    </message>
-    <message>
-        <source>Alt+P</source>
-        <translation>Alt+P</translation>
-    </message>
     </context>
 <context>
     <name>SplashScreen</name>
-    <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezrga</translation>
-    </message>
     </context>
 <context>
     <name>TrafficGraphWidget</name>
@@ -131,26 +91,6 @@
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>All</source>
-        <translation>Sve</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation>Danas</translation>
-    </message>
-    <message>
-        <source>This month</source>
-        <translation>Ovaj mjesec</translation>
-    </message>
-    <message>
-        <source>Last month</source>
-        <translation>Prošli mjesec</translation>
-    </message>
-    <message>
-        <source>This year</source>
-        <translation>Ove godine</translation>
-    </message>
     </context>
 <context>
     <name>WalletFrame</name>
