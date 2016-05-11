@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Bitcoin Core</source>
-        <translation>Bitcoin Çekirdeği hakkında</translation>
+        <source>About Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeği Hakkında</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Bitcoin Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Bitcoin Çekirdek&lt;/b&gt; sürümü</translation>
+        <source>&lt;b&gt;Reddcoin Core&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Reddcoin Çekirdeği&lt;/b&gt; sürüm</translation>
     </message>
     <message>
         <source>
@@ -18,18 +18,18 @@ Distributed under the MIT/X11 software license, see the accompanying file COPYIN
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation>
  Bu yazılım deneme safhasındadır.
-
+ 
  MIT/X11 yazılım lisansı kapsamında yayınlanmıştır, COPYING dosyasına ya da http://www.opensource.org/licenses/mit-license.php sayfasına bakınız.
-
+ 
  Bu ürün OpenSSL projesi tarafından OpenSSL araç takımı (http://www.openssl.org/) için geliştirilen yazılımlar, Eric Young (eay@cryptsoft.com) tarafından hazırlanmış şifreleme yazılımları ve Thomas Bernard tarafından programlanmış UPnP yazılımı içerir.</translation>
     </message>
     <message>
         <source>Copyright</source>
-        <translation>Telif hakkı</translation>
+        <translation>Telif Hakkı</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Bitcoin Çekirdeği geliştiricileri</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Reddcoin Çekirdeği geliştiricileri</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -52,7 +52,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-        <translation>Şu anda seçili olan adresi sistem panosuna kopyala</translation>
+        <translation>Şu anda seçili olan adresi panoya kopyala</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -64,7 +64,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation>Adresi &amp;kopyala</translation>
+        <translation>&amp;Adresi Kopyala</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
@@ -72,11 +72,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Güncel sekmedeki verileri bir dosyaya aktar</translation>
+        <translation>Açık olan sekmedeki verileri bir dosyaya aktar</translation>
     </message>
     <message>
         <source>&amp;Export</source>
-        <translation>&amp;Dışa aktar</translation>
+        <translation>&amp;Dışa Aktar</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -84,11 +84,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Bitcoin yollanacak adresi seç</translation>
+        <translation>Reddcoin yollanacak adresi seçiniz</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Bitcoin alınacak adresi seç</translation>
+        <translation>Reddcoin alınacak adresi seçiniz</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -96,23 +96,23 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Sending addresses</source>
-        <translation>Yollama adresleri</translation>
+        <translation>Gönderme adresleri</translation>
     </message>
     <message>
         <source>Receiving addresses</source>
         <translation>Alım adresleri</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Bunlar ödeme yapmak için kullanacağınız Bitcoin adreslerinizdir. Bitcoin yollamadan önce meblağı ve alıcı adresini daima kontrol ediniz.</translation>
+        <source>These are your Reddcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Bunlar ödeme göndermek için kullanacağınız Reddcoin adreslerinizdir. Reddcoin yollamadan önce miktarı ve alıcı adresini daima kontrol ediniz.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Bunlar ödeme almak için kullanacağınız Bitcoin adreslerinizdir. Her muamele için yeni bir alım adresi kullanmanız tavsiye edilir.</translation>
+        <source>These are your Reddcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Bunlar, ödeme almak için Reddcoin adreslerinizdir. Her bir işlem için yeni bir alım adresi kullanmanız tavsiye edilir.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>&amp;Etiketi kopyala</translation>
+        <translation>&amp;Etiketi Kopyala</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -128,11 +128,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Dışa aktarım başarısız oldu</translation>
+        <translation>Dışa aktarma başarısız oldu</translation>
     </message>
     <message>
         <source>There was an error trying to save the address list to %1.</source>
-        <translation>Adres listesinin %1 konumuna kaydedilmesi sırasında bir hata meydana geldi.</translation>
+        <translation>%1 adres listesini kurtarmaya çalışırken bir hata oluştu.</translation>
     </message>
 </context>
 <context>
@@ -147,7 +147,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(boş etiket)</translation>
+        <translation>(etiket yok)</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Enter passphrase</source>
-        <translation>Parolayı giriniz</translation>
+        <translation>Parolayı girin</translation>
     </message>
     <message>
         <source>New passphrase</source>
@@ -169,8 +169,16 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Yeni parolayı tekrarlayınız</translation>
     </message>
     <message>
+        <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
+        <translation>OS hesabı tehlikeye girdiğinde önemsiz para gönderimini devre dışı bırakmak için hizmet verir. Gerçek olarak güvenlik sağlamaz.</translation>
+    </message>
+    <message>
+        <source>For staking only</source>
+        <translation>For staking only</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Cüzdanınız için yeni parolayı giriniz.&lt;br/&gt;Lütfen &lt;b&gt;10 ya da daha fazla rastgele karakter&lt;/b&gt; veya &lt;b&gt;sekiz ya da daha fazla kelime&lt;/b&gt; içeren bir parola seçiniz.</translation>
+        <translation>Cüzdanınız için yeni parolayı giriniz.&lt;br/&gt;Lütfen &lt;b&gt;10 ya da daha fazla rastgele karakter&lt;/b&gt; veya &lt;b&gt;sekiz ya da daha fazla kelime&lt;/b&gt; içeren bir parola kullanınız.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -178,7 +186,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Bu işlem cüzdan kilidini açmak için cüzdan parolanızı gerektirir.</translation>
+        <translation>Bu işlem cüzdanın şifrelemesini açmak için cüzdan parolasını gerektirir.</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
@@ -186,11 +194,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Bu işlem, cüzdan şifresini açmak için cüzdan parolasını gerektirir.</translation>
+        <translation>Bu işlem cüzdan şifresini çözme için cüzdan parolanızı gerektirir.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
-        <translation>Cüzdan şifresini aç</translation>
+        <translation>Cüzdanın şifrelemesini aç</translation>
     </message>
     <message>
         <source>Change passphrase</source>
@@ -198,15 +206,15 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Cüzdan için eski ve yeni parolaları giriniz.</translation>
+        <translation>Cüzdan için eski ve yeni parolayı giriniz.</translation>
     </message>
     <message>
         <source>Confirm wallet encryption</source>
-        <translation>Cüzdan şifrelenmesini teyit eder</translation>
+        <translation>Cüzdan şifrelemeyi onayla</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>Uyarı: Eğer cüzdanınızı şifrelerseniz ve parolanızı kaybederseniz, &lt;b&gt;TÜM BİTCOİNLERİNİZİ KAYBEDERSİNİZ&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR REDDCOINS&lt;/b&gt;!</source>
+        <translation>Uyarı: Eğer cüzdanınızı şifrelerseniz ve parolanızı kaybederseniz, &lt;b&gt;TÜM REDDCOINLERİNİZİ KAYBEDERSİNİZ&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -218,15 +226,15 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
-        <translation>Uyarı: Caps Lock tuşu faal durumda!</translation>
+        <translation>Uyarı: Caps Lock tuşu açık!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
         <translation>Cüzdan şifrelendi</translation>
     </message>
     <message>
-        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Şifreleme işlemini tamamlamak için Bitcoin şimdi kapanacaktır. Cüzdanınızı şifrelemenin, Bitcoinlerinizin bilgisayara bulaşan kötücül bir yazılım tarafından çalınmaya karşı tamamen koruyamayacağını unutmayınız.</translation>
+        <source>Reddcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your reddcoins from being stolen by malware infecting your computer.</source>
+        <translation>Reddcoin, şifreleme işlemini tamamlamak için şimdi kapanacak. Cüzdanınızı şifrelemenin, Reddcoinlerinizin bilgisayarınıza bulaşan kötücül bir yazılım tarafından çalınmaya karşı tamamen koruyamayacağını unutmayınız.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -242,11 +250,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Wallet unlock failed</source>
-        <translation>Cüzdan kilidinin açılması başarısız oldu</translation>
+        <translation>Cüzdan kilidinin açılması başarısız oldu.</translation>
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Cüzdan şifresinin açılması için girilen parola yanlıştı.</translation>
+        <translation>Cüzdan şifresini çözmek için girilen parola yanlış oldu.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
@@ -269,7 +277,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Overview</source>
-        <translation>&amp;Genel bakış</translation>
+        <translation>&amp;Genel Bakış</translation>
     </message>
     <message>
         <source>Node</source>
@@ -278,6 +286,14 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>Show general overview of wallet</source>
         <translation>Cüzdana genel bakışı göster</translation>
+    </message>
+    <message>
+        <source>&amp;Request</source>
+        <translation>&amp;Talep et</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and reddcoin: URIs)</source>
+        <translation>Ödeme talep et (QR kodu ve bitcoin URI'si oluşturur)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -296,12 +312,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Uygulamadan çık</translation>
     </message>
     <message>
-        <source>Show information about Bitcoin</source>
-        <translation>Bitcoin hakkında bilgi göster</translation>
+        <source>Show information about Reddcoin</source>
+        <translation>Reddcoin hakkında bilgi göster</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
-        <translation>&amp;Qt hakkında</translation>
+        <translation>&amp;Qt Hakkında</translation>
     </message>
     <message>
         <source>Show information about Qt</source>
@@ -324,16 +340,40 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Parolayı &amp;değiştir...</translation>
     </message>
     <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Cüzdan Kilidini Aç...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Cüzdan kilidini aç</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Cüzdanı Kilitle</translation>
+    </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Cüzdanı kilitle</translation>
+    </message>
+    <message>
         <source>&amp;Sending addresses...</source>
         <translation>&amp;Gönderme adresleri...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Alma adresleri...</translation>
+        <translation>&amp;Alım adresleri...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
         <translation>&amp;URI aç...</translation>
+    </message>
+    <message>
+        <source>Open a reddcoin: URI or payment request</source>
+        <translation>Bir reddcoin: bağlantısı ya da ödeme talebi aç</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core client</source>
+        <translation>Reddcoin Çekirdeği istemcisi</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -344,16 +384,32 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Diskteki bloklar yeniden endeksleniyor...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Bir Bitcoin adresine Bitcoin yolla</translation>
+        <source>Not staking because wallet is locked</source>
+        <translation>Not staking çünkü cüzdan kilitli</translation>
     </message>
     <message>
-        <source>Modify configuration options for Bitcoin</source>
-        <translation>Bitcoin seçeneklerinin yapılandırmasını değiştir</translation>
+        <source>Not staking because wallet is offline</source>
+        <translation>Not staking çünkü cüzdan çevrimdışı</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is syncing</source>
+        <translation>Not staking çünkü cüzdan senkronize ediliyor</translation>
+    </message>
+    <message>
+        <source>Not staking</source>
+        <translation>Not staking</translation>
+    </message>
+    <message>
+        <source>Send coins to a Reddcoin address</source>
+        <translation>Bir Reddcoin adresine Reddcoin yolla</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for Reddcoin</source>
+        <translation>Reddcoin seçeneklerinin yapılandırmasını değiştir</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
-        <translation>Cüzdanı diğer bir konumda yedekle</translation>
+        <translation>Cüzdanı diğer bir konuma yedekle</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -372,8 +428,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Mesaj &amp;kontrol et...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin</source>
+        <translation>Reddcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -382,10 +438,6 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>&amp;Send</source>
         <translation>&amp;Gönder</translation>
-    </message>
-    <message>
-        <source>&amp;Receive</source>
-        <translation>&amp;Al</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -397,15 +449,15 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
-        <translation>Cüzdanınızın özel anahtarlarını şifrele</translation>
+        <translation>Cüzdanınızın özel anahtarlarını şifreleyin</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Mesajları adreslerin size ait olduğunu ispatlamak için Bitcoin adresleri ile imzala</translation>
+        <source>Sign messages with your Reddcoin addresses to prove you own them</source>
+        <translation>Mesajları adreslerin size ait olduğunu ispatlamak için Reddcoin adresleri ile imzala</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Belirtilen Bitcoin adresleri ile imzalandıklarından emin olmak için mesajları kontrol et</translation>
+        <source>Verify messages to ensure they were signed with specified Reddcoin addresses</source>
+        <translation>Belirtilen Reddcoin adresleri ile imzalandıklarından emin olmak için mesajları kontrol et</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,16 +480,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Çekirdeği</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeği</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Ödeme talep et (QR kodu ve bitcoin URI'si oluşturur)</translation>
-    </message>
-    <message>
-        <source>&amp;About Bitcoin Core</source>
-        <translation>Bitcoin Çekirdeği &amp;hakkında</translation>
+        <source>&amp;About Reddcoin Core</source>
+        <translation>&amp;Reddcoin Çekirdeği Hakkında</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -448,36 +496,24 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Kullanılmış alım adresleri ve etiketlerin listesini göster</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Bir bitcoin: bağlantısı ya da ödeme talebi aç</translation>
-    </message>
-    <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Komut satırı seçenekleri</translation>
     </message>
     <message>
-        <source>Show the Bitcoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Bitcoin komut satırı seçeneklerinin listesini elde etmek için Bitcoin Çekirdeği yardım mesajını göster</translation>
-    </message>
-    <message>
-        <source>Bitcoin client</source>
-        <translation>Bitcoin istemcisi</translation>
+        <source>Show the Reddcoin Core help message to get a list with possible Reddcoin command-line options</source>
+        <translation>Reddcoin komut satırı seçeneklerinin listesini elde etmek için Reddcoin Çekirdeği yardım mesajını göster.</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>Bitcoin şebekesine %n faal bağlantı</numerusform><numerusform>Bitcoin şebekesine %n faal bağlantı</numerusform></translation>
+        <source>%n active connection(s) to Reddcoin network</source>
+        <translation><numerusform>Reddcoin şebekesine %n faal bağlantı</numerusform><numerusform>Reddcoin şebekesine %n faal bağlantı</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
         <translation>Hiçbir blok kaynağı mevcut değil...</translation>
     </message>
     <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>Muamele tarihçesinin toplam (tahmini) %2 blokundan %1 blok işlendi.</translation>
-    </message>
-    <message>
         <source>Processed %1 blocks of transaction history.</source>
-        <translation>Muamele tarihçesinde %1 blok işlendi.</translation>
+        <translation>Muamele tarihçesinden %1 blok işlendi.</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -546,22 +582,22 @@ Type: %3
 Address: %4
 </source>
         <translation>Tarih: %1
-Meblağ: %2
-Tür: %3
-Adres: %4
+ Meblağ: %2
+ Tür: %3
+ Adres: %4
 </translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilidi açıktır&lt;/b&gt;</translation>
+        <translation>Cüzdan &lt;b&gt;şifrelenmiştir&lt;b&gt; ve şu anda &lt;b&gt;kilidi açıktır&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilitlidir&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>Ciddi bir hata oluştu. Bitcoin artık güvenli bir şekilde işlemeye devam edemez ve kapanacaktır.</translation>
+        <source>A fatal error occurred. Reddcoin can no longer continue safely and will quit.</source>
+        <translation>Ciddi bir hata oluştu. Reddcoin artık güvenli bir şekilde işlemeye devam edemez ve kapanacaktır.</translation>
     </message>
 </context>
 <context>
@@ -575,7 +611,7 @@ Adres: %4
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Control Address Selection</source>
-        <translation>Para kontrolü adres seçimi</translation>
+        <translation>Coin Denetimi Adres Seçimi</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -599,7 +635,7 @@ Adres: %4
     </message>
     <message>
         <source>Low Output:</source>
-        <translation>Düşük çıktı:</translation>
+        <translation>Düşük çıktı</translation>
     </message>
     <message>
         <source>After Fee:</source>
@@ -615,11 +651,11 @@ Adres: %4
     </message>
     <message>
         <source>Tree mode</source>
-        <translation>Ağaç kipi</translation>
+        <translation>Ağaç modu</translation>
     </message>
     <message>
         <source>List mode</source>
-        <translation>Liste kipi</translation>
+        <translation>Liste modu</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -667,7 +703,7 @@ Adres: %4
     </message>
     <message>
         <source>Unlock unspent</source>
-        <translation>Harcanmamışın kilidini aç</translation>
+        <translation>Harcanmamış kilidini aç</translation>
     </message>
     <message>
         <source>Copy quantity</source>
@@ -755,7 +791,7 @@ Adres: %4
     </message>
     <message>
         <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation>Eğer muamele boyutu 1000 bayttan büyükse bu etkiket kırmızı olur.</translation>
+        <translation>Eğer muamele boyutu 1000 bayttan yüksek ise bu etiket kırmızı hale gelir.</translation>
     </message>
     <message>
         <source>This means a fee of at least %1 per kB is required.</source>
@@ -779,7 +815,7 @@ Adres: %4
     </message>
     <message>
         <source>This means a fee of at least %1 is required.</source>
-        <translation>Bu, en az %1 tutarında bir ücret gerektiği anlamına gelir.</translation>
+        <translation>Bu en azından %1 bir ücret gerektiği anlamına gelir.</translation>
     </message>
     <message>
         <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
@@ -787,11 +823,11 @@ Adres: %4
     </message>
     <message>
         <source>This label turns red, if the change is smaller than %1.</source>
-        <translation>Eğer para üstü %1'den düşükse bu etiket kırmızı olur.</translation>
+        <translation>Eğer para üstü %1 den düşük ise, bu etiket kırmızı olur.</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(boş etiket)</translation>
+        <translation>(etiket yok)</translation>
     </message>
     <message>
         <source>change from %1 (%2)</source>
@@ -806,7 +842,7 @@ Adres: %4
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
-        <translation>Adresi düzenle</translation>
+        <translation>Adresi Düzenle</translation>
     </message>
     <message>
         <source>&amp;Label</source>
@@ -845,8 +881,8 @@ Adres: %4
         <translation>Girilen "%1" adresi hâlihazırda adres defterinde mevcuttur.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>Girilen "%1" adresi geçerli bir Bitcoin adresi değildir.</translation>
+        <source>The entered address "%1" is not a valid Reddcoin address.</source>
+        <translation>Girilen "%1" adresi geçerli bir Reddcoin adresi değildir.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,12 +919,12 @@ Adres: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Bitcoin Core - Command-line options</source>
-        <translation>Bitcoin Çekirdeği - Komut satırı seçenekleri</translation>
+        <source>Reddcoin Core - Command-line options</source>
+        <translation>Reddcoin Çekirdeği - Komut satırı seçenekleri</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Çekirdeği</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeği</translation>
     </message>
     <message>
         <source>version</source>
@@ -904,7 +940,7 @@ Adres: %4
     </message>
     <message>
         <source>UI options</source>
-        <translation>Kullanıcı arayüzü seçenekleri</translation>
+        <translation>Arayüz Seçenekleri</translation>
     </message>
     <message>
         <source>Set language, for example "de_DE" (default: system locale)</source>
@@ -934,16 +970,16 @@ Adres: %4
         <translation>Hoş geldiniz</translation>
     </message>
     <message>
-        <source>Welcome to Bitcoin Core.</source>
-        <translation>Bitcoin Çekirdeğine hoş geldiniz.</translation>
+        <source>Welcome to Reddcoin Core.</source>
+        <translation>Reddcoin Çekirdeğine hoş geldiniz</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Bitcoin Core will store its data.</source>
-        <translation>Bu programı ilk kez başlattığınızdan dolayı Bitcoin Çekirdeğinin verilerini nereye saklayacağını seçebilirsiniz.</translation>
+        <source>As this is the first time the program is launched, you can choose where Reddcoin Core will store its data.</source>
+        <translation>Bu programı ilk kez başlattığınızdan dolayı Reddcoin Çekirdeğinin verilerini nereye saklayacağını seçebilirsiniz.</translation>
     </message>
     <message>
-        <source>Bitcoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Bitcoin çekirdeği Bitcoin blok zincirinin bir kopyasını indirip saklayacaktır. Asgari %1GB bouyutunda veri bu klasörde saklanacak ve zamanla bu boyut artacaktır. Cüzdan da bu klasörde saklanacaktır. </translation>
+        <source>Reddcoin Core will download and store a copy of the Reddcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Reddcoin Çekirdeği Reddcoin blok zincirinin bir kopyasını indirip saklayacaktır. Asgari %1GB bouyutunda veri bu klasörde saklanacak ve zamanla bu boyut artacaktır. Cüzdan da bu klasörde saklanacaktır.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -954,8 +990,8 @@ Adres: %4
         <translation>Özel bir veri klasörü kullan:</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeği</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" can not be created.</source>
@@ -971,7 +1007,7 @@ Adres: %4
     </message>
     <message>
         <source>(of %1GB needed)</source>
-        <translation>(gereken boyut: %1GB)</translation>
+        <translation>(gereken %1 GB alandan)</translation>
     </message>
 </context>
 <context>
@@ -1013,15 +1049,15 @@ Adres: %4
     </message>
     <message>
         <source>Pay transaction &amp;fee</source>
-        <translation>Muamele ücreti &amp;öde</translation>
+        <translation>&amp;Muamele ücreti öde</translation>
     </message>
     <message>
-        <source>Automatically start Bitcoin after logging in to the system.</source>
-        <translation>Sistemde oturum açıldığında Bitcoin'i otomatik olarak başlat.</translation>
+        <source>Automatically start Reddcoin after logging in to the system.</source>
+        <translation>Sistemde oturum açıldığında Reddcoini otomatik olarak başlat.</translation>
     </message>
     <message>
-        <source>&amp;Start Bitcoin on system login</source>
-        <translation>Bitcoin'i sistem oturumuyla &amp;başlat</translation>
+        <source>&amp;Start Reddcoin on system login</source>
+        <translation>Reddcoin Çekirdeğini sistem oturumuyla &amp;başlat</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1036,12 +1072,12 @@ Adres: %4
         <translation>İş parçacıklarını &amp;denetleme betiği sayısı</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS proxy.</source>
-        <translation>Bitcoin şebekesine bir SOCKS vekil sunucusu vasıtasıyla bağlan.</translation>
+        <source>Connect to the Reddcoin network through a SOCKS proxy.</source>
+        <translation>Reddcoin şebekesine SOCKS vekil sunucusu vasıtasıyla bağlan.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>SOCKS vekil sunucusuyla &amp;bağlan (varsayılan vekil):</translation>
+        <translation>SOCKS vekil sunucusu vasıtasıyla &amp;bağlan (varsayılan vekil sunucusu):</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
@@ -1065,7 +1101,7 @@ Adres: %4
     </message>
     <message>
         <source>&amp;Reset Options</source>
-        <translation>Seçenekleri Sıfı&amp;rla</translation>
+        <translation>&amp;Seçenekleri Sıfırla</translation>
     </message>
     <message>
         <source>&amp;Network</source>
@@ -1096,8 +1132,8 @@ Adres: %4
         <translation>Teyit edilmemiş para üstünü &amp;harca</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Yönlendiricide Bitcoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
+        <source>Automatically open the Reddcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Yönlendiricide Reddcoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1117,7 +1153,7 @@ Adres: %4
     </message>
     <message>
         <source>SOCKS &amp;Version:</source>
-        <translation>SOCKS &amp;sürümü:</translation>
+        <translation>SOCKS &amp;Sürüm:</translation>
     </message>
     <message>
         <source>SOCKS version of the proxy (e.g. 5)</source>
@@ -1152,8 +1188,8 @@ Adres: %4
         <translation>Kullanıcı arayüzü &amp;lisanı:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
-        <translation>Kullanıcı arayüzünün dili burada belirtilebilir. Bu ayar Bitcoin tekrar başlatıldığında etkinleşecektir.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Reddcoin.</source>
+        <translation>Kullanıcı arayüzünün dili burada belirtilebilir. Bu ayar Reddcoin Çekirdeği tekrar başlatıldığında etkinleşecektir.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1161,15 +1197,15 @@ Adres: %4
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Bitcoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
+        <translation>Reddcoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
     </message>
     <message>
-        <source>Whether to show Bitcoin addresses in the transaction list or not.</source>
-        <translation>Muamele listesinde Bitcoin adreslerinin gösterilip gösterilmeyeceklerini belirler.</translation>
+        <source>Whether to show Reddcoin addresses in the transaction list or not.</source>
+        <translation>Muamele listesinde Reddcoin adreslerinin gösterilip gösterilmeyeceklerini belirler.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>Muamele listesinde adresleri &amp;göster</translation>
+        <translation>&amp;Muamele listesinde adresleri göster</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1201,7 +1237,7 @@ Adres: %4
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
-        <translation>İstemci kapanacaktır, devam etmek istiyor musunuz?</translation>
+        <translation>İstemci kapanacaktır. Devam etmek istiyor musunuz?</translation>
     </message>
     <message>
         <source>This change would require a client restart.</source>
@@ -1219,7 +1255,7 @@ Adres: %4
         <translation>Form</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Reddcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Görüntülenen veriler zaman aşımına uğramış olabilir. Bağlantı kurulduğunda cüzdanınız otomatik olarak şebeke ile eşleşir ancak bu işlem henüz tamamlanmamıştır.</translation>
     </message>
     <message>
@@ -1233,6 +1269,14 @@ Adres: %4
     <message>
         <source>Your current spendable balance</source>
         <translation>Güncel harcanabilir bakiyeniz</translation>
+    </message>
+    <message>
+        <source>Stake:</source>
+        <translation>Stake:</translation>
+    </message>
+    <message>
+        <source>Total of coins that were staked and do not yet count toward the current balance</source>
+        <translation>Henüz teyit edilmemiş ve harcanabilir bakiyeye eklenmemiş muamelelerin toplamı</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -1274,8 +1318,8 @@ Adres: %4
         <translation>URI yönetimi</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>URI okunamadı! Sebebi geçersiz bir Bitcoin adresi veya hatalı URI parametreleri olabilir.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Reddcoin address or malformed URI parameters.</source>
+        <translation>URI okunamadı! Sebebi geçersiz bir Reddcoin adresi veya hatalı URI parametreleri olabilir.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1286,16 +1330,12 @@ Adres: %4
         <translation>Ödeme talebi hatası</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>Bitcoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
+        <source>Cannot start reddcoin: click-to-pay handler</source>
+        <translation>Reddcoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
     </message>
     <message>
         <source>Net manager warning</source>
         <translation>Şebeke yöneticisi uyarısı</translation>
-    </message>
-    <message>
-        <source>Your active proxy doesn't support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation>Faal vekil sunucunuz, vekil vasıtasıyla ödeme talepleri için gereken SOCKS5'i desteklememektedir.</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1315,7 +1355,7 @@ Adres: %4
     </message>
     <message>
         <source>Refund from %1</source>
-        <translation>%1 öğesinden iade</translation>
+        <translation>%1 den geri ödeme</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
@@ -1323,7 +1363,7 @@ Adres: %4
     </message>
     <message>
         <source>Payment request can not be parsed or processed!</source>
-        <translation>Ödeme talebi ayrıştırılamaz ya da işlenemez!</translation>
+        <translation>Ödeme talebi çözümlenemez ya da işlenemez!</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
@@ -1341,12 +1381,12 @@ Adres: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeği</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
-        <translation>Hata: belirtilen "%1" veri klasörü yoktur.</translation>
+        <translation>Hata: belirtilen "%1" veri klasörü yok.</translation>
     </message>
     <message>
         <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
@@ -1354,22 +1394,22 @@ Adres: %4
     </message>
     <message>
         <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Hata: -regtest ve -testnet'in geçersiz kombinasyonu.</translation>
+        <translation>Hata: -regtest ve -testnet kombinasyonu geçersiz.</translation>
     </message>
     <message>
-        <source>Bitcoin Core didn't yet exit safely...</source>
-        <translation>Bitcoin Çekirdeği henüz güvenli bir şekilde çıkış yapmamıştır...</translation>
+        <source>Reddcoin Core didn't yet exit safely...</source>
+        <translation>Reddcoin Çekirdeği henüz güvenli bir şekilde çıkış yapmamıştır...</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Bitcoin adresi giriniz (mesela 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Bir Reddcoin adresi giriniz (mesela RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
 </context>
 <context>
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>Resmi k&amp;aydet...</translation>
+        <translation>Resmi &amp;kaydet...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
@@ -1412,7 +1452,7 @@ Adres: %4
     </message>
     <message>
         <source>Using OpenSSL version</source>
-        <translation>Kullanılan OpenSSL sürümü</translation>
+        <translation>OpenSSL sürümünü kullanma</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -1432,15 +1472,11 @@ Adres: %4
     </message>
     <message>
         <source>Block chain</source>
-        <translation>Blok zinciri</translation>
+        <translation>Block zinciri</translation>
     </message>
     <message>
         <source>Current number of blocks</source>
         <translation>Güncel blok sayısı</translation>
-    </message>
-    <message>
-        <source>Estimated total blocks</source>
-        <translation>Tahmini toplam blok sayısı</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1483,20 +1519,20 @@ Adres: %4
         <translation>Hata ayıklama kütük dosyası</translation>
     </message>
     <message>
-        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Güncel veri klasöründen Bitcoin hata ayıklama kütük dosyasını açar. Büyük kütük dosyaları için bu birkaç saniye alabilir.</translation>
+        <source>Open the Reddcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Güncel veri klasöründen Reddcoin hata ayıklama kütük dosyasını açar. Büyük kütük dosyaları için bu birkaç saniye alabilir.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>Konsolu temizle</translation>
     </message>
     <message>
-        <source>Welcome to the Bitcoin RPC console.</source>
-        <translation>Bitcoin RPC konsoluna hoş geldiniz.</translation>
+        <source>Welcome to the Reddcoin RPC console.</source>
+        <translation>Reddcoin RPC konsoluna hoş geldiniz.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Tarihçede gezinmek için imleç tuşlarını kullanınız, &lt;b&gt;Ctrl-L&lt;/b&gt; ile de ekranı temizleyebilirsiniz.</translation>
+        <translation>Tarihçede gezinmek için yukarı ve aşağı ok tuşlarını kullanınız, &lt;b&gt;Ctrl-L&lt;/b&gt; ile de ekranı temizleyebilirsiniz.</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
@@ -1543,7 +1579,7 @@ Adres: %4
     </message>
     <message>
         <source>&amp;Message:</source>
-        <translation>Me&amp;saj:</translation>
+        <translation>&amp;Mesaj:</translation>
     </message>
     <message>
         <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
@@ -1554,8 +1590,8 @@ Adres: %4
         <translation>&amp;Hâlihazırda bulunan bir alım adresini kullan (önerilmez)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>Talep açıldığında gösterilecek, isteğinize dayalı, ödeme talebi ile ilişkilendirilecek bir mesaj. Not: Bu mesaj ödeme ile birlikte Bitcoin şebekesi üzerinden gönderilmeyecektir.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Reddcoin network.</source>
+        <translation>Talep açıldığında gösterilecek, isteğinize dayalı, ödeme talebi ile ilişkilendirilecek bir mesaj. Not: Bu mesaj ödeme ile birlikte Reddcoin şebekesi üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1563,7 +1599,7 @@ Adres: %4
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
-        <translation>Ödeme talep etmek için bu formu kullanın. Tüm alanlar &lt;b&gt;seçime dayalıdır&lt;/b&gt;.</translation>
+        <translation>Ödeme talep etmek için bu formu kullanın. Tüm alanlar &lt;b&gt;seçime dayalıdır&lt;/b&gt;. </translation>
     </message>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
@@ -1630,7 +1666,7 @@ Adres: %4
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>Resmi ka&amp;ydet...</translation>
+        <translation>Resmi &amp;kaydet...</translation>
     </message>
     <message>
         <source>Request payment to %1</source>
@@ -1704,7 +1740,7 @@ Adres: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Bitcoin yolla</translation>
+        <translation>Reddcoin yolla</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1832,7 +1868,7 @@ Adres: %4
     </message>
     <message>
         <source>Total Amount %1 (= %2)</source>
-        <translation>Toplam meblağ %1 (= %2)</translation>
+        <translation>Toplam Meblağ %1 (= %2)</translation>
     </message>
     <message>
         <source>or</source>
@@ -1840,11 +1876,11 @@ Adres: %4
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
-        <translation>Alıcı adresi geçerli değildir, lütfen denetleyiniz.</translation>
+        <translation>Alıcı adresi geçerli değildir, lütfen kontrol ediniz.</translation>
     </message>
     <message>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>Ödeyeceğiniz tutarın sıfırdan yüksek olması gerekir.</translation>
+        <translation>Ödeyeceğiniz tutarın 0 dan yüksek olması gerekir.</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
@@ -1856,7 +1892,7 @@ Adres: %4
     </message>
     <message>
         <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Çift adres bulundu, belli bir gönderi sırasında her adrese sadece tek bir gönderide bulunulabilir.</translation>
+        <translation>Çift adres bulundu: adresler herbiri için sadece bir kez kullanılmalıdır.</translation>
     </message>
     <message>
         <source>Transaction creation failed!</source>
@@ -1864,11 +1900,11 @@ Adres: %4
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Muamele reddedildi! Cüzdanınızdaki madenî paraların bazıları zaten harcanmış olduğunda bu meydana gelebilir. Örneğin wallet.dat dosyasının bir kopyasını kullandıysanız ve kopyada para harcandığında ancak burada harcandığı işaretlenmediğinde.</translation>
+        <translation>İşlem reddedildi! Cüzdanınızdaki madenî paraların bazıları zaten harcanmış olduğunda bu meydana gelebilir. Örneğin wallet.dat dosyasının bir kopyasını kullandıysanız ve kopyada para harcandığında ancak burada harcandığı işaretlenmediğinde.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation>Uyarı: geçersiz Bitcoin adresi</translation>
+        <source>Warning: Invalid Reddcoin address</source>
+        <translation>Uyarı: Geçersiz Reddcoin adresi</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1888,7 +1924,7 @@ Adres: %4
     </message>
     <message>
         <source>Payment request expired</source>
-        <translation>Ödeme talebinin ömrü doldu</translation>
+        <translation>Ödeme talebinin ömrü doldu.</translation>
     </message>
     <message>
         <source>Invalid payment address %1</source>
@@ -1906,10 +1942,6 @@ Adres: %4
         <translation>&amp;Şu adrese öde:</translation>
     </message>
     <message>
-        <source>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Ödemenin gönderileceği adres (mesela 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Adres defterinize eklemek için bu adrese ilişik bir etiket giriniz</translation>
     </message>
@@ -1924,6 +1956,10 @@ Adres: %4
     <message>
         <source>This is a normal payment.</source>
         <translation>Bu, normal bir ödemedir.</translation>
+    </message>
+    <message>
+        <source>The Reddcoin address to send the payment to (e.g. Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</source>
+        <translation>Ödeme göndermek için Reddcoin adresi (mesela Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1946,20 +1982,20 @@ Adres: %4
         <translation>Mesaj:</translation>
     </message>
     <message>
+        <source>A message that was attached to the reddcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Reddcoin network.</source>
+        <translation>Reddcoin: URI'siyle ilişkili ve bilginiz için muameleyle saklanacak bir mesaj. Not: Bu mesaj Reddcoin şebekesi üzerinden gönderilmeyecektir.</translation>
+    </message>
+    <message>
         <source>This is a verified payment request.</source>
-        <translation>Bu, teyit edilmiş bir ödeme talebidir.</translation>
+        <translation>Bu, doğrulanmış bir ödeme talebidir.</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to the list of used addresses</source>
-        <translation>Kullanılmış adres listesine eklemek için bu adrese bir etiket girin</translation>
-    </message>
-    <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Bitcoin: URI'siyle ilişkili ve bilginiz için muameleyle saklanacak bir mesaj. Not: Bu mesaj Bitcoin şebekesi üzerinden gönderilmeyecektir.</translation>
+        <translation>Bu adresi kullanılan adresler listesine eklemek için bir etiket girin.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
-        <translation>Bu, teyit edilmemiş bir ödeme talebidir.</translation>
+        <translation>Bu, doğrulanmamış bir ödeme talebidir.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1973,8 +2009,8 @@ Adres: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Bitcoin Core is shutting down...</source>
-        <translation>Bitcoin Çekirdeği kapanıyor...</translation>
+        <source>Reddcoin Core is shutting down...</source>
+        <translation>Reddcoin Çekirdeği kapanıyor...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1989,15 +2025,15 @@ Adres: %4
     </message>
     <message>
         <source>&amp;Sign Message</source>
-        <translation>Mesaj &amp;imzala</translation>
+        <translation>&amp;Mesaj İmzala</translation>
     </message>
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Bir adresin sizin olduğunu ispatlamak için adresinizle mesaj imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
+        <translation>Adreslerinize yollanan Reddcoinleri alabileceğiniz ispatlamak için adreslerinizle mesaj/anlaşma imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz ya da rastgele hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Mesajın imzalanmasında kullanılacak adres (mesela 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>The Reddcoin address to sign the message with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Mesajın imzalanmasında kullanılacak Reddcoin adresi (mesela RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2028,8 +2064,8 @@ Adres: %4
         <translation>Güncel imzayı sistem panosuna kopyala</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Bu Bitcoin adresinin sizin olduğunu ispatlamak için mesajı imzalayın</translation>
+        <source>Sign the message to prove you own this Reddcoin address</source>
+        <translation>Bu Reddcoin adresinin sizin olduğunu ispatlamak için mesajı imzalayın.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2041,7 +2077,7 @@ Adres: %4
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Tümünü &amp;temizle</translation>
+        <translation>Tümünü &amp;Temizle</translation>
     </message>
     <message>
         <source>&amp;Verify Message</source>
@@ -2052,12 +2088,12 @@ Adres: %4
         <translation>İmza için kullanılan adresi, mesajı (satır sonları, boşluklar, sekmeler vs. karakterleri tam olarak kopyaladığınızdan emin olunuz) ve imzayı aşağıda giriniz. Bir ortadaki adam saldırısı tarafından kandırılmaya mâni olmak için imzadan, imzalı mesajın içeriğini aşan bir anlam çıkarmamaya dikkat ediniz.</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Mesajı imzalamak için kullanılmış olan adres (mesela 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>The Reddcoin address the message was signed with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Mesajın imzalanmasında kullanılan Reddcoin adresi (mesela RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>Belirtilen Bitcoin adresi ile imzalandığını doğrulamak için mesajı kontrol et</translation>
+        <source>Verify the message to ensure it was signed with the specified Reddcoin address</source>
+        <translation>Belirtilen Reddcoin adresi ile imzalandığını doğrulamak için mesajı kontrol et</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2068,12 +2104,12 @@ Adres: %4
         <translation>Tüm mesaj kontrolü alanlarını sıfırla</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Bitcoin adresi giriniz (mesela 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
         <source>Click "Sign Message" to generate signature</source>
         <translation>İmzayı oluşturmak için "Mesaj İmzala" unsurunu tıklayın</translation>
+    </message>
+    <message>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Bir Reddcoin adresi giriniz (mesela RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -2081,7 +2117,7 @@ Adres: %4
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation>Adresi kontrol edip tekrar deneyiniz.</translation>
+        <translation>Lütfen adresi kontrol edip tekrar deneyiniz.</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
@@ -2097,7 +2133,7 @@ Adres: %4
     </message>
     <message>
         <source>Message signing failed.</source>
-        <translation>Mesajın imzalanması başarısız oldu.</translation>
+        <translation>Mesaj imzalama başarısız oldu.</translation>
     </message>
     <message>
         <source>Message signed.</source>
@@ -2109,7 +2145,7 @@ Adres: %4
     </message>
     <message>
         <source>Please check the signature and try again.</source>
-        <translation>İmzayı kontrol edip tekrar deneyiniz.</translation>
+        <translation>Lütfen imzayı kontrol edip tekrar deneyiniz.</translation>
     </message>
     <message>
         <source>The signature did not match the message digest.</source>
@@ -2127,12 +2163,12 @@ Adres: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Çekirdeği</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeği</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Bitcoin Çekirdeği geliştiricileri</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Reddcoin Çekirdeği geliştiricileri</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2246,7 +2282,7 @@ Adres: %4
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Oluşturulan bitcoin'lerin harcanabilmelerinden önce %1 blok beklemeleri gerekmektedir. Bu blok, oluşturduğunuzda, blok zincirine eklenmesi için ağda yayınlandı. Zincire eklenmesi başarısız olursa, durumu "kabul edilmedi" olarak değiştirilecek ve harcanamayacaktır. Bu, bazen başka bir düğüm sizden birkaç saniye önce ya da sonra blok oluşturursa meydana gelebilir.</translation>
+        <translation>Oluşturulan Reddcoinlerin harcanabilmelerinden önce %1 blok beklemeleri gerekmektedir. Bu blok, oluşturduğunuzda, blok zincirine eklenmesi için ağda yayınlandı. Zincire eklenmesi başarısız olursa, durumu "kabul edilmedi" olarak değiştirilecek ve harcanamayacaktır. Bu, bazen başka bir düğüm sizden birkaç saniye önce ya da sonra blok oluşturursa meydana gelebilir.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2344,7 +2380,7 @@ Adres: %4
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>Teyit edilmemiş</translation>
+        <translation>Doğrulanmadı</translation>
     </message>
     <message>
         <source>Confirming (%1 of %2 recommended confirmations)</source>
@@ -2371,8 +2407,8 @@ Adres: %4
         <translation>Kendinize ödeme</translation>
     </message>
     <message>
-        <source>Mined</source>
-        <translation>Madenden çıkarılan</translation>
+        <source>Generated</source>
+        <translation>Oluşturuldu</translation>
     </message>
     <message>
         <source>(n/a)</source>
@@ -2431,7 +2467,7 @@ Adres: %4
     </message>
     <message>
         <source>Received with</source>
-        <translation>Şununla alınan</translation>
+        <translation>Şununla alındı</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -2440,10 +2476,6 @@ Adres: %4
     <message>
         <source>To yourself</source>
         <translation>Kendinize</translation>
-    </message>
-    <message>
-        <source>Mined</source>
-        <translation>Oluşturulan</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2459,7 +2491,7 @@ Adres: %4
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Adresi kopyala</translation>
+        <translation>Adresi Kopyala</translation>
     </message>
     <message>
         <source>Copy label</source>
@@ -2487,7 +2519,7 @@ Adres: %4
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Dışa aktarım başarısız oldu</translation>
+        <translation>Dışa aktarma başarısız oldu</translation>
     </message>
     <message>
         <source>There was an error trying to save the transaction history to %1.</source>
@@ -2503,7 +2535,11 @@ Adres: %4
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Virgülle ayrılmış değerler dosyası (*.csv)</translation>
+        <translation>Virgülle ayrılmış değerler dosyası (*.csv) </translation>
+    </message>
+    <message>
+        <source>Generated</source>
+        <translation>Oluşturuldu</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -2553,14 +2589,14 @@ Adres: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Bitcoin yolla</translation>
+        <translation>Reddcoin yolla</translation>
     </message>
 </context>
 <context>
     <name>WalletView</name>
     <message>
         <source>&amp;Export</source>
-        <translation>&amp;Dışa aktar</translation>
+        <translation>&amp;Dışa Aktar</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
@@ -2610,20 +2646,8 @@ Adres: %4
         <translation>Seçenekler:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: bitcoin.conf)</source>
-        <translation>Yapılandırma dosyası belirt (varsayılan: bitcoin.conf)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: bitcoind.pid)</source>
-        <translation>Pid dosyası belirt (varsayılan: bitcoind.pid)</translation>
-    </message>
-    <message>
         <source>Specify data directory</source>
         <translation>Veri dizinini belirt</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Bağlantılar için dinlenecek &lt;port&gt; (varsayılan: 8333 ya da testnet: 18333)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -2650,16 +2674,12 @@ Adres: %4
         <translation>IPv4 üzerinde dinlemek için %u numaralı RPC portunun kurulumu sırasında hata meydana geldi: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>JSON-RPC bağlantılarını &lt;port&gt; üzerinde dinle (varsayılan: 8332 veya tesnet: 18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Komut satırı ve JSON-RPC komutlarını kabul et</translation>
     </message>
     <message>
-        <source>Bitcoin Core RPC client version</source>
-        <translation>Bitcoin Çekirdeği RPC istemci sürümü</translation>
+        <source>Connect to JSON-RPC on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
+        <translation>&lt;port&gt; üzerinde JSON-RPC ye bağlan (varsayılan: 45443 veya testnet: 55443)</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2677,24 +2697,24 @@ Adres: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=reddcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
 </source>
         <translation>%s, şu yapılandırma dosyasında rpc parolası belirtmeniz gerekir:
-%s
-Aşağıdaki rastgele oluşturulan parolayı kullanmanız tavsiye edilir:
-rpcuser=bitcoinrpc
-rpcpassword=%s
-(bu parolayı hatırlamanız gerekli değildir)
-Kullanıcı ismi ile parolanın FARKLI olmaları gerekir.
-Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.
-Sorunlar hakkında bildiri almak için alertnotify unsurunu ayarlamanız tavsiye edilir;
-mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
+ %s
+ Aşağıdaki rastgele oluşturulan parolayı kullanmanız tavsiye edilir:
+ rpcuser=reddcoinrpc
+ rpcpassword=%s
+ (bu parolayı hatırlamanız gerekli değildir)
+ Kullanıcı ismi ile parolanın FARKLI olmaları gerekir.
+ Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.
+ Sorunlar hakkında bildiri almak için alertnotify unsurunu ayarlamanız tavsiye edilir;
+ mesela: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
 </translation>
     </message>
     <message>
@@ -2722,24 +2742,20 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Blokların anında çözülebileceği özel bir zincir kullanan regresyon deneme kipine gir.</translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>Hata: İçeri gelen bağlantıların dinlenmesi başarısız oldu (dinleme %d hatası verdi)</translation>
-    </message>
-    <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
         <translation>Hata: Muamele reddedildi! Cüzdanınızdaki madenî paraların bazıları zaten harcanmış olduğunda bu meydana gelebilir. Örneğin wallet.dat dosyasının bir kopyasını kullandıysanız ve kopyada para harcandığında ancak burada harcandığı işaretlenmediğinde.</translation>
     </message>
     <message>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Hata: Muamelenin meblağı, karmaşıklığı ya da yakın geçmişte alınan fonların kullanılması nedeniyle bu muamele en az %s tutarında ücret gerektirmektedir!</translation>
+        <translation>Hata: Muamelenin miktarı, karmaşıklığı ya da yakın geçmişte alınan fonların kullanılması nedeniyle bu muamele en az %s tutarında ücret gerektirmektedir!</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Bir cüzdan muamelesi değiştiğinde komutu çalıştır (komuttaki %s TxID ile değiştirilecektir)</translation>
+        <translation>Bir cüzdan muamelesi değiştiğinde komutu çalıştır (komuttaki %s muamele kimliği ile değiştirilecektir)</translation>
     </message>
     <message>
         <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation>Bundan düşük ücretler sıfır değerinde sayılır (muamele oluşturulması için) (varsayılan:</translation>
+        <translation>Bundan düşük ücretler (muamele oluşturulması için) sıfır değerinde ücret olarak kabul edilir (varsayılan: </translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
@@ -2747,27 +2763,27 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation>-checkblocks'un blok kontrolünün ne kadar kapsamlı olacağı (0 ilâ 4, varsayılan: 3)</translation>
+        <translation>Blok kontrolünün ne kadar derin olacağı (0-4, varsayılan: 3)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
         <translation>Bu kipte -genproclimit kaç sayıda bloğun anında oluşturulduğunu kontrol eder.</translation>
     </message>
     <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
+        <translation>JSON-RPC bağlantılarını &lt;port&gt; üzerinde dinle (varsayılan: 45443 veya tesnet: 55443)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when staking blocks (default: 0)</source>
+        <translation>Blok oluşturulduğunda muamele önceliğini ve kB başı ücreti kütüğe al (varsayılan: 0)</translation>
+    </message>
+    <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Betik kontrolü iş parçacıklarının sayısını belirler (%u ilâ %d, 0 = otomatik, &lt;0 = bu sayıda çekirdeği kullanma, varsayılan: %d)</translation>
     </message>
     <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>Oluşturma etkinken işlemci sınırını belirler (-1 = sınırsız, varsayılan: -1)</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - bitcoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. Bitcoin Core is probably already running.</source>
-        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. Bitcoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
+        <source>Unable to bind to %s on this computer. Reddcoin Core is probably already running.</source>
+        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. Reddcoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
@@ -2778,8 +2794,8 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Uyarı: -paytxfee çok yüksek bir değere ayarlanmış! Bu, muamele gönderirseniz ödeyeceğiniz muamele ücretidir.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
-        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olup olmadığını kontrol ediniz! Saatiniz doğru değilse Bitcoin gerektiği gibi çalışamaz.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Reddcoin will not work properly.</source>
+        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olup olmadığını kontrol ediniz! Saatiniz yanlış ise Reddcoin uygun bir şekilde çalışmaz.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2811,11 +2827,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation>Bozuk bir wallet.dat dosyasından özel anahtarları geri kazanmayı dene</translation>
-    </message>
-    <message>
-        <source>Bitcoin Core Daemon</source>
-        <translation>Bitcoin Çekirdek servisi</translation>
+        <translation>Başlangıçta bozuk bir wallet.dat dosyasından özel anahtarları geri kazanmayı dene</translation>
     </message>
     <message>
         <source>Block creation options:</source>
@@ -2827,15 +2839,11 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
-        <translation>Sadece belirtilen düğüme veya düğümlere bağlan</translation>
+        <translation>Sadece belirtilen düğüme veya düğüm(ler)e bağlan</translation>
     </message>
     <message>
         <source>Connect through SOCKS proxy</source>
-        <translation>SOCKS vekil sunucusuyla bağlan</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>&lt;port&gt; numarasında JSON-RPC'ye bağlan (varsayılan: 8332 veya testnet: 18332)</translation>
+        <translation>SOCKS vekil sunucusu vasıtasıyla bağlan </translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2863,11 +2871,11 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
-        <translation>Blok veritabanını şimdi yeniden inşa etmek istiyor musunuz?</translation>
+        <translation>Blok veritabanını şimdi yeniden oluşturmak istiyor musunuz?</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
-        <translation>Blok veritabanını başlatılırken bir hata meydana geldi</translation>
+        <translation>Blok veritabanı başlatılırken hata meydana geldi</translation>
     </message>
     <message>
         <source>Error initializing wallet database environment %s!</source>
@@ -2887,7 +2895,11 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Hata: Cüzdan kilitli, muamele oluşturulamadı!</translation>
+        <translation>Hata: Cüzdan kilitli, muamele oluşturulamaz!</translation>
+    </message>
+    <message>
+        <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
+        <translation>Hata: Cüzdan kilidi sadece staking için açık, muamele oluşturulamaz.</translation>
     </message>
     <message>
         <source>Error: system error: </source>
@@ -2935,7 +2947,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Failed to write undo data</source>
-        <translation>Geri alma verilerinin yazılamadı</translation>
+        <translation>Verileri geri alma yazılamadı</translation>
     </message>
     <message>
         <source>Fee per kB to add to transactions you send</source>
@@ -2943,19 +2955,11 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation>Bundan düşük ücretler sıfır değerinde sayılacaktır (aktarım için) (varsayılan:</translation>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Eşleri DNS araması vasıtasıyla bul (varsayılan: 1, eğer -connect kullanılmadıysa)</translation>
+        <translation>Bundan düşük ücretler (aktarma için) sıfır değerinde ücret olarak kabul edilir  (varsayılan: </translation>
     </message>
     <message>
         <source>Force safe mode (default: 0)</source>
         <translation>Güvenli kipi zorla (varsayılan: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Bitcoin oluştur (varsayılan: 0)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: 288, 0 = all)</source>
@@ -2963,7 +2967,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
-        <translation>&lt;kategori&gt; sağlanmamışsa tüm hata ayıklama verilerini dök.</translation>
+        <translation>Eğer &lt;kategori&gt; belirtilmemişse, tüm hata ayıklama verilerini dök.</translation>
     </message>
     <message>
         <source>Importing...</source>
@@ -2974,8 +2978,24 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Yanlış ya da bulunamamış doğuş bloku. Şebeke için yanlış veri klasörü mü?</translation>
     </message>
     <message>
+        <source>Initialization sanity check failed. Reddcoin Core is shutting down.</source>
+        <translation>Başlatma sınaması başarısız oldu. Reddcoin Çekirdeği kapatılıyor.</translation>
+    </message>
+    <message>
         <source>Invalid -onion address: '%s'</source>
         <translation>Geçersiz -onion adresi: '%s'</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
+        <translation>Hafızada en çok &lt;n&gt; bağlanılamaz blok tut (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Hafızada en çok &lt;n&gt; bağlanılamaz muamele tut (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index (default: 1)</source>
+        <translation>Muamelelerin tamamının indeksini tut (varsayılan: 0) {1)?}</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
@@ -2984,6 +3004,10 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     <message>
         <source>Prepend debug output with timestamp (default: 1)</source>
         <translation>Hata ayıklama verilerinin önüne zaman damgası ekle (varsayılan: 1)</translation>
+    </message>
+    <message>
+        <source>RPC SSL options: (see the wiki.reddcoin.com for SSL setup instructions)</source>
+        <translation>RPC SSL seçenekleri: (SSL kurulum yönergeleri için wiki.reddcoin.com a bakınız)</translation>
     </message>
     <message>
         <source>RPC client options:</source>
@@ -2995,7 +3019,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>-proxy için SOCKS sürümünü seç (4 veya 5, varsayılan: 5)</translation>
+        <translation>-proxy için SOCKS sürümü seçiniz (4 veya 5, varsayılan: 5)</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
@@ -3003,15 +3027,23 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Azami blok boyutunu bayt olarak ayarla (varsayılan: %d)</translation>
+        <translation>Bayt olarak maksimum blok boyutunu tanımla (varsayılan: %d)</translation>
     </message>
     <message>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
         <translation>RPC aramaları için iş parçacığı sayısını belirle (varsayılan: 4)</translation>
     </message>
     <message>
+        <source>Specify configuration file (default: reddcoin.conf)</source>
+        <translation>Yapılandırma dosyası belirt (varsayılan: reddcoin.conf)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: reddcoind.pid)</source>
+        <translation>Pid dosyası belirt (varsayılan: reddcoind.pid)</translation>
+    </message>
+    <message>
         <source>Specify wallet file (within data directory)</source>
-        <translation>Cüzdan dosyası belirtiniz (veri klasörünün içinde)</translation>
+        <translation>Cüzdan dosyası belirt (veri klasörünün içinde)</translation>
     </message>
     <message>
         <source>Spend unconfirmed change when sending transactions (default: 1)</source>
@@ -3019,11 +3051,11 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
-        <translation>Bu, regresyon deneme araçları ve uygulama geliştirmesi için tasarlanmıştır. </translation>
+        <translation>Bu, regresyon deneme araçları ve uygulama geliştirmesi için tasarlanmıştır.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use bitcoin-cli):</source>
-        <translation>Kullanım (önerilmemektedir, bitcoin-cli kullanın):</translation>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. (bind şu hatayı ilett %s)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3035,7 +3067,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Wait for RPC server to start</source>
-        <translation>RPC sunucusunun başlamasını bekle</translation>
+        <translation>RPC sunucusunun başlamasını bekleyin</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>
@@ -3047,7 +3079,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation>Uyarı: eskimiş seçenek -debugnet görmezden gelinir, -debug=net kullanınız</translation>
+        <translation>Kullanımdan kaldırılan -debugnet argümanı görmezden gelindi, -debug=net kullanınız.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
@@ -3058,8 +3090,16 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Harici blk000??.dat dosyasından blokları içe aktarır</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Bitcoin Core is probably already running.</source>
-        <translation>%s veri dizininde kilit elde edilemedi. Bitcoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
+        <source>Cannot obtain a lock on data directory %s. Reddcoin Core is probably already running.</source>
+        <translation>%s veri dizininde kilit elde edilemedi. Reddcoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Hata: İçeri gelen bağlantıların dinlenmesi başarısız oldu (dinleme %s hatasını verdi)</translation>
+    </message>
+    <message>
+        <source>Execute command when a coinstake transaction is created (%s in cmd is replaced by TxID)</source>
+        <translation>Bir coinstake muamelesi oluşturulduğunda komutu çalıştır (komuttaki %s muamele kimliği ile değiştirilecektir)</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
@@ -3067,11 +3107,27 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation>Hata ayıklama bilgisi dök (varsayılan:0, &lt;kategori&gt; sağlanması seçime dayalıdır)</translation>
+        <translation>Hata ayıklama bilgisi dök (varsayılan: 0, &lt;kategori&gt; sağlanması seçime dayalıdır)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Adres sayısı azaldıysa DNS sorgulamasıyla eş adresleri ara (varsayılan: 1 -connect kullanılmadıysa)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Yüksek öncelikli/düşük ücretli muamelelerin azami boyutunu bayt olarak ayarla (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Set the processor limit for when generation is on (-1 = unlimited, default: 0)</source>
+        <translation>Oluşturma etkinken işlemci sınırını belirler (-1 = sınırsız, varsayılan: 0)</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications</source>
+        <translation>Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - bitcoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: 0)</source>
+        <translation>Eş adresleri sorgulaması için daima DNS aramasını kullan (varsayılan: 0)</translation>
     </message>
     <message>
         <source>Information</source>
@@ -3079,23 +3135,23 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>-minrelaytxfee=&lt;amount&gt; için geçersiz meblağ: '%s'</translation>
+        <translation>-minrelaytxfee=&lt;amount&gt; için gerçersiz miktar: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
-        <translation>-mintxfee=&lt;amount&gt; için geçersiz meblağ: '%s'</translation>
+        <translation>-mintxfee=&lt;amount&gt; için geçersiz miktar: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;: '%s'</source>
+        <translation>-reservebalance=&lt;meblağ&gt; için geçersiz meblağ '%s'</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
         <translation>İmza arabelleğinin boyutunu &lt;n&gt; unsurla sınırla (varsayılan: 50000)</translation>
     </message>
     <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>Blok oluşturulduğunda muamele önceliğini ve kB başı ücreti kütüğe al (varsayılan: 0)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Muamelelerin tamamının indeksini tut (varsayılan: 0)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 45444 or testnet: 55444)</source>
+        <translation>Bağlantıları &lt;port&gt; üzerinde dinle (varsayılan: 45444 veya tesnet: 55444)</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
@@ -3122,10 +3178,6 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Başlangıçta blok ağacını göster (varsayılan: 0)</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL seçenekleri: (SSL kurulumu yönergeleri için Bitcoin vikisine bakınız)</translation>
-    </message>
-    <message>
         <source>RPC server options:</source>
         <translation>RPC sunucu seçenekleri:</translation>
     </message>
@@ -3135,19 +3187,31 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
-        <translation>Her &lt;n&gt; şebeke mesajından rastgele birini bulanıklaştır</translation>
+        <translation>Her &lt;n&gt; şebeke mesajından rastgele 1 mesajı bulanıklaştır</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core Daemon</source>
+        <translation>Reddcoin Çekirdek Servisi</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core RPC client version</source>
+        <translation>Reddcoin Çekirdeği RPC istemci sürümü</translation>
     </message>
     <message>
         <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation>Periyodik olarak cüdanı diske yazdırmak için bir iş parçacığı çalıştır (varsayılan: 1)</translation>
+        <translation>Cüzdanı periyodik olarak temizlemek için bir iplik çalıştır (varsayılan: 1)</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation> SSL seçenekleri: (SSL kurulum bilgisi için Bitcoin vikisine bakınız)</translation>
+        <source>SSL options: (see the Reddcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL seçenekleri: (SSL kurulum talimatları için Reddcoin Wiki ye bakınız)</translation>
     </message>
     <message>
-        <source>Send command to Bitcoin Core</source>
-        <translation>Bitcoin Çekirdeğine komut yolla</translation>
+        <source>Send command to Reddcoin Core</source>
+        <translation>Reddcoin Çekirdeğine komut gönder</translation>
+    </message>
+    <message>
+        <source>Send command to reddcoin Core</source>
+        <translation>reddcoin Çekirdeğine komut gönder</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -3163,7 +3227,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation>Tüm hata ayıklama seçeneklerini göster (kullanımı: --help -help-debug)</translation>
+        <translation>Tüm hata ayıklama seçeneklerini göster (usage: --help -help-debug)</translation>
     </message>
     <message>
         <source>Show benchmark information (default: 0)</source>
@@ -3182,8 +3246,8 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Bağlantı zaman aşım süresini milisaniye olarak belirt (varsayılan: 5000)</translation>
     </message>
     <message>
-        <source>Start Bitcoin Core Daemon</source>
-        <translation>Bitcoin Çekirdeği servisini başlat</translation>
+        <source>Start Reddcoin Core Daemon</source>
+        <translation>Reddcoin Çekirdeği servisini başlat</translation>
     </message>
     <message>
         <source>System error: </source>
@@ -3200,6 +3264,10 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     <message>
         <source>Transaction too large</source>
         <translation>Muamele çok büyük</translation>
+    </message>
+    <message>
+        <source>Usage (deprecated, use reddcoin-cli):</source>
+        <translation>Kullanım (önerilmemektedir, reddcoin-cli kullanın):</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
@@ -3219,7 +3287,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
-        <translation>Uyarı: Bu sürüm çok eskidir, güncellemeniz gerekir!</translation>
+        <translation>Uyarı: Bu versiyon eskidir, yükseltmeniz gerekir!</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
@@ -3255,7 +3323,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
-        <translation>Cüzdanı en yeni biçime güncelle</translation>
+        <translation>Cüzdanı en yeni biçime yükselt</translation>
     </message>
     <message>
         <source>Set key pool size to &lt;n&gt; (default: 100)</source>
@@ -3282,10 +3350,6 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Bu yardım mesajı</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. (bind şu hatayı iletti: %d, %s)</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>-addnode, -seednode ve -connect için DNS aramalarına izin ver</translation>
     </message>
@@ -3295,19 +3359,19 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
-        <translation>wallet.dat dosyasının yüklenmesinde hata oluştu: bozuk cüzdan</translation>
+        <translation>wallet.dat yükleme hatası: Bozuk cüzdan</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
-        <translation>wallet.dat dosyasının yüklenmesinde hata oluştu: cüzdanın daha yeni bir Bitcoin sürümüne ihtiyacı var</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Reddcoin</source>
+        <translation>wallet.dat yükleme hatası: Cüzdan, Reddcoin'in yeni sürümünü gerektirir.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
-        <translation>Cüzdanın tekrar yazılması gerekiyordu: işlemi tamamlamak için Bitcoin'i yeniden başlatınız</translation>
+        <source>Wallet needed to be rewritten: restart Reddcoin to complete</source>
+        <translation>Cüzdanın tekrar yazılması gerekiyordu: işlemi tamamlamak için Reddcoin'i yeniden başlatınız</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
-        <translation>wallet.dat dosyasının yüklenmesinde hata oluştu</translation>
+        <translation>wallet.dat yükleme hatası</translation>
     </message>
     <message>
         <source>Invalid -proxy address: '%s'</source>
@@ -3331,7 +3395,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>-paytxfee=&lt;meblağ&gt; için geçersiz meblağ: '%s'</translation>
+        <translation>-paytxfee=&lt;miktar&gt; için geçersiz miktar: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount</source>
@@ -3339,7 +3403,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Yetersiz bakiye</translation>
+        <translation>Yetersiz fon</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -3371,7 +3435,7 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>To use the %s option</source>
-        <translation>%s seçeneğini kullanmak için</translation>
+        <translation>%s seçeneği kullanmak için</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3382,8 +3446,8 @@ mesela: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
 %s
 If the file does not exist, create it with owner-readable-only file permissions.</source>
         <translation>rpcpassword=&lt;parola&gt; şu yapılandırma dosyasında belirtilmelidir:
-%s
-Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.</translation>
+ %s
+ Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.</translation>
     </message>
 </context>
 </TS>

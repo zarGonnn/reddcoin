@@ -1,13 +1,13 @@
-<TS language="da" version="2.1">
+<TS language="fr_FR" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
         <source>About Reddcoin Core</source>
-        <translation>Om Reddcoin Core</translation>
+        <translation>À propos de Reddcoin Core</translation>
     </message>
     <message>
         <source>&lt;b&gt;Reddcoin Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Reddcoin Core&lt;/b&gt; version</translation>
+        <translation>Version de &lt;b&gt;Reddcoin Core&lt;/b&gt;</translation>
     </message>
     <message>
         <source>
@@ -17,19 +17,19 @@ Distributed under the MIT/X11 software license, see the accompanying file COPYIN
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation>
-Dette program er ekperimentielt.
+ Ce logiciel est en phase expérimentale.
 
-Det er gjort tilgængeligt under MIT/X11-softwarelicensen. Se den tilhørende fil "COPYING" eller http://www.opensource.org/licenses/mit-license.php.
+ Distribué sous licence logicielle MIT/X11, voir le fichier COPYING joint ou http://www.opensource.org/licenses/mit-license.php.
 
-Produktet indeholder software som er udviklet af OpenSSL Project til brug i OpenSSL Toolkit (http://www.openssl.org/), kryptografisk software skrevet af Eric Young (eay@cryptsoft.com) og UPnP-software skrevet af Thomas Bernard.</translation>
+ Ce produit comprend des logiciels développés par le projet OpenSSL afin d'être utilisés dans la boîte à outils OpenSSL (http://www.openssl.org/), un logiciel de chiffrement écrit par Eric Young (eay@cryptsoft.com), et un logiciel UPnP développé par Thomas Bernard.</translation>
     </message>
     <message>
         <source>Copyright</source>
-        <translation>Ophavsret</translation>
+        <translation>Copyright</translation>
     </message>
     <message>
         <source>The Reddcoin Core developers</source>
-        <translation>Udviklerne af Reddcoin Core</translation>
+        <translation>Les développeurs de Reddcoin Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -40,106 +40,106 @@ Produktet indeholder software som er udviklet af OpenSSL Project til brug i Open
     <name>AddressBookPage</name>
     <message>
         <source>Double-click to edit address or label</source>
-        <translation>Dobbeltklik for at redigere adresse eller mærkat</translation>
+        <translation>Double cliquer afin de modifier l'adresse ou l'étiquette</translation>
     </message>
     <message>
         <source>Create a new address</source>
-        <translation>Opret en ny adresse</translation>
+        <translation>Créer une nouvelle adresse</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>&amp;Ny</translation>
+        <translation>&amp;Nouveau</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-        <translation>Kopiér den valgte adresse til systemets udklipsholder</translation>
+        <translation>Copier l'adresse actuellement sélectionnée dans le presse-papier</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopiér</translation>
+        <translation>&amp;Copier</translation>
     </message>
     <message>
         <source>C&amp;lose</source>
-        <translation>&amp;Luk</translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation>&amp;Kopiér adresse</translation>
+        <translation>&amp;Copier Adresse</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-        <translation>Slet den markerede adresse fra listen</translation>
+        <translation>Supprimer l'adresse sélectionnée de la liste</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Eksportér den aktuelle visning til en fil</translation>
+        <translation>Exporter les données de l'onglet actif dans un fichier</translation>
     </message>
     <message>
         <source>&amp;Export</source>
-        <translation>&amp;Eksportér</translation>
+        <translation>&amp;Exporter</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Slet</translation>
+        <translation>&amp;Supprimer</translation>
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Vælg adresse at sende bitcoins til</translation>
+        <translation>Choisir l'adresse à laquelle envoyer des pièces</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Vælg adresse at modtage bitcoins med</translation>
+        <translation>Choisir l'adresse avec laquelle recevoir des pièces</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
-        <translation>&amp;Vælg</translation>
+        <translation>C&amp;hoisir</translation>
     </message>
     <message>
         <source>Sending addresses</source>
-        <translation>Afsendelsesadresser</translation>
+        <translation>Adresses d'envoi</translation>
     </message>
     <message>
         <source>Receiving addresses</source>
-        <translation>Modtagelsesadresser</translation>
+        <translation>Adresses de réception</translation>
     </message>
     <message>
         <source>These are your Reddcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Disse er dine Reddcoin-adresser for at sende betalinger. Tjek altid beløb og modtageradresse, inden du sender reddcoins.</translation>
+        <translation>Voici vos adresses Reddcoin pour envoyer des paiements. Vérifiez toujours le montant et l'adresse du destinataire avant d'envoyer des pièces.</translation>
     </message>
     <message>
         <source>These are your Reddcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dette er dine Reddcoin-adresser til at modtage betalinger med. Det anbefales are bruge en ny modtagelsesadresse for hver transaktion.</translation>
+        <translation>Voici vos adresses Reddcoin pour recevoir des paiements. Il est recommandé d'utiliser une nouvelle adresse de réception pour chaque transaction.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>Kopiér &amp;mærkat</translation>
+        <translation>Copier &amp;Étiquette</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Redigér</translation>
+        <translation>&amp;Modifier</translation>
     </message>
     <message>
         <source>Export Address List</source>
-        <translation>Eksportér adresseliste</translation>
+        <translation>Exporter la liste d'adresses</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Kommasepareret fil (*.csv)</translation>
+        <translation>Fihcier séparé par virgules (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Eksport mislykkedes</translation>
+        <translation>L'exportation a échouée</translation>
     </message>
     <message>
         <source>There was an error trying to save the address list to %1.</source>
-        <translation>Der opstod en fejl under gemning af adresselisten til %1. Prøv venligst igen.</translation>
+        <translation>Une erreur est survenue lors de l'enregistrement de la liste d'adresses vers %1.</translation>
     </message>
 </context>
 <context>
     <name>AddressTableModel</name>
     <message>
         <source>Label</source>
-        <translation>Mærkat</translation>
+        <translation>Étiquette</translation>
     </message>
     <message>
         <source>Address</source>
@@ -147,257 +147,301 @@ Produktet indeholder software som er udviklet af OpenSSL Project til brug i Open
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(ingen mærkat)</translation>
+        <translation>(pas d'étiquette)</translation>
     </message>
 </context>
 <context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation>Adgangskodedialog</translation>
+        <translation>Fenêtre de gestion du mot de passe (phrase)</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
-        <translation>Indtast adgangskode</translation>
+        <translation>Entrez votre mot de passe (phrase)</translation>
     </message>
     <message>
         <source>New passphrase</source>
-        <translation>Ny adgangskode</translation>
+        <translation>Nouveau mot de passe (phrase)</translation>
     </message>
     <message>
         <source>Repeat new passphrase</source>
-        <translation>Gentag ny adgangskode</translation>
+        <translation>Répéter le mot de passe (phrase)</translation>
     </message>
     <message>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
-        <translation>Serverer at deaktivere trivielle send penge, når OS konto kompromitteret. Giver ingen reel sikkerhed.</translation>
+        <translation>Sert a désactiver sendmoney lorsque le compte utilisateur de l'OS est compromis. Ne fournit pas de réelle sécurité.</translation>
+    </message>
+    <message>
+        <source>For staking only</source>
+        <translation>Uniquement pour la mise en jeu</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Indtast det nye kodeord til tegnebogen.&lt;br/&gt;Brug venligst et kodeord på &lt;b&gt;10 eller flere tilfældige tegn&lt;/b&gt; eller &lt;b&gt;otte eller flere ord&lt;/b&gt;.</translation>
+        <translation>Saisir le nouveau mot de passe (phrase) pour le portefeuille. &lt;br/&gt;Veuillez utiliser un mot de passe (phrase) de &lt;b&gt;10 caractères aléatoires ou plus&lt;/b&gt;, ou de &lt;b&gt;huit mots ou plus&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
-        <translation>Kryptér tegnebog</translation>
+        <translation>Chiffrer le portefeuille</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Denne funktion har brug for din tegnebogs adgangskode for at låse tegnebogen op.</translation>
+        <translation>Cette opération nécessite votre mot de passe (phrase) pour déverrouiller le portefeuille.</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
-        <translation>Lås tegnebog op</translation>
+        <translation>Déverrouiller le portefeuille</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Denne funktion har brug for din tegnebogs adgangskode for at dekryptere tegnebogen.</translation>
+        <translation>Cette opération nécessite votre mot de passe (phrase) pour déchiffrer le portefeuille.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
-        <translation>Dekryptér tegnebog</translation>
+        <translation>Déchiffrer le portefeuille</translation>
     </message>
     <message>
         <source>Change passphrase</source>
-        <translation>Skift adgangskode</translation>
+        <translation>Changer le mot de passe (phrase)</translation>
     </message>
     <message>
         <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Indtast den gamle adgangskode og en ny adgangskode til tegnebogen.</translation>
+        <translation>Saisir l’ancien mot de passe (phrase) pour le portefeuille ainsi que le nouveau.</translation>
     </message>
     <message>
         <source>Confirm wallet encryption</source>
-        <translation>Bekræft tegnebogskryptering</translation>
+        <translation>Confirmer le chiffrement du portefeuille</translation>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR REDDCOINS&lt;/b&gt;!</source>
-        <translation>Advarsel: Hvis du krypterer din tegnebog og mister din adgangskode, vil du &lt;b&gt;MISTE ALLE DINE REDDCOINS&lt;/b&gt;!</translation>
+        <translation>Attention : Si vous chiffrez votre portefeuille et perdez votre phrase de passe, vous &lt;b&gt;PERDREZ TOUS VOS REDDCOINS&lt;/b&gt; !</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>Er du sikker på, at du ønsker at kryptere din tegnebog?</translation>
+        <translation>Êtes-vous sûr de vouloir chiffrer votre portefeuille ?</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation>VIGTIGT: Enhver tidligere sikkerhedskopi, som du har lavet af tegnebogsfilen, bør blive erstattet af den nyligt genererede, krypterede tegnebogsfil. Af sikkerhedsmæssige årsager vil tidligere sikkerhedskopier af den ikke-krypterede tegnebogsfil blive ubrugelige i det øjeblik, du starter med at anvende den nye, krypterede tegnebog.</translation>
+        <translation>IMPORTANT : Toute sauvegarde précédente de votre fichier de portefeuille devrait être remplacée par le nouveau fichier de portefeuille chiffré. Pour des raisons de sécurité, les sauvegardes précédentes de votre fichier de portefeuille non chiffré deviendront inutilisables dès que vous commencerez à utiliser le nouveau portefeuille chiffré.</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
-        <translation>Advarsel: Caps Lock-tasten er aktiveret!</translation>
+        <translation>Attention : la touche majuscule est opérationnelle !</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
-        <translation>Tegnebog krypteret</translation>
+        <translation>Portefeuille chiffré</translation>
     </message>
     <message>
         <source>Reddcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your reddcoins from being stolen by malware infecting your computer.</source>
-        <translation>Reddcoin Core vil nu lukke for at færdiggøre krypteringsprocessen. Husk at kryptering af din tegnebog kan ikke beskytte dine bitcoin fuldt ud mod at blive stjålet af eventuel malware, der måtte have inficeret din computer.</translation>
+        <translation>Reddcoin va à présent se fermer pour terminer le chiffrement. N'oubliez pas que le chiffrement de votre portefeuille n'est pas une protection totale contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
-        <translation>Tegnebogskryptering mislykkedes</translation>
+        <translation>Le chiffrement du portefeuille a échoué</translation>
     </message>
     <message>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation>Tegnebogskryptering mislykkedes på grund af en intern fejl. Din tegnebog blev ikke krypteret.</translation>
+        <translation>Le chiffrement du portefeuille a échoué en raison d'une erreur interne. Votre portefeuille n'a pas été chiffré.</translation>
     </message>
     <message>
         <source>The supplied passphrases do not match.</source>
-        <translation>De angivne adgangskoder stemmer ikke overens.</translation>
+        <translation>Les mots de passe (phrases) saisis ne correspondent pas.</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
-        <translation>Tegnebogsoplåsning mislykkedes</translation>
+        <translation>Le déverrouillage du portefeuille a échoué</translation>
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Den angivne adgangskode for tegnebogsdekrypteringen er forkert.</translation>
+        <translation>Le mot de passe (phrase) saisi pour déchiffrer le portefeuille était incorrect.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
-        <translation>Tegnebogsdekryptering mislykkedes</translation>
+        <translation>Le déchiffrage du portefeuille a échoué</translation>
     </message>
     <message>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation>Tegnebogens adgangskode blev ændret.</translation>
+        <translation>Le mot de passe (phrase) du portefeuille a été modifié avec succès.</translation>
     </message>
 </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
-        <translation>Underskriv &amp;besked…</translation>
+        <translation>&amp;Signer le message...</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
-        <translation>Synkroniserer med netværk…</translation>
+        <translation>Synchronisation avec le réseau en cours…</translation>
     </message>
     <message>
         <source>&amp;Overview</source>
-        <translation>&amp;Oversigt</translation>
+        <translation>&amp;Aperçu</translation>
     </message>
     <message>
         <source>Node</source>
-        <translation>Knude</translation>
+        <translation>Nœud</translation>
     </message>
     <message>
         <source>Show general overview of wallet</source>
-        <translation>Vis generel oversigt over tegnebog</translation>
+        <translation>Afficher une vue d’ensemble du portefeuille</translation>
     </message>
     <message>
         <source>&amp;Request</source>
-        <translation>&amp;Anmodning</translation>
+        <translation>&amp;Demande</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and reddcoin: URIs)</source>
-        <translation>Anmod om betalinger (genererer QR-koder og "reddcoin:"-URI'er)</translation>
+        <translation>Demander des paiements (génère des codes QR et URIs reddcoin)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
-        <translation>&amp;Transaktioner</translation>
+        <translation>&amp;Transactions</translation>
     </message>
     <message>
         <source>Browse transaction history</source>
-        <translation>Gennemse transaktionshistorik</translation>
+        <translation>Naviguer dans l'historique des transactions</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>&amp;Luk</translation>
+        <translation>S&amp;ortie</translation>
     </message>
     <message>
         <source>Quit application</source>
-        <translation>Afslut program</translation>
+        <translation>Quitter l'application</translation>
     </message>
     <message>
         <source>Show information about Reddcoin</source>
-        <translation>Vis oplysninger om Reddcoin </translation>
+        <translation>Afficher l'information à propos de Reddcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
-        <translation>Om &amp;Qt</translation>
+        <translation>À propos de &amp;Qt</translation>
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Vis informationer om Qt</translation>
+        <translation>Montrer de l'information à propos de Qt</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>&amp;Indstillinger…</translation>
+        <translation>&amp;Options...</translation>
     </message>
     <message>
         <source>&amp;Encrypt Wallet...</source>
-        <translation>&amp;Kryptér tegnebog…</translation>
+        <translation>&amp;Chiffrer le portefeuille...</translation>
     </message>
     <message>
         <source>&amp;Backup Wallet...</source>
-        <translation>&amp;Sikkerhedskopiér tegnebog…</translation>
+        <translation>&amp;Sauvegarder le portefeuille...</translation>
     </message>
     <message>
         <source>&amp;Change Passphrase...</source>
-        <translation>&amp;Skift adgangskode…</translation>
+        <translation>&amp;Changer le mot de passe (phrase)...</translation>
     </message>
     <message>
         <source>&amp;Unlock Wallet...</source>
-        <translation>&amp;Lås tegnebog op...</translation>
+        <translation>&amp;Déverrouiller le portefeuille...</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
-        <translation>Lås tegnebog op</translation>
+        <translation>Déverrouiller le portefeuille</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Verrouiller le portefeuille</translation>
+    </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Verrouiller le portefeuille</translation>
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>&amp;Afsendelsesadresser…</translation>
+        <translation>Adresses d'&amp;envoi...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Modtagelsesadresser…</translation>
+        <translation>Adresses de &amp;réception...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
-        <translation>&amp;Åbn URI…</translation>
+        <translation>Ouvrir un &amp;URI...</translation>
     </message>
     <message>
         <source>Open a reddcoin: URI or payment request</source>
-        <translation>Åbn en "reddcoin:"-URI eller betalingsanmodning</translation>
+        <translation>Ouvrir un URI reddcoin ou une demande de paiement</translation>
     </message>
     <message>
         <source>Reddcoin Core client</source>
-        <translation>Reddcoin Core-klient</translation>
+        <translation>Client Reddcoin Core</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
-        <translation>Importerer blokke fra disken…</translation>
+        <translation>Importer les blocs du disque...</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
-        <translation>Genindekserer blokke på disken…</translation>
+        <translation>Réindexer les blocks sur le disque...</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n second(s)</source>
+        <translation><numerusform>%n seconde</numerusform><numerusform>%n secondes</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n minute(s)</source>
+        <translation><numerusform>%n minute</numerusform><numerusform>%n minutes</numerusform></translation>
+    </message>
+    <message>
+        <source>Staking.&lt;br&gt;Your average weight is %1&lt;br&gt;Your total weight is %2&lt;br&gt;Network weight is %3&lt;br&gt;Expected to earn reward once every %4</source>
+        <translation>Mise active.&lt;br&gt;Votre poids moyen est %1&lt;br&gt;Votre poids total est %2&lt;br&gt;Le poids total du réseau est %3&lt;br&gt;Votre temps approximatif entre deux gains est de %4 </translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is locked</source>
+        <translation>Pas de mise en jeu car votre portefeuille est verrouillé</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is offline</source>
+        <translation>Pas de mise en jeu car votre portefeuille n'est pas en ligne</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is syncing</source>
+        <translation>Pas de mise en jeu car votre portefeuille est en cours de synchronisation </translation>
+    </message>
+    <message>
+        <source>Not staking because you don't have mature coins</source>
+        <translation>Pas de mise en jeu car vous n'avez aucune pièce assez âgée</translation>
+    </message>
+    <message>
+        <source>Not staking</source>
+        <translation>Pas de mise en jeu</translation>
     </message>
     <message>
         <source>Send coins to a Reddcoin address</source>
-        <translation>Send Reddcoin til en Reddcoin-adresse</translation>
+        <translation>Envoyer des pièces à une adresse Reddcoin</translation>
     </message>
     <message>
         <source>Modify configuration options for Reddcoin</source>
-        <translation>Rediger konfigurationsindstillinger af Reddcoin</translation>
+        <translation>Modifier les options de configuration pour Reddcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
-        <translation>Lav sikkerhedskopi af tegnebogen til et andet sted</translation>
+        <translation>Sauvegarder le portefeuille vers un autre emplacement</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation>Skift adgangskode anvendt til tegnebogskryptering</translation>
+        <translation>Modifier le mot de passe (phrase) utilisé pour le chiffrement du portefeuille</translation>
     </message>
     <message>
         <source>&amp;Debug window</source>
-        <translation>&amp;Fejlsøgningsvindue</translation>
+        <translation>Fenêtre de &amp;Déboguage</translation>
     </message>
     <message>
         <source>Open debugging and diagnostic console</source>
-        <translation>Åbn fejlsøgnings- og diagnosticeringskonsollen</translation>
+        <translation>Ouvrir la console de déboguage et diagnostique</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
-        <translation>&amp;Verificér besked…</translation>
+        <translation>&amp;Vérifier le message...</translation>
     </message>
     <message>
         <source>Reddcoin</source>
@@ -405,47 +449,47 @@ Produktet indeholder software som er udviklet af OpenSSL Project til brug i Open
     </message>
     <message>
         <source>Wallet</source>
-        <translation>Tegnebog</translation>
+        <translation>Portefeuille</translation>
     </message>
     <message>
         <source>&amp;Send</source>
-        <translation>&amp;Send</translation>
+        <translation>&amp;Envoyer</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
-        <translation>&amp;Vis / Skjul</translation>
+        <translation>&amp;Montrer / Masquer</translation>
     </message>
     <message>
         <source>Show or hide the main Window</source>
-        <translation>Vis eller skjul hovedvinduet</translation>
+        <translation>Afficher ou masquer la fenêtre principale</translation>
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
-        <translation>Kryptér de private nøgler, der hører til din tegnebog</translation>
+        <translation>Chiffrer les clefs privées de votre portefeuille</translation>
     </message>
     <message>
         <source>Sign messages with your Reddcoin addresses to prove you own them</source>
-        <translation>Underskriv beskeder med dine Reddcoin-adresser for at bevise, at de tilhører dig</translation>
+        <translation>Signer des messages avec vos adresses Reddcoin pour prouver que vous les détenez</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Reddcoin addresses</source>
-        <translation>Verificér beskeder for at sikre, at de er underskrevet med de angivne Reddcoin-adresser</translation>
+        <translation>Vérifier les messages pour vous assurer qu'ils ont été signés avec les adresses Reddcoin spécifiées</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Fil</translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation>&amp;Opsætning</translation>
+        <translation>&amp;Paramètres</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Hjælp</translation>
+        <translation>&amp;Aide</translation>
     </message>
     <message>
         <source>Tabs toolbar</source>
-        <translation>Faneværktøjslinje</translation>
+        <translation>Onglets de la barre d'outils</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -457,76 +501,75 @@ Produktet indeholder software som er udviklet af OpenSSL Project til brug i Open
     </message>
     <message>
         <source>&amp;About Reddcoin Core</source>
-        <translation>&amp;Om Reddcoin Core</translation>
+        <translation>&amp;À propos de Reddcoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
-        <translation>Vis listen over brugte afsendelsesadresser og -mærkater</translation>
+        <translation>Afficher la liste d'adresses d'envoi et d'étiquettes utilisées</translation>
     </message>
     <message>
         <source>Show the list of used receiving addresses and labels</source>
-        <translation>Vis listen over brugte modtagelsesadresser og -mærkater</translation>
+        <translation>Afficher la liste d'adresses de réception et d'étiquettes utilisées</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
-        <translation>Tilvalg for &amp;kommandolinje</translation>
+        <translation>Options de ligne de &amp;commande</translation>
     </message>
     <message>
         <source>Show the Reddcoin Core help message to get a list with possible Reddcoin command-line options</source>
-        <translation>Vis Reddcoin Core hjælpebesked for at få en liste over mulige tilvalg for Reddcoin kommandolinje</translation>
+        <translation>Afficher le message d'aide de Reddcoin Core pour obtenir une liste des différentes lignes de commandes Reddcoin</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Reddcoin network</source>
-        <translation><numerusform>%n aktiv forbindelse til Reddcoin-netværket</numerusform><numerusform>%n aktive forbindelser til Reddcoin-netværket</numerusform></translation>
+        <translation><numerusform>%n connexion active au réseau Reddcoin</numerusform><numerusform>%n connexions actives au réseau Reddcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
-        <translation>Ingen blokkilde tilgængelig...</translation>
+        <translation>Aucune source de blocs disponible...</translation>
     </message>
     <message>
         <source>Processed %1 blocks of transaction history.</source>
-        <translation>%1 blokke af transaktionshistorikken er blevet behandlet.</translation>
+        <translation>À traité %1 blocs de l'historique des transactions.</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
-        <translation><numerusform>%n time</numerusform><numerusform>%n timer</numerusform></translation>
+        <translation><numerusform>%n heure</numerusform><numerusform>%n heures</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n day(s)</source>
-        <translation><numerusform>%n dag</numerusform><numerusform>%n dage</numerusform></translation>
+        <translation><numerusform>%n jour</numerusform><numerusform>%n jours</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n week(s)</source>
-        <translation><numerusform>%n uge</numerusform><numerusform>%n uger</numerusform></translation>
+        <translation><numerusform>%n semaine</numerusform><numerusform>%n semaines</numerusform></translation>
     </message>
     <message>
         <source>%1 and %2</source>
-        <translation>%1 og %2</translation>
+        <translation>%1 et %2</translation>
     </message>
     <message numerus="yes">
         <source>%n year(s)</source>
-        <translation><numerusform>%n år
-</numerusform><numerusform>%n år</numerusform></translation>
+        <translation><numerusform>%n année</numerusform><numerusform>%n années</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
-        <translation>%1 bagud</translation>
+        <translation>%1 en retard</translation>
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
-        <translation>Senest modtagne blok blev genereret for %1 siden.</translation>
+        <translation>Le dernier bloc reçu avait été généré il y a %1.</translation>
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
-        <translation>Transaktioner herefter vil endnu ikke være synlige.</translation>
+        <translation>Les transactions après ceci ne sont pas encore visibles.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Fejl</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Advarsel</translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <source>Information</source>
@@ -534,19 +577,19 @@ Produktet indeholder software som er udviklet af OpenSSL Project til brug i Open
     </message>
     <message>
         <source>Up to date</source>
-        <translation>Opdateret</translation>
+        <translation>Mis à jour</translation>
     </message>
     <message>
         <source>Catching up...</source>
-        <translation>Indhenter…</translation>
+        <translation>Rattrapage en cours…</translation>
     </message>
     <message>
         <source>Sent transaction</source>
-        <translation>Afsendt transaktion</translation>
+        <translation>Transaction envoyée</translation>
     </message>
     <message>
         <source>Incoming transaction</source>
-        <translation>Indgående transaktion</translation>
+        <translation>Transaction en réception</translation>
     </message>
     <message>
         <source>Date: %1
@@ -554,85 +597,86 @@ Amount: %2
 Type: %3
 Address: %4
 </source>
-        <translation>Dato: %1
-Beløb: %2
-Type: %3
-Adresse: %4
+        <translation>Date : %1
+Montant : %2
+Type : %3
+Adresse : %4
+
 </translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Tegnebog er &lt;b&gt;krypteret&lt;/b&gt; og i øjeblikket &lt;b&gt;ulåst&lt;/b&gt;</translation>
+        <translation>Le portefeuille est &lt;b&gt;chiffré&lt;/b&gt; et est actuellement &lt;b&gt;déverrouillé&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation>Tegnebog er &lt;b&gt;krypteret&lt;/b&gt; og i øjeblikket &lt;b&gt;låst&lt;/b&gt;</translation>
+        <translation>Le portefeuille est &lt;b&gt;chiffré&lt;/b&gt; et actuellement &lt;b&gt;verrouillé&lt;/b&gt;</translation>
     </message>
     <message>
         <source>A fatal error occurred. Reddcoin can no longer continue safely and will quit.</source>
-        <translation>Der opstod en fatal fejl. Reddcoin kan ikke længere fortsætte sikkert og vil afslutte.</translation>
+        <translation>Une erreur fatale est survenue. Reddcoin ne peut plus continuer de façon sûre et va s'arrêter.</translation>
     </message>
 </context>
 <context>
     <name>ClientModel</name>
     <message>
         <source>Network Alert</source>
-        <translation>Netværksadvarsel</translation>
+        <translation>Alerte Réseau</translation>
     </message>
 </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Control Address Selection</source>
-        <translation>Adressevalg for coin-styring</translation>
+        <translation>Sélection de l'adresse de contrôle des pièces</translation>
     </message>
     <message>
         <source>Quantity:</source>
-        <translation>Mængde:</translation>
+        <translation>Quantité :</translation>
     </message>
     <message>
         <source>Bytes:</source>
-        <translation>Byte:</translation>
+        <translation>Octets :</translation>
     </message>
     <message>
         <source>Amount:</source>
-        <translation>Beløb:</translation>
+        <translation>Montant :</translation>
     </message>
     <message>
         <source>Priority:</source>
-        <translation>Prioritet:</translation>
+        <translation>Priorité :</translation>
     </message>
     <message>
         <source>Fee:</source>
-        <translation>Gebyr:</translation>
+        <translation>Frais :</translation>
     </message>
     <message>
         <source>Low Output:</source>
-        <translation>Lavt output:</translation>
+        <translation>Sortie faible :</translation>
     </message>
     <message>
         <source>After Fee:</source>
-        <translation>Efter gebyr:</translation>
+        <translation>Après les frais :</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation>Byttepenge:</translation>
+        <translation>Monnaie :</translation>
     </message>
     <message>
         <source>(un)select all</source>
-        <translation>(af)vælg alle</translation>
+        <translation>Tout (dé)sélectionner</translation>
     </message>
     <message>
         <source>Tree mode</source>
-        <translation>Trætilstand</translation>
+        <translation>Mode arborescence</translation>
     </message>
     <message>
         <source>List mode</source>
-        <translation>Listetilstand</translation>
+        <translation>Mode liste</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation>Beløb</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>Address</source>
@@ -640,194 +684,194 @@ Adresse: %4
     </message>
     <message>
         <source>Date</source>
-        <translation>Dato</translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Confirmations</source>
-        <translation>Bekræftelser</translation>
+        <translation>Confirmations</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>Bekræftet</translation>
+        <translation>Confirmée</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation>Prioritet</translation>
+        <translation>Priorité</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Kopiér adresse</translation>
+        <translation>Copier l'adresse</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Kopiér mærkat</translation>
+        <translation>Copier l'étiquette</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Kopiér beløb</translation>
+        <translation>Copier le montant</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation>Kopiér transaktions-ID</translation>
+        <translation>Copier l'ID de la transaction</translation>
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation>Fastlås ubrugte</translation>
+        <translation>Verrouiller ce qui n'est pas dépensé</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
-        <translation>Lås ubrugte op</translation>
+        <translation>Déverrouiller ce qui n'est pas dépensé</translation>
     </message>
     <message>
         <source>Copy quantity</source>
-        <translation>Kopiér mængde</translation>
+        <translation>Copier la quantité</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation>Kopiér gebyr</translation>
+        <translation>Copier les frais</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation>Kopiér efter-gebyr</translation>
+        <translation>Copier le montant après les frais</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation>Kopiér byte</translation>
+        <translation>Copier les octets</translation>
     </message>
     <message>
         <source>Copy priority</source>
-        <translation>Kopiér prioritet</translation>
+        <translation>Copier la priorité</translation>
     </message>
     <message>
         <source>Copy low output</source>
-        <translation>Kopiér lavt output</translation>
+        <translation>Copier la sortie faible</translation>
     </message>
     <message>
         <source>Copy change</source>
-        <translation>Kopiér byttepenge</translation>
+        <translation>Copier la monnaie</translation>
     </message>
     <message>
         <source>highest</source>
-        <translation>højest</translation>
+        <translation>la plus élevée</translation>
     </message>
     <message>
         <source>higher</source>
-        <translation>højere</translation>
+        <translation>plus élevée</translation>
     </message>
     <message>
         <source>high</source>
-        <translation>højt</translation>
+        <translation>élevée</translation>
     </message>
     <message>
         <source>medium-high</source>
-        <translation>mellemhøj</translation>
+        <translation>moyennement élevée</translation>
     </message>
     <message>
         <source>medium</source>
-        <translation>medium</translation>
+        <translation>moyenne</translation>
     </message>
     <message>
         <source>low-medium</source>
-        <translation>mellemlav</translation>
+        <translation>moyennement basse</translation>
     </message>
     <message>
         <source>low</source>
-        <translation>lav</translation>
+        <translation>basse</translation>
     </message>
     <message>
         <source>lower</source>
-        <translation>lavere</translation>
+        <translation>plus basse</translation>
     </message>
     <message>
         <source>lowest</source>
-        <translation>lavest</translation>
+        <translation>la plus basse</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
-        <translation>(%1 fastlåst)</translation>
+        <translation>(%1 verrouillé)</translation>
     </message>
     <message>
         <source>none</source>
-        <translation>ingen</translation>
+        <translation>aucun</translation>
     </message>
     <message>
         <source>Dust</source>
-        <translation>Støv</translation>
+        <translation>Poussière</translation>
     </message>
     <message>
         <source>yes</source>
-        <translation>ja</translation>
+        <translation>oui</translation>
     </message>
     <message>
         <source>no</source>
-        <translation>nej</translation>
+        <translation>non</translation>
     </message>
     <message>
         <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation>Denne mærkat bliver rød, hvis transaktionsstørrelsen er større end 1000 byte.</translation>
+        <translation>Cette étiquette devient rouge, si la taille de la trnsaction dépasse 1000 octets.</translation>
     </message>
     <message>
         <source>This means a fee of at least %1 per kB is required.</source>
-        <translation>Dette betyder, at et gebyr på mindst %1 pr. kB er nødvendigt.</translation>
+        <translation>Signifie que des frais d'au moins %1 par ko sont requis.</translation>
     </message>
     <message>
         <source>Can vary +/- 1 byte per input.</source>
-        <translation>Kan variere ±1 byte pr. input.</translation>
+        <translation>Peut varier par +/- 1 octet par entrée.</translation>
     </message>
     <message>
         <source>Transactions with higher priority are more likely to get included into a block.</source>
-        <translation>Transaktioner med højere prioritet har højere sansynlighed for at blive inkluderet i en blok.</translation>
+        <translation>Les transactions à priorité plus haute sont plus à même d'être incluses dans un bloc.</translation>
     </message>
     <message>
         <source>This label turns red, if the priority is smaller than "medium".</source>
-        <translation>Denne mærkat bliver rød, hvis prioriteten er mindre end "medium".</translation>
+        <translation>Cette étiquette devient rouge si la priorité est plus basse que « moyenne »</translation>
     </message>
     <message>
         <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
-        <translation>Denne mærkat bliver rød, hvis en eller flere modtagere modtager et beløb, der er mindre end %1.</translation>
+        <translation>Cette étiquette devient rouge si un destinataire reçoit un montant inférieur à %1</translation>
     </message>
     <message>
         <source>This means a fee of at least %1 is required.</source>
-        <translation>Dette betyder, at et gebyr på mindst %1 er nødvendigt.</translation>
+        <translation>Signifie que des frais d'au moins %1 sont requis.</translation>
     </message>
     <message>
         <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation>Beløb under 0,546 gange det minimale videreførselsgebyr vises som støv.</translation>
+        <translation>Les montants inférieurs à 0,546 fois les frais minimums de relais sont affichés en tant que poussière.</translation>
     </message>
     <message>
         <source>This label turns red, if the change is smaller than %1.</source>
-        <translation>Dette mærkat bliver rødt, hvis byttepengene er mindre end %1.</translation>
+        <translation>Cette étiquette devient rouge si la monnaie rendue est inférieure à %1.</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(ingen mærkat)</translation>
+        <translation>(pas d'étiquette)</translation>
     </message>
     <message>
         <source>change from %1 (%2)</source>
-        <translation>byttepenge fra %1 (%2)</translation>
+        <translation>monnaie de %1 (%2)</translation>
     </message>
     <message>
         <source>(change)</source>
-        <translation>(byttepange)</translation>
+        <translation>(monnaie)</translation>
     </message>
 </context>
 <context>
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
-        <translation>Redigér adresse</translation>
+        <translation>Modifier l'adresse</translation>
     </message>
     <message>
         <source>&amp;Label</source>
-        <translation>&amp;Mærkat</translation>
+        <translation>&amp;Étiquette</translation>
     </message>
     <message>
         <source>The label associated with this address list entry</source>
-        <translation>Mærkatet, der er associeret med denne indgang i adresselisten</translation>
+        <translation>L'étiquette associée à cette entrée de la liste d'adresses</translation>
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation>Adressen, der er associeret med denne indgang i adresselisten. Denne kan kune ændres for afsendelsesadresser.</translation>
+        <translation>L'adresse associée à cette entrée de la liste d'adresses. Celle-ci ne peut être modifiée que pour les adresses d'envoi.</translation>
     </message>
     <message>
         <source>&amp;Address</source>
@@ -835,65 +879,65 @@ Adresse: %4
     </message>
     <message>
         <source>New receiving address</source>
-        <translation>Ny modtagelsesadresse</translation>
+        <translation>Nouvelle adressse de réception</translation>
     </message>
     <message>
         <source>New sending address</source>
-        <translation>Ny afsendelsesadresse</translation>
+        <translation>Nouvelle adressse d'envoi</translation>
     </message>
     <message>
         <source>Edit receiving address</source>
-        <translation>Redigér modtagelsesadresse</translation>
+        <translation>Modifier l’adresse de réception</translation>
     </message>
     <message>
         <source>Edit sending address</source>
-        <translation> Redigér afsendelsesadresse</translation>
+        <translation>Modifier l’adresse d'envoi</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
-        <translation>Den indtastede adresse "%1" er allerede i adressebogen.</translation>
+        <translation>L'adresse entrée "%1" est déjà dans le carnet d'adresse.</translation>
     </message>
     <message>
         <source>The entered address "%1" is not a valid Reddcoin address.</source>
-        <translation>Den indtastede adresse "%1" er ikke en gyldig Reddcoin-adresse.</translation>
+        <translation>L'adresse entrée "%1" n'est pas une adresse Reddcoin valide.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
-        <translation>Kunne ikke låse tegnebog op.</translation>
+        <translation>Impossible de déverrouiller le portefeuille.</translation>
     </message>
     <message>
         <source>New key generation failed.</source>
-        <translation>Ny nøglegenerering mislykkedes.</translation>
+        <translation>Échec de génération de la nouvelle clef.</translation>
     </message>
 </context>
 <context>
     <name>FreespaceChecker</name>
     <message>
         <source>A new data directory will be created.</source>
-        <translation>En ny datamappe vil blive oprettet.</translation>
+        <translation>Un nouveau répertoire de données sera créé.</translation>
     </message>
     <message>
         <source>name</source>
-        <translation>navn</translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
-        <translation>Mappe eksisterer allerede. Tilføj %1, hvis du vil oprette en ny mappe her.</translation>
+        <translation>Le répertoire existe déjà. Ajoutez %1 si vous voulez créer un nouveau répertoire ici.</translation>
     </message>
     <message>
         <source>Path already exists, and is not a directory.</source>
-        <translation>Sti eksisterer allerede og er ikke en mappe.</translation>
+        <translation>Le chemin existe déjà et n'est pas un répertoire.</translation>
     </message>
     <message>
         <source>Cannot create data directory here.</source>
-        <translation>Kan ikke oprette en mappe her.</translation>
+        <translation>Impossible de créer un répertoire de données ici.</translation>
     </message>
 </context>
 <context>
     <name>HelpMessageDialog</name>
     <message>
         <source>Reddcoin Core - Command-line options</source>
-        <translation>Reddcoin Core - Kommandolinjetilvalg</translation>
+        <translation>Reddcoin Core - Options de lignes de commande</translation>
     </message>
     <message>
         <source>Reddcoin Core</source>
@@ -905,62 +949,62 @@ Adresse: %4
     </message>
     <message>
         <source>Usage:</source>
-        <translation>Anvendelse:</translation>
+        <translation>Utilisation :</translation>
     </message>
     <message>
         <source>command-line options</source>
-        <translation>kommandolinjetilvalg</translation>
+        <translation>options de ligne de commande</translation>
     </message>
     <message>
         <source>UI options</source>
-        <translation>Indstillinger for brugergrænseflade:</translation>
+        <translation>Options de l'interface utilisateur</translation>
     </message>
     <message>
         <source>Set language, for example "de_DE" (default: system locale)</source>
-        <translation>Vælg sprog; fx "da_DK" (standard: systemsprog)</translation>
+        <translation>Définir la langue, par exemple « fr_CA » (par défaut : la langue du système)</translation>
     </message>
     <message>
         <source>Start minimized</source>
-        <translation>Start minimeret</translation>
+        <translation>Démarrer minimisé</translation>
     </message>
     <message>
         <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation>Opsæt SSL-rodcertifikater til betalingsadmodninger (standard: -system-)</translation>
+        <translation>Paramétrer les certificats racines SSL pour les demandes de paiement (par défault : -system-)</translation>
     </message>
     <message>
         <source>Show splash screen on startup (default: 1)</source>
-        <translation>Vis startskærm under opstart (standard: 1)</translation>
+        <translation>Afficher l'écran d'acceuil au démarrage (par défaut : 1)</translation>
     </message>
     <message>
         <source>Choose data directory on startup (default: 0)</source>
-        <translation>Vælg datamappe under opstart (standard: 0)</translation>
+        <translation>Choisir un répertoire de données au démarrage (par défaut : 0)</translation>
     </message>
 </context>
 <context>
     <name>Intro</name>
     <message>
         <source>Welcome</source>
-        <translation>Velkommen</translation>
+        <translation>Bienvenue</translation>
     </message>
     <message>
         <source>Welcome to Reddcoin Core.</source>
-        <translation>Velkommen til Reddcoin Core.</translation>
+        <translation>Bienvenue sur Reddcoin Core.</translation>
     </message>
     <message>
         <source>As this is the first time the program is launched, you can choose where Reddcoin Core will store its data.</source>
-        <translation>Siden dette er første gang, programmet startes, kan du vælge, hvor Reddcoin Core skal gemme sin data.</translation>
+        <translation>Comme il s'agit du premier lancement du logiciel, vous pouvez choisir ou Reddcoin Core va enregistrer ses données.</translation>
     </message>
     <message>
         <source>Reddcoin Core will download and store a copy of the Reddcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Reddcoin Core vil downloade og gemme et kopi af Reddcoin-blokkæden. Mindst %1 GB data vil blive gemt i denne mappe, og den vil vokse over tid. Tegnebogen vil også blive gemt i denne mappe.</translation>
+        <translation>Reddcoin Core va télécharger et enregistrer une copie du blockchain Reddcoin. Au moin %1Go de données seront stockées dans ce répertoire, et cela grandirat avec le temps. Le protefeuille sera également enregistré dans ce répertoire.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
-        <translation>Brug standardmappen for data</translation>
+        <translation>Utiliser le répertoire de données par défaut</translation>
     </message>
     <message>
         <source>Use a custom data directory:</source>
-        <translation>Brug tilpasset mappe for data:</translation>
+        <translation>Utiliser un répertoire de données personnalisé :</translation>
     </message>
     <message>
         <source>Reddcoin Core</source>
@@ -968,383 +1012,391 @@ Adresse: %4
     </message>
     <message>
         <source>Error: Specified data directory "%1" can not be created.</source>
-        <translation>Fejl: Angivet datamappe "%1" kan ikke oprettes.</translation>
+        <translation>Erreur : le répertoire de données spécifié « %1 » ne peut pas être créé.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Fejl</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>GB of free space available</source>
-        <translation>GB fri plads tilgængelig</translation>
+        <translation>Go d'espace libre disponible</translation>
     </message>
     <message>
         <source>(of %1GB needed)</source>
-        <translation>(ud af %1 GB behøvet)</translation>
+        <translation>(sur %1Go nécessaires)</translation>
     </message>
 </context>
 <context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
-        <translation>Åbn URI</translation>
+        <translation>Ouvrir un URI</translation>
     </message>
     <message>
         <source>Open payment request from URI or file</source>
-        <translation>Åbn betalingsanmodning fra URI eller fil</translation>
+        <translation>Ouvrir une demande de paiement à partir d'un URI ou d'un fichier</translation>
     </message>
     <message>
         <source>URI:</source>
-        <translation>URI:</translation>
+        <translation>URI :</translation>
     </message>
     <message>
         <source>Select payment request file</source>
-        <translation>Vælg fil for betalingsanmodning</translation>
+        <translation>Choisir le fichier de demande de paiement</translation>
     </message>
     <message>
         <source>Select payment request file to open</source>
-        <translation>Vælg fil for betalingsanmodning til åbning</translation>
+        <translation>Choisir le fichier de demande de paiement à ouvrir</translation>
     </message>
 </context>
 <context>
     <name>OptionsDialog</name>
     <message>
         <source>Options</source>
-        <translation>Indstillinger</translation>
+        <translation>Options</translation>
     </message>
     <message>
         <source>&amp;Main</source>
-        <translation>&amp;Generelt</translation>
+        <translation>&amp;Principal</translation>
     </message>
     <message>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation>Valgfrit transaktionsgebyr pr. kB, der hjælper dine transaktioner med at blive behandlet hurtigt. De fleste transaktioner er på 1 kB.</translation>
+        <translation>Frais de transaciton optionnel par Ko qui assure un traitement plus rapide de vos transactions. La majortié des transactions sont de 1ko.</translation>
     </message>
     <message>
         <source>Pay transaction &amp;fee</source>
-        <translation>Betal transaktionsgebyr</translation>
+        <translation>Payer la transaction et ses &amp;frais</translation>
     </message>
     <message>
         <source>Automatically start Reddcoin after logging in to the system.</source>
-        <translation>Start Reddcoin automatisk efter der logges ind på systemet.</translation>
+        <translation>Démarrer Reddcoin automatiquement après avoir ouvert une session sur l'ordinateur.</translation>
     </message>
     <message>
         <source>&amp;Start Reddcoin on system login</source>
-        <translation>&amp;Start Reddcoin ved system-login</translation>
+        <translation>&amp;Démarrer Reddcoin à la connexion au système</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
-        <translation>Størrelsen på &amp;databasens cache</translation>
+        <translation>Taille du cache de la base de &amp;données</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation>MB</translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <source>Number of script &amp;verification threads</source>
-        <translation>Antallet af script&amp;verificeringstråde</translation>
+        <translation>Nombre d'exétrons de &amp;vérification de script</translation>
     </message>
     <message>
         <source>Connect to the Reddcoin network through a SOCKS proxy.</source>
-        <translation>Forbind til Reddcoin-netværket gennem en SOCKS-proxy.</translation>
+        <translation>Se connecter au réseau Reddcoin par un mandataire SOCKS.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>&amp;Forbind gennem SOCKS-proxy (standard-proxy):</translation>
+        <translation>Se &amp;connecter par un proxy SOCKS (proxy par défaut) :</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
-        <translation>IP-adresse for proxyen (fx IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+        <translation>Adresse IP du proxy (par ex. IPv4 : 127.0.0.1 / IPv6 : ::1)</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Tredjeparts-URL'er (fx et blokhåndteringsværktøj), der vises i transaktionsfanen som genvejsmenupunkter. %s i URL'en erstattes med transaktionens hash. Flere URL'er separeres med en lodret streg |.</translation>
+        <translation>URLs tierce partie (ex.  une explorateur de bloc) qui apparaissent dans l'onglet de transaction comme éléments de menu contextuel. %s dans l'URL est remplacé par le morceau de la transaction. Plusieurs URLs sont séparées par une barre verticale |.</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
-        <translation>Tredjeparts-transaktions-URL'er</translation>
+        <translation>URLs tierce partie de transaction</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
-        <translation>Aktuelle tilvalg for kommandolinjen, der tilsidesætter ovenstående tilvalg:</translation>
+        <translation>Options actives de ligne de commande qui annulent les options ci-dessus :</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
-        <translation>Nulstil alle klientindstillinger til deres standard.</translation>
+        <translation>Réinitialiser toutes les options du client aux valeurs par défaut.</translation>
     </message>
     <message>
         <source>&amp;Reset Options</source>
-        <translation>&amp;Nulstil indstillinger</translation>
+        <translation>&amp;Réinitialisation des options</translation>
     </message>
     <message>
         <source>&amp;Network</source>
-        <translation>&amp;Netværk</translation>
+        <translation>&amp;Réseau</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation>(0 = auto, &lt;0 = efterlad så mange kerner fri)</translation>
+        <translation>(0 = auto, &lt;0 = laisser libres autant de noyaux)</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
-        <translation>&amp;Tegnebog</translation>
+        <translation>&amp;Portefeuille</translation>
     </message>
     <message>
         <source>Expert</source>
-        <translation>Ekspert</translation>
+        <translation>Expert</translation>
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Aktivér egenskaber for &amp;coin-styring</translation>
+        <translation>Activer les fonctionnalités de &amp;control des pièces</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Hvis du slår brug af ubekræftede byttepenge fra, kan byttepengene fra en transaktion ikke bruges, før pågældende transaktion har mindst én bekræftelse. Dette påvirker også måden hvorpå din saldo beregnes.</translation>
+        <translation>Si vous désactivez la dépense de la monnaie non-confirmée, la monnaie d'une transaction ne pourra pas être utilisée jusqu'à ce que cette transaction ait reçu au moins une confirmation. Ceci impacte également la façon dont votre solde est calculé.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
-        <translation>&amp;Brug ubekræftede byttepenge</translation>
+        <translation>Monnaie &amp;dépensée non confirmée</translation>
     </message>
     <message>
         <source>Automatically open the Reddcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Åbn automatisk Reddcoin-klientens port på routeren. Dette virker kun, når din router understøtter UPnP, og UPnP er aktiveret.</translation>
+        <translation>Ouvrir automatiquement le port du client Reddcoin sur le routeur. Cela fonctionne seulement lorsque votre routeur supporte UPnp et est activé.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
-        <translation>Konfigurér port vha. &amp;UPnP</translation>
+        <translation>Mapper le port avec l'&amp;UPnP</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
-        <translation>Proxy-&amp;IP:</translation>
+        <translation>&amp;IP du serveur proxy :</translation>
     </message>
     <message>
         <source>&amp;Port:</source>
-        <translation>&amp;Port:</translation>
+        <translation>&amp;Port</translation>
     </message>
     <message>
         <source>Port of the proxy (e.g. 9050)</source>
-        <translation>Port for proxyen (fx 9050)</translation>
+        <translation>Port du serveur proxy (par ex. 9050)</translation>
     </message>
     <message>
         <source>SOCKS &amp;Version:</source>
-        <translation>SOCKS &amp;Version:</translation>
+        <translation>&amp;Version du SOCKS :</translation>
     </message>
     <message>
         <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>SOCKS-version for proxyen (fx 5)</translation>
+        <translation>Version SOCKS du proxy (ex. 5)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
-        <translation>&amp;Vindue</translation>
+        <translation>&amp;Fenêtre</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Vis kun et statusikon efter minimering af vinduet.</translation>
+        <translation>Montrer seulement une icône dans la barre système après réduction de la fenêtre.</translation>
     </message>
     <message>
         <source>&amp;Minimize to the tray instead of the taskbar</source>
-        <translation>&amp;Minimér til statusfeltet i stedet for proceslinjen</translation>
+        <translation>&amp;Réduire dans les icônes système plutôt que la barre des tâches</translation>
     </message>
     <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Minimer i stedet for at afslutte programmet, når vinduet lukkes. Når denne indstilling er valgt, vil programmet kun blive lukket, når du har valgt Afslut i menuen.</translation>
+        <translation>Minimiser au lieu de quitter l'application lorsque la fenêtre est fermée. Si cette option est activée, l'application ne pourra être fermée qu'en sélectionnant Quitter dans le menu.</translation>
     </message>
     <message>
         <source>M&amp;inimize on close</source>
-        <translation>M&amp;inimér ved lukning</translation>
+        <translation>M&amp;inimiser à la fermeture</translation>
     </message>
     <message>
         <source>&amp;Display</source>
-        <translation>&amp;Visning</translation>
+        <translation>&amp;Affichage</translation>
     </message>
     <message>
         <source>User Interface &amp;language:</source>
-        <translation>&amp;Sprog for brugergrænseflade:</translation>
+        <translation>&amp;Langue de l'interface utilisateur :</translation>
     </message>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting Reddcoin.</source>
-        <translation>Sproget for brugerfladen kan vælges her. Denne indstilling vil træde i kraft efter genstart af Reddcoin Core.</translation>
+        <translation>La langue de l'interface utilisateur peut être sélecitonnée ici. Ce paramètre sera pris en compte après le redémarrage de Reddcoin.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;Enhed, som beløb vises i:</translation>
+        <translation>&amp;Unité d'affichage des montants :</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Vælg standard for underopdeling af enhed, som skal vises i brugergrænsefladen og ved afsendelse af reddcoins.</translation>
+        <translation>Choisir l'unité de subdivision par défaut à montrer dans l'interface lorsque vous envoyer des pièces.</translation>
     </message>
     <message>
         <source>Whether to show Reddcoin addresses in the transaction list or not.</source>
-        <translation>Afgør hvorvidt Reddcoin-adresser skal vises i transaktionslisten eller ej.</translation>
+        <translation>Possibilité d'affichier ou non les adressse Reddcoin dans la liste des transactions.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Vis adresser i transaktionsliste</translation>
+        <translation>&amp;Afficher les adresses dans la liste des transactions</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Hvorvidt egenskaber for coin-styring skal vises eller ej.</translation>
+        <translation>Afficher ou non les fonctions de contrôle des pièces.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>&amp;Ok</translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Annullér</translation>
+        <translation>&amp;Annuler</translation>
     </message>
     <message>
         <source>default</source>
-        <translation>standard</translation>
+        <translation>défaut</translation>
     </message>
     <message>
         <source>none</source>
-        <translation>ingen</translation>
+        <translation>aucun</translation>
     </message>
     <message>
         <source>Confirm options reset</source>
-        <translation>Bekræft nulstilling af indstillinger</translation>
+        <translation>Confirmer la réinitialisation des options</translation>
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
-        <translation>Genstart af klienten er nødvendig for at aktivere ændringer.</translation>
+        <translation>Le redémarrage du client est nécessaire pour activer les changements.</translation>
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
-        <translation>Klienten vil lukke ned. Vil du fortsætte?</translation>
+        <translation>Le client sera arrêté, voulez-vous continuer?</translation>
     </message>
     <message>
         <source>This change would require a client restart.</source>
-        <translation>Denne ændring vil kræve en genstart af klienten.</translation>
+        <translation>Ce changement nécessite un redémarrage du client.</translation>
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
-        <translation>Den angivne proxy-adresse er ugyldig.</translation>
+        <translation>L'adresse du serveur proxy fournie est invalide.</translation>
     </message>
 </context>
 <context>
     <name>OverviewPage</name>
     <message>
         <source>Form</source>
-        <translation>Formular</translation>
+        <translation>Formulaire</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Reddcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den viste information kan være forældet. Din tegnebog synkroniserer automatisk med Reddcoin-netværket, når en forbindelse etableres, men denne proces er ikke gennemført endnu.</translation>
+        <translation>Les informations affichées peuvent être obsolètes. Votre portefeuille est automatiquement synchronisé avec le réseau Reddcoin lorsque la connexion s'établit, or ce processus n'est pas encore terminé.</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation>Tegnebog</translation>
+        <translation>Portefeuille</translation>
     </message>
     <message>
         <source>Available:</source>
-        <translation>Tilgængelig:</translation>
+        <translation>Disponible :</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
-        <translation>Din nuværende tilgængelige saldo</translation>
+        <translation>Votre solde actuel pouvant être dépensé</translation>
+    </message>
+    <message>
+        <source>Stake:</source>
+        <translation>Mis en jeu:</translation>
+    </message>
+    <message>
+        <source>Total of coins that were staked and do not yet count toward the current balance</source>
+        <translation>Total des pièces mises en jeu et qui ne sont pas encore prises en compte dans le solde disponible</translation>
     </message>
     <message>
         <source>Pending:</source>
-        <translation>Afventende:</translation>
+        <translation>En attente :</translation>
     </message>
     <message>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
-        <translation>Total saldo for transaktioner, som ikke er blevet bekræftet endnu, og som ikke endnu er en del af den tilgængelige saldo</translation>
+        <translation>Total des transactions qui doivent encore être confirmées et qu'il n'est pas encore possible de dépenser</translation>
     </message>
     <message>
         <source>Immature:</source>
-        <translation>Umodne:</translation>
+        <translation>Immature :</translation>
     </message>
     <message>
         <source>Mined balance that has not yet matured</source>
-        <translation>Minet saldo, som endnu ikke er modnet</translation>
+        <translation>Solde miné qui n'est pas encore mature</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Total:</translation>
+        <translation>Total :</translation>
     </message>
     <message>
         <source>Your current total balance</source>
-        <translation>Din nuværende totale saldo</translation>
+        <translation>Votre solde total actuel</translation>
     </message>
     <message>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Nylige transaktioner&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Transactions récentes&lt;/b&gt;</translation>
     </message>
     <message>
         <source>out of sync</source>
-        <translation>ikke synkroniseret</translation>
+        <translation>N'est pas synchronisé</translation>
     </message>
 </context>
 <context>
     <name>PaymentServer</name>
     <message>
         <source>URI handling</source>
-        <translation>URI-håndtering</translation>
+        <translation>Gestion des URIs</translation>
     </message>
     <message>
         <source>URI can not be parsed! This can be caused by an invalid Reddcoin address or malformed URI parameters.</source>
-        <translation>URI kan ikke tolkes! Dette kan skyldes en ugyldig Reddcoin-adresse eller forkert udformede URL-parametre.</translation>
+        <translation>L'URI ne peut pas être analysé! Ceci peut être causé par une adresse Reddcoin invalide ou par des paramètres d'URI mal composé.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>Anmodet betalingsbeløb på %1 er for lille (regnes som støv).</translation>
+        <translation>Le montant du paiement demandé de %1 est trop petit (considéré comme poussière)</translation>
     </message>
     <message>
         <source>Payment request error</source>
-        <translation>Fejl i betalingsanmodning</translation>
+        <translation>Erreur de demande de paiement</translation>
     </message>
     <message>
         <source>Cannot start reddcoin: click-to-pay handler</source>
-        <translation>Kan ikke starte reddcoin: click-to-pay-håndtering</translation>
+        <translation>Impossible de démarrer reddcoin: gestionnaire de cliquer-pour-payer</translation>
     </message>
     <message>
         <source>Net manager warning</source>
-        <translation>Net-håndterings-advarsel</translation>
+        <translation>Avertissement du gestionnaire de réseau</translation>
     </message>
     <message>
         <source>Your active proxy doesn't support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation>Din aktuelle proxy understøtter ikke SOCKS5, hvilket kræves for betalingsforespørgsler via proxy.</translation>
+        <translation>Votre serveur proxy actif ne prend pas en charge SOCKS5 ce qui est exigé pour les demandes de paiements par serveur proxy.</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
-        <translation>Hentnings-URL for betalingsanmodning er ugyldig: %1</translation>
+        <translation>L'URL de récupération de la demande de paiement est invalide : %1</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
-        <translation>Filhåndtering for betalingsanmodninger</translation>
+        <translation>Gestion des fichiers de demande de paiement</translation>
     </message>
     <message>
         <source>Payment request file can not be read or processed! This can be caused by an invalid payment request file.</source>
-        <translation>Fil for betalingsanmodning kan ikke læses! Dette kan skyldes en ugyldig fil for betalingsanmodning.</translation>
+        <translation>Le fichier de demande de paiement ne peut pas être lu ou traité ! Ceci peut être causé par un fichier de demande de paiement invalide.</translation>
     </message>
     <message>
         <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Ikke-verificerede betalingsanmodninger for tilpassede betalings-scripts understøttes ikke.</translation>
+        <translation>Les demandes de paiements non vérifiées à des scripts de paiement personnalisés ne sont pas prises en charge.</translation>
     </message>
     <message>
         <source>Refund from %1</source>
-        <translation>Tilbagebetaling fra %1</translation>
+        <translation>Remboursement de %1</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
-        <translation>Fejl under kommunikation med %1: %2</translation>
+        <translation>Erreur de communication avec %1 : %2</translation>
     </message>
     <message>
         <source>Payment request can not be parsed or processed!</source>
-        <translation>Betalingsanmodning kan ikke fortolkes eller bearbejdes!</translation>
+        <translation>La demande de paiement ne peut pas être analysée ou traitée !</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
-        <translation>Fejlagtigt svar fra server %1</translation>
+        <translation>Mauvaise réponse du serveur %1</translation>
     </message>
     <message>
         <source>Payment acknowledged</source>
-        <translation>Betaling anerkendt</translation>
+        <translation>Le paiement a été confirmé</translation>
     </message>
     <message>
         <source>Network request error</source>
-        <translation>Fejl i netværksforespørgsel</translation>
+        <translation>Erreur de demande réseau</translation>
     </message>
 </context>
 <context>
@@ -1355,57 +1407,57 @@ Adresse: %4
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
-        <translation>Fejl: Angivet datamappe "%1" eksisterer ikke.</translation>
+        <translation>Erreur : le répertoire de données spécifié «%1» n'existe pas.</translation>
     </message>
     <message>
         <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation>Fejl: Kan ikke fortolke konfigurationsfil: %1. Brug kun syntaksen nøgle=værdi.</translation>
+        <translation>Erreur : L'analyse du fichier de configuration ne peut se faire : %1. utilisez seulement clef=valeur syntaxique.</translation>
     </message>
     <message>
         <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Fejl: Ugyldig kombination af -regtest og -testnet.</translation>
+        <translation>Erreur : combinaison invalide de -regtest et de -testnet.</translation>
     </message>
     <message>
         <source>Reddcoin Core didn't yet exit safely...</source>
-        <translation>Reddcoin Core blev ikke afsluttet på sikker vis …</translation>
+        <translation>Reddcoin Core ne s'est pas encore fermé sécuritairement...</translation>
     </message>
     <message>
         <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
-        <translation>Indtast en Reddcoin-adresse (fx RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
+        <translation>Entrer une adresse Reddcoin (Ex. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
 </context>
 <context>
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Gem billede…</translation>
+        <translation>&amp;Sauvegarder l'Image...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
-        <translation>&amp;Kopiér foto</translation>
+        <translation>&amp;Copier l'Image</translation>
     </message>
     <message>
         <source>Save QR Code</source>
-        <translation>Gem QR-kode</translation>
+        <translation>Sauvegarder le Code QR</translation>
     </message>
     <message>
         <source>PNG Image (*.png)</source>
-        <translation>PNG-billede (*.png)</translation>
+        <translation>Image PNG (*png)</translation>
     </message>
 </context>
 <context>
     <name>RPCConsole</name>
     <message>
         <source>Client name</source>
-        <translation>Klientnavn</translation>
+        <translation>Nom du client</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>N.D.</translation>
     </message>
     <message>
         <source>Client version</source>
-        <translation>Klientversion</translation>
+        <translation>Version du client</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -1413,237 +1465,237 @@ Adresse: %4
     </message>
     <message>
         <source>Debug window</source>
-        <translation>Fejlsøgningsvindue</translation>
+        <translation>Fenêtre de déboguage</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <source>Using OpenSSL version</source>
-        <translation>Bruger OpenSSL version</translation>
+        <translation>Utiliser la version OpenSSL</translation>
     </message>
     <message>
         <source>Startup time</source>
-        <translation>Opstartstidspunkt</translation>
+        <translation>Heure de démarrage</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation>Netværk</translation>
+        <translation>Réseau</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Number of connections</source>
-        <translation>Antal forbindelser</translation>
+        <translation>Nombre de connexions</translation>
     </message>
     <message>
         <source>Block chain</source>
-        <translation>Blokkæde</translation>
+        <translation>Blockchain</translation>
     </message>
     <message>
         <source>Current number of blocks</source>
-        <translation>Nuværende antal blokke</translation>
+        <translation>Nombre actuel de blocs</translation>
     </message>
     <message>
         <source>Last block time</source>
-        <translation>Tidsstempel for seneste blok</translation>
+        <translation>Dernière heure du bloc</translation>
     </message>
     <message>
         <source>&amp;Open</source>
-        <translation>&amp;Åbn</translation>
+        <translation>&amp;Ouvrir</translation>
     </message>
     <message>
         <source>&amp;Console</source>
-        <translation>&amp;Konsol</translation>
+        <translation>&amp;Console</translation>
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation>&amp;Netværkstrafik</translation>
+        <translation>Trafic &amp;réseau</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
-        <translation>&amp;Ryd</translation>
+        <translation>&amp;Nettoyer</translation>
     </message>
     <message>
         <source>Totals</source>
-        <translation>Totaler</translation>
+        <translation>Totaux</translation>
     </message>
     <message>
         <source>In:</source>
-        <translation>Indkommende:</translation>
+        <translation>Entrant :</translation>
     </message>
     <message>
         <source>Out:</source>
-        <translation>Udgående:</translation>
+        <translation>Sortant :</translation>
     </message>
     <message>
         <source>Build date</source>
-        <translation>Byggedato</translation>
+        <translation>Date de build</translation>
     </message>
     <message>
         <source>Debug log file</source>
-        <translation>Fejlsøgningslogfil</translation>
+        <translation>Journal de déboguage</translation>
     </message>
     <message>
         <source>Open the Reddcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Åbn Reddcoin fejlsøgningslogfil fra den aktuelle datamappe. Dette kan tage nogle få sekunder for store logfiler.</translation>
+        <translation>Ouvrir le journal de débogage de Reddcoin depuis le répertoire de données actuel. Ceci peut prendre quelques secondes pour les journaux de grande taille.</translation>
     </message>
     <message>
         <source>Clear console</source>
-        <translation>Ryd konsol</translation>
+        <translation>Nettoyer la console</translation>
     </message>
     <message>
         <source>Welcome to the Reddcoin RPC console.</source>
-        <translation>Velkommen til Reddcoin Cores RPC-konsol.</translation>
+        <translation>Bienvenue dans la console RPC Reddcoin.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Brug op- og ned-piletasterne til at navigere i historikken og &lt;b&gt;Ctrl-L&lt;/b&gt; til at rydde skærmen.</translation>
+        <translation>Utiliser les touches du curseur pour naviguer dans l'historique et &lt;b&gt;Ctrl-L&lt;/b&gt; pour effacer l'écran.</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Tast &lt;b&gt;help&lt;/b&gt; for en oversigt over de tilgængelige kommandoer.</translation>
+        <translation>Taper &lt;b&gt;help&lt;/b&gt; pour afficher une vue générale des commandes disponibles.</translation>
     </message>
     <message>
         <source>%1 B</source>
-        <translation>%1 B</translation>
+        <translation>%1 o</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation>%1 KB</translation>
+        <translation>%1 Ko</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation>%1 MB</translation>
+        <translation>%1 Mo</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation>%1 GB</translation>
+        <translation>%1 Go</translation>
     </message>
     <message>
         <source>%1 m</source>
-        <translation>%1 m</translation>
+        <translation>%1 min</translation>
     </message>
     <message>
         <source>%1 h</source>
-        <translation>%1 t</translation>
+        <translation>%1 h</translation>
     </message>
     <message>
         <source>%1 h %2 m</source>
-        <translation>%1 t %2 m</translation>
+        <translation>%1 h %2 min</translation>
     </message>
 </context>
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
         <source>&amp;Amount:</source>
-        <translation>&amp;Beløb:</translation>
+        <translation>&amp;Montant :</translation>
     </message>
     <message>
         <source>&amp;Label:</source>
-        <translation>&amp;Beløb:</translation>
+        <translation>&amp;Étiquette :</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
-        <translation>&amp;Beløb:</translation>
+        <translation>&amp;Message :</translation>
     </message>
     <message>
         <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
-        <translation>Genbrug en af de tidligere brugte modtagelsesadresser. Genbrug af adresser har indflydelse på sikkerhed og privatliv. Brug ikke dette med mindre du genskaber en betalingsanmodning fra tidligere.</translation>
+        <translation>Réutilise une adresse de réception précédemment utilisée. Réutiliser une adresse pose des problèmes de sécurité et de vie privée. N'utilisez pas cette option sauf si vous générez à nouveau une demande de paiement déjà faite.</translation>
     </message>
     <message>
         <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation>&amp;Genbrug en eksisterende modtagelsesadresse (anbefales ikke)</translation>
+        <translation>Ré&amp;utiliser une adresse de réception existante (non recommandé)</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Reddcoin network.</source>
-        <translation>En valgfri besked, der føjes til betalingsanmodningen, og som vil vises, når anmodningen åbnes. Bemærk: Beskeden vil ikke sendes sammen med betalingen over Reddcoin-netværket.</translation>
+        <translation>Un message optionnel à joindre à la demande de paiement qui sera affiché à l'ouverture de celle-ci. Note : le message ne sera pas envoyé avec le paiement par le réseau Reddcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
-        <translation>Et valgfrit mærkat, der associeres med den nye modtagelsesadresse.</translation>
+        <translation>Un étiquette optionnelle à associer à la nouvelle adresse de réception</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
-        <translation>Brug denne formular for at anmode om betalinger. Alle felter er &lt;b&gt;valgfri&lt;/b&gt;.</translation>
+        <translation>Utiliser ce formulaire pour demander des paiements. Tous les champs sont  &lt;b&gt;optionnels&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
-        <translation>Et valgfrit beløb til anmodning. Lad dette felt være tomt eller indeholde nul for at anmode om et ikke-specifikt beløb.</translation>
+        <translation>Un montant optionnel à demander. Laisser ceci vide ou à zéro pour ne pas demander de montant spécifique.</translation>
     </message>
     <message>
         <source>Clear all fields of the form.</source>
-        <translation>Ryd alle felter af formen.</translation>
+        <translation>Effacer tous les champs du formulaire.</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Ryd</translation>
+        <translation>Effacer</translation>
     </message>
     <message>
         <source>Requested payments history</source>
-        <translation>Historik over betalingsanmodninger</translation>
+        <translation>Historique des paiements demandés</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
-        <translation>&amp;Anmod om betaling</translation>
+        <translation>&amp;Demande de paiement</translation>
     </message>
     <message>
         <source>Show the selected request (does the same as double clicking an entry)</source>
-        <translation>Vis den valgte anmodning (gør det samme som dobbeltklik på en indgang)</translation>
+        <translation>Afficher la demande choisie (identique à un double-clic sur une entrée)</translation>
     </message>
     <message>
         <source>Show</source>
-        <translation>Vis</translation>
+        <translation>Afficher</translation>
     </message>
     <message>
         <source>Remove the selected entries from the list</source>
-        <translation>Fjern de valgte indgange fra listen</translation>
+        <translation>Enlever les entrées sélectionnées de la liste</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Fjern</translation>
+        <translation>Enlever</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Kopiér mærkat</translation>
+        <translation>Copier l'étiquette</translation>
     </message>
     <message>
         <source>Copy message</source>
-        <translation>Kopiér besked</translation>
+        <translation>Copier le message</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Kopiér beløb</translation>
+        <translation>Copier le montant</translation>
     </message>
 </context>
 <context>
     <name>ReceiveRequestDialog</name>
     <message>
         <source>QR Code</source>
-        <translation>QR-kode</translation>
+        <translation>Code QR</translation>
     </message>
     <message>
         <source>Copy &amp;URI</source>
-        <translation>Kopiér &amp;URI</translation>
+        <translation>Copier l'&amp;URI</translation>
     </message>
     <message>
         <source>Copy &amp;Address</source>
-        <translation>Kopiér &amp;adresse</translation>
+        <translation>Copier l'&amp;Adresse</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Gem billede…</translation>
+        <translation>&amp;Sauvegarder l'Image...</translation>
     </message>
     <message>
         <source>Request payment to %1</source>
-        <translation>Anmod om betaling til %1</translation>
+        <translation>Demande de paiement à %1</translation>
     </message>
     <message>
         <source>Payment information</source>
-        <translation>Betalingsinformation</translation>
+        <translation>Informations de paiement</translation>
     </message>
     <message>
         <source>URI</source>
@@ -1655,280 +1707,280 @@ Adresse: %4
     </message>
     <message>
         <source>Amount</source>
-        <translation>Beløb</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation>Mærkat</translation>
+        <translation>Étiquette</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>Besked</translation>
+        <translation>Message</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation>Resulterende URI var for lang; prøv at forkorte teksten til mærkaten/beskeden.</translation>
+        <translation>L'URI résultante est trop longue, essayez de réduire le texte d'étiquette / de message.</translation>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
-        <translation>Fejl ved kodning fra URI til QR-kode.</translation>
+        <translation>Erreur d'encodage de l'URI en code QR.</translation>
     </message>
 </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
         <source>Date</source>
-        <translation>Dato</translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation>Mærkat</translation>
+        <translation>Étiquette</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>Besked</translation>
+        <translation>Message</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation>Beløb</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(ingen mærkat)</translation>
+        <translation>(pas d'étiquette)</translation>
     </message>
     <message>
         <source>(no message)</source>
-        <translation>(ingen besked)</translation>
+        <translation>(pas de message)</translation>
     </message>
     <message>
         <source>(no amount)</source>
-        <translation>(intet beløb)</translation>
+        <translation>(aucun montant)</translation>
     </message>
 </context>
 <context>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send reddcoins</translation>
+        <translation>Envoyer les pièces</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>Egenskaber for coin-styring</translation>
+        <translation>Fonctions de contrôle des pièces</translation>
     </message>
     <message>
         <source>Inputs...</source>
-        <translation>Inputs…</translation>
+        <translation>Entrants...</translation>
     </message>
     <message>
         <source>automatically selected</source>
-        <translation>valgt automatisk</translation>
+        <translation>choisi automatiquement</translation>
     </message>
     <message>
         <source>Insufficient funds!</source>
-        <translation>Utilstrækkelige midler!</translation>
+        <translation>Fonds insuffisants !</translation>
     </message>
     <message>
         <source>Quantity:</source>
-        <translation>Mængde:</translation>
+        <translation>Quantité :</translation>
     </message>
     <message>
         <source>Bytes:</source>
-        <translation>Byte:</translation>
+        <translation>Octets :</translation>
     </message>
     <message>
         <source>Amount:</source>
-        <translation>Beløb:</translation>
+        <translation>Montant :</translation>
     </message>
     <message>
         <source>Priority:</source>
-        <translation>Prioritet:</translation>
+        <translation>Priorité :</translation>
     </message>
     <message>
         <source>Fee:</source>
-        <translation>Gebyr:</translation>
+        <translation>Frais :</translation>
     </message>
     <message>
         <source>Low Output:</source>
-        <translation>Lavt output:</translation>
+        <translation>Sortie faible :</translation>
     </message>
     <message>
         <source>After Fee:</source>
-        <translation>Efter gebyr:</translation>
+        <translation>Après les frais:</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation>Byttepenge:</translation>
+        <translation>Monnaie:</translation>
     </message>
     <message>
         <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
-        <translation>Hvis dette aktiveres, men byttepengeadressen er tom eller ugyldig, vil byttepenge blive sendt til en nygenereret adresse.</translation>
+        <translation>Si ceci est actif mais l'adresse de monnaie est vide ou invalide, la monnaie sera envoyée vers une adresse nouvellement générée.</translation>
     </message>
     <message>
         <source>Custom change address</source>
-        <translation>Tilpasset byttepengeadresse</translation>
+        <translation>Adresse personnalisée de monnaie</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
-        <translation>Send til flere modtagere på en gang</translation>
+        <translation>Envoyer à plusieurs destinataires à la fois</translation>
     </message>
     <message>
         <source>Add &amp;Recipient</source>
-        <translation>Tilføj &amp;modtager</translation>
+        <translation>Ajouter &amp;Destinataire</translation>
     </message>
     <message>
         <source>Clear all fields of the form.</source>
-        <translation>Ryd alle felter af formen.</translation>
+        <translation>Effacer tous les champs du formulaire.</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Ryd &amp;alle</translation>
+        <translation>&amp;Tout nettoyer</translation>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Saldo:</translation>
+        <translation>Solde :</translation>
     </message>
     <message>
         <source>Confirm the send action</source>
-        <translation>Bekræft afsendelsen</translation>
+        <translation>Confirmer l'action d'envoi</translation>
     </message>
     <message>
         <source>S&amp;end</source>
-        <translation>&amp;Afsend</translation>
+        <translation>E&amp;nvoyer</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Bekræft afsendelse af reddcoins</translation>
+        <translation>Confirmer l'envoi de pièces</translation>
     </message>
     <message>
         <source>%1 to %2</source>
-        <translation>%1 til %2</translation>
+        <translation>%1 à %2</translation>
     </message>
     <message>
         <source>Copy quantity</source>
-        <translation>Kopiér mængde</translation>
+        <translation>Copier la quantité</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Kopiér beløb</translation>
+        <translation>Copier le montant</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation>Kopiér gebyr</translation>
+        <translation>Copier les frais</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation>Kopiér efter-gebyr</translation>
+        <translation>Copier le montant après les frais</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation>Kopiér byte</translation>
+        <translation>Copier les octets</translation>
     </message>
     <message>
         <source>Copy priority</source>
-        <translation>Kopiér prioritet</translation>
+        <translation>Copier la priorité</translation>
     </message>
     <message>
         <source>Copy low output</source>
-        <translation>Kopiér lavt output</translation>
+        <translation>Copier la sortie faible</translation>
     </message>
     <message>
         <source>Copy change</source>
-        <translation>Kopiér byttepenge</translation>
+        <translation>Copier la monnaie</translation>
     </message>
     <message>
         <source>Total Amount %1 (= %2)</source>
-        <translation>Totalbeløb %1 (= %2)</translation>
+        <translation>Montant total %1 (= %2)</translation>
     </message>
     <message>
         <source>or</source>
-        <translation>eller</translation>
+        <translation>ou</translation>
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
-        <translation>Modtageradressen er ikke gyldig. Tjek venligst igen.</translation>
+        <translation>L'adresse du destinataire n’est pas valide, veuillez la vérifier.</translation>
     </message>
     <message>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>Beløbet til betaling skal være større end 0.</translation>
+        <translation>Le montant à payer doit être supérieur à 0.</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
-        <translation>Beløbet overstiger din saldo.</translation>
+        <translation>Le montant dépasse votre solde.</translation>
     </message>
     <message>
         <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Totalen overstiger din saldo, når transaktionsgebyret på %1 er inkluderet.</translation>
+        <translation>Le total dépasse votre solde lorsque les frais de transaction de %1 sont inclus.</translation>
     </message>
     <message>
         <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Duplikeret adresse fundet. Du kan kun sende til hver adresse en gang pr. afsendelse.</translation>
+        <translation>Adresse identique trouvée, il n'est possible d'envoyer qu'une fois à chaque adresse par opération d'envoi.</translation>
     </message>
     <message>
         <source>Transaction creation failed!</source>
-        <translation>Oprettelse af transaktion mislykkedes!</translation>
+        <translation>La création de la transaction a échoué !</translation>
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af dine bitcoins i din tegnebog allerede er brugt, som hvis du brugte en kopi af wallet.dat og dine bitcoins er blevet brugt i kopien, men ikke er markeret som brugt her.</translation>
+        <translation>La transaction a été rejetée ! Ceci peut arriver si certaines pièces de votre portefeuille étaient déjà dépensées, par exemple si vous avez utilisé une copie de wallet.dat et que des pièces ont été dépensées dans la copie sans être marquées comme telles ici.</translation>
     </message>
     <message>
         <source>Warning: Invalid Reddcoin address</source>
-        <translation>Advarsel: Ugyldig Reddcoin-adresse</translation>
+        <translation>Attention : adresse Reddcoin invalide</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(ingen mærkat)</translation>
+        <translation>(pas d'étiquette)</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
-        <translation>Advarsel: Ukendt byttepengeadresse</translation>
+        <translation>Attention : adresse de monnaie inconnue</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
-        <translation>Er du sikker på, at du vil sende?</translation>
+        <translation>Êtes-vous sûr de vouloir envoyer ?</translation>
     </message>
     <message>
         <source>added as transaction fee</source>
-        <translation>tilføjet som transaktionsgebyr</translation>
+        <translation>ajouté en tant que frais de transaction</translation>
     </message>
     <message>
         <source>Payment request expired</source>
-        <translation>Betalingsanmodning er udløbet</translation>
+        <translation>La demande de paiement a expiré</translation>
     </message>
     <message>
         <source>Invalid payment address %1</source>
-        <translation>Ugyldig betalingsadresse %1</translation>
+        <translation>Adresse de paiement invalide %1</translation>
     </message>
 </context>
 <context>
     <name>SendCoinsEntry</name>
     <message>
         <source>A&amp;mount:</source>
-        <translation>&amp;Beløb:</translation>
+        <translation>M&amp;ontant :</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
-        <translation>Betal &amp;til:</translation>
+        <translation>&amp;Payer à :</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation>Indtast en mærkat for denne adresse for at føje den til din adressebog</translation>
+        <translation>Saisir une étiquette pour cette adresse afin de l’ajouter à votre carnet d’adresses</translation>
     </message>
     <message>
         <source>&amp;Label:</source>
-        <translation>&amp;Beløb:</translation>
+        <translation>É&amp;tiquette :</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
-        <translation>Vælg tidligere brugt adresse</translation>
+        <translation>Choisir une adresse précédemment utilisée</translation>
     </message>
     <message>
         <source>This is a normal payment.</source>
-        <translation>Dette er en normal betaling.</translation>
+        <translation>Ceci est un paiement normal.</translation>
     </message>
     <message>
         <source>The Reddcoin address to send the payment to (e.g. Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</source>
-        <translation>Reddcoin-adresse, som betalingen skal sendes til (fx Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</translation>
+        <translation>L'adressse Reddcoin à laquelle envoyer le paiement (ex. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1936,7 +1988,7 @@ Adresse: %4
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Indsæt adresse fra udklipsholderen</translation>
+        <translation>Coller une adresse depuis le presse-papier</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -1944,69 +1996,69 @@ Adresse: %4
     </message>
     <message>
         <source>Remove this entry</source>
-        <translation>Fjern denne indgang</translation>
+        <translation>Enlever cette entrée</translation>
     </message>
     <message>
         <source>Message:</source>
-        <translation>Besked:</translation>
+        <translation>Message :</translation>
     </message>
     <message>
         <source>A message that was attached to the reddcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Reddcoin network.</source>
-        <translation>En besked, som blev føjet til "reddcoin:"-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Reddcoin-netværket.</translation>
+        <translation>Un message qui était joint à l'URI Reddcoin et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau Reddcoin.</translation>
     </message>
     <message>
         <source>This is a verified payment request.</source>
-        <translation>Dette er en verificeret betalingsanmodning.</translation>
+        <translation>Ceci est une demande de paiement vérifiée.</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to the list of used addresses</source>
-        <translation>Indtast et mærkat for denne adresse for at føje den til listen over brugte adresser</translation>
+        <translation>Saisir une étiquette pour cette adresse afin de l'ajouter à la liste d'adresses utilisées</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
-        <translation>Dette er en ikke-verificeret betalingsanmodning.</translation>
+        <translation>Ceci est une demande de paiement non vérifiée</translation>
     </message>
     <message>
         <source>Pay To:</source>
-        <translation>Betal til:</translation>
+        <translation>Payer à :</translation>
     </message>
     <message>
         <source>Memo:</source>
-        <translation>Memo:</translation>
+        <translation>Mémo :</translation>
     </message>
 </context>
 <context>
     <name>ShutdownWindow</name>
     <message>
         <source>Reddcoin Core is shutting down...</source>
-        <translation>Reddcoin Core lukker ned…</translation>
+        <translation>Fermeture de Reddcoin Core...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
-        <translation>Luk ikke computeren ned, før dette vindue forsvinder.</translation>
+        <translation>Ne pas fermer l'ordinateur jusqu'à la disparition de cette fenêtre.</translation>
     </message>
 </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
         <source>Signatures - Sign / Verify a Message</source>
-        <translation>Signature - Underskriv/verificér en besked</translation>
+        <translation>Signatures - Signer / Vérifier un Message</translation>
     </message>
     <message>
         <source>&amp;Sign Message</source>
-        <translation>&amp;Underskriv besked</translation>
+        <translation>&amp;Signer Message</translation>
     </message>
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere beskeder/aftaler med dine adresser for at bevise, at du kan modtage bitcoin, der bliver sendt til adresserne. Vær forsigtig med ikke at signere noget vagt eller tilfældigt, da eventuelle phishing-angreb kan snyde dig til at overlade din identitet til dem. Signér kun fuldt ud detaljerede udsagn, som du er enig i.</translation>
+        <translation>Vous pouvez signer des messages avec vos adresses pour prouver que vous les détenez. Faites attention à ne pas signer quoi que ce soit de vague car des attaques d'hameçonnage peuvent essayer d'usurper votre identité par votre signature. Ne signez que des déclarations entièrement détaillées et avec lesquelles vous serez d'accord.</translation>
     </message>
     <message>
         <source>The Reddcoin address to sign the message with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
-        <translation>Reddcoin-adresse, som beskeden skal signeres med (fx RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
+        <translation>L'adresse Reddcoin avec laquelle signer le message (ex. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
-        <translation>Vælg tidligere brugt adresse</translation>
+        <translation>Choisir une adresse précédemment utilisée</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2014,7 +2066,7 @@ Adresse: %4
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Indsæt adresse fra udklipsholderen</translation>
+        <translation>Coller une adresse depuis le presse-papier</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -2022,111 +2074,111 @@ Adresse: %4
     </message>
     <message>
         <source>Enter the message you want to sign here</source>
-        <translation>Indtast her beskeden, du ønsker at underskrive</translation>
+        <translation>Saisir ici le message que vous désirez signer</translation>
     </message>
     <message>
         <source>Signature</source>
-        <translation>Underskrift</translation>
+        <translation>Signature</translation>
     </message>
     <message>
         <source>Copy the current signature to the system clipboard</source>
-        <translation>Kopiér den nuværende underskrift til systemets udklipsholder</translation>
+        <translation>Copier la signature actuelle dans le presse-papier</translation>
     </message>
     <message>
         <source>Sign the message to prove you own this Reddcoin address</source>
-        <translation>Underskriv denne besked for at bevise, at Reddcoin-adressen tilhører dig</translation>
+        <translation>Signer le message pour prouver que vous détenez cette adresse Reddcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
-        <translation>Underskriv &amp;besked</translation>
+        <translation>Signer &amp;Message</translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
-        <translation>Nulstil alle "underskriv besked"-felter</translation>
+        <translation>Réinitialiser tous les champs de signature de message</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Ryd &amp;alle</translation>
+        <translation>&amp;Tout nettoyer</translation>
     </message>
     <message>
         <source>&amp;Verify Message</source>
-        <translation>&amp;Verificér besked</translation>
+        <translation>&amp;Vérifier Message</translation>
     </message>
     <message>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation>Indtast den underskrevne adresse, beskeden (inkluder linjeskift, mellemrum mv. nøjagtigt, som de fremgår) og underskriften for at efterprøve beskeden. Vær forsigtig med ikke at lægge mere i underskriften end besked selv, så du undgår at blive narret af et man-in-the-middle-angreb.</translation>
+        <translation>Saisir ci-dessous l'adresse de signature, le message (assurez-vous d'avoir copié exactement les retours à la ligne, les espaces, tabulations etc...) et la signature pour vérifier le message. Faire attention à ne pas déduire davantage de la signature que ce qui est contenu dans le message signé lui-même pour éviter d'être trompé par une attaque d'homme du milieu.</translation>
     </message>
     <message>
         <source>The Reddcoin address the message was signed with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
-        <translation>Reddcoin-adressen, som beskeden blev signeret med (fx RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
+        <translation>L'adresse Reddcoin avec laquelle le message a été signé (ex. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Reddcoin address</source>
-        <translation>Verificér beskeden for at sikre, at den er underskrevet med den angivne Reddcoin-adresse</translation>
+        <translation>VÉrifier ce message pour s'assurer qu'il a été signé avec une adresse Reddcoin spécifiée</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
-        <translation>Verificér &amp;Besked</translation>
+        <translation>Vérifier le &amp;Message</translation>
     </message>
     <message>
         <source>Reset all verify message fields</source>
-        <translation>Nulstil alle "verificér besked"-felter</translation>
+        <translation>Réinitialiser tous les champs de vérification de message</translation>
     </message>
     <message>
         <source>Click "Sign Message" to generate signature</source>
-        <translation>Klik "Underskriv besked" for at generere underskriften</translation>
+        <translation>Cliquer sur "Signer Message" pour générer une signature</translation>
     </message>
     <message>
         <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
-        <translation>Indtast en Reddcoin-adresse (fx RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
+        <translation>Entrer une adresse Reddcoin (Ex. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
-        <translation>Den indtastede adresse er ugyldig.</translation>
+        <translation>L'adresse saisie est invalide.</translation>
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation>Tjek venligst adressen og forsøg igen.</translation>
+        <translation>Veuillez vérifier l'adresse et réessayer.</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>Den indtastede adresse henviser ikke til en nøgle.</translation>
+        <translation>L'adresse saisie ne fait pas référence à une clef.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
-        <translation>Tegnebogsoplåsning annulleret.</translation>
+        <translation>Le déverrouillage du portefeuille a été annulé.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
-        <translation>Den private nøgle for den indtastede adresse er ikke tilgængelig.</translation>
+        <translation>La clef Privée pour l'adresse entrée n'est pas disponible.</translation>
     </message>
     <message>
         <source>Message signing failed.</source>
-        <translation>Underskrivning af besked mislykkedes.</translation>
+        <translation>La signature du message a échoué.</translation>
     </message>
     <message>
         <source>Message signed.</source>
-        <translation>Besked underskrevet.</translation>
+        <translation>Message signé.</translation>
     </message>
     <message>
         <source>The signature could not be decoded.</source>
-        <translation>Underskriften kunne ikke afkodes.</translation>
+        <translation>La signature n'a pu être décodée.</translation>
     </message>
     <message>
         <source>Please check the signature and try again.</source>
-        <translation>Tjek venligst underskriften, og forsøg igen.</translation>
+        <translation>Merci de vérifier la signature et essayer à nouveau.</translation>
     </message>
     <message>
         <source>The signature did not match the message digest.</source>
-        <translation>Underskriften matcher ikke beskedens indhold.</translation>
+        <translation>La signature ne correspond pas à l'empreinte du message.</translation>
     </message>
     <message>
         <source>Message verification failed.</source>
-        <translation>Verificering af besked mislykkedes.</translation>
+        <translation>La vérification du message a échoué.</translation>
     </message>
     <message>
         <source>Message verified.</source>
-        <translation>Besked verificeret.</translation>
+        <translation>Message vérifié.</translation>
     </message>
 </context>
 <context>
@@ -2137,7 +2189,7 @@ Adresse: %4
     </message>
     <message>
         <source>The Reddcoin Core developers</source>
-        <translation>Udviklerne af Reddcoin Core</translation>
+        <translation>Les développeurs de Reddcoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2148,164 +2200,164 @@ Adresse: %4
     <name>TrafficGraphWidget</name>
     <message>
         <source>KB/s</source>
-        <translation>KB/s</translation>
+        <translation>Ko/s</translation>
     </message>
 </context>
 <context>
     <name>TransactionDesc</name>
     <message>
         <source>Open until %1</source>
-        <translation>Åben indtil %1</translation>
+        <translation>Ouvert jusqu'à %1</translation>
     </message>
     <message>
         <source>conflicted</source>
-        <translation>konflikt</translation>
+        <translation>en conflit</translation>
     </message>
     <message>
         <source>%1/offline</source>
-        <translation>%1/offline</translation>
+        <translation>%1/déconnecté</translation>
     </message>
     <message>
         <source>%1/unconfirmed</source>
-        <translation>%1/ubekræftet</translation>
+        <translation>%1/non confirmé</translation>
     </message>
     <message>
         <source>%1 confirmations</source>
-        <translation>%1 bekræftelser</translation>
+        <translation>%1 confirmations</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Status</translation>
+        <translation>Statut</translation>
     </message>
     <message numerus="yes">
         <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, transmitteret igennem %n knude</numerusform><numerusform>, transmitteret igennem %n knuder</numerusform></translation>
+        <translation><numerusform>, diffusé à travers %n noeud</numerusform><numerusform>, diffusé à travers %n noeuds</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>Dato</translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation>Kilde</translation>
+        <translation>Source</translation>
     </message>
     <message>
         <source>Generated</source>
-        <translation>Genereret</translation>
+        <translation>Généré</translation>
     </message>
     <message>
         <source>From</source>
-        <translation>Fra</translation>
+        <translation>De</translation>
     </message>
     <message>
         <source>To</source>
-        <translation>Til</translation>
+        <translation>À</translation>
     </message>
     <message>
         <source>own address</source>
-        <translation>egen adresse</translation>
+        <translation>votre adresse</translation>
     </message>
     <message>
         <source>label</source>
-        <translation>mærkat</translation>
+        <translation>étiquette</translation>
     </message>
     <message>
         <source>Credit</source>
-        <translation>Kredit</translation>
+        <translation>Crédit</translation>
     </message>
     <message numerus="yes">
         <source>matures in %n more block(s)</source>
-        <translation><numerusform>modner efter yderligere %n blok</numerusform><numerusform>modner efter yderligere %n blokke</numerusform></translation>
+        <translation><numerusform>matures dans %n bloc</numerusform><numerusform>matures dans %n blocs</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
-        <translation>ikke accepteret</translation>
+        <translation>refusé</translation>
     </message>
     <message>
         <source>Debit</source>
-        <translation>Debet</translation>
+        <translation>Débit</translation>
     </message>
     <message>
         <source>Transaction fee</source>
-        <translation>Transaktionsgebyr</translation>
+        <translation>Frais de transaction</translation>
     </message>
     <message>
         <source>Net amount</source>
-        <translation>Nettobeløb</translation>
+        <translation>Montant net</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>Besked</translation>
+        <translation>Message</translation>
     </message>
     <message>
         <source>Comment</source>
-        <translation>Kommentar</translation>
+        <translation>Commentaire</translation>
     </message>
     <message>
         <source>Transaction ID</source>
-        <translation>Transaktions-ID</translation>
+        <translation>ID de transaction</translation>
     </message>
     <message>
         <source>Merchant</source>
-        <translation>Forretningsdrivende</translation>
+        <translation>Marchand</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Minede coins skal modne %1 blokke, før de kan bruges. Da du genererede denne blok, blev den transmitteret til netværket for at blive føjet til blokkæden. Hvis det ikke lykkes at få den i kæden, vil dens tilstand ændres til "ikke accepteret", og den vil ikke kunne bruges. Dette kan ske nu og da, hvis en anden knude udvinder en blok inden for nogle få sekunder fra din.</translation>
+        <translation>Les pièces générées doivent mûrir pendant %1 blocs avant de pouvoir être dépensées. Lorsque vous avez généré ce bloc, il a été diffusé sur le réseau pour être ajouté à la chaîne de blocs. S’il échoue à intégrer la chaîne, son état sera modifié en « non accepté » et il ne sera pas possible de le dépenser. Ceci peut arriver occasionnellement si un autre nœud génère un bloc à quelques secondes d'intervalle du votre.</translation>
     </message>
     <message>
         <source>Debug information</source>
-        <translation>Fejlsøgningsinformation</translation>
+        <translation>Information de déboguage</translation>
     </message>
     <message>
         <source>Transaction</source>
-        <translation>Transaktion</translation>
+        <translation>Transaction</translation>
     </message>
     <message>
         <source>Inputs</source>
-        <translation>Input</translation>
+        <translation>Entrants</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation>Beløb</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>true</source>
-        <translation>sand</translation>
+        <translation>vrai</translation>
     </message>
     <message>
         <source>false</source>
-        <translation>falsk</translation>
+        <translation>faux</translation>
     </message>
     <message>
         <source>, has not been successfully broadcast yet</source>
-        <translation>, er ikke blevet transmitteret endnu</translation>
+        <translation>, n'a pas été diffusé avec succès pour l'instant</translation>
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>Åbn yderligere %n blok</numerusform><numerusform>Åbn yderligere %n blokke</numerusform></translation>
+        <translation><numerusform>Ouvrir pour %n bloc supplémentaire</numerusform><numerusform>Ouvrir pour %n blocs supplémentaires</numerusform></translation>
     </message>
     <message>
         <source>unknown</source>
-        <translation>ukendt</translation>
+        <translation>inconnu</translation>
     </message>
 </context>
 <context>
     <name>TransactionDescDialog</name>
     <message>
         <source>Transaction details</source>
-        <translation>Transaktionsdetaljer</translation>
+        <translation>Détails des transactions</translation>
     </message>
     <message>
         <source>This pane shows a detailed description of the transaction</source>
-        <translation>Denne rude viser en detaljeret beskrivelse af transaktionen</translation>
+        <translation>Cet écran montre une description détaillée de la transaction</translation>
     </message>
 </context>
 <context>
     <name>TransactionTableModel</name>
     <message>
         <source>Date</source>
-        <translation>Dato</translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Type</source>
@@ -2317,206 +2369,206 @@ Adresse: %4
     </message>
     <message>
         <source>Amount</source>
-        <translation>Beløb</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
-        <translation>Umoden (%1 bekræftelser; vil være tilgængelig efter %2)</translation>
+        <translation>Immature (%1 confirmations, sera disponible après %2)</translation>
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>Åbn yderligere %n blok</numerusform><numerusform>Åbn yderligere %n blokke</numerusform></translation>
+        <translation><numerusform>Ouvrir pour %n bloc supplémentaire</numerusform><numerusform>Ouvrir pour %n blocs supplémentaires</numerusform></translation>
     </message>
     <message>
         <source>Open until %1</source>
-        <translation>Åben indtil %1</translation>
+        <translation>Ouvert jusqu'à %1</translation>
     </message>
     <message>
         <source>Confirmed (%1 confirmations)</source>
-        <translation>Bekræftet (%1 bekræftelser)</translation>
+        <translation>Confirmé (%1 confirmations)</translation>
     </message>
     <message>
         <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>Denne blok blev ikke modtaget af nogen andre knuder og vil formentlig ikke blive accepteret!</translation>
+        <translation>Ce bloc n'a pas été reçu par aucun noeud et sera sûrement refusé !</translation>
     </message>
     <message>
         <source>Generated but not accepted</source>
-        <translation>Genereret, men ikke accepteret</translation>
+        <translation>Généré mais refusé</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation>Offline</translation>
+        <translation>Hors-ligne</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>Ubekræftet</translation>
+        <translation>Non confirmé</translation>
     </message>
     <message>
         <source>Confirming (%1 of %2 recommended confirmations)</source>
-        <translation>Bekræfter (%1 af %2 anbefalede bekræftelser)</translation>
+        <translation>Confirmation en cours (%1 de %2 confirmations recommandées)</translation>
     </message>
     <message>
         <source>Conflicted</source>
-        <translation>Konflikt</translation>
+        <translation>Conflit</translation>
     </message>
     <message>
         <source>Received with</source>
-        <translation>Modtaget med</translation>
+        <translation>Reçue avec</translation>
     </message>
     <message>
         <source>Received from</source>
-        <translation>Modtaget fra</translation>
+        <translation>Reçu de</translation>
     </message>
     <message>
         <source>Sent to</source>
-        <translation>Sendt til</translation>
+        <translation>Envoyée à</translation>
     </message>
     <message>
         <source>Payment to yourself</source>
-        <translation>Betaling til dig selv</translation>
+        <translation>Paiement à vous même</translation>
     </message>
     <message>
         <source>Generated</source>
-        <translation>Genereret</translation>
+        <translation>Généré</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <translation>(n.d)</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
-        <translation>Transaktionsstatus. Hold musen over dette felt for at vise antallet af bekræftelser.</translation>
+        <translation>Statut de la transaction. Passez au-dessus de ce champ pour afficher le nombre de confirmations.</translation>
     </message>
     <message>
         <source>Date and time that the transaction was received.</source>
-        <translation>Dato og klokkeslæt for modtagelse af transaktionen.</translation>
+        <translation>Date et heure de réception de la transaction.</translation>
     </message>
     <message>
         <source>Type of transaction.</source>
-        <translation>Transaktionstype.</translation>
+        <translation>Type de transaciton.</translation>
     </message>
     <message>
         <source>Destination address of transaction.</source>
-        <translation>Destinationsadresse for transaktion.</translation>
+        <translation>Adresse de destination de la transaction.</translation>
     </message>
     <message>
         <source>Amount removed from or added to balance.</source>
-        <translation>Beløb trukket fra eller tilføjet balance.</translation>
+        <translation>Montant ajouté ou enlevé au solde.</translation>
     </message>
 </context>
 <context>
     <name>TransactionView</name>
     <message>
         <source>All</source>
-        <translation>Alle</translation>
+        <translation>Tout</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation>I dag</translation>
+        <translation>Aujourd'hui</translation>
     </message>
     <message>
         <source>This week</source>
-        <translation>Denne uge</translation>
+        <translation>Cette semaine</translation>
     </message>
     <message>
         <source>This month</source>
-        <translation>Denne måned</translation>
+        <translation>Ce mois</translation>
     </message>
     <message>
         <source>Last month</source>
-        <translation>Sidste måned</translation>
+        <translation>Le mois dernier</translation>
     </message>
     <message>
         <source>This year</source>
-        <translation>Dette år</translation>
+        <translation>Cette année</translation>
     </message>
     <message>
         <source>Range...</source>
-        <translation>Interval…</translation>
+        <translation>Échelle...</translation>
     </message>
     <message>
         <source>Received with</source>
-        <translation>Modtaget med</translation>
+        <translation>Reçue avec</translation>
     </message>
     <message>
         <source>Sent to</source>
-        <translation>Sendt til</translation>
+        <translation>Envoyée à</translation>
     </message>
     <message>
         <source>To yourself</source>
-        <translation>Til dig selv</translation>
+        <translation>À vous-même</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Andet</translation>
+        <translation>Autre</translation>
     </message>
     <message>
         <source>Enter address or label to search</source>
-        <translation>Indtast adresse eller mærkat for at søge</translation>
+        <translation>Saisir une adresse ou une étiquette à rechercher</translation>
     </message>
     <message>
         <source>Min amount</source>
-        <translation>Minimumsbeløb</translation>
+        <translation>Montant min.</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Kopiér adresse</translation>
+        <translation>Copier l'adresse</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Kopiér mærkat</translation>
+        <translation>Copier l'étiquette</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Kopiér beløb</translation>
+        <translation>Copier le montant</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation>Kopiér transaktions-ID</translation>
+        <translation>Copier l'ID de la transaction</translation>
     </message>
     <message>
         <source>Edit label</source>
-        <translation>Redigér mærkat</translation>
+        <translation>Modifier l’étiquette</translation>
     </message>
     <message>
         <source>Show transaction details</source>
-        <translation>Vis transaktionsdetaljer</translation>
+        <translation>Afficher les détails de la transaction</translation>
     </message>
     <message>
         <source>Export Transaction History</source>
-        <translation>Historik for eksport af transaktioner</translation>
+        <translation>Exporter l'historique des transactions</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Eksport mislykkedes</translation>
+        <translation>L'exportation a échoué</translation>
     </message>
     <message>
         <source>There was an error trying to save the transaction history to %1.</source>
-        <translation>En fejl opstod under gemning af transaktionshistorik til %1.</translation>
+        <translation>Une erreur est survenue lors de l'enregistrement de l'historique des transactions vers %1.</translation>
     </message>
     <message>
         <source>Exporting Successful</source>
-        <translation>Eksport problemfri</translation>
+        <translation>Exportation réussie</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
-        <translation>Transaktionshistorikken blev gemt til %1 med succes.</translation>
+        <translation>L'historique des transactions a été sauvegardée avec succès vers %1.</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Kommasepareret fil (*.csv)</translation>
+        <translation>Fichier séparé par virgules (*.csv)</translation>
     </message>
     <message>
         <source>Generated</source>
-        <translation>Genereret</translation>
+        <translation>Généré</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>Bekræftet</translation>
+        <translation>Confirmée</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>Dato</translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>Type</source>
@@ -2524,7 +2576,7 @@ Adresse: %4
     </message>
     <message>
         <source>Label</source>
-        <translation>Mærkat</translation>
+        <translation>Étiquette</translation>
     </message>
     <message>
         <source>Address</source>
@@ -2532,7 +2584,7 @@ Adresse: %4
     </message>
     <message>
         <source>Amount</source>
-        <translation>Beløb</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>ID</source>
@@ -2540,127 +2592,127 @@ Adresse: %4
     </message>
     <message>
         <source>Range:</source>
-        <translation>Interval:</translation>
+        <translation>Échelle :</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>til</translation>
+        <translation>à</translation>
     </message>
 </context>
 <context>
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
-        <translation>Ingen tegnebog er indlæst.</translation>
+        <translation>Aucun portefeuille n'a été chargé</translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send Reddcoin</translation>
+        <translation>Envoyer les pièces</translation>
     </message>
 </context>
 <context>
     <name>WalletView</name>
     <message>
         <source>&amp;Export</source>
-        <translation>&amp;Eksportér</translation>
+        <translation>&amp;Exporter</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Eksportér den aktuelle visning til en fil</translation>
+        <translation>Exporter les données de l'onglet actif dans un fichier</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
-        <translation>Sikkerhedskopiér tegnebog</translation>
+        <translation>Sauvegarder le portefeuille</translation>
     </message>
     <message>
         <source>Wallet Data (*.dat)</source>
-        <translation>Tegnebogsdata (*.dat)</translation>
+        <translation>Données de portefeuille (*.dat)</translation>
     </message>
     <message>
         <source>Backup Failed</source>
-        <translation>Sikkerhedskopiering mislykkedes</translation>
+        <translation>La sauvegarde a échoué</translation>
     </message>
     <message>
         <source>There was an error trying to save the wallet data to %1.</source>
-        <translation>Der skete en fejl under gemning af tegnebogsdata til %1.</translation>
+        <translation>Une erreur est survenue lors de l'enregistrement des données de portefeuille vers %1.</translation>
     </message>
     <message>
         <source>The wallet data was successfully saved to %1.</source>
-        <translation>Tegnebogsdata blev gemt til %1 med succes.</translation>
+        <translation>Les données de portefeuille ont été enregistrées avec succès vers %1</translation>
     </message>
     <message>
         <source>Backup Successful</source>
-        <translation>Sikkerhedskopiering problemfri</translation>
+        <translation>Sauvegarde réussie</translation>
     </message>
 </context>
 <context>
     <name>bitcoin-core</name>
     <message>
         <source>Usage:</source>
-        <translation>Anvendelse:</translation>
+        <translation>Utilisation :</translation>
     </message>
     <message>
         <source>List commands</source>
-        <translation>Liste over kommandoer</translation>
+        <translation>Liste des commandes</translation>
     </message>
     <message>
         <source>Get help for a command</source>
-        <translation>Få hjælp til en kommando</translation>
+        <translation>Recevoir de l'aide pour une commande</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation>Indstillinger:</translation>
+        <translation>Options :</translation>
     </message>
     <message>
         <source>Specify data directory</source>
-        <translation>Angiv datamappe</translation>
+        <translation>Spécifier le répertoire des données</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation>Oprethold højest &lt;n&gt; forbindelser til andre knuder (standard: 125)</translation>
+        <translation>Maintenir au maximum &lt;n&gt; connexions aux pairs (par défaut : 125)</translation>
     </message>
     <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Forbind til en knude for at modtage adresser på andre knuder, og afbryd derefter</translation>
+        <translation>Connexion à un noeud pour récupérer l'adresse d'un pair et se déconnecter</translation>
     </message>
     <message>
         <source>Specify your own public address</source>
-        <translation>Angiv din egen offentlige adresse</translation>
+        <translation>Spéficier votre propre adresse publique</translation>
     </message>
     <message>
         <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Grænse for afbrydelse af forbindelse til knuder, der opfører sig upassende (standard: 100)</translation>
+        <translation>Limite pour déconnecter les pairs se comportant bizarrement (par défaut : 100)</translation>
     </message>
     <message>
         <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>Antal sekunder, som knuder der opfører sig upassende, skal vente før reetablering (standard: 86400)</translation>
+        <translation>Nombre de seconde pour empêcher un pair se comportant bizarrement à se reconnecter (par défaut : 86400)</translation>
     </message>
     <message>
         <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation>Der opstod en fejl ved angivelse af RPC-porten %u til at lytte på IPv4: %s</translation>
+        <translation>Une erreur est survenue lors du réglage du port RPC %u pour écouter sur IPv4 : %s</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
-        <translation>Acceptér kommandolinje- og JSON-RPC-kommandoer</translation>
+        <translation>Accepter la ligne de commande et les commandes JSON-RPC</translation>
     </message>
     <message>
         <source>Connect to JSON-RPC on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
-        <translation>Forbind til JSON-RPC på &lt;port&gt; (standard: 45443 or testnet: 55443)</translation>
+        <translation>Se connecter à JSON-RPC sur &lt;port&gt; (défaut: 45443 ou tesnet: 55443) </translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
-        <translation>Kør i baggrunden som en service, og acceptér kommandoer</translation>
+        <translation>Faire fonctionner en arrière plan et accepter les commandes</translation>
     </message>
     <message>
         <source>Use the test network</source>
-        <translation>Brug testnetværket</translation>
+        <translation>Utiliser le réseau de test</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Acceptér forbindelser udefra (standard: 1 hvis hverken -proxy eller -connect)</translation>
+        <translation>Accepter les connexions de l'extérieur (par défaut : 1 si no -proxy ou -connect)</translation>
     </message>
     <message>
         <source>%s, you must set a rpcpassword in the configuration file:
@@ -2674,413 +2726,432 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
 </source>
-        <translation>%s, du skal angive en RPC-adgangskode i konfigurationsfilen:
- %s
- Det anbefales, at du bruger nedenstående, tilfældige adgangskode:
- rpcuser=reddcoinrpc
- rpcpassword=%s
- (du behøver ikke huske denne adgangskode)
- Brugernavnet og adgangskode MÅ IKKE være det samme.
- Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettighed.
- Det anbefales også at angive alertnotify, så du påmindes om problemer;
- f.eks.: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
-</translation>
+        <translation>%s, vous devez paramétrer un mot de passe rpc dans le fichier de configuration :
+%s
+Il est recommandé que vous suiviez les mots de passe aléatoires suivants :
+rpcuser=reddcoinrpc
+rpcpassword=%s
+(vous n'avez pas besoin de vous souvenir de ce mot de passe)
+Le nom d'utilisateur et le mot de passe NE DOIVENT PAS être identiques.
+Si le fichier n'existe pas, créez le avec des autorisations de lecture seule.
+Il est également recommandé de paramétrer alertnotify pour que vous soyez alertés en cas de problème ;
+par exemple : alertnotify=echo %%s | mail -s "Alerte Reddcoin" admin@foo.com</translation>
     </message>
     <message>
         <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Accepterede krypteringer (standard: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
+        <translation>Chiffrements acceptables (par défaut : TLSv1.2+HIGH : TLSv1+HIGH : !SSLv2 : !aNULL : !eNULL : !3DES : @STRENGTH)</translation>
     </message>
     <message>
         <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation>Der opstod en fejl ved angivelse af RPC-porten %u til at lytte på IPv6, falder tilbage til IPv4: %s</translation>
+        <translation>Une erreur est survenue lors du paramétrage du port RPC %u pour écouter IPv6, retour sur IPv4 : %s</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>Tildel til den givne adresse og lyt altid på den. Brug [vært]:port-notation for IPv6</translation>
+        <translation>Lié à l'adresse donnée et toujours en écoute dessus. Utiliser la notation [host]:port pour IPv6 </translation>
     </message>
     <message>
         <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:15)</source>
-        <translation>Rate-begræns kontinuerligt frie transaktioner til &lt;n&gt;*1000 byte i minuttet (standard:15)</translation>
+        <translation>Limiter continuellement les frais de transactions à &lt;n&gt;1000 octets par minute (par défaut : 15)</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation>Start regressionstesttilstand, som bruger en speciel kæde, hvor blokke kan løses med det samme. Dette er tiltænkt til testværktøjer for regression of programudvikling.</translation>
+        <translation>Entrer dans le mode de test de régression qui utilise une chaîne spéciale dans laquelle les blocs peuvent être résolus instantanément. Ceci est destiné aux outils de test de régression et au développement d'applications.</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
-        <translation>Start regressionstesttilstand, som bruger en speciel kæde, hvor blokke kan løses med det samme.</translation>
+        <translation>Passer en mode de test de régression qui utilise une chaîne spéciale dans laquelle les blocs sont résolus instantanément.</translation>
     </message>
     <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af dine bitcoins i din tegnebog allerede er brugt, som hvis du brugte en kopi af wallet.dat og dine bitcoins er blevet brugt i kopien, men ikke er markeret som brugt her.</translation>
+        <translation>Erreur : la transaction a été rejetée ! Cela peut arriver si certaines pièces de votre portefeuille étaient déjà dépensées, par exemple si vous avez utilisé une copie de wallet.dat et les pièces ont été dépensées avec cette copie sans être marquées comme telles ici.</translation>
     </message>
     <message>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Fejl: Denne transaktion kræver et transaktionsgebyr på minimum %s pga. dens størrelse, kompleksitet eller anvendelse af nyligt modtagne reddcoins!</translation>
+        <translation>Erreur : cette transaction requiert des frais d'au moins %s à cause de son montant, complexité ou l'utilisation de fonds reçus récemment !</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Udfør kommando, når en transaktion i tegnebogen ændres (%s i kommandoen erstattes med TxID)</translation>
+        <translation>Exécuter la commande lorsqu'une transaction de portefeuille change (%s dans la commande est remplacée par TxID)</translation>
     </message>
     <message>
         <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation>Gebyrer mindre end dette opfattes som nul-gebyr (for oprettelse af transaktioner) (standard:</translation>
+        <translation>Les frais plus petits que cela sont considéré comme des frais nuls (à la création d'une transaciton) (par défaut :</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
-        <translation>Flyt databaseaktivitet fra hukommelsespulje til disklog hver &lt;n&gt; megabytes (standard: 100)</translation>
+        <translation>Évacuer l'activité de la base de données du pool de la mémoire tous les  &lt;n&gt; méga-octets (par défaut : 100)</translation>
     </message>
     <message>
         <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation>Hvor gennemarbejdet blokverificeringen for -checkblocks er (0-4; standard: 3)</translation>
+        <translation>Quelle est la minutie utilisée pour vérifier les -checkblocks (0-4, par défaut : 3)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
-        <translation>I denne tilstand styrer -genproclimit hvor mange blokke, der genereres med det samme.</translation>
+        <translation>Dans ce mode -genproclimit contrôle le nombre de blocs générés immédiatement</translation>
     </message>
     <message>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
-        <translation>Lyt efter JSON-RPC-forbindelser på &lt;port&gt; (standard: 45443 eller testnet: 55443)</translation>
+        <translation>Écouter les connexions JSON-RPC sur le ­&lt;port&gt; (par défaut : 45443 ou testnet : 55443)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when staking blocks (default: 0)</source>
+        <translation>Priorité du journal de transaction et frais par ko lorsqu'en train de miser sur des blocs (par défaut : 0)</translation>
     </message>
     <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation>Sæt antallet af scriptverificeringstråde (%u til %d, 0 = auto, &lt;0 = efterlad det antal kernet fri, standard: %d)</translation>
+        <translation>Paramèter le nombre chemins des scripts de vérifications (%u à %d, 0 = auto, &lt;0 = laissez libres autant de noyaux, par défaut %d)</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer. Reddcoin Core is probably already running.</source>
-        <translation>Ikke i stand til at tildele til %s på denne computer. Reddcoin Core kører sansynligvis allerede.</translation>
+        <translation>Incapable de se lier à %s sur cet ordinateur. Reddcoin Core est probalement déjà en cours de fonctionnement.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation>Brug separat SOCS5-proxy for at nå knuder via skjulte Tor-tjenester (standard: -proxy)</translation>
+        <translation>Utiliser un serveur mandataire SOCKS5 séparé pour atteindre les pairs par les services cachés de Tor (par défaut : -proxy)</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation>Advarsel: -paytxfee er sat meget højt! Dette er det gebyr du vil betale, hvis du sender en transaktion.</translation>
+        <translation>Attention : -paytxfee est paramétré très haut ! Ce sont les frais de transaction que vous allez payer si vous envoyez une transaction.</translation>
     </message>
     <message>
         <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Reddcoin will not work properly.</source>
-        <translation>Advarsel: Undersøg venligst, at din computers dato og klokkeslæt er korrekt indstillet! Hvis der er fejl i disse, vil Reddcoin ikke fungere korrekt.</translation>
+        <translation>Attention : merci de vérifier que votre date et heure d'ordinateur sont correctes ! Si votre horloge est fausse, Reddcoin ne fonctionnemenra pas correctement.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Advarsel: Netværket ser ikke ud til at være fuldt ud enige! Enkelte minere ser ud til at opleve problemer.</translation>
+        <translation>Attention: le réseau n'est pas en accord complet! Certain mineurs semblent rencontrer des problèmes.</translation>
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Advarsel: Vi ser ikke ud til at være fuldt ud enige med andre knuder! Du kan være nødt til at opgradere, eller andre knuder kan være nødt til at opgradere.</translation>
+        <translation>Attention: Nous sommes en désaccord avec nos pairs! Une mise-à-jour est peut-être nécessaire, ou bien d'autres nœuds doivent se mettre à jour.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation>Advarsel: fejl under læsning af wallet.dat! Alle nøgler blev læst korrekt, men transaktionsdata eller adressebogsposter kan mangle eller være forkerte.</translation>
+        <translation>Attention : erreur lors de la lecture de wallet.dat ! Toutes les clefs sont lues correctement, mais les données de transaction ou les entrées au carnet d'adresses sont manquantes ou incorrectes.</translation>
     </message>
     <message>
         <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation>Advarsel: wallet.dat ødelagt, data reddet! Oprindelig wallet.dat gemt som wallet.{timestamp}.bak i %s; hvis din saldo eller dine transaktioner er forkert, bør du genskabe fra en sikkerhedskopi.</translation>
+        <translation>Attention : le fichier wallet.dat est corrompu, données récupérées ! Le fichier original wallet.dat est sauvegardé en tant que wallet[timestamp].bak in %s; si votre solde ou vos transactions sont inexactes, vous devriez restaurer d'une sauvegarde.</translation>
     </message>
     <message>
         <source>(default: 1)</source>
-        <translation>(standard: 1)</translation>
+        <translation>(par défaut : 1)</translation>
     </message>
     <message>
         <source>(default: wallet.dat)</source>
-        <translation>(standard: wallet.dat)</translation>
+        <translation>(par défaut : wallet.dat)</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
-        <translation>&lt;kategori&gt; kan være:</translation>
+        <translation>&lt;catégorie&gt; peut être:</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation>Forsøg at genskabe private nøgler fra ødelagt wallet.dat</translation>
+        <translation>Essai pour récupérer les clefs privés d'un fichier wallet.dat corrompu</translation>
     </message>
     <message>
         <source>Block creation options:</source>
-        <translation>Blokoprettelsestilvalg:</translation>
+        <translation>Options de création de bloc :</translation>
     </message>
     <message>
         <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation>Ryd liste over transaktioner i tegnebog (diagnoseværktøj; medfører -rescan)</translation>
+        <translation>Réinitialiser la liste des transactions du portefeuille (outil de diagnostic; implique -rescan)</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
-        <translation>Tilslut kun til den angivne knude(r)</translation>
+        <translation>Se connecter seulement au(x) noeud(s) spécifiés</translation>
     </message>
     <message>
         <source>Connect through SOCKS proxy</source>
-        <translation>Forbind gennem SOCKS-proxy</translation>
+        <translation>Se connecter via un proxy SOCKS</translation>
     </message>
     <message>
         <source>Connection options:</source>
-        <translation>Tilvalg for forbindelser:</translation>
+        <translation>Options de connexion :</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
-        <translation>Ødelagt blokdatabase opdaget</translation>
+        <translation>Base de données de bloc corrompu détectée</translation>
     </message>
     <message>
         <source>Debugging/Testing options:</source>
-        <translation>Tilvalg for fejlfinding/test:</translation>
+        <translation>Options de déboguage/test</translation>
     </message>
     <message>
         <source>Disable safemode, override a real safe mode event (default: 0)</source>
-        <translation>Slå sikker tilstand fra, tilsidesæt hændelser fra sikker tilstand (standard: 0)</translation>
+        <translation>Désactiver le mode sans échec, outrepasser un évènement du mode sans échec (par défaut : 0)</translation>
     </message>
     <message>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
-        <translation>Opdag egne IP-adresser (standard: 1 under lytning og ingen -externalip)</translation>
+        <translation>Détecter sa propre adresse IP (par défaut : 1 lorsqu'en écoute et no -externalip)</translation>
     </message>
     <message>
         <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>Indlæs ikke tegnebogen og slå tegnebogs-RPC-kald fra</translation>
+        <translation>Ne pas charger le portefeuille et désactiver les appels RPC</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
-        <translation>Ønsker du at genopbygge blokdatabasen nu?</translation>
+        <translation>Désirez-vous reconstruire la base de données du bloc maintenant ?</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
-        <translation>Klargøring af blokdatabase mislykkedes</translation>
+        <translation>Erreur lors de l'initialisation de la base de données du bloc</translation>
     </message>
     <message>
         <source>Error initializing wallet database environment %s!</source>
-        <translation>Klargøring af tegnebogsdatabasemiljøet %s mislykkedes!</translation>
+        <translation>Erreur lors de l'initialisation de l'environnement de la base de données du portefeuille %s !</translation>
     </message>
     <message>
         <source>Error loading block database</source>
-        <translation>Indlæsning af blokdatabase mislykkedes</translation>
+        <translation>Erreur lors du chargement de la base de onnées du bloc</translation>
     </message>
     <message>
         <source>Error opening block database</source>
-        <translation>Åbning af blokdatabase mislykkedes</translation>
+        <translation>Erreur lors de l'ouverture de la base de données des blocs</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
-        <translation>Fejl: Mangel på ledig diskplads!</translation>
+        <translation>Erreur : Espace disque insuffisant !</translation>
     </message>
     <message>
         <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Fejl: Tegnebog låst, kan ikke oprette transaktion!</translation>
+        <translation>Erreur : portefeuille verrouillé, impossible de créer la transaction !</translation>
+    </message>
+    <message>
+        <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
+        <translation>Erreur: portefeuille déverrouillé seulement pour la mise en jeu, il n'est pas possible de créer une transaction</translation>
     </message>
     <message>
         <source>Error: system error: </source>
-        <translation>Fejl: systemfejl:</translation>
+        <translation>Erreur : erreur système :</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation>Lytning på enhver port mislykkedes. Brug -listen=0, hvis du ønsker dette.</translation>
+        <translation>Échec de l'écoute sur un port quelconque. Utilisez -listen=0 si vous voulez ceci.</translation>
     </message>
     <message>
         <source>Failed to read block info</source>
-        <translation>Læsning af blokinformation mislykkedes</translation>
+        <translation>La lecture de l'information du bloc a échoué</translation>
     </message>
     <message>
         <source>Failed to read block</source>
-        <translation>Læsning af blok mislykkedes</translation>
+        <translation>La lecture du bloc a échoué</translation>
     </message>
     <message>
         <source>Failed to sync block index</source>
-        <translation>Synkronisering af blokindeks mislykkedes</translation>
+        <translation>La synchonisation de l'index du bloc a échoué</translation>
     </message>
     <message>
         <source>Failed to write block index</source>
-        <translation>Skrivning af blokindeks mislykkedes</translation>
+        <translation>L'écriture de  l'index du bloc a échoué</translation>
     </message>
     <message>
         <source>Failed to write block info</source>
-        <translation>Skrivning af blokinformation mislykkedes</translation>
+        <translation>L'écriture de l'information du bloc a échoué</translation>
     </message>
     <message>
         <source>Failed to write block</source>
-        <translation>Skrivning af blok mislykkedes</translation>
+        <translation>L'écriture du bloc a échoué</translation>
     </message>
     <message>
         <source>Failed to write file info</source>
-        <translation>Skriving af filinformation mislykkedes</translation>
+        <translation>L'écriture du fichier d'information a échoué</translation>
     </message>
     <message>
         <source>Failed to write to coin database</source>
-        <translation>Skrivning af reddcoin-database mislykkedes</translation>
+        <translation>L'écriture dans la base de données des pièces a échoué</translation>
     </message>
     <message>
         <source>Failed to write transaction index</source>
-        <translation>Skrivning af transaktionsindeks mislykkedes</translation>
+        <translation>L'écriture de l'index de la transaction a échoué</translation>
     </message>
     <message>
         <source>Failed to write undo data</source>
-        <translation>Skrivning af genskabelsesdata mislykkedes</translation>
+        <translation>L'écriture pour annuler les données a échoué</translation>
     </message>
     <message>
         <source>Fee per kB to add to transactions you send</source>
-        <translation>Føj gebyr pr. kB til transaktioner, du sender</translation>
+        <translation>Frais par ko à ajouter aux transactions que vous envoyez</translation>
     </message>
     <message>
         <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation>Gebyrer mindre end dette opfattes som nul-gebyr (for videreførsler) (standard:</translation>
+        <translation>Des frais plus petits que cela sont considérés comme nuls (pour relai) (par défaut :</translation>
     </message>
     <message>
         <source>Force safe mode (default: 0)</source>
-        <translation>Gennemtving sikker tilstand (standard: 0)</translation>
+        <translation>Forcer le mode sans échec (par défaut : 0)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation>Antal blokke som tjekkes ved opstart (standard: 288, 0 = alle)</translation>
+        <translation>Combien de blocs sont à vérifier au démarrage (par défaut : 288, 0 = all)</translation>
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
-        <translation>Hvis &lt;category&gt; ikke angives, udskriv al fejlretningsinformation.</translation>
+        <translation>Si &lt;catégorie&gt; n'est pas fourni, émettre toutes les informations de déboggage.</translation>
     </message>
     <message>
         <source>Importing...</source>
-        <translation>Importerer…</translation>
+        <translation>Importation en cours...</translation>
     </message>
     <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation>Ukorrekt eller ingen tilblivelsesblok fundet. Forkert datamappe for netværk?</translation>
+        <translation>Bloc de génèse incorrect ou absent. Mauvais répertoire de données pour le réseau ?</translation>
     </message>
     <message>
         <source>Initialization sanity check failed. Reddcoin Core is shutting down.</source>
-        <translation>Sundhedstjek under klargøring mislykkedes. Reddcoin Core lukker ned.</translation>
+        <translation>L'initialisation de la vérification de propreté a échoué. Reddcoin Core se ferme...</translation>
     </message>
     <message>
         <source>Invalid -onion address: '%s'</source>
-        <translation>Ugyldig -onion adresse: "%s"</translation>
+        <translation>Adresse -onion invalide: '%s'</translation>
     </message>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
-        <translation>Behold højest &lt;n&gt; uforbindelige blokke i hukommelsen (standard: %u)</translation>
+        <translation>Garder au maximum ­&lt;n&gt; blocs non connectables en mémoire (par défaut : %u)</translation>
     </message>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation>Behold højest &lt;n&gt; uforbindelige transaktioner i hukommelsen (standard: %u)</translation>
+        <translation>Garder au maximum &lt;n&gt; transactions non connectables en mémoire (par défaut : %u)</translation>
     </message>
     <message>
         <source>Maintain a full transaction index (default: 1)</source>
-        <translation>Vedligehold et komplet transaktionsindeks (standard: 0) {1)?}</translation>
+        <translation>Maintenir un index complet des transactions (défaut: 0) {1)?}</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
-        <translation>For få tilgængelige fildeskriptorer.</translation>
+        <translation>Pas assez de descripteurs de fichier disponibles.</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: 1)</source>
-        <translation>Føj tidsstempel foran fejlsøgningsoutput (standard: 1)</translation>
+        <translation>Insérer l'horodatage au début des résultats de déboggage (défaut: 1)</translation>
     </message>
     <message>
         <source>RPC SSL options: (see the wiki.reddcoin.com for SSL setup instructions)</source>
-        <translation>Tilvalg for RPC SSL: (se wiki.reddcoin.com for instruktioner i SSL-opstart)</translation>
+        <translation>Options RPC SSL : (voir le wiki.reddcoin.com pour les instructions de paramétrage SSL)</translation>
     </message>
     <message>
         <source>RPC client options:</source>
-        <translation>Tilvalg for RPC-klient:</translation>
+        <translation>Options du client RPC:</translation>
     </message>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
-        <translation>Genopbyg blokkædeindeks fra nuværende blk000??.dat-filer </translation>
+        <translation>Reconstruction de l'index de la blockchain à partir des fichiers blk000??.dat</translation>
     </message>
     <message>
         <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>Vælg SOCKS-version for -proxy (4 eller 5, standard: 5)</translation>
+        <translation>Choisir la version SOCKS pour -proxy (4 ou 5, par défaut : 5)</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>Sæt cache-størrelse for database i megabytes (%d til %d; standard: %d)</translation>
+        <translation>Paramétrer la taille du cache de la base de données en méga-octets (%d à %d, par défaut : %d)</translation>
     </message>
     <message>
         <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Sæt maksimum blokstørrelse i byte (standard: %d)</translation>
+        <translation>Définir la taille minimale de bloc en octets (par défaut : %d)</translation>
     </message>
     <message>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Angiv antallet af tråde til at håndtere RPC-kald (standard: 4)</translation>
+        <translation>Paramétrer le nombre de chemins pour appels au service RPC (par défaut : 4)</translation>
     </message>
     <message>
         <source>Specify configuration file (default: reddcoin.conf)</source>
-        <translation>Angiv konfigurationsfil (standard: reddcoin.conf)</translation>
+        <translation>Sélectionner le fichier de configuration (par défaut : reddcoin.conf)</translation>
     </message>
     <message>
         <source>Specify pid file (default: reddcoind.pid)</source>
-        <translation>Angiv pid-fil (standard: reddcoind.pid)</translation>
+        <translation>Sélectionner le fichier pid (par défaut : reddcoind.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
-        <translation>Angiv tegnebogsfil (inden for datamappe)</translation>
+        <translation>Spécifiez le fichier de portefeuille (dans le répertoire de données)</translation>
     </message>
     <message>
         <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation>Brug ubekræftede byttepenge under afsendelse af transaktioner (standard: 1)</translation>
+        <translation>Dépenser la monnaie non confirmée lors de l'envoi de transactions (par défaut : 1)</translation>
+    </message>
+    <message>
+        <source>Stake your coins to support network and gain reward (default: 1)</source>
+        <translation>Mettre en jeu vos pièces pour soutenir le réseau et remporter des récompenses (défaut: 1)</translation>
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
-        <translation>Dette er tiltænkt til testværktøjer for regression of programudvikling.</translation>
+        <translation>Ceci est à l'intention des outils de test de régression et du développement applicatif.</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation>Kunne ikke tildele %s på denne computer (bind returnerede fejl %s)</translation>
+        <translation>Incapable de se lié à %s sur cet ordinateur (la liaison a retourné l'erreur %s)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
-        <translation>Verificerer blokke…</translation>
+        <translation>Vérification des blocs en cours...</translation>
     </message>
     <message>
         <source>Verifying wallet...</source>
-        <translation>Verificerer tegnebog…</translation>
+        <translation>Vérification du portefeuille en cours...</translation>
     </message>
     <message>
         <source>Wait for RPC server to start</source>
-        <translation>Vent på opstart af RPC-server</translation>
+        <translation>Attendre le démarrage du serveur RPC</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>
-        <translation>Tegnebog %s findes uden for datamappe %s</translation>
+        <translation>Le portefeuille %s réside en dehors du répertoire de données %s</translation>
     </message>
     <message>
         <source>Wallet options:</source>
-        <translation>Tilvalg for tegnebog:</translation>
+        <translation>Options du portefeuille:</translation>
     </message>
     <message>
         <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation>Advarsel: Forældet argument -debugnet ignoreret; brug -debug=net</translation>
+        <translation>Attention : l'argument obsolète -debugnet a été ignoré, utiliser -debug=net</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
-        <translation>Du er nødt til at genopbygge databasen ved hjælp af -reindex for at ændre -txindex</translation>
+        <translation>Vous devez reconstruire la base de données en utilisant -reindex afin de modifier -txindex</translation>
     </message>
     <message>
         <source>Imports blocks from external blk000??.dat file</source>
-        <translation>Importerer blokeringer fra ekstern blk000??.dat-fil </translation>
+        <translation>Importer les blocs de fihcier externes blk000??.dat</translation>
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. Reddcoin Core is probably already running.</source>
-        <translation>Kan ikke opnå en lås på datamappe %s. Reddcoin Core kører sansynligvis allerede.</translation>
+        <translation>Impossible d'obtenir un verrouillage sur le répertoire de données %s. Reddcoin Core est surement déjà en cours de fonctionnement.</translation>
     </message>
     <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation>Fejl: Lytning efter indkommende forbindelser mislykkedes (lytning resultarede i fejl %s)</translation>
+        <translation>Erreur : l'écoute des connexions entrantes a échoué (l'écoute a retourné l'erreur %s)</translation>
+    </message>
+    <message>
+        <source>Execute command when a coinstake transaction is created (%s in cmd is replaced by TxID)</source>
+        <translation>Éxecuter la commande quand une transaction coinstake est générée (%s dans cmd est remplacé par TxID)</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Udfør kommando, når en relevant alarm modtages eller vi ser en virkelig lang udsplitning (%s i cmd erstattes af besked)</translation>
+        <translation>Éxecuter la commande quand une alerte appropriée est reçue ou une branche vraiment longue est observée (%s dans cmd est remplacé par message)</translation>
     </message>
     <message>
         <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation>Udskriv fejlsøgningsinformation (standard: 0, angivelse af &lt;kategori&gt; er valgfri)</translation>
+        <translation>Renvoyer les informations de déboggage (défaut: 0, &lt;catégorie&gt; peut être indiquée en option) </translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Requête pour les adresses pairs par recherche DNS, si peu d'adresses (par défaut : 1 à moins que -connect)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation>Sæt maksimumstørrelse for højprioritet/lavgebyr-transaktioner i byte (standard: %d)</translation>
+        <translation>Spécifier la taille maximale des transactions haute-priorité/bas-coût en octets (défaut: %d)</translation>
     </message>
     <message>
         <source>Set the processor limit for when generation is on (-1 = unlimited, default: 0)</source>
-        <translation>Sæt processorbegrænsning for når generering er slået til (-1 = ubegrænset, standard: 0)</translation>
+        <translation>Paramètre la limite du processeur quand la génération est activée (-1 = illimité, par défaut : 0)</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications</source>
-        <translation>Dette er en foreløbig testudgivelse - brug på eget ansvar - brug ikke til udvinding eller handelsprogrammer</translation>
+        <translation>Ceci est une version test - vous l'utilisez à vos propres risques - à ne pas utiliser pour des applications marchandes ou en vue d'accumuler</translation>
     </message>
     <message>
         <source>Always query for peer addresses via DNS lookup (default: 0)</source>
-        <translation>Forespørg altid adresser på andre knuder via DNS-opslag (default: 0)</translation>
+        <translation>Toujours effecteur des requêtes pour des adresses pairs par recherche DNS (par défaut : 0)</translation>
     </message>
     <message>
         <source>Information</source>
@@ -3088,163 +3159,167 @@ for example: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ugyldigt beløb for -minrelaytxfee=&lt;beløb&gt;: "%s"</translation>
+        <translation>Montant invalide pour -minerelaytxfee=&lt;amount&gt; : '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ugyldigt beløb for -mintxfee=&lt;beløb&gt;: "%s"</translation>
+        <translation>Montant invalide pour -mintxfee=&lt;amount&gt; : '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;: '%s'</source>
+        <translation>Montant invalide pour -reservebalance=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
-        <translation>Begræns størrelsen på signaturcache til &lt;n&gt; indgange (standard: 50000)</translation>
+        <translation>Limiter la taille du cache de la signature à &lt;n&gt; entrées (par défaut : 50000)</translation>
     </message>
     <message>
         <source>Listen for connections on &lt;port&gt; (default: 45444 or testnet: 55444)</source>
-        <translation>Lyt efter forbindelser på &lt;port&gt; (standard: 45444 eller testnet: 55444)</translation>
+        <translation>Écouter les connexions sur le &lt;port&gt; (par défaut : 45444 ou testnet : 55444)</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>Maksimum for modtagelsesbuffer pr. forbindelse, &lt;n&gt;*1000 byte (standard: 5000)</translation>
+        <translation>Maximum de contingence par-connection reçue, &lt;n&gt;*1000 octets (par défaut : 5000)</translation>
     </message>
     <message>
         <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>Maksimum for afsendelsesbuffer pr. forbindelse, &lt;n&gt;*1000 byte (standard: 1000)</translation>
+        <translation>Maximum de contingence par-connection envoyée, &lt;n&gt;*1000 (par défaut : 1000)</translation>
     </message>
     <message>
         <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation>Acceptér kun blokkæde, som matcher indbyggede kontrolposter (standard: 1)</translation>
+        <translation>Seulement accepter les blockchain qui correspondent aux checkpoints inclus (par défaut : 1)</translation>
     </message>
     <message>
         <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>Tilslut kun til knuder i netværk &lt;net&gt; (IPv4, IPv6 eller Tor)</translation>
+        <translation>Seulement se connecter aux noeuds du réseau &lt;net&gt; (IPv4, IPv6 ou Tor)</translation>
     </message>
     <message>
         <source>Print block on startup, if found in block index</source>
-        <translation>Udskriv blok under opstart, hvis den findes i blokindeks</translation>
+        <translation>Imprimer le block au démarrage, s'il est trouvé dans l'index du bloc</translation>
     </message>
     <message>
         <source>Print block tree on startup (default: 0)</source>
-        <translation>Udskriv bloktræ under startop (standard: 0)</translation>
+        <translation>Imprimer l'Arborescence du bloc au démarrage (par défaut : 0)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
-        <translation>Tilvalg for RPC-server:</translation>
+        <translation>Options du serveur RPC :</translation>
     </message>
     <message>
         <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
-        <translation>Drop tilfældigt 1 ud af hver &lt;n&gt; netværksbeskeder</translation>
+        <translation>Abandonner aléatoirement 1 sur &lt;n&gt; messages réseau</translation>
     </message>
     <message>
         <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
-        <translation>Slør tilfældigt 1 ud af hver &lt;n&gt; netværksbeskeder</translation>
+        <translation>Fuzz aléatoirement 1 sur &lt;n&gt; messages réseau</translation>
     </message>
     <message>
         <source>Reddcoin Core Daemon</source>
-        <translation>Reddcoin Core-tjeneste</translation>
+        <translation>Reddcoin Core Daemon</translation>
     </message>
     <message>
         <source>Reddcoin Core RPC client version</source>
-        <translation>Reddcoin Core RPC klientversion</translation>
+        <translation>Version du client RPC Reddcoin Core</translation>
     </message>
     <message>
         <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation>Kør en tråd for at rydde tegnebog periodisk (standard: 1)</translation>
+        <translation>Faire fonctionner un fil pour vider le protefeuille périodiquement (par défaut : 1)</translation>
     </message>
     <message>
         <source>SSL options: (see the Reddcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL-indstillinger: (se Reddcoin Wiki for SSL-opsætningsinstruktioner)</translation>
+        <translation>Options SSL : (voir le wiki Reddcoin pour les instructions de paramétrage pour SSL)</translation>
     </message>
     <message>
         <source>Send command to Reddcoin Core</source>
-        <translation>Send kommando til Reddcoin Core</translation>
+        <translation>Envoyer une commande à Reddcoin Core</translation>
     </message>
     <message>
         <source>Send command to reddcoin Core</source>
-        <translation>Send kommando til reddcoin Core</translation>
+        <translation>Envoyer la commande à Reddcoin Core</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation>Send sporings-/fejlsøgningsinformation til konsollen i stedet for debug.log filen</translation>
+        <translation>Envoyer l'information trace/debogue à la console au lieu du fichier debug.log</translation>
     </message>
     <message>
         <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Angiv minimumsblokstørrelse i bytes (standard: 0)</translation>
+        <translation>Paramétrrer la taille minimum du bloc en octet (par défaut : 0)</translation>
     </message>
     <message>
         <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
-        <translation>Sætter DB_PRIVATE-flaget i tegnebogens db-miljø (standard: 1)</translation>
+        <translation>Paramétrer l'alerte DB_PRIVATE dans l'environnement db du portefeuille (par défaut : 1)</translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation>Vis alle tilvalg for fejlsøgning (brug: --help -help-debug)</translation>
+        <translation>Afficher toutes les options de déboguage (utilisation : --help -help-debug)</translation>
     </message>
     <message>
         <source>Show benchmark information (default: 0)</source>
-        <translation>Vis information om ydelsesmåling (standard: 0)</translation>
+        <translation>Afficher les information du benchmark (par défaut : 0)</translation>
     </message>
     <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>Formindsk debug.log filen ved klientopstart (standard: 1 hvis ikke -debug)</translation>
+        <translation>Réduire le fichier debug.log au démarrage du client (par défaut : 1 lrosque no -debug)</translation>
     </message>
     <message>
         <source>Signing transaction failed</source>
-        <translation>Underskrift af transaktion mislykkedes</translation>
+        <translation>La signature de la transaction a échoué</translation>
     </message>
     <message>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Angiv tilslutningstimeout i millisekunder (standard: 5000)</translation>
+        <translation>Spécifier la limite de temps de connexion en millisecondes (par défaut : 5000)</translation>
     </message>
     <message>
         <source>Start Reddcoin Core Daemon</source>
-        <translation>Start Reddcoin Core-tjeneste</translation>
+        <translation>Démarrer Reddcoin Core Daemon</translation>
     </message>
     <message>
         <source>System error: </source>
-        <translation>Systemfejl:</translation>
+        <translation>Erreur Sytème :</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
-        <translation>Transaktionsbeløb er for lavt</translation>
+        <translation>Montant de la transaction trop petit</translation>
     </message>
     <message>
         <source>Transaction amounts must be positive</source>
-        <translation>Transaktionsbeløb skal være positive</translation>
+        <translation>Les montants de transaction doivent être positifs</translation>
     </message>
     <message>
         <source>Transaction too large</source>
-        <translation>Transaktionen er for stor</translation>
+        <translation>Transaction trop grande</translation>
     </message>
     <message>
         <source>Usage (deprecated, use reddcoin-cli):</source>
-        <translation>Brug (forældet, brug reddcoin-cli):</translation>
+        <translation>Utilisation (obsolète, utilisez reddcoin-cli):</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation>Brug UPnP for at konfigurere den lyttende port (standard: 0)</translation>
+        <translation>Utiliser UPnP pour cartographier le port d'écoute (par défaut : 0)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
-        <translation>Brug UPnP for at konfigurere den lyttende port (standard: 1 under lytning)</translation>
+        <translation>Utiliser UPnP pour cartographier le port d'écoute (par défaut : 1 lorsque listening)</translation>
     </message>
     <message>
         <source>Username for JSON-RPC connections</source>
-        <translation>Brugernavn til JSON-RPC-forbindelser</translation>
+        <translation>Nom d'utilisateur pour les connexions JSON-RPC</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Advarsel</translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
-        <translation>Advarsel: Denne version er forældet, opgradering påkrævet!</translation>
+        <translation>Avertissement : cette version est obsolète, une mise à niveau est nécessaire !</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
-        <translation>Zapper alle transaktioner fra tegnebog…</translation>
+        <translation>Effacement de toutes les transactions du portefeuille...</translation>
     </message>
     <message>
         <source>on startup</source>
-        <translation>under opstart</translation>
+        <translation>au démarrage</translation>
     </message>
     <message>
         <source>version</source>
@@ -3252,151 +3327,151 @@ for example: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
     </message>
     <message>
         <source>wallet.dat corrupt, salvage failed</source>
-        <translation>wallet.dat ødelagt, redning af data mislykkedes</translation>
+        <translation>fichier wallet.dat corrompu, récupération échouée</translation>
     </message>
     <message>
         <source>Password for JSON-RPC connections</source>
-        <translation>Adgangskode til JSON-RPC-forbindelser</translation>
+        <translation>Mot de passe pour les connexions JSON-RPC</translation>
     </message>
     <message>
         <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Tillad JSON-RPC-forbindelser fra bestemt IP-adresse</translation>
+        <translation>Autoriser des adresses IP spécifiques pour les connexions JSON-RPC</translation>
     </message>
     <message>
         <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Send kommandoer til knude, der kører på &lt;ip&gt; (standard: 127.0.0.1)</translation>
+        <translation>Envoyer des commandes au nœud fonctionnant sur &lt;ip&gt; (par défaut : 127.0.0.1)</translation>
     </message>
     <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>Udfør kommando, når den bedste blok ændres (%s i kommandoen erstattes med blokhash)</translation>
+        <translation>Exécuter la commande lorsque le meilleur bloc change (%s dans cmd est remplacé par le hachage du bloc)</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
-        <translation>Opgradér tegnebog til seneste format</translation>
+        <translation>Mettre à niveau le portefeuille vers le format le plus récent</translation>
     </message>
     <message>
         <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Sæt nøglepuljestørrelse til &lt;n&gt; (standard: 100)</translation>
+        <translation>Régler la taille de la réserve de clefs sur &lt;n&gt; (par défaut : 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Genindlæs blokkæden efter manglende tegnebogstransaktioner</translation>
+        <translation>Réanalyser la chaîne de blocs pour les transactions de portefeuille manquantes</translation>
     </message>
     <message>
         <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Brug OpenSSL (https) for JSON-RPC-forbindelser</translation>
+        <translation>Utiliser OpenSSL (https) pour les connexions JSON-RPC</translation>
     </message>
     <message>
         <source>Server certificate file (default: server.cert)</source>
-        <translation>Servercertifikat-fil (standard: server.cert)</translation>
+        <translation>Fichier de certificat de serveur (par défaut : server.cert)</translation>
     </message>
     <message>
         <source>Server private key (default: server.pem)</source>
-        <translation>Serverens private nøgle (standard: server.pem)</translation>
+        <translation>Clef privée du serveur (par défaut : server.perm)</translation>
     </message>
     <message>
         <source>This help message</source>
-        <translation>Denne hjælpebesked</translation>
+        <translation>ce message d'aide</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>Tillad DNS-opslag for -addnode, -seednode og -connect</translation>
+        <translation>Autoriser les recherches DNS pour -addnode, -seednode et -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
-        <translation>Indlæser adresser…</translation>
+        <translation>Chargement des adresses...</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
-        <translation>Fejl ved indlæsning af wallet.dat: Tegnebog ødelagt</translation>
+        <translation>Erreur lors du chargement de wallet.dat : portefeuille corrompu</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet requires newer version of Reddcoin</source>
-        <translation>Fejl ved indlæsning af wallet.dat: Tegnebog kræver en nyere version af Reddcoin </translation>
+        <translation>Erreur lors du chargement de wallet.dat : le portefeuille nécessite une version plus récente de Reddcoin</translation>
     </message>
     <message>
         <source>Wallet needed to be rewritten: restart Reddcoin to complete</source>
-        <translation>Det var nødvendigt at genskrive tegnebogen: genstart Reddcoin for at gennemføre</translation>
+        <translation>Le portefeuille nécessitait une réécriture : veuillez redémarrer Reddcoin pour terminer l'opération</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
-        <translation>Fejl ved indlæsning af wallet.dat</translation>
+        <translation>Erreur lors du chargement de wallet.dat</translation>
     </message>
     <message>
         <source>Invalid -proxy address: '%s'</source>
-        <translation>Ugyldig -proxy adresse: "%s"</translation>
+        <translation>Adresse -proxy invalide : '%s'</translation>
     </message>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
-        <translation>Ukendt netværk anført i -onlynet: "%s"</translation>
+        <translation>Réseau non spécifié inconnu à -onlynet : '%s'</translation>
     </message>
     <message>
         <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Ukendt -socks proxy-version: %i</translation>
+        <translation>Version inconnue de serveur mandataire -socks demandée : %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>
-        <translation>Kan ikke finde -bind adressen: "%s"</translation>
+        <translation>Ne peut trouver l'adresse de -bind : '%s'</translation>
     </message>
     <message>
         <source>Cannot resolve -externalip address: '%s'</source>
-        <translation>Kan ikke finde -externalip adressen: "%s"</translation>
+        <translation>Ne peut trouver l'adresse -externalip : '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ugyldigt beløb for -paytxfee=&lt;beløb&gt;: "%s"</translation>
+        <translation>Montant invalide pour -paytxfee=&lt;amount&gt; : '%s'</translation>
     </message>
     <message>
         <source>Invalid amount</source>
-        <translation>Ugyldigt beløb</translation>
+        <translation>Montant invalide</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Manglende dækning</translation>
+        <translation>Fonds insuffisants</translation>
     </message>
     <message>
         <source>Loading block index...</source>
-        <translation>Indlæser blokindeks…</translation>
+        <translation>Chargement de l'index du bloc...</translation>
     </message>
     <message>
         <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Tilføj en knude til at forbinde til og forsøg at holde forbindelsen åben</translation>
+        <translation>Ajouter un noeud auquel se connecter et tenter de garder la connexion ouverte</translation>
     </message>
     <message>
         <source>Loading wallet...</source>
-        <translation>Indlæser tegnebog…</translation>
+        <translation>Chargement du portefeuille…</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
-        <translation>Kan ikke nedgradere tegnebog</translation>
+        <translation>Impossible de revenir à une version antérieure du portefeuille</translation>
     </message>
     <message>
         <source>Cannot write default address</source>
-        <translation>Kan ikke skrive standardadresse</translation>
+        <translation>Ne peut écrire l'adresse par défaut</translation>
     </message>
     <message>
         <source>Rescanning...</source>
-        <translation>Genindlæser…</translation>
+        <translation>Nouvelle recherche...</translation>
     </message>
     <message>
         <source>Done loading</source>
-        <translation>Indlæsning gennemført</translation>
+        <translation>Chargement terminé</translation>
     </message>
     <message>
         <source>To use the %s option</source>
-        <translation>For at bruge %s mulighed</translation>
+        <translation>Pour utiliser l'option %s</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Fejl</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
 %s
 If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>Du skal angive rpcpassword=&lt;password&gt; i konfigurationsfilen:
+        <translation>Vous devez paramétrer rpcpassword=&lt;password&gt; dans le fichier de configuration :
 %s
-Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettighed.</translation>
+Si le fichier n'existe pas, créez le avec des autorisations en lecture seule.</translation>
     </message>
 </context>
 </TS>
