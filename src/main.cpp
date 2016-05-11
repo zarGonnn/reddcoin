@@ -1493,8 +1493,8 @@ bool IsInitialBlockDownload()
         pindexLastBest = chainActive.Tip();
         nLastUpdate = GetTime();
     }
-    return (GetTime() - nLastUpdate < 10 &&
-            chainActive.Tip()->GetBlockTime() < GetTime() - 24 * 60 * 60);
+    return (GetTime() - nLastUpdate < 15 &&
+            chainActive.Tip()->GetBlockTime() < GetTime() - 8 * 60 * 60);
 }
 
 bool fLargeWorkForkFound = false;

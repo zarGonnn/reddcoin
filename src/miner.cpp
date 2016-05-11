@@ -555,8 +555,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return error("CheckStake() : proof-of-stake checking failed");
 
     //// debug print
-    LogPrintf("ReddcoinStaker:\n");
-    LogPrintf("proof-of-stake found  \n  hash: %s\n  stake: %s\n  target: %s\n", hash.GetHex(), hashStake.GetHex(), hashTarget.GetHex());
+    LogPrintf("ReddcoinStaker: proof-of-stake found  \n  hash: %s\n  stake: %s\n  target: %s\n", hash.GetHex(), hashStake.GetHex(), hashTarget.GetHex());
     pblock->print();
     LogPrintf("minted %s\n", FormatMoney(pblock->vtx[1].GetValueOut()));
 
@@ -603,6 +602,13 @@ void ReddcoinStaker(CWallet *pwallet)
                 nLastCoinStakeSearchInterval = 0;
                 MilliSleep(1000);
             }
+        }
+
+        while (IsInitialBlockDownload()) 
+        {
+            // Busy-wait for the download of the blockchain to complete
+            LogPrintf("ReddcoinStaker : Waiting... Blockchain Downloading.\n");
+            MilliSleep(60000);
         }
 
         while (pwallet->IsLocked())
