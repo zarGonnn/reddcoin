@@ -1641,7 +1641,7 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
             {
                 // Found a kernel
                 if (fDebug && GetBoolArg("-printcoinstake", false))
-                    printf("CreateCoinStake : kernel found\n");
+                   LogPrintf("CreateCoinStake : kernel found\n");
                 vector<valtype> vSolutions;
                 txnouttype whichType;
                 CScript scriptPubKeyOut;
@@ -1649,15 +1649,15 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
                 if (!Solver(scriptPubKeyKernel, whichType, vSolutions))
                 {
                     if (fDebug && GetBoolArg("-printcoinstake", false))
-                        printf("CreateCoinStake : failed to parse kernel\n");
+                       LogPrintf("CreateCoinStake : failed to parse kernel\n");
                     break;
                 }
                 if (fDebug && GetBoolArg("-printcoinstake", false))
-                    printf("CreateCoinStake : parsed kernel type=%d\n", whichType);
+                   LogPrintf("CreateCoinStake : parsed kernel type=%d\n", whichType);
                 if (whichType != TX_PUBKEY && whichType != TX_PUBKEYHASH)
                 {
                     if (fDebug && GetBoolArg("-printcoinstake", false))
-                        printf("CreateCoinStake : no support for kernel type=%d\n", whichType);
+                       LogPrintf("CreateCoinStake : no support for kernel type=%d\n", whichType);
                     break;  // only support pay to public key and pay to address
                 }
                 if (whichType == TX_PUBKEYHASH) // pay to address type
@@ -1666,7 +1666,7 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
                     if (!GetKey(uint160(vSolutions[0]), key))
                     {
                         if (fDebug && GetBoolArg("-printcoinstake", false))
-                            printf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
+                           LogPrintf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
                         break;  // unable to find corresponding public key
                     }
                     scriptPubKeyOut << key.GetPubKey() << OP_CHECKSIG;
@@ -1677,13 +1677,13 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
                     if (!GetKey(Hash160(vchPubKey), key))
                     {
                         if (fDebug && GetBoolArg("-printcoinstake", false))
-                            printf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
+                           LogPrintf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
                         break;  // unable to find corresponding public key
                     }
                     if (key.GetPubKey() != vchPubKey)
                     {
                         if (fDebug && GetBoolArg("-printcoinstake", false))
-                            printf("CreateCoinStake : invalid key for kernel type=%d\n", whichType);
+                           LogPrintf("CreateCoinStake : invalid key for kernel type=%d\n", whichType);
                         break; // keys mismatch
                     }
                     scriptPubKeyOut = scriptPubKeyKernel;
@@ -1698,7 +1698,7 @@ bool CWallet::CreateCoinStake(unsigned int nBits, int64_t nSearchInterval, int64
                 if (GetCoinAgeWeight(block.GetBlockTime(), (int64_t)txNew.nTime) < nStakeSplitAge && nCredit >= nStakeCombineThreshold)
                     txNew.vout.push_back(CTxOut(0, scriptPubKeyOut)); //split stake
                 if (fDebug && GetBoolArg("-printcoinstake", false))
-                    printf("CreateCoinStake : added kernel type=%d\n", whichType);
+                   LogPrintf("CreateCoinStake : added kernel type=%d\n", whichType);
                 fKernelFound = true;
                 break;
             }
@@ -1911,7 +1911,7 @@ string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNe
     if (fWalletUnlockStakingOnly)
     {
         strError = _("Error: Wallet unlocked for staking only, unable to create transaction.");
-        printf("SendMoney() : %s", strError.c_str());
+       LogPrintf("SendMoney() : %s", strError.c_str());
         return strError;
     }
     if (!CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired, strError))
