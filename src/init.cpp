@@ -611,7 +611,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (mapArgs.count("-reservebalance")) // PoSV: reserve balance amount
     {
         if (!ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
-            return InitError(_("Invalid amount for -reservebalance=<amount>"));
+            return InitError(strprintf(_("Invalid amount for -reservebalance=<amount>: '%s'"), mapArgs["-paytxfee"]));
     }
 #endif
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log

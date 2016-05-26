@@ -68,7 +68,7 @@ Syncing with Transifex
 
 We are using https://transifex.com as a frontend for translating the client.
 
-https://www.transifex.com/projects/p/bitcoin/resource/tx/
+https://www.transifex.com/reddcoin/reddcoin/qt-translation-v20/
 
 The "Transifex client" (see: http://support.transifex.com/customer/portal/topics/440187-transifex-client/articles)
 is used to fetch new translations from Transifex. The configuration for this client (`.tx/config`)
@@ -81,7 +81,7 @@ postprocessing steps before committing the translations.
 
 1. `python contrib/devtools/update-translations.py`
 2. update `src/qt/bitcoin.qrc` manually or via
-   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(bitcoin_\(.*\)\).ts/<file alias="\2">locale\/\1.qm<\/file>/'`
+   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(bitcoin_\(.*\)\).ts/        <file alias="\2">locale\/\1.qm<\/file>/' > bitcoin.qrc.txt`
 3. update `src/qt/Makefile.am` manually or via
-   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(bitcoin_\(.*\)\).ts/  locale\/\1.ts \\/'`
+   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(bitcoin_\(.*\)\).ts/  locale\/\1.ts \\/' > Makefile.am.txt`
 4. `git add` new translations from `src/qt/locale/`
