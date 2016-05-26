@@ -2796,7 +2796,6 @@ bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, uns
             ++nFound;
         pstart = pstart->pprev;
     }
-    LogPrintf("Select SuperMajority BestChain: %d of last %d blocks equal or above version %d\n", nFound, nToCheck, (int)CBlock::CURRENT_VERSION);
     return (nFound >= nRequired);
 }
 
