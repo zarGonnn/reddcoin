@@ -1286,6 +1286,10 @@ Address: %4
         <translation>Ставка:</translation>
     </message>
     <message>
+        <source>Total of coins that were staked and do not yet count toward the current balance</source>
+        <translation>Общее количество монет, которые были добыты и пока не учитываются текущим балансом</translation>
+    </message>
+    <message>
         <source>Pending:</source>
         <translation>В ожидании:</translation>
     </message>
@@ -2037,6 +2041,10 @@ Address: %4
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Вы можете подписывать сообщения своими адресами, чтобы доказать владение ими. Будьте осторожны, не подписывайте что-то неопределённое, так как фишинговые атаки могут обманным путём заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
+    </message>
+    <message>
+        <source>The Reddcoin address to sign the message with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Подписать сообщение с адресом Reddcoin (например, RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>

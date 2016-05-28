@@ -747,7 +747,7 @@ Endereço: %4
     </message>
     <message>
         <source>Copy change</source>
-        <translation>Copiar troco</translation>
+        <translation>Copiar Alteração</translation>
     </message>
     <message>
         <source>highest</source>
@@ -1816,7 +1816,7 @@ Endereço: %4
     </message>
     <message>
         <source>Custom change address</source>
-        <translation>Endereço normal de trocos</translation>
+        <translation>Mudança de endereço personalizada</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
