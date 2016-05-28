@@ -1,4 +1,4 @@
-<TS language="et" version="2.1">
+<TS language="ro" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>

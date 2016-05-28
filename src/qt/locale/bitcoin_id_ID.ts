@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Bitcoin Core</source>
-        <translation>Mengenai Bitcoin Core</translation>
+        <source>About Reddcoin Core</source>
+        <translation>Mengenai Reddcoin Core</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Bitcoin Core&lt;/b&gt; version</source>
-        <translation>versi &lt;b&gt;Bitcoin Core&lt;/b&gt;</translation>
+        <source>&lt;b&gt;Reddcoin Core&lt;/b&gt; version</source>
+        <translation>versi &lt;b&gt;Reddcoin Core&lt;/b&gt;</translation>
     </message>
     <message>
         <source>
@@ -17,21 +17,25 @@ Distributed under the MIT/X11 software license, see the accompanying file COPYIN
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation>
-Software ini adalah yang bersifat percobaan.
+ Software ini adalah yang bersifat percobaan.
 
-Dibagikan dengan izin software MIT/X11, bacalah arsip COPYING atau  http://www.opensource.org/licenses/mit-license.php.
+ Dibagikan dengan izin software MIT/X11, bacalah arsip COPYING atau http://www.opensource.org/licenses/mit-license.php.
 
-Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit OpenSSL (http://www.openssl.org/) dan software kriptografi dibangun oleh Eric Young (eay@cryptsoft.com) dan software UPnP dibangun oleh Thomas Bernard.</translation>
+ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit OpenSSL (http://www.openssl.org/) dan software kriptografi dibangun oleh Eric Young (eay@cryptsoft.com) dan software UPnP dibangun oleh Thomas Bernard.</translation>
     </message>
     <message>
         <source>Copyright</source>
-        <translation>Copyright</translation>
+        <translation>Hak cipta</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Pembangun Bitcoin Core</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Pembangun Reddcoin Core</translation>
     </message>
-    </context>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+</context>
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -80,7 +84,7 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Pilihlah alamat kemana koin Anda akan dikirim </translation>
+        <translation>Pilihlah alamat kemana koin Anda akan dikirim</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
@@ -99,11 +103,11 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Alamat-alamat menerima</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Alamat-alamat Anda supaya mengirim pembayaran. Periksalah jumlah dan alamat penerima setiap kali Anda mengirim Bitcoin.</translation>
+        <source>These are your Reddcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Alamat-alamat Anda supaya mengirim pembayaran. Periksalah jumlah dan alamat penerima setiap kali Anda mengirim Reddcoin.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Reddcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Alamat-alamat Anda supaya menerima pembayaran. Dianjurkan agar Anda menggunakan alamat menerima yang baru untuk setiap transaksi.</translation>
     </message>
     <message>
@@ -201,12 +205,16 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Konfirmasi enkripsi dompet</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>Perhatian: Jika anda mengenkripsi dompet anda dan lupa kata kuncinya, anda pasti &lt;b&gt;KEHILANGAN SELURUH BITCOIN ANDA&lt;/B&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR REDDCOINS&lt;/b&gt;!</source>
+        <translation>Perhatian: Jika anda mengenkripsi dompet anda dan lupa kata kuncinya, anda pasti &lt;b&gt;KEHILANGAN SELURUH REDDCOIN ANDA&lt;/B&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Apakah kamu yakin ingin mengenkripsi dompet anda?</translation>
+    </message>
+    <message>
+        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
+        <translation>PENTING: Setiap back up yang sudah Anda buat sebaiknya diganti dengan data dompet Anda yang baru dan terenkripsi. Untuk alasan keamanan, data back up tidak terenkripsi yang sudah Anda buat sebelumnya tidak akan dapat digunakan setelah Anda mulai menggunakan dompet yang baru dan terenkripsi.</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
@@ -217,8 +225,8 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Dompet terenkripsi</translation>
     </message>
     <message>
-        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Bitcoin akan menutup untuk menyelesaikan proses enkripsi. Ingat bahwa dengan mengenkripsi dompet Anda tidak sepenuhnya melindungi bitcoin Anda dari perangkat lunak berbahaya yang menginfeksi komputer Anda.</translation>
+        <source>Reddcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your reddcoins from being stolen by malware infecting your computer.</source>
+        <translation>Reddcoin akan menutup untuk menyelesaikan proses enkripsi. Ingat bahwa dengan mengenkripsi dompet Anda tidak sepenuhnya melindungi reddcoin Anda dari perangkat lunak berbahaya yang menginfeksi komputer Anda.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -272,6 +280,14 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Tampilkan kilasan umum dari dompet</translation>
     </message>
     <message>
+        <source>&amp;Request</source>
+        <translation>&amp;Permintaan</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and reddcoin: URIs)</source>
+        <translation>Permintaan pembayaran (membuat kode QR dan reddcoin: URIs)</translation>
+    </message>
+    <message>
         <source>&amp;Transactions</source>
         <translation>&amp;Transaksi</translation>
     </message>
@@ -288,8 +304,8 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Keluar dari aplikasi</translation>
     </message>
     <message>
-        <source>Show information about Bitcoin</source>
-        <translation>Tampilkan informasi mengenai Bitcoin</translation>
+        <source>Show information about Reddcoin</source>
+        <translation>Tampilkan informasi mengenai Reddcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -304,12 +320,32 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>&amp;Pilihan...</translation>
     </message>
     <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Enkripsi Dompet...</translation>
+    </message>
+    <message>
         <source>&amp;Backup Wallet...</source>
         <translation>&amp;Cadangkan Dompet...</translation>
     </message>
     <message>
         <source>&amp;Change Passphrase...</source>
         <translation>&amp;Ubah Kata Kunci...</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Buka dompet</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Buka dompet</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Kunci dompet</translation>
+    </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Kunci dompet</translation>
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
@@ -324,20 +360,28 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Buka &amp;URI</translation>
     </message>
     <message>
+        <source>Open a reddcoin: URI or payment request</source>
+        <translation>Buka URI reddcoin: atau permintaan pembayaran</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core client</source>
+        <translation>Klien Reddcoin Core</translation>
+    </message>
+    <message>
         <source>Importing blocks from disk...</source>
-        <translation>Blok-blok sedang di-impor dari disk</translation>
+        <translation>Mengimpor blok dari disk...</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
         <translation>Mengindex ulang block di harddisk...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Kirim koin ke alamat Bitcoin</translation>
+        <source>Send coins to a Reddcoin address</source>
+        <translation>Kirim koin ke alamat Reddcoin</translation>
     </message>
     <message>
-        <source>Modify configuration options for Bitcoin</source>
-        <translation>Ubah pilihan konfigurasi untuk Bitcoin</translation>
+        <source>Modify configuration options for Reddcoin</source>
+        <translation>Ubah pilihan konfigurasi untuk Reddcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -360,8 +404,8 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>&amp;Verifikasi pesan...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin</source>
+        <translation>Reddcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -370,10 +414,6 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
     <message>
         <source>&amp;Send</source>
         <translation>&amp;Kirim</translation>
-    </message>
-    <message>
-        <source>&amp;Receive</source>
-        <translation>&amp;Menerima</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -388,12 +428,12 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Mengenkripsi kunci-kunci pribadi yang dipunyai dompetmu</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Tandalah pesanan dengan alamat-alamat Bitcoin Anda supaya membuktikan pesanan itu dikirim oleh Anda</translation>
+        <source>Sign messages with your Reddcoin addresses to prove you own them</source>
+        <translation>Tandalah pesanan dengan alamat-alamat Reddcoin Anda supaya membuktikan pesanan itu dikirim oleh Anda</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Periksakan pesan-pesan supaya menjaminkan ditandatangani oleh alamat Bitcoin yang terperinci</translation>
+        <source>Verify messages to ensure they were signed with specified Reddcoin addresses</source>
+        <translation>Periksakan pesan-pesan supaya menjaminkan ditandatangani oleh alamat Reddcoin yang terperinci</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -416,15 +456,11 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Permintaan pembayaran (membangkitkan kode QR dan bitcoin: URIs)</translation>
-    </message>
-    <message>
-        <source>&amp;About Bitcoin Core</source>
+        <source>&amp;About Reddcoin Core</source>
         <translation>&amp;Mengenai Bitcoin Core</translation>
     </message>
     <message>
@@ -436,24 +472,16 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
         <translation>Tampilkan daftar alamat dan label yang diterima</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Buka URI bitcoin: atau permintaan pembayaran</translation>
-    </message>
-    <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;pilihan Perintah-baris</translation>
     </message>
     <message>
-        <source>Show the Bitcoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Tampilkan pesan bantuan Bitcoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi Bitcoin</translation>
-    </message>
-    <message>
-        <source>Bitcoin client</source>
-        <translation>Klien Bitcoin</translation>
+        <source>Show the Reddcoin Core help message to get a list with possible Reddcoin command-line options</source>
+        <translation>Tampilkan pesan bantuan Reddcoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi Reddcoin</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n hubungan aktif ke jaringan Bitcoin</numerusform></translation>
+        <source>%n active connection(s) to Reddcoin network</source>
+        <translation><numerusform>%n hubungan aktif ke jaringan Reddcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -493,7 +521,7 @@ Produk ini termasuk software yang dibangun oleh Proyek OpenSSL untuk Toolkit Ope
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
-        <translation>Transaksi setelah ini tidak akan ditampilkan</translation>
+        <translation>Transaksi setelah ini tidak akan ditampilkan.</translation>
     </message>
     <message>
         <source>Error</source>
@@ -544,8 +572,8 @@ Alamat: %4
         <translation>Dompet saat ini &lt;b&gt;terenkripsi&lt;/b&gt; dan &lt;b&gt;terkunci&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>Terjadi kesalahan fatal. Bitcoin tidak bisa lagi meneruskan dengan aman dan akan berhenti.</translation>
+        <source>A fatal error occurred. Reddcoin can no longer continue safely and will quit.</source>
+        <translation>Terjadi kesalahan fatal. Reddcoin tidak bisa lagi meneruskan dengan aman dan akan berhenti.</translation>
     </message>
 </context>
 <context>
@@ -619,7 +647,7 @@ Alamat: %4
     </message>
     <message>
         <source>Confirmations</source>
-        <translation>Konfirmasi-konfirmasi</translation>
+        <translation>Konfirmasi</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -647,7 +675,7 @@ Alamat: %4
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation>Kunci terpakai.</translation>
+        <translation>Kunci terpakai</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
@@ -829,8 +857,8 @@ Alamat: %4
         <translation>Alamat yang dimasukkan "%1" sudah ada di dalam buku alamat.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>Alamat yang dimasukkan "%1" bukan alamat Bitcoin yang benar.</translation>
+        <source>The entered address "%1" is not a valid Reddcoin address.</source>
+        <translation>Alamat yang dimasukkan "%1" bukan alamat Reddcoin yang benar.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -867,12 +895,12 @@ Alamat: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Bitcoin Core - Command-line options</source>
+        <source>Reddcoin Core - Command-line options</source>
         <translation>Bitcoin Core - pilihan Perintah-baris</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -899,6 +927,10 @@ Alamat: %4
         <translation>Memulai terminimalisi</translation>
     </message>
     <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Pilih sertifikat root SSL untuk permintaan pembayaran (standar: -system-)</translation>
+    </message>
+    <message>
         <source>Show splash screen on startup (default: 1)</source>
         <translation>Tampilkan layar pembuka saat nyala (standar: 1)</translation>
     </message>
@@ -910,20 +942,28 @@ Alamat: %4
         <translation>Selamat Datang</translation>
     </message>
     <message>
-        <source>Welcome to Bitcoin Core.</source>
-        <translation>Selamat Datang ke Bitcoin Core</translation>
+        <source>Welcome to Reddcoin Core.</source>
+        <translation>Selamat Datang ke Reddcoin Core</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where Reddcoin Core will store its data.</source>
+        <translation>Ini adalah pertama kali program ini dijalankan, Anda dapat memilih dimana Reddcoin Core menyimpan data.</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core will download and store a copy of the Reddcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Reddcoin Core akan mengunduh dan menyimpan salinan dari block chain Reddcoin. Setidaknya %1GB data akan disimpan di direktori ini, dan akan terus bertambah. Dompet Anda juga akan disimpan di direktori ini.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
-        <translation>Menggunakan direktori untuk data yang biasa.</translation>
+        <translation>Menggunakan direktori untuk data yang biasa</translation>
     </message>
     <message>
         <source>Use a custom data directory:</source>
         <translation>Menggunakan direktori data yang dipilih Anda:</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" can not be created.</source>
@@ -984,28 +1024,40 @@ Alamat: %4
         <translation>Bayar &amp;biaya transaksi</translation>
     </message>
     <message>
-        <source>Automatically start Bitcoin after logging in to the system.</source>
-        <translation>Menyalakan Bitcoin secara otomatis setelah masuk ke dalam sistem.</translation>
+        <source>Automatically start Reddcoin after logging in to the system.</source>
+        <translation>Menyalakan Reddcoin secara otomatis setelah masuk ke dalam sistem.</translation>
     </message>
     <message>
-        <source>&amp;Start Bitcoin on system login</source>
+        <source>&amp;Start Reddcoin on system login</source>
         <translation>&amp;Menyalakan Bitcoin pada login sistem</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Ukuran cache &amp;database</translation>
     </message>
     <message>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS proxy.</source>
+        <source>Number of script &amp;verification threads</source>
+        <translation>Jumlah script &amp;verification threads</translation>
+    </message>
+    <message>
+        <source>Connect to the Reddcoin network through a SOCKS proxy.</source>
         <translation>Menghubungkan jaringan Bitcoin lewat proxy SOCKS.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>&amp;Hubungkan melalui proxy SOCKS (proxy biasa):</translation>
+        <translation>&amp;Hubungkan melalui proxy SOCKS (standar proxy):</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
         <translation>Alamat IP proxy (cth. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>URL pihak ketika (misalnya sebuah block explorer) yang mumcul dalam tab transaksi sebagai konteks menu. %s dalam URL diganti dengan kode transaksi. URL dipisahkan dengan tanda vertikal |.</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
@@ -1013,11 +1065,11 @@ Alamat: %4
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
-        <translation>pilihan perintah-baris aktif menimpa atas pilihan-pilihan: </translation>
+        <translation>pilihan perintah-baris aktif menimpa atas pilihan-pilihan:</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
-        <translation>Reset setiap pilihan untuk pilihan biasa</translation>
+        <translation>Reset setiap pilihan untuk pilihan biasa.</translation>
     </message>
     <message>
         <source>&amp;Reset Options</source>
@@ -1026,6 +1078,10 @@ Alamat: %4
     <message>
         <source>&amp;Network</source>
         <translation>&amp;Jaringan</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0 = auto, &lt;0 = leave that many cores free)</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
@@ -1048,8 +1104,8 @@ Alamat: %4
         <translation>&amp;Perubahan saldo untuk transaksi yang belum dikonfirmasi</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Otomatis membuka port client Bitcoin di router. Hanya berjalan apabila router anda mendukung UPnP dan di-enable.</translation>
+        <source>Automatically open the Reddcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Otomatis membuka port client Reddcoin di router. Hanya berjalan apabila router anda mendukung UPnP dan di-enable.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1081,7 +1137,7 @@ Alamat: %4
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Hanya tampilkan ikon tray setelah meminilisasi jendela</translation>
+        <translation>Hanya tampilkan ikon tray setelah meminilisasi jendela.</translation>
     </message>
     <message>
         <source>&amp;Minimize to the tray instead of the taskbar</source>
@@ -1104,8 +1160,8 @@ Alamat: %4
         <translation>&amp;Bahasa Antarmuka Pengguna:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
-        <translation>Tampilan bahasa pengguna dapat diatur disini. Pengaturan ini akan berpengaruh setelah memulai kembali aplikasi Bitcoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Reddcoin.</source>
+        <translation>Tampilan bahasa pengguna dapat diatur disini. Pengaturan ini akan berpengaruh setelah memulai kembali aplikasi Reddcoin.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1116,8 +1172,8 @@ Alamat: %4
         <translation>Pilihan standar unit yang ingin ditampilkan pada layar aplikasi dan saat mengirim koin.</translation>
     </message>
     <message>
-        <source>Whether to show Bitcoin addresses in the transaction list or not.</source>
-        <translation>Apakah menampilkan alamat-alamat Bitcoin dalam daftar transaksi atau tidak.</translation>
+        <source>Whether to show Reddcoin addresses in the transaction list or not.</source>
+        <translation>Apakah menampilkan alamat-alamat Reddcoin dalam daftar transaksi atau tidak.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1157,7 +1213,7 @@ Alamat: %4
     </message>
     <message>
         <source>This change would require a client restart.</source>
-        <translation>Perubahan ini akan memerlukan restart klien</translation>
+        <translation>Perubahan ini akan memerlukan restart klien.</translation>
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
@@ -1171,7 +1227,7 @@ Alamat: %4
         <translation>Formulir</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Reddcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Informasi terlampir mungkin sudah kedaluwarsa. Dompet Anda secara otomatis mensinkronisasi dengan jaringan Bitcoin ketika sebuah hubungan terbentuk, namun proses ini belum selesai.</translation>
     </message>
     <message>
@@ -1226,8 +1282,8 @@ Alamat: %4
         <translation>Penanganan URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>URI tidak bisa dimengerti! Biasanya oleh karena alamat Bitcoin yang tidak sah atau persoalan tentang parameter-parameter URI.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Reddcoin address or malformed URI parameters.</source>
+        <translation>URI tidak bisa dimengerti! Biasanya oleh karena alamat Reddcoin yang tidak sah atau persoalan tentang parameter-parameter URI.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1265,8 +1321,8 @@ Alamat: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -1274,19 +1330,19 @@ Alamat: %4
     </message>
     <message>
         <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation>Kesalahan: Tidak dapat memproses pengaturan berkas: %1. Hanya menggunakan kunci= nilai sintak.</translation>
+        <translation>Gagal: Tidak dapat memproses pengaturan berkas: %1. Hanya menggunakan kunci= nilai sintak.</translation>
     </message>
     <message>
         <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Gagal: Gabungan -regtest dan -testnet salah</translation>
+        <translation>Gagal: Gabungan -regtest dan -testnet salah.</translation>
     </message>
     <message>
-        <source>Bitcoin Core didn't yet exit safely...</source>
-        <translation>Inti Bitcoin belum keluar dengan sempurna...</translation>
+        <source>Reddcoin Core didn't yet exit safely...</source>
+        <translation>Inti Reddcoin belum keluar dengan sempurna...</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Masukkan alamat Bitcoin (cth. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Masukkan alamat Bitcoin (cth. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
 </context>
 <context>
@@ -1363,10 +1419,6 @@ Alamat: %4
         <translation>Jumlah blok terkini</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>Perkiraan jumlah blok</translation>
-    </message>
-    <message>
         <source>Last block time</source>
         <translation>Waktu blok terakhir</translation>
     </message>
@@ -1380,7 +1432,7 @@ Alamat: %4
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation>Kemacetan &amp;Jaringan </translation>
+        <translation>Kemacetan &amp;Jaringan</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
@@ -1407,7 +1459,7 @@ Alamat: %4
         <translation>Berkas catatan debug</translation>
     </message>
     <message>
-        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Reddcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Buka berkas catatan debug Bitcoin dari direktori data sekarang. Hal ini dapat memakan waktu beberapa detik untuk berkas catatan yang besar.</translation>
     </message>
     <message>
@@ -1415,8 +1467,8 @@ Alamat: %4
         <translation>Bersihkan konsol</translation>
     </message>
     <message>
-        <source>Welcome to the Bitcoin RPC console.</source>
-        <translation>Selamat datang ke konsol RPC Bitcoin.</translation>
+        <source>Welcome to the Reddcoin RPC console.</source>
+        <translation>Selamat datang ke konsol RPC Reddcoin.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1537,28 +1589,8 @@ Alamat: %4
         <translation>Kode QR</translation>
     </message>
     <message>
-        <source>Copy &amp;URI</source>
-        <translation>Salin &amp;URI</translation>
-    </message>
-    <message>
-        <source>Copy &amp;Address</source>
-        <translation>Salin &amp;Alamat</translation>
-    </message>
-    <message>
         <source>&amp;Save Image...</source>
         <translation>&amp;Simpan Gambaran...</translation>
-    </message>
-    <message>
-        <source>Request payment to %1</source>
-        <translation>Minta pembayaran ke %1</translation>
-    </message>
-    <message>
-        <source>Payment information</source>
-        <translation>Informasi pembayaran</translation>
-    </message>
-    <message>
-        <source>URI</source>
-        <translation>URI</translation>
     </message>
     <message>
         <source>Address</source>
@@ -1572,19 +1604,7 @@ Alamat: %4
         <source>Label</source>
         <translation>Label</translation>
     </message>
-    <message>
-        <source>Message</source>
-        <translation>Pesan</translation>
-    </message>
-    <message>
-        <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation>Hasil URI terlalu panjang, coba kurangi label / pesan.</translation>
-    </message>
-    <message>
-        <source>Error encoding URI into QR Code.</source>
-        <translation>Gagal mengubah URI ke kode QR.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
@@ -1596,10 +1616,6 @@ Alamat: %4
         <translation>Label</translation>
     </message>
     <message>
-        <source>Message</source>
-        <translation>Pesan:</translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>Nilai</translation>
     </message>
@@ -1607,37 +1623,9 @@ Alamat: %4
         <source>(no label)</source>
         <translation>(tidak ada label)</translation>
     </message>
-    <message>
-        <source>(no message)</source>
-        <translation>(tidak ada pesan)</translation>
-    </message>
-    <message>
-        <source>(no amount)</source>
-        <translation>(tidak ada nilai)</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendCoinsDialog</name>
-    <message>
-        <source>Send Coins</source>
-        <translation>Kirim Koin</translation>
-    </message>
-    <message>
-        <source>Coin Control Features</source>
-        <translation>Cara Pengaturan Koin</translation>
-    </message>
-    <message>
-        <source>Inputs...</source>
-        <translation>Masukan...</translation>
-    </message>
-    <message>
-        <source>automatically selected</source>
-        <translation>Pemilihan otomatis</translation>
-    </message>
-    <message>
-        <source>Insufficient funds!</source>
-        <translation>Saldo tidak mencukupi!</translation>
-    </message>
     <message>
         <source>Quantity:</source>
         <translation>Kuantitas:</translation>
@@ -1671,44 +1659,8 @@ Alamat: %4
         <translation>Uang Kembali:</translation>
     </message>
     <message>
-        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
-        <translation>Jiki ini dipilih, tetapi alamat pengembalian uang kosong atau salah, uang kembali akan dikirim ke alamat yang baru dibuat.</translation>
-    </message>
-    <message>
-        <source>Custom change address</source>
-        <translation>Alamat uang kembali yang kustom</translation>
-    </message>
-    <message>
-        <source>Send to multiple recipients at once</source>
-        <translation>Kirim ke beberapa penerima sekaligus</translation>
-    </message>
-    <message>
-        <source>Add &amp;Recipient</source>
-        <translation>Tambahlah &amp;Penerima</translation>
-    </message>
-    <message>
         <source>Clear all fields of the form.</source>
         <translation>Hapus informasi dari form.</translation>
-    </message>
-    <message>
-        <source>Balance:</source>
-        <translation>Saldo:</translation>
-    </message>
-    <message>
-        <source>Confirm the send action</source>
-        <translation>Konfirmasi aksi pengiriman</translation>
-    </message>
-    <message>
-        <source>S&amp;end</source>
-        <translation>K&amp;irim</translation>
-    </message>
-    <message>
-        <source>Confirm send coins</source>
-        <translation>Konfirmasi pengiriman koin</translation>
-    </message>
-    <message>
-        <source>%1 to %2</source>
-        <translation>%1 ke %2</translation>
     </message>
     <message>
         <source>Copy quantity</source>
@@ -1743,280 +1695,36 @@ Alamat: %4
         <translation>Salin uang kembali</translation>
     </message>
     <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation>Jumlah Nilai %1 (= %2)</translation>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>atau</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Alamat penerima tidak sah, silakan periksa sekali lagi.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Nilai yang dibayar harus lebih besar dari 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Nilai melebihi saldo Anda.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Jumlah melebihi saldo Anda ketika biaya transaksi %1 ditambahkan.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Ditemukan alamat ganda, hanya dapat mengirim ke tiap alamat sekali per operasi pengiriman.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Gagal membuat transaksi!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Gagal: Transaksi ditolak. Ini mungkin terjadi jika beberapa dari koin dalam dompet Anda telah digunakan, seperti ketika Anda menggunakan salinan wallet.dat dan beberapa koin telah dibelanjakan dalam salinan tersebut tetapi disini tidak tertandai sebagai terpakai.</translation>
-    </message>
-    <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation>Awas: Alamat Bitcoin tidak sah</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>(tidak ada label)</translation>
     </message>
-    <message>
-        <source>Are you sure you want to send?</source>
-        <translation>Apakah Anda yakin ingin kirim?</translation>
-    </message>
-    <message>
-        <source>added as transaction fee</source>
-        <translation>ditambahkan sebagai biaya transaksi</translation>
-    </message>
-    <message>
-        <source>Payment request expired</source>
-        <translation>Permintaan pembayaran telah kadaluarsa</translation>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation>Alamat pembayaran salah %1</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendCoinsEntry</name>
-    <message>
-        <source>A&amp;mount:</source>
-        <translation>J&amp;umlah:</translation>
-    </message>
-    <message>
-        <source>Pay &amp;To:</source>
-        <translation>Kirim &amp;Ke:</translation>
-    </message>
-    <message>
-        <source>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Alamat pembayaran (cth. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation>Masukkan label bagi alamat ini untuk menambahkannya ke buku alamat Anda</translation>
-    </message>
     <message>
         <source>&amp;Label:</source>
         <translation>&amp;Label:</translation>
     </message>
-    <message>
-        <source>Choose previously used address</source>
-        <translation>Pilih alamat yang telah digunakan sebelumnya</translation>
-    </message>
-    <message>
-        <source>This is a normal payment.</source>
-        <translation>Ini adalah pembayaran normal</translation>
-    </message>
-    <message>
-        <source>Alt+A</source>
-        <translation>Alt+J</translation>
-    </message>
-    <message>
-        <source>Paste address from clipboard</source>
-        <translation>Tempel alamat dari salinan</translation>
-    </message>
-    <message>
-        <source>Alt+P</source>
-        <translation>Alt+B</translation>
-    </message>
-    <message>
-        <source>Remove this entry</source>
-        <translation>Hapus masukan ini</translation>
-    </message>
-    <message>
-        <source>Message:</source>
-        <translation>Pesan:</translation>
-    </message>
-    <message>
-        <source>This is a verified payment request.</source>
-        <translation>Permintaan pembayaran terverifikasi.</translation>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to the list of used addresses</source>
-        <translation>Masukkan label untuk alamat ini untuk dimasukan dalam daftar alamat yang pernah digunakan</translation>
-    </message>
-    <message>
-        <source>This is an unverified payment request.</source>
-        <translation>Permintaan pembayaran tidak terverifikasi.</translation>
-    </message>
-    <message>
-        <source>Pay To:</source>
-        <translation>Kirim Ke:</translation>
-    </message>
-    <message>
-        <source>Memo:</source>
-        <translation>Catatan Peringatan:</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>ShutdownWindow</name>
-    <message>
-        <source>Bitcoin Core is shutting down...</source>
-        <translation>Bitcoin Core sementara dimatikan...</translation>
-    </message>
-    <message>
-        <source>Do not shut down the computer until this window disappears.</source>
-        <translation>Kamu tidak dapat mematikan komputer sebelum jendela ini tertutup sendiri.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>Signatures - Sign / Verify a Message</source>
-        <translation>Tanda Tangan / Verifikasi sebuah Pesan</translation>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Masukkan alamat Bitcoin (cth. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
-    <message>
-        <source>&amp;Sign Message</source>
-        <translation>&amp;Tandakan Pesan</translation>
-    </message>
-    <message>
-        <source>The address to sign the message with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Alamat yang akan ditandai pesan (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
-        <source>Choose previously used address</source>
-        <translation>Pilih alamat yang telah digunakan sebelumnya</translation>
-    </message>
-    <message>
-        <source>Alt+A</source>
-        <translation>Alt+A</translation>
-    </message>
-    <message>
-        <source>Paste address from clipboard</source>
-        <translation>Tempel alamat dari salinan</translation>
-    </message>
-    <message>
-        <source>Alt+P</source>
-        <translation>Alt+B</translation>
-    </message>
-    <message>
-        <source>Enter the message you want to sign here</source>
-        <translation>Masukan pesan yang ingin ditandai disini</translation>
-    </message>
-    <message>
-        <source>Signature</source>
-        <translation>Tanda Tangan</translation>
-    </message>
-    <message>
-        <source>Copy the current signature to the system clipboard</source>
-        <translation>Salin tanda tangan terpilih ke sistem klipboard</translation>
-    </message>
-    <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Tandai pesan untuk menyetujui kamu pemiliki alamat Bitcoin ini</translation>
-    </message>
-    <message>
-        <source>Sign &amp;Message</source>
-        <translation>Tandakan &amp;Pesan</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Hapus semua bidang penanda pesan</translation>
-    </message>
-    <message>
-        <source>&amp;Verify Message</source>
-        <translation>&amp;Verifikasi Pesan</translation>
-    </message>
-    <message>
-        <source>Verify &amp;Message</source>
-        <translation>Verifikasi &amp;Pesan</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>Hapus semua bidang verifikasi pesan</translation>
-    </message>
-    <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Masukkan alamat Bitcoin (cth. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
-        <source>Click "Sign Message" to generate signature</source>
-        <translation>Tekan "Tandatangan Pesan" untuk menghasilan tanda tangan</translation>
-    </message>
-    <message>
-        <source>The entered address is invalid.</source>
-        <translation>Alamat yang dimasukkan tidak sesuai.</translation>
-    </message>
-    <message>
-        <source>Please check the address and try again.</source>
-        <translation>Silahkan periksa alamat dan coba lagi.</translation>
-    </message>
-    <message>
-        <source>The entered address does not refer to a key.</source>
-        <translation>Alamat itu tidak menghubungkan kunci.</translation>
-    </message>
-    <message>
-        <source>Wallet unlock was cancelled.</source>
-        <translation>Membuka kunci dompet dibatalkan.</translation>
-    </message>
-    <message>
-        <source>Private key for the entered address is not available.</source>
-        <translation>Kunci pribadi untuk alamat itu tidak tersedia.</translation>
-    </message>
-    <message>
-        <source>Message signing failed.</source>
-        <translation>Menandai pesan gagal.</translation>
-    </message>
-    <message>
-        <source>Message signed.</source>
-        <translation>Pesan ditandai.</translation>
-    </message>
-    <message>
-        <source>The signature could not be decoded.</source>
-        <translation>Tanda tangan tidak bisa diterjemahkan.</translation>
-    </message>
-    <message>
-        <source>Please check the signature and try again.</source>
-        <translation>Mohon periksa tanda tangan dan coba kembali</translation>
-    </message>
-    <message>
-        <source>The signature did not match the message digest.</source>
-        <translation>Tanda tangan tidak cocok dengan intisari pesan.</translation>
-    </message>
-    <message>
-        <source>Message verification failed.</source>
-        <translation>Verifikasi pesan gagal.</translation>
-    </message>
-    <message>
-        <source>Message verified.</source>
-        <translation>Pesan terverifikasi.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Pembangun Bitcoin Core</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Pembangun Reddcoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2025,166 +1733,26 @@ Alamat: %4
 </context>
 <context>
     <name>TrafficGraphWidget</name>
-    <message>
-        <source>KB/s</source>
-        <translation>KB/s</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>TransactionDesc</name>
     <message>
-        <source>Open until %1</source>
-        <translation>Buka hingga %1</translation>
-    </message>
-    <message>
-        <source>conflicted</source>
-        <translation>Terkonflik</translation>
-    </message>
-    <message>
-        <source>%1/offline</source>
-        <translation>%1/tidak terhubung</translation>
-    </message>
-    <message>
-        <source>%1/unconfirmed</source>
-        <translation>%1/belum dikonfirmasi</translation>
-    </message>
-    <message>
-        <source>%1 confirmations</source>
-        <translation>%1 konfirmasi</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Status</translation>
-    </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>kirim lewat %n node</numerusform></translation>
-    </message>
-    <message>
         <source>Date</source>
         <translation>Tanggal</translation>
-    </message>
-    <message>
-        <source>Source</source>
-        <translation>Sumber</translation>
-    </message>
-    <message>
-        <source>Generated</source>
-        <translation>Dibuat</translation>
-    </message>
-    <message>
-        <source>From</source>
-        <translation>Dari</translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation>Untuk</translation>
-    </message>
-    <message>
-        <source>own address</source>
-        <translation>Alamat saya sendiri</translation>
-    </message>
-    <message>
-        <source>label</source>
-        <translation>label</translation>
-    </message>
-    <message>
-        <source>Credit</source>
-        <translation>Kredit</translation>
-    </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation><numerusform>cukup tua sesudah %n blok lagi</numerusform></translation>
-    </message>
-    <message>
-        <source>not accepted</source>
-        <translation>tidak diterima</translation>
-    </message>
-    <message>
-        <source>Debit</source>
-        <translation>Debet</translation>
-    </message>
-    <message>
-        <source>Transaction fee</source>
-        <translation>Biaya Transaksi</translation>
-    </message>
-    <message>
-        <source>Net amount</source>
-        <translation>Nilai bersih</translation>
-    </message>
-    <message>
-        <source>Message</source>
-        <translation>Pesan:</translation>
-    </message>
-    <message>
-        <source>Comment</source>
-        <translation>Komentar</translation>
-    </message>
-    <message>
-        <source>Transaction ID</source>
-        <translation>ID Transaksi</translation>
-    </message>
-    <message>
-        <source>Merchant</source>
-        <translation>Pedagang</translation>
-    </message>
-    <message>
-        <source>Debug information</source>
-        <translation>Informasi debug</translation>
-    </message>
-    <message>
-        <source>Transaction</source>
-        <translation>Transaksi</translation>
-    </message>
-    <message>
-        <source>Inputs</source>
-        <translation>Masukan</translation>
     </message>
     <message>
         <source>Amount</source>
         <translation>Nilai</translation>
     </message>
-    <message>
-        <source>true</source>
-        <translation>benar</translation>
-    </message>
-    <message>
-        <source>false</source>
-        <translation>salah</translation>
-    </message>
-    <message>
-        <source>, has not been successfully broadcast yet</source>
-        <translation>, belum berhasil disiarkan</translation>
-    </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Buka untuk %n blok lagi</numerusform></translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>tidak diketahui</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>TransactionDescDialog</name>
-    <message>
-        <source>Transaction details</source>
-        <translation>Rincian transaksi</translation>
-    </message>
-    <message>
-        <source>This pane shows a detailed description of the transaction</source>
-        <translation>Jendela ini menampilkan deskripsi rinci dari transaksi tersebut</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>TransactionTableModel</name>
     <message>
         <source>Date</source>
         <translation>Tanggal</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Jenis</translation>
     </message>
     <message>
         <source>Address</source>
@@ -2194,149 +1762,9 @@ Alamat: %4
         <source>Amount</source>
         <translation>Nilai</translation>
     </message>
-    <message>
-        <source>Immature (%1 confirmations, will be available after %2)</source>
-        <translation>Terlalu muda (cuma %1 konfirmasi, akan siap sesudah %2) </translation>
-    </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Buka untuk %n blok lagi</numerusform></translation>
-    </message>
-    <message>
-        <source>Open until %1</source>
-        <translation>Buka hingga %1</translation>
-    </message>
-    <message>
-        <source>Confirmed (%1 confirmations)</source>
-        <translation>Terkonfirmasi (%1 konfirmasi)</translation>
-    </message>
-    <message>
-        <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>Blok ini tidak diterima oleh node lainnya dan kemungkinan tidak akan diterima!</translation>
-    </message>
-    <message>
-        <source>Generated but not accepted</source>
-        <translation>Terbuat tetapi tidak diterima</translation>
-    </message>
-    <message>
-        <source>Offline</source>
-        <translation>Tidak terhubung</translation>
-    </message>
-    <message>
-        <source>Unconfirmed</source>
-        <translation>Belum dikonfirmasi</translation>
-    </message>
-    <message>
-        <source>Confirming (%1 of %2 recommended confirmations)</source>
-        <translation>Sedang dikonfirmasi (%1 dari %2 konfirmasi disarankan)</translation>
-    </message>
-    <message>
-        <source>Conflicted</source>
-        <translation>Terkonflik</translation>
-    </message>
-    <message>
-        <source>Received with</source>
-        <translation>Diterima dengan</translation>
-    </message>
-    <message>
-        <source>Received from</source>
-        <translation>Diterima dari</translation>
-    </message>
-    <message>
-        <source>Sent to</source>
-        <translation>Terkirim ke</translation>
-    </message>
-    <message>
-        <source>Payment to yourself</source>
-        <translation>Pembayaran ke Anda sendiri</translation>
-    </message>
-    <message>
-        <source>Mined</source>
-        <translation>Tertambang</translation>
-    </message>
-    <message>
-        <source>(n/a)</source>
-        <translation>(t/s)</translation>
-    </message>
-    <message>
-        <source>Transaction status. Hover over this field to show number of confirmations.</source>
-        <translation>Status transaksi. Arahkan ke bagian ini untuk menampilkan jumlah konfrimasi.</translation>
-    </message>
-    <message>
-        <source>Date and time that the transaction was received.</source>
-        <translation>Tanggal dan waktu transaksi tersebut diterima.</translation>
-    </message>
-    <message>
-        <source>Type of transaction.</source>
-        <translation>Jenis transaksi.</translation>
-    </message>
-    <message>
-        <source>Destination address of transaction.</source>
-        <translation>Alamat tujuan dari transaksi.</translation>
-    </message>
-    <message>
-        <source>Amount removed from or added to balance.</source>
-        <translation>Nilai dihapus dari atau ditambahkan ke saldo.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>All</source>
-        <translation>Semua</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation>Hari ini</translation>
-    </message>
-    <message>
-        <source>This week</source>
-        <translation>Minggu ini</translation>
-    </message>
-    <message>
-        <source>This month</source>
-        <translation>Bulan ini</translation>
-    </message>
-    <message>
-        <source>Last month</source>
-        <translation>Bulan kemarin</translation>
-    </message>
-    <message>
-        <source>This year</source>
-        <translation>Tahun ini</translation>
-    </message>
-    <message>
-        <source>Range...</source>
-        <translation>Jarak...</translation>
-    </message>
-    <message>
-        <source>Received with</source>
-        <translation>DIterima dengan</translation>
-    </message>
-    <message>
-        <source>Sent to</source>
-        <translation>Terkirim ke</translation>
-    </message>
-    <message>
-        <source>To yourself</source>
-        <translation>Ke Anda sendiri</translation>
-    </message>
-    <message>
-        <source>Mined</source>
-        <translation>Ditambang</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>Lainnya</translation>
-    </message>
-    <message>
-        <source>Enter address or label to search</source>
-        <translation>Masukkan alamat atau label untuk mencari</translation>
-    </message>
-    <message>
-        <source>Min amount</source>
-        <translation>Nilai min</translation>
-    </message>
     <message>
         <source>Copy address</source>
         <translation>Salin alamat</translation>
@@ -2347,35 +1775,15 @@ Alamat: %4
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Salin Nilai</translation>
+        <translation>Salin nilai</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
         <translation>Menyalinkan ID transaksi</translation>
     </message>
     <message>
-        <source>Edit label</source>
-        <translation>Ubah label</translation>
-    </message>
-    <message>
-        <source>Show transaction details</source>
-        <translation>Tampilkan rincian transaksi</translation>
-    </message>
-    <message>
-        <source>Export Transaction History</source>
-        <translation>Expor Histori Transaksi</translation>
-    </message>
-    <message>
         <source>Exporting Failed</source>
         <translation>Proses Ekspor Gagal</translation>
-    </message>
-    <message>
-        <source>Exporting Successful</source>
-        <translation>Proses Ekspor Berhasil</translation>
-    </message>
-    <message>
-        <source>The transaction history was successfully saved to %1.</source>
-        <translation>Riwayat transaksi berhasil disimpan di %1.</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
@@ -2390,10 +1798,6 @@ Alamat: %4
         <translation>Tanggal</translation>
     </message>
     <message>
-        <source>Type</source>
-        <translation>Jenis</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Label</translation>
     </message>
@@ -2405,33 +1809,13 @@ Alamat: %4
         <source>Amount</source>
         <translation>Nilai</translation>
     </message>
-    <message>
-        <source>ID</source>
-        <translation>ID</translation>
-    </message>
-    <message>
-        <source>Range:</source>
-        <translation>Jarak:</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>ke</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletFrame</name>
-    <message>
-        <source>No wallet has been loaded.</source>
-        <translation>Tidak ada dompet yang dibuka</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletModel</name>
-    <message>
-        <source>Send Coins</source>
-        <translation>Kirim Koin</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletView</name>
     <message>
@@ -2442,27 +1826,7 @@ Alamat: %4
         <source>Export the data in the current tab to a file</source>
         <translation>Ekspor data dalam tab sekarang ke sebuah berkas</translation>
     </message>
-    <message>
-        <source>Backup Wallet</source>
-        <translation>Cadangkan Dompet</translation>
-    </message>
-    <message>
-        <source>Wallet Data (*.dat)</source>
-        <translation>Data Dompet (*.dat)</translation>
-    </message>
-    <message>
-        <source>Backup Failed</source>
-        <translation>Cadangkgan Gagal</translation>
-    </message>
-    <message>
-        <source>The wallet data was successfully saved to %1.</source>
-        <translation>Informasi dalam dompet berhasil disimpan di %1.</translation>
-    </message>
-    <message>
-        <source>Backup Successful</source>
-        <translation>Cadangkan Berhasil </translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>bitcoin-core</name>
     <message>
@@ -2470,556 +1834,20 @@ Alamat: %4
         <translation>Penggunaan:</translation>
     </message>
     <message>
-        <source>List commands</source>
-        <translation>Daftar perintah</translation>
-    </message>
-    <message>
-        <source>Get help for a command</source>
-        <translation>Dapatkan bantuan untuk perintah</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation>Pilihan:</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: bitcoin.conf)</source>
-        <translation>Tentukan berkas konfigurasi (standar: bitcoin.conf)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: bitcoind.pid)</source>
-        <translation>Tentukan berkas pid (standar: bitcoind.pid)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation>Tentukan direktori data</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Menerima hubungan pada &lt;port&gt; (standar: 8333 atau testnet: 18333)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation>Mengatur hubungan paling banyak &lt;n&gt; ke peer (standar: 125)</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Hubungkan ke node untuk menerima alamat peer, dan putuskan</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation>Tentukan alamat publik Anda sendiri</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Batas untuk memutuskan peer buruk (standar: 100)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>Jumlah kedua untuk menjaga peer buruk dari hubung-ulang (standar: 86400)</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation>Menerima perintah baris perintah dan JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Bitcoin Core RPC client version</source>
-        <translation>Versi klien RPC Inti Bitcoin </translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation>Berjalan dibelakang sebagai daemin dan menerima perintah</translation>
-    </message>
-    <message>
-        <source>Use the test network</source>
-        <translation>Gunakan jaringan uji</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Terima hubungan dari luar (standar: 1 kalau -proxy atau -connect tidak dipilih)</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Sandi yang diterima (biasanya: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Gagal: Transaksi ditolak. Ini mungkin terjadi jika beberapa dari koin dalam dompet Anda telah digunakan, seperti ketika Anda menggunakan salinan wallet.dat dan beberapa koin telah dibelanjakan dalam salinan tersebut tetapi disini tidak tertandai sebagai terpakai.</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Jalankan perintah ketika perubahan transaksi dompet (%s di cmd digantikan oleh TxID)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. Bitcoin Core is probably already running.</source>
-        <translation>Tidak bisa mengikat dengan %s di computer ini. Kemungkinan Bitcoin Core sudah mulai.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation>Gunakanlah proxy SOCKS5 yang tersendiri supaya menghubungkan peer dengan layanan tersembunyi Tor (biasanya: -proxy)</translation>
-    </message>
-    <message>
-        <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation>Peringatan: -paytxfee sangat besar! Ini adalah biaya pengiriman yang akan dibayar oleh Anda jika transaksi terkirim.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
-        <translation>Perhatian: Mohon diperiksa pengaturan tanggal dan waktu komputer anda apakah sudah benar! Jika pengaturan waktu salah aplikasi Bitcoin tidak akan berjalan dengan tepat.</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Peringatan: Jaringan tidak semua bersetuju! Beberapa penambang dapat persoalan.</translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Peringatan: Kami tidak bersetujuh dengan peer-peer kami! Kemungkinan Anda harus upgrade, atau node-node lain yang harus diupgrade.</translation>
-    </message>
-    <message>
-        <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation>Awas: wallet.dat tidak bisa dibaca! Berhasil periksakan kunci-kunci dalam arsipnya, tetapi ada kemungkinan informasi tentang transaksi atau isi-isi buku alamat salah atau terhilang.</translation>
-    </message>
-    <message>
-        <source>(default: 1)</source>
-        <translation>(pengaturan awal: 1)</translation>
-    </message>
-    <message>
-        <source>(default: wallet.dat)</source>
-        <translation>(pengaturan awal: wallet.dat)</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation>Coba memulihkan kunci-kunci pribadi dari wallet.dat yang rusak</translation>
-    </message>
-    <message>
-        <source>Bitcoin Core Daemon</source>
-        <translation>Daemon Bitcoin Core</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation>Pilihan pembuatan blok:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Jangan menghubungkan node(-node) selain yang di daftar</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS proxy</source>
-        <translation>Hubungkan melalui proxy SOCKS</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation>Pilih koneksi:</translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation>Menemukan database blok yang rusak </translation>
-    </message>
-    <message>
-        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
-        <translation>Cari alamat IP Anda sendiri (biasanya: 1 saat mendengarkan dan -externalip tidak terpilih)</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>Jangan memuat dompet dan menonaktifkan panggilan dompet RPC</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation>Apakah Anda ingin coba membangun kembali database blok sekarang?</translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation>Kesalahan menginisialisasi database blok</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation>Kesalahan menginisialisasi dompet pada database%s!</translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation>Gagal memuat database blok</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation>Menemukan masalah membukakan database blok</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation>Gagal: Hard disk hampir terisi!</translation>
-    </message>
-    <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Gagal: Dompet terkunci, transaksi tidak bisa dibuat!</translation>
-    </message>
-    <message>
-        <source>Error: system error: </source>
-        <translation>Error: system error:</translation>
-    </message>
-    <message>
-        <source>Failed to read block info</source>
-        <translation>Gagal membaca informasi dari blok</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>Gagal membaca blok</translation>
-    </message>
-    <message>
-        <source>Failed to sync block index</source>
-        <translation>Gagal menyamakan daftar isi blok</translation>
-    </message>
-    <message>
-        <source>Failed to write block index</source>
-        <translation>Gagal menulis daftar isi blok</translation>
-    </message>
-    <message>
-        <source>Failed to write block info</source>
-        <translation>Gagal menulis info blok</translation>
-    </message>
-    <message>
-        <source>Failed to write block</source>
-        <translation>Gagal menulis blok</translation>
-    </message>
-    <message>
-        <source>Failed to write file info</source>
-        <translation>Gagal menulis info arsip</translation>
-    </message>
-    <message>
-        <source>Failed to write to coin database</source>
-        <translation>Gagal menuliskan ke dalam database koin</translation>
-    </message>
-    <message>
-        <source>Failed to write transaction index</source>
-        <translation>Gagal menulis daftar isi transaksi</translation>
-    </message>
-    <message>
-        <source>Failed to write undo data</source>
-        <translation>Gagal menulis ulang data</translation>
-    </message>
-    <message>
-        <source>Fee per kB to add to transactions you send</source>
-        <translation>Biaya untuk setiap kB yang akan ditambahkan ke transaksi yang Anda kirim</translation>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Cari peer dengan daftar alamat DNS (biasanya: 1 jika -connect tidak terpilih)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Buatlah koin (biasanya: 0)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation>Periksakan berapa blok waktu mulai (biasanya: 288, 0 = setiapnya)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation>mengimpor...</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation>Tidak bisa cari blok pertama, atau blok pertama salah. Salah direktori untuk jaringan?</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: '%s'</source>
-        <translation>Alamat -onion salah: '%s'</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation>Deskripsi berkas tidak tersedia dengan cukup.</translation>
-    </message>
-    <message>
-        <source>RPC client options:</source>
-        <translation>Pilihan RPC klien:</translation>
-    </message>
-    <message>
-        <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>Pililah versi SOCKS untuk -proxy (4 atau 5, biasanya: 5)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Atur ukuran maksimal untuk blok dalam byte (biasanya: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Mengatur jumlah urutan untuk layanan panggilan RPC (pengaturan awal: 4)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation>Tentukan arsip dompet (dalam direktori data)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation>Perubahan saldo untuk transaksi yang belum dikonfirmasi setelah transaksi terkirim (default: 1)</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation>Blok-blok sedang diverifikasi...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation>Dompet sedang diverifikasi...</translation>
-    </message>
-    <message>
-        <source>Wait for RPC server to start</source>
-        <translation>Tunggu sampai server RPC dimulai</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation>Dompet %s ada diluar direktori data %s</translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation>Opsi dompet:</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to change -txindex</source>
-        <translation>Harus membangun ulang database menggunakan -reindex supaya mengubah -txindex</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file</source>
-        <translation>Impor blok dari eksternal berkas blk000???.dat</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. Bitcoin Core is probably already running.</source>
-        <translation>Tidak bisa mengunci data directory %s. Kemungkinan Bitcoin Core sudah mulai.</translation>
-    </message>
-    <message>
         <source>Information</source>
         <translation>Informasi</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Nilai yang salah untuk -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Nilai yang salah untuk -mintxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Jaga daftar transaksi yang lengkap (biasanya: 0)</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>Dilarang menghubungkan node-node selain &lt;net&gt; (IPv4, IPv6 atau Tor)</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation>Opsi server RPC:</translation>
-    </message>
-    <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Pilihan SSL: (petunjuk pengaturan SSL lihat dalam Bitcoin Wiki)</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation>Kirim info jejak/debug ke konsol bukan berkas debug.log</translation>
-    </message>
-    <message>
-        <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Atur ukuran minimal untuk blok dalam byte (standar: 0)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>Mengecilkan berkas debug.log saat klien berjalan  (Standar: 1 jika tidak -debug)</translation>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation>Tandatangani transaksi tergagal</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Menetapkan waktu berakhir koneksi di milidetik (biasanya: 5000)</translation>
-    </message>
-    <message>
-        <source>Start Bitcoin Core Daemon</source>
-        <translation>Memulai Bitcoin Core Daemon</translation>
-    </message>
-    <message>
-        <source>System error: </source>
-        <translation>Kesalahan sistem:</translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation>Nilai transaksi terlalu kecil</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation>Nilai transaksi harus positif</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation>Transaksi terlalu besar</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation>Nama pengguna untuk hubungan JSON-RPC</translation>
     </message>
     <message>
         <source>Warning</source>
         <translation>Peringatan</translation>
     </message>
     <message>
-        <source>Warning: This version is obsolete, upgrade required!</source>
-        <translation>Perhatian: Versi ini sudah lama, perlu ditingkatkan!</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation>Setiap transaksi dalam dompet sedang di-'Zap'...</translation>
-    </message>
-    <message>
         <source>version</source>
         <translation>versi</translation>
-    </message>
-    <message>
-        <source>wallet.dat corrupt, salvage failed</source>
-        <translation>wallet.dat rusak, tidak bisa diperbaiki</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation>Kata sandi untuk hubungan JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Izinkan hubungan JSON-RPC dari alamat IP yang ditentukan</translation>
-    </message>
-    <message>
-        <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Kirim perintah ke node berjalan pada &lt;ip&gt; (standar: 127.0.0.1)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>Menjalankan perintah ketika perubahan blok terbaik (%s dalam cmd digantikan oleh hash blok)</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format</source>
-        <translation>Perbarui dompet ke format terbaru</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Kirim ukuran kolam kunci ke &lt;n&gt; (standar: 100)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Pindai ulang rantai-blok untuk transaksi dompet yang hilang</translation>
-    </message>
-    <message>
-        <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Gunakan OpenSSL (https) untuk hubungan JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Server certificate file (default: server.cert)</source>
-        <translation>Berkas sertifikat server (standar: server.cert)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: server.pem)</source>
-        <translation>Kunci pribadi server (standar: server.pem)</translation>
-    </message>
-    <message>
-        <source>This help message</source>
-        <translation>Pesan bantuan ini</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>Tidak dapat mengikat ke %s dengan komputer ini (ikatan gagal %d, %s)</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>Izinkan peninjauan DNS untuk -addnote, -seednode dan -connect</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation>Memuat alamat...</translation>
-    </message>
-    <message>
-        <source>Error loading wallet.dat: Wallet corrupted</source>
-        <translation>Gagal memuat wallet.dat: Dompet rusak</translation>
-    </message>
-    <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
-        <translation>Gagal memuat wallet.dat: Dompet memerlukan versi Bitcoin yang terbaru</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
-        <translation>Dompet diperlukan untuk disimpan-ulang: nyala-ulangkan Bitcoin untuk menyelesaikan</translation>
-    </message>
-    <message>
-        <source>Error loading wallet.dat</source>
-        <translation>Gagal memuat wallet.dat</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: '%s'</source>
-        <translation>Alamat -proxy salah: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: '%s'</source>
-        <translation>Jaringan tidak diketahui yang ditentukan dalam -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Diminta versi proxy -socks tidak diketahui: %i</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -bind address: '%s'</source>
-        <translation>Tidak dapat menyelesaikan alamat -bind: '%s'</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -externalip address: '%s'</source>
-        <translation>Tidak dapat menyelesaikan alamat -externalip: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Nilai salah untuk -paytxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation>Nilai salah</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation>Saldo tidak mencukupi</translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation>Memuat indeks blok...</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Tambahkan node untuk dihubungkan dan upaya untuk menjaga hubungan tetap terbuka</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation>Memuat dompet...</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation>Tidak dapat menurunkan versi dompet</translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation>Tidak dapat menyimpan alamat standar</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation>Memindai ulang...</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation>Memuat selesai</translation>
-    </message>
-    <message>
-        <source>To use the %s option</source>
-        <translation>Gunakan pilihan %s</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Gagal</translation>
     </message>
-    <message>
-        <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
-%s
-If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>Anda harus mengatur rpcpassword=&lt;kata sandi&gt; dalam berkas konfigurasi:
-%s
-Jika berkas tidak ada, buatlah dengan permisi berkas hanya-dapat-dibaca-oleh-pemilik.</translation>
-    </message>
-</context>
+    </context>
 </TS>

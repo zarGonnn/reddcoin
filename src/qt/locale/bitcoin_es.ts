@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About Bitcoin Core</source>
-        <translation>Acerca de Bitcoin Core</translation>
+        <source>About Reddcoin Core</source>
+        <translation>Acerca de Reddcoin Core</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Bitcoin Core&lt;/b&gt; version</source>
-        <translation>Versión de &lt;b&gt;Bitcoin Core&lt;b&gt;</translation>
+        <source>&lt;b&gt;Reddcoin Core&lt;/b&gt; version</source>
+        <translation>Versión de &lt;b&gt;Reddcoin&lt;/b&gt;</translation>
     </message>
     <message>
         <source>
@@ -17,22 +17,19 @@ Distributed under the MIT/X11 software license, see the accompanying file COPYIN
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation>
-Este es un software experimental.
+ Este es un software experimental.
 
-Distribuido bajo la licencia MIT/X11, vea el archivo adjunto
-COPYING o http://www.opensource.org/licenses/mit-license.php.
+ Distribuido bajo la licencia MIT/X11, vea el archivo adjunto COPYING o http://www.opensource.org/licenses/mit-license.php.
 
-Este producto incluye software desarrollado por OpenSSL Project para su uso en
-el OpenSSL Toolkit (http://www.openssl.org/) y software criptográfico escrito por
-Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</translation>
+ Este producto incluye software desarrollado por OpenSSL Project para su uso en el OpenSSL Toolkit (http://www.openssl.org/) y software criptográfico escrito por Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</translation>
     </message>
     <message>
         <source>Copyright</source>
         <translation>Copyright</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Los desarrolladores de Bitcoin Core</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Los desarrolladores de Reddcoin Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -43,7 +40,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     <name>AddressBookPage</name>
     <message>
         <source>Double-click to edit address or label</source>
-        <translation>Haga doble clic para editar la etiqueta o dirección </translation>
+        <translation>Haga doble clic para editar una dirección o etiqueta</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -51,7 +48,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>Nuevo</translation>
+        <translation>&amp;Nuevo</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
@@ -71,11 +68,11 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-        <translation>Borrar de la lista la dirección seleccionada</translation>
+        <translation>Eliminar la dirección seleccionada de la lista</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Exportar a un archivo los datos de esta pestaña</translation>
+        <translation>Exportar los datos en la ficha actual a un archivo</translation>
     </message>
     <message>
         <source>&amp;Export</source>
@@ -87,11 +84,11 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Escoja la dirección a la que enviar bitcoins</translation>
+        <translation>Escoja la dirección a la que enviar reddcoins</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Escoja la dirección de la que recibir bitcoins</translation>
+        <translation>Escoja la dirección de la que recibir reddcoins</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -106,16 +103,16 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Direcciones de recepción</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estas son sus direcciones Bitcoin para enviar pagos. Compruebe siempre la cantidad y la dirección receptora antes de enviar bitcoins.</translation>
+        <source>These are your Reddcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Estas son tus direcciones Reddcoin para enviar los pagos. Comprueba siempre la cantidad y la dirección receptora antes de enviar las monedas.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estas son sus direcciones de Bitcoin para recibir pagos. Se recomienda utilizar una nueva dirección de recepción para cada transacción.</translation>
+        <source>These are your Reddcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estas son sus direcciones de Reddcoin para recibir pagos. Se recomienda utilizar una nueva dirección de recepción para cada transacción.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>Copiar &amp;etiqueta</translation>
+        <translation>Copiar &amp;Etiqueta</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -127,7 +124,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Archivos de columnas separadas por coma (*.csv)</translation>
+        <translation>Archivos separados por coma (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
@@ -172,8 +169,16 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Repita la nueva contraseña</translation>
     </message>
     <message>
+        <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
+        <translation>Sirve para desactivar el envío de dinero cuando la cuenta del Sistema operativo ha sido comprometida. No provee una seguridad real.</translation>
+    </message>
+    <message>
+        <source>For staking only</source>
+        <translation>Solo para almacenar.</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Introduzca la nueva contraseña del monedero.&lt;br/&gt;Por favor elija una con &lt;b&gt;10 o más caracteres aleatorios&lt;/b&gt;, u &lt;b&gt;ocho o más palabras&lt;/b&gt;.</translation>
+        <translation>Introduzca la nueva contraseña del monedero.&lt;br/&gt;Por favor elija una con &lt;b&gt;10 o más caracteres aleatorios&lt;/b&gt; u &lt;b&gt;ocho o más palabras&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -201,19 +206,19 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Introduzca la contraseña anterior del monedero y la nueva. </translation>
+        <translation>Introduce la antigua y la nueva contraseña de la cartera.</translation>
     </message>
     <message>
         <source>Confirm wallet encryption</source>
         <translation>Confirmar cifrado del monedero</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>Atencion: ¡Si cifra su monedero y pierde la contraseña perderá &lt;b&gt;TODOS SUS BITCOINS&lt;/b&gt;!"</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR REDDCOINS&lt;/b&gt;!</source>
+        <translation>Atencion: ¡Si cifra su monedero y pierde la contraseña perderá &lt;b&gt;TODOS SUS REDDCOINS&lt;/b&gt;!"</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>¿Seguro que desea cifrar su monedero?</translation>
+        <translation>¿Estás seguro que deseas cifrar tu monedero ?</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -221,15 +226,15 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
-        <translation>Aviso: ¡La tecla de bloqueo de mayúsculas está activada!</translation>
+        <translation>Aviso: ¡La tecla de Mayúsculas está activada!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
         <translation>Monedero cifrado</translation>
     </message>
     <message>
-        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Bitcoin se cerrará para finalizar el proceso de cifrado. Recuerde que el cifrado de su monedero no puede proteger totalmente sus bitcoins de robo por malware que infecte su sistema.</translation>
+        <source>Reddcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your reddcoins from being stolen by malware infecting your computer.</source>
+        <translation>Reddcoin se cerrará para finalizar el proceso de cifrado. Recuerde que el cifrado de su monedero no puede proteger totalmente sus reddcoins de robo por malware que infecte su sistema.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -283,6 +288,14 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Mostrar vista general del monedero</translation>
     </message>
     <message>
+        <source>&amp;Request</source>
+        <translation>&amp;Solicitar</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and reddcoin: URIs)</source>
+        <translation>Solicitar pagos (genera codigo QR y URI's de reddcoin)</translation>
+    </message>
+    <message>
         <source>&amp;Transactions</source>
         <translation>&amp;Transacciones</translation>
     </message>
@@ -292,15 +305,15 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>&amp;Salir</translation>
+        <translation>S&amp;alir</translation>
     </message>
     <message>
         <source>Quit application</source>
         <translation>Salir de la aplicación</translation>
     </message>
     <message>
-        <source>Show information about Bitcoin</source>
-        <translation>Mostrar información acerca de Bitcoin</translation>
+        <source>Show information about Reddcoin</source>
+        <translation>Mostrar información acerca de Reddcoin Core</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -327,6 +340,22 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>&amp;Cambiar la contraseña…</translation>
     </message>
     <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Desbloquear monedero...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Desbloquear monedero</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Bloquear Monedero</translation>
+    </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Bloquear monedero</translation>
+    </message>
+    <message>
         <source>&amp;Sending addresses...</source>
         <translation>Direcciones de &amp;envío...</translation>
     </message>
@@ -339,6 +368,14 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Abrir &amp;URI...</translation>
     </message>
     <message>
+        <source>Open a reddcoin: URI or payment request</source>
+        <translation>Abrir un reddcoin: URI o petición de pago</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core client</source>
+        <translation>Cliente Reddcoin Core</translation>
+    </message>
+    <message>
         <source>Importing blocks from disk...</source>
         <translation>Importando bloques de disco...</translation>
     </message>
@@ -346,13 +383,45 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <source>Reindexing blocks on disk...</source>
         <translation>Reindexando bloques en disco...</translation>
     </message>
-    <message>
-        <source>Send coins to a Bitcoin address</source>
-        <translation>Enviar bitcoins a una dirección Bitcoin</translation>
+    <message numerus="yes">
+        <source>%n second(s)</source>
+        <translation><numerusform>%n segundo</numerusform><numerusform>%n segundos</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n minute(s)</source>
+        <translation><numerusform>%n minuto</numerusform><numerusform>%n minutos</numerusform></translation>
     </message>
     <message>
-        <source>Modify configuration options for Bitcoin</source>
-        <translation>Modificar las opciones de configuración de Bitcoin</translation>
+        <source>Staking.&lt;br&gt;Your average weight is %1&lt;br&gt;Your total weight is %2&lt;br&gt;Network weight is %3&lt;br&gt;Expected to earn reward once every %4</source>
+        <translation>Acumulando.&lt;br&gt;Su carga promedio es %1&lt;br&gt;Su carga total es %2&lt;br&gt;La carga de la Red es %3&lt;br&gt; Tiempo estimado para ganar una recompensa cada %4</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is locked</source>
+        <translation>No está acumulando porque el monedero está bloqueado</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is offline</source>
+        <translation>No está acumulando porque el monedero está desconectado</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is syncing</source>
+        <translation>No está acumulando porque el monedero está sincronizando</translation>
+    </message>
+    <message>
+        <source>Not staking because you don't have mature coins</source>
+        <translation>No está acumulando porque usted no tiene monedas maduras</translation>
+    </message>
+    <message>
+        <source>Not staking</source>
+        <translation>No está acumulando</translation>
+    </message>
+    <message>
+        <source>Send coins to a Reddcoin address</source>
+        <translation>Enviar coins a una dirección Reddcoin</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for Reddcoin</source>
+        <translation>Modificar las opciones de configuración de Reddcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -364,7 +433,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>&amp;Debug window</source>
-        <translation>Ventana de &amp;depuración</translation>
+        <translation>&amp;Ventana de depuración</translation>
     </message>
     <message>
         <source>Open debugging and diagnostic console</source>
@@ -375,8 +444,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>&amp;Verificar mensaje...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin</source>
+        <translation>Reddcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -387,12 +456,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>&amp;Enviar</translation>
     </message>
     <message>
-        <source>&amp;Receive</source>
-        <translation>&amp;Recibir</translation>
-    </message>
-    <message>
         <source>&amp;Show / Hide</source>
-        <translation>Mo&amp;strar/ocultar</translation>
+        <translation>&amp;Mostrar / Ocultar</translation>
     </message>
     <message>
         <source>Show or hide the main Window</source>
@@ -403,12 +468,12 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Cifrar las claves privadas de su monedero</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Firmar mensajes con sus direcciones Bitcoin para demostrar la propiedad</translation>
+        <source>Sign messages with your Reddcoin addresses to prove you own them</source>
+        <translation>Firmar mensajes con sus direcciones Reddcoin para demostrar la propiedad</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Verificar mensajes comprobando que están firmados con direcciones Bitcoin concretas</translation>
+        <source>Verify messages to ensure they were signed with specified Reddcoin addresses</source>
+        <translation>Verificar mensajes comprobando que están firmados con direcciones Reddcoin concretas</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -420,7 +485,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>A&amp;yuda</translation>
+        <translation>&amp;Ayuda</translation>
     </message>
     <message>
         <source>Tabs toolbar</source>
@@ -431,16 +496,12 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Solicitar pagos (genera codigo QR y URL's de Bitcoin)</translation>
-    </message>
-    <message>
-        <source>&amp;About Bitcoin Core</source>
-        <translation>&amp;Acerca de Bitcoin Core</translation>
+        <source>&amp;About Reddcoin Core</source>
+        <translation>&amp;Acerca de Reddcoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -451,36 +512,24 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Abrir un bitcoin: URI o petición de pago</translation>
-    </message>
-    <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Opciones de consola de comandos</translation>
     </message>
     <message>
-        <source>Show the Bitcoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Muestra el mensaje de ayuda Bitcoin Core para obtener una lista con las posibles opciones de la consola de comandos de Bitcoin</translation>
-    </message>
-    <message>
-        <source>Bitcoin client</source>
-        <translation>Cliente Bitcoin</translation>
+        <source>Show the Reddcoin Core help message to get a list with possible Reddcoin command-line options</source>
+        <translation>Mostrar el mensaje de ayuda de Reddcoin Core con una lista de las posibles opciones de la consola de comandos de Reddcoin</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n conexión activa hacia la red Bitcoin</numerusform><numerusform>%n conexiones activas hacia la red Bitcoin</numerusform></translation>
+        <source>%n active connection(s) to Reddcoin network</source>
+        <translation><numerusform>%n conexion activa hacia la red Reddcoin</numerusform><numerusform>%n conexiones activas hacia la red Reddcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
         <translation>Ninguna fuente de bloques disponible ...</translation>
     </message>
     <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>Se han procesado %1 de %2 bloques (estimados) del historial de transacciones.</translation>
-    </message>
-    <message>
         <source>Processed %1 blocks of transaction history.</source>
-        <translation>Procesados %1 bloques del historial de transacciones.</translation>
+        <translation>%1 bloques procesados del historial de transacciones.</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -504,7 +553,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>%1 behind</source>
-        <translation>%1 por detrás</translation>
+        <translation>%1 atrás</translation>
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
@@ -520,7 +569,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <source>Warning</source>
-        <translation>Aviso</translation>
+        <translation>Avis</translation>
     </message>
     <message>
         <source>Information</source>
@@ -549,7 +598,7 @@ Type: %3
 Address: %4
 </source>
         <translation>Fecha: %1
-Cantidad: %2
+Amount: %2
 Tipo: %3
 Dirección: %4
 </translation>
@@ -563,8 +612,8 @@ Dirección: %4
         <translation>El monedero está &lt;b&gt;cifrado&lt;/b&gt; y actualmente &lt;b&gt;bloqueado&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>Ha ocurrido un error crítico. Bitcoin ya no puede continuar con seguridad y se cerrará.</translation>
+        <source>A fatal error occurred. Reddcoin can no longer continue safely and will quit.</source>
+        <translation>Ha ocurrido un error crítico. Reddcoin ya no puede continuar con seguridad y se cerrará.</translation>
     </message>
 </context>
 <context>
@@ -698,7 +747,7 @@ Dirección: %4
     </message>
     <message>
         <source>Copy change</source>
-        <translation>Copiar cambio</translation>
+        <translation>Copiar Cambio</translation>
     </message>
     <message>
         <source>highest</source>
@@ -758,7 +807,7 @@ Dirección: %4
     </message>
     <message>
         <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation>Esta etiqueta se torna roja si el tamaño de la transación es mayor a 1000 bytes.</translation>
+        <translation>Esta etiqueta se mostrará en rojo si el tamaño de la transacción es mayor de 1000 bytes.</translation>
     </message>
     <message>
         <source>This means a fee of at least %1 per kB is required.</source>
@@ -770,7 +819,7 @@ Dirección: %4
     </message>
     <message>
         <source>Transactions with higher priority are more likely to get included into a block.</source>
-        <translation>Las transacciones con alta prioridad son más propensas a ser incluidas dentro de un bloque.</translation>
+        <translation>Transacciones con mayor prioridad tienen más probabilidades de ser incluidas en un bloque. </translation>
     </message>
     <message>
         <source>This label turns red, if the priority is smaller than "medium".</source>
@@ -848,8 +897,8 @@ Dirección: %4
         <translation>La dirección introducida "%1" ya está presente en la libreta de direcciones.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>La dirección introducida "%1" no es una dirección Bitcoin válida.</translation>
+        <source>The entered address "%1" is not a valid Reddcoin address.</source>
+        <translation>La dirección introducida "%1" no es una dirección Reddcoin válida.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -864,7 +913,7 @@ Dirección: %4
     <name>FreespaceChecker</name>
     <message>
         <source>A new data directory will be created.</source>
-        <translation>Se creará un nuevo directorio de datos.</translation>
+        <translation>Un nuevo directorio será creado</translation>
     </message>
     <message>
         <source>name</source>
@@ -886,12 +935,12 @@ Dirección: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Bitcoin Core - Command-line options</source>
-        <translation>Bitcoin Core - Opciones de consola de comandos</translation>
+        <source>Reddcoin Core - Command-line options</source>
+        <translation>Reddcoin Core - Opciones de la consola de comandos</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -937,16 +986,16 @@ Dirección: %4
         <translation>Bienvenido</translation>
     </message>
     <message>
-        <source>Welcome to Bitcoin Core.</source>
-        <translation>Bienvenido a Bitcoin Core</translation>
+        <source>Welcome to Reddcoin Core.</source>
+        <translation>Bienvenido a Reddcoin Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Bitcoin Core will store its data.</source>
-        <translation>Al ser la primera vez que se ejecuta el programa, puede elegir dónde almacenará sus datos Bitcoin Core.</translation>
+        <source>As this is the first time the program is launched, you can choose where Reddcoin Core will store its data.</source>
+        <translation>Al ser la primera vez que se ejecuta el programa, puede elegir dónde almacenará sus datos Reddcoin Core.</translation>
     </message>
     <message>
-        <source>Bitcoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Bitcoin Core va a descargar y guardar una copia de la cadena de bloques de Bitcoin. Se almacenará al menos %1GB de datos en este directorio, que irá creciendo con el tiempo. El monedero se guardará también en este directorio.</translation>
+        <source>Reddcoin Core will download and store a copy of the Reddcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Reddcoin Core va a descargar y guardar una copia de la cadena de bloques de Reddcoin. Se almacenará al menos %1GB de datos en este directorio, que irá creciendo con el tiempo. El monedero se guardará también en este directorio.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -957,8 +1006,8 @@ Dirección: %4
         <translation>Utilice un directorio de datos personalizado:</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" can not be created.</source>
@@ -1019,12 +1068,12 @@ Dirección: %4
         <translation>Comisión de &amp;transacciones</translation>
     </message>
     <message>
-        <source>Automatically start Bitcoin after logging in to the system.</source>
-        <translation>Iniciar Bitcoin automáticamente al encender el sistema.</translation>
+        <source>Automatically start Reddcoin after logging in to the system.</source>
+        <translation>Iniciar automáticamente Reddcoin al iniciar el sistema.</translation>
     </message>
     <message>
-        <source>&amp;Start Bitcoin on system login</source>
-        <translation>&amp;Iniciar Bitcoin al iniciar el sistema</translation>
+        <source>&amp;Start Reddcoin on system login</source>
+        <translation>&amp;Iniciar Reddcoin Core al inicio del sistema</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1036,11 +1085,11 @@ Dirección: %4
     </message>
     <message>
         <source>Number of script &amp;verification threads</source>
-        <translation>Número de procesos de &amp;verificación de scripts</translation>
+        <translation>Número de hilos de &amp;verificación de scripts</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS proxy.</source>
-        <translation>Conectarse a la red Bitcoin a través de un proxy SOCKS.</translation>
+        <source>Connect to the Reddcoin network through a SOCKS proxy.</source>
+        <translation>Conectarse a la red Reddcoin a través de un proxy SOCKS.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
@@ -1052,11 +1101,11 @@ Dirección: %4
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>URLs de terceros (por ejemplo, un explorador de bloques) que aparecen en la pestaña de transacciones como items del menú contextual. El %s en la URL es reemplazado por el hash de la transacción. Se pueden separar múltiples URLs por una barra vertical |.</translation>
+        <translation>Identificadores URL de terceros (por ejemplo, un explorador de bloques) que aparecen en la pestaña de transacciones como elementos del menú contextual. El %s en la URL es reemplazado por el valor hash de la transacción. Se pueden separar URL múltiples por una barra vertical |.</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
-        <translation>URLs de transacciones de terceros</translation>
+        <translation>Identificadores URL de transacciones de terceros</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
@@ -1064,7 +1113,7 @@ Dirección: %4
     </message>
     <message>
         <source>Reset all client options to default.</source>
-        <translation>Restablecer todas las opciones del cliente a las predeterminadas.</translation>
+        <translation>Restablecer todas las opciones predeterminadas del cliente.</translation>
     </message>
     <message>
         <source>&amp;Reset Options</source>
@@ -1092,19 +1141,19 @@ Dirección: %4
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Si desactiva el gasto del cambio no confirmado, no se podrá usar el cambio de una transacción hasta que se alcance al menos una confirmación. Esto afecta también a cómo se calcula su saldo.</translation>
+        <translation>Si deshabilita el gasto de cambio no confirmado, el cambio de una transacción no puede ser utilizado hasta que la transacción tiene por lo menos una confirmación. Esto también afecta a cómo se calcula su balance.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Gastar cambio no confirmado</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente el puerto del cliente Bitcoin en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
+        <source>Automatically open the Reddcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente el puerto del cliente Reddcoin en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
-        <translation>Mapear el puerto usando &amp;UPnP</translation>
+        <translation>Mapear el puerto mediante &amp;UPnP</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1124,7 +1173,7 @@ Dirección: %4
     </message>
     <message>
         <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>Versión SOCKS del proxy (ej. 5)</translation>
+        <translation>Versión del proxy SOCKS (ej. 5)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1140,7 +1189,7 @@ Dirección: %4
     </message>
     <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Minimizar en lugar de salir de la aplicación al cerrar la ventana. Cuando esta opción está activa, la aplicación solo se puede cerrar seleccionando Salir desde el menú.</translation>
+        <translation>Minimizar en lugar de salir de la aplicación al cerrar la ventana.Cuando esta opción está activa, la aplicación solo se puede cerrar seleccionando Salir desde el menú.</translation>
     </message>
     <message>
         <source>M&amp;inimize on close</source>
@@ -1155,8 +1204,8 @@ Dirección: %4
         <translation>I&amp;dioma de la interfaz de usuario</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
-        <translation>El idioma de la interfaz de usuario puede establecerse aquí. Este ajuste se aplicará cuando se reinicie Bitcoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Reddcoin.</source>
+        <translation>El idioma de la interfaz de usuario puede establecerse aquí. Este ajuste se aplicará cuando se reinicie Reddcoin.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1164,11 +1213,11 @@ Dirección: %4
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Elegir la subdivisión predeterminada para mostrar cantidades en la interfaz y cuando se envían bitcoins.</translation>
+        <translation>Elegir la subdivisión predeterminada para mostrar cantidades en la interfaz y cuando se envían reddcoins.</translation>
     </message>
     <message>
-        <source>Whether to show Bitcoin addresses in the transaction list or not.</source>
-        <translation>Mostrar o no las direcciones Bitcoin en la lista de transacciones.</translation>
+        <source>Whether to show Reddcoin addresses in the transaction list or not.</source>
+        <translation>Mostrar o no las direcciones Reddcoin en la lista de transacciones.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1219,11 +1268,11 @@ Dirección: %4
     <name>OverviewPage</name>
     <message>
         <source>Form</source>
-        <translation>Desde</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Bitcoin después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Reddcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Reddcoin después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1238,6 +1287,14 @@ Dirección: %4
         <translation>Su balance actual gastable</translation>
     </message>
     <message>
+        <source>Stake:</source>
+        <translation>Acumulado:</translation>
+    </message>
+    <message>
+        <source>Total of coins that were staked and do not yet count toward the current balance</source>
+        <translation>Total de monedas que fueron acumuladas y todavía no cuentan para el balance actual</translation>
+    </message>
+    <message>
         <source>Pending:</source>
         <translation>Pendiente:</translation>
     </message>
@@ -1247,11 +1304,11 @@ Dirección: %4
     </message>
     <message>
         <source>Immature:</source>
-        <translation>No disponible:</translation>
+        <translation>No madurado:</translation>
     </message>
     <message>
         <source>Mined balance that has not yet matured</source>
-        <translation>Saldo recién minado que aún no está disponible.</translation>
+        <translation>Saldo recién minado que aún no ha madurado.</translation>
     </message>
     <message>
         <source>Total:</source>
@@ -1277,8 +1334,8 @@ Dirección: %4
         <translation>Gestión de URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>¡No se puede interpretar la URI! Esto puede deberse a una dirección Bitcoin inválida o a parámetros de URI mal formados.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Reddcoin address or malformed URI parameters.</source>
+        <translation>¡No se puede interpretar la URI! Esto puede deberse a una dirección Reddcoin inválida o a parámetros de URI mal formados.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1289,8 +1346,8 @@ Dirección: %4
         <translation>Error en petición de pago</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>No se pudo iniciar bitcoin: manejador de pago-al-clic</translation>
+        <source>Cannot start reddcoin: click-to-pay handler</source>
+        <translation>No se pudo iniciar reddcoin: manejador de pago-al-clic</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1322,7 +1379,7 @@ Dirección: %4
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
-        <translation>Error en la comunicación con %1: %2</translation>
+        <translation>Error comunicándose con %1: %2</translation>
     </message>
     <message>
         <source>Payment request can not be parsed or processed!</source>
@@ -1344,8 +1401,8 @@ Dirección: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -1360,12 +1417,12 @@ Dirección: %4
         <translation>Error: Combinación no válida de -regtest y -testnet.</translation>
     </message>
     <message>
-        <source>Bitcoin Core didn't yet exit safely...</source>
-        <translation>Bitcoin core no se ha cerrado de forma segura todavía...</translation>
+        <source>Reddcoin Core didn't yet exit safely...</source>
+        <translation>Reddcoin core no se ha cerrado de forma segura todavía...</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Introduzca una dirección Bitcoin (ej. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Introduzca una dirección de Reddcoin (p. ej. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX) </translation>
     </message>
 </context>
 <context>
@@ -1415,7 +1472,7 @@ Dirección: %4
     </message>
     <message>
         <source>Using OpenSSL version</source>
-        <translation>Utilizando la versión OpenSSL</translation>
+        <translation>Utilizando la versión de OpenSSL</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -1440,10 +1497,6 @@ Dirección: %4
     <message>
         <source>Current number of blocks</source>
         <translation>Número actual de bloques</translation>
-    </message>
-    <message>
-        <source>Estimated total blocks</source>
-        <translation>Bloques totales estimados</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1486,7 +1539,7 @@ Dirección: %4
         <translation>Archivo de registro de depuración</translation>
     </message>
     <message>
-        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Reddcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Abrir el archivo de registro de depuración en el directorio actual de datos. Esto puede llevar varios segundos para archivos de registro grandes.</translation>
     </message>
     <message>
@@ -1494,8 +1547,8 @@ Dirección: %4
         <translation>Borrar consola</translation>
     </message>
     <message>
-        <source>Welcome to the Bitcoin RPC console.</source>
-        <translation>Bienvenido a la consola RPC de Bitcoin</translation>
+        <source>Welcome to the Reddcoin RPC console.</source>
+        <translation>Bienvenido a la consola RPC de Reddcoin</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1557,8 +1610,8 @@ Dirección: %4
         <translation>R&amp;eutilizar una dirección existente para recibir (no recomendado)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>Un mensaje opcional para adjuntar a la solicitud de pago, que se muestra cuando se abre la solicitud. Nota: El mensaje no se enviará con el pago por la red Bitcoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Reddcoin network.</source>
+        <translation>Un mensaje opcional para adjuntar a la solicitud de pago, que se muestra cuando se abre la solicitud. Nota: El mensaje no se enviará con el pago por la red Reddcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1574,7 +1627,7 @@ Dirección: %4
     </message>
     <message>
         <source>Clear all fields of the form.</source>
-        <translation>Vaciar todos los campos del formulario.</translation>
+        <translation>Vaciar todos los campos del formulario</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1707,7 +1760,7 @@ Dirección: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Enviar bitcoins</translation>
+        <translation>Enviar Reddcoin</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1719,7 +1772,7 @@ Dirección: %4
     </message>
     <message>
         <source>automatically selected</source>
-        <translation>Seleccionado automáticamente</translation>
+        <translation>seleccionado automáticamente </translation>
     </message>
     <message>
         <source>Insufficient funds!</source>
@@ -1767,7 +1820,7 @@ Dirección: %4
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
-        <translation>Enviar a múltiples destinatarios de una vez</translation>
+        <translation>Enviar a multiples destinatarios de una vez</translation>
     </message>
     <message>
         <source>Add &amp;Recipient</source>
@@ -1870,8 +1923,8 @@ Dirección: %4
         <translation>¡La transacción fue rechazada! Esto puede haber ocurrido si alguno de los bitcoins de su monedero ya estaba gastado o si ha usado una copia de wallet.dat y los bitcoins estaban gastados en la copia pero no se habían marcado como gastados aqui.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation>Alerta: Dirección de Bitcoin inválida</translation>
+        <source>Warning: Invalid Reddcoin address</source>
+        <translation>Alerta: Dirección de Reddcoin inválida</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1909,10 +1962,6 @@ Dirección: %4
         <translation>&amp;Pagar a:</translation>
     </message>
     <message>
-        <source>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>La dirección a la que enviar el pago (p. ej. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Etiquete esta dirección para añadirla a la libreta</translation>
     </message>
@@ -1922,11 +1971,15 @@ Dirección: %4
     </message>
     <message>
         <source>Choose previously used address</source>
-        <translation>Escoger direcciones previamente usadas</translation>
+        <translation>Escoger dirección previamente usada</translation>
     </message>
     <message>
         <source>This is a normal payment.</source>
         <translation>Esto es un pago ordinario.</translation>
+    </message>
+    <message>
+        <source>The Reddcoin address to send the payment to (e.g. Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</source>
+        <translation>Dirección Reddcoin a la que enviar el pago (p. ej. Rppgy8PHbBrknXfDmfEmqZXTKMR1yiwVtB)</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1949,16 +2002,16 @@ Dirección: %4
         <translation>Mensaje:</translation>
     </message>
     <message>
+        <source>A message that was attached to the reddcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Reddcoin network.</source>
+        <translation>Un mensaje adjuntado al enlace Reddcoin que será guardado con la transacción para referencia. Nota: Este mensaje no será retransmitido por la red Reddcoin.</translation>
+    </message>
+    <message>
         <source>This is a verified payment request.</source>
         <translation>Esto es una petición de pago verificado.</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to the list of used addresses</source>
         <translation>Introduce una etiqueta para esta dirección para añadirla a la lista de direcciones utilizadas</translation>
-    </message>
-    <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Un mensaje que se adjuntó a la bitcoin: URL que será almacenada con la transacción para su referencia. Nota: Este mensaje no se envía a través de la red Bitcoin.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1976,8 +2029,8 @@ Dirección: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Bitcoin Core is shutting down...</source>
-        <translation>Bitcoin Core se está cerrando...</translation>
+        <source>Reddcoin Core is shutting down...</source>
+        <translation>Reddcoin Core se está cerrando...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1999,8 +2052,8 @@ Dirección: %4
         <translation>Puede firmar mensajes con sus direcciones para demostrar que las posee. Tenga cuidado de no firmar cualquier cosa vaga, ya que los ataques de phishing pueden tratar de engañarle para suplantar su identidad. Firme solo declaraciones totalmente detalladas con las que usted esté de acuerdo.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>La dirección con la que firmar el mensaje (ej. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>The Reddcoin address to sign the message with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Dirección Reddcoin con la que firmar el mensaje (p. ej. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2031,8 +2084,8 @@ Dirección: %4
         <translation>Copiar la firma actual al portapapeles del sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Firmar el mensaje para demostrar que se posee esta dirección Bitcoin</translation>
+        <source>Sign the message to prove you own this Reddcoin address</source>
+        <translation>Firmar el mensaje para demostrar que se posee esta dirección Reddcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2044,7 +2097,7 @@ Dirección: %4
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Vaciar &amp;todo</translation>
+        <translation>Limpiar &amp;todo</translation>
     </message>
     <message>
         <source>&amp;Verify Message</source>
@@ -2055,12 +2108,12 @@ Dirección: %4
         <translation>Introduzca la dirección para la firma, el mensaje (asegurándose de copiar tal cual los saltos de línea, espacios, tabulaciones, etc.) y la firma a continuación para verificar el mensaje. Tenga cuidado de no asumir más información de lo que dice el propio mensaje firmado para evitar fraudes basados en ataques de tipo man-in-the-middle.</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>La dirección con la que se firmó el mensaje (ej. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>The Reddcoin address the message was signed with (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>La dirección Reddcoin con la que se firmó el mensaje (p. ej. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección Bitcoin indicada</translation>
+        <source>Verify the message to ensure it was signed with the specified Reddcoin address</source>
+        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección Reddcoin indicada</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2071,12 +2124,12 @@ Dirección: %4
         <translation>Vaciar todos los campos de la verificación de mensaje</translation>
     </message>
     <message>
-        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Introduzca una dirección Bitcoin (ej. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
-    </message>
-    <message>
         <source>Click "Sign Message" to generate signature</source>
         <translation>Haga clic en "Firmar mensaje" para generar la firma</translation>
+    </message>
+    <message>
+        <source>Enter a Reddcoin address (e.g. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX)</source>
+        <translation>Introduzca una dirección de Reddcoin (p. ej. RdXd6m9nZ6GsUA6ZXLJjiyuKeS3vvsS7NX) </translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -2092,7 +2145,7 @@ Dirección: %4
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
-        <translation>Se ha cancelado el desbloqueo del monedero. </translation>
+        <translation>Se ha cancelado el desbloqueo del monedero.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
@@ -2130,12 +2183,12 @@ Dirección: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Reddcoin Core</source>
+        <translation>Reddcoin Core</translation>
     </message>
     <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Los desarrolladores de Bitcoin Core</translation>
+        <source>The Reddcoin Core developers</source>
+        <translation>Los desarrolladores de Reddcoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2157,7 +2210,7 @@ Dirección: %4
     </message>
     <message>
         <source>conflicted</source>
-        <translation>en conflicto</translation>
+        <translation>conflicto</translation>
     </message>
     <message>
         <source>%1/offline</source>
@@ -2245,11 +2298,11 @@ Dirección: %4
     </message>
     <message>
         <source>Merchant</source>
-        <translation>Vendedor</translation>
+        <translation>Comerciante</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Los bitcoins generados deben madurar %1 bloques antes de que puedan gastarse. Cuando generó este bloque, se transmitió a la red para que se añadiera a la cadena de bloques. Si no consigue entrar en la cadena, su estado cambiará a "no aceptado" y ya no se podrá gastar. Esto puede ocurrir ocasionalmente si otro nodo genera un bloque a pocos segundos del suyo.</translation>
+        <translation>Las monedas generadas deben madurar %1 bloques antes de que puedan ser gastadas. Cuando generaste este bloque fue retransmitido por la red para ser añadido a la cadena de bloques. Si fracasa su estado será cambiado a "no aceptado" y no será gastable. Esto puede pasar ocasionalmente si otro nodo genera un bloque segundos antes o después que el tuyo.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2374,12 +2427,12 @@ Dirección: %4
         <translation>Pago propio</translation>
     </message>
     <message>
-        <source>Mined</source>
-        <translation>Minado</translation>
+        <source>Generated</source>
+        <translation>Generado</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>(nd)</translation>
+        <translation>(n/d)</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
@@ -2445,10 +2498,6 @@ Dirección: %4
         <translation>A usted mismo</translation>
     </message>
     <message>
-        <source>Mined</source>
-        <translation>Minado</translation>
-    </message>
-    <message>
         <source>Other</source>
         <translation>Otra</translation>
     </message>
@@ -2506,7 +2555,11 @@ Dirección: %4
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Archivos de columnas separadas por coma (*.csv)</translation>
+        <translation>Archivos separados por coma (*.csv)</translation>
+    </message>
+    <message>
+        <source>Generated</source>
+        <translation>Generado</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -2556,7 +2609,7 @@ Dirección: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Enviar bitcoins</translation>
+        <translation>Enviar Reddcoin</translation>
     </message>
 </context>
 <context>
@@ -2567,7 +2620,7 @@ Dirección: %4
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Exportar a un archivo los datos de esta pestaña</translation>
+        <translation>Exportar los datos en la ficha actual a un archivo</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
@@ -2591,7 +2644,7 @@ Dirección: %4
     </message>
     <message>
         <source>Backup Successful</source>
-        <translation>Se ha completado la copia de seguridad del monedero</translation>
+        <translation>Se ha completado con éxito la copia de respaldo</translation>
     </message>
 </context>
 <context>
@@ -2602,36 +2655,19 @@ Dirección: %4
     </message>
     <message>
         <source>List commands</source>
-        <translation>Muestra comandos
-</translation>
+        <translation>Muestra comandos</translation>
     </message>
     <message>
         <source>Get help for a command</source>
-        <translation>Recibir ayuda para un comando
-</translation>
+        <translation>Recibir ayuda para un comando</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation>Opciones:
-</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: bitcoin.conf)</source>
-        <translation>Especificar archivo de configuración (predeterminado: bitcoin.conf)
-</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: bitcoind.pid)</source>
-        <translation>Especificar archivo pid (predeterminado: bitcoin.pid)
-</translation>
+        <translation>Opciones:</translation>
     </message>
     <message>
         <source>Specify data directory</source>
         <translation>Especificar directorio para los datos</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Escuchar conexiones en &lt;puerto&gt; (predeterminado: 8333 o testnet: 18333)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -2658,27 +2694,20 @@ Dirección: %4
         <translation>Ha ocurrido un error al configurar el puerto RPC %u para escucha en IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Escuchar conexiones JSON-RPC en &lt;puerto&gt; (predeterminado: 8332 o testnet:18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
-        <translation>Aceptar comandos consola y JSON-RPC
-</translation>
+        <translation>Aceptar comandos consola y JSON-RPC</translation>
     </message>
     <message>
-        <source>Bitcoin Core RPC client version</source>
-        <translation>Versión del cliente RPC de Bitcoin Core RPC</translation>
+        <source>Connect to JSON-RPC on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
+        <translation>Escuchar conexiones JSON-RPC en &lt;port&gt; (Por defecto: 45443 o testnet: 55443) </translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
-        <translation>Ejecutar en segundo plano como daemon y aceptar comandos
-</translation>
+        <translation>Correr como demonio y aceptar comandos</translation>
     </message>
     <message>
         <source>Use the test network</source>
-        <translation>Usar la red de pruebas
-</translation>
+        <translation>Usar la red de pruebas</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
@@ -2688,24 +2717,21 @@ Dirección: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=reddcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
 </source>
         <translation>%s, debe establecer un valor rpcpassword en el archivo de configuración:
 %s
-Se recomienda utilizar la siguiente contraseña aleatoria:
-rpcuser=bitcoinrpc
-rpcpassword=%s
+Se recomienda utilizar la siguiente contraseña aleatoria:  rpcuser=reddcoinrpc rpcpassword=%s
 (no es necesario recordar esta contraseña)
 El nombre de usuario y la contraseña DEBEN NO ser iguales.
 Si el archivo no existe, créelo con permisos de archivo de solo lectura.
-Se recomienda también establecer alertnotify para recibir notificaciones de problemas.
-Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
+Se recomienda también establecer alertnotify para recibir notificaciones de problemas. Por ejemplo: alertnotify=echo %%s | mail -s "Reddcoin Alert" admin@foo.com
 </translation>
     </message>
     <message>
@@ -2733,16 +2759,12 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Ingresar en el modo de prueba de regresión, que utiliza una cadena especial en la que los bloques se pueden resolver instantáneamente.</translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>Error: Ha fallado la escucha de conexiones entrantes (listen ha devuelto el error %d)</translation>
-    </message>
-    <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>¡Error: se ha rechazado la transacción! Esto puede ocurrir si ya se han gastado algunos de los bitcoins del monedero, como ocurriría si hubiera hecho una copia de wallet.dat y se hubieran gastado bitcoins a partir de la copia, con lo que no se habrían marcado aquí como gastados.</translation>
+        <translation>Error: se ha rechazado la transacción! Esto puede ocurrir si ya se han gastado algunas de las monedas del monedero, como ocurriría si hubiera hecho una copia de wallet.dat y se hubieran gastado monedas a partir de la copia, con lo que no se habrían marcado aquí como gastadas.</translation>
     </message>
     <message>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>¡Error: Esta transacción requiere una comisión de al menos %s debido a su cantidad, complejidad, o al uso de fondos recién recibidos!</translation>
+        <translation>Error: Esta transacción requiere una comisión de al menos %s debido a su monto, complejidad, o al uso de fondos recién recibidos!</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
@@ -2765,20 +2787,20 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>En este modo -genproclimit controla cuántos bloques se generan de inmediato.</translation>
     </message>
     <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
+        <translation>Escuchar conexiones JSON-RPC en &lt;puerto&gt; (predeterminado: 45443 o testnet: 55443)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when staking blocks (default: 0)</source>
+        <translation>Registrar en el log la prioridad de transacciones y la comisión por kB al apilar bloques (predeterminado: 0)</translation>
+    </message>
+    <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Establecer el número de hilos (threads) de verificación de scripts (entre %u y %d, 0 = automático, &lt;0 = dejar libres ese número de núcleos; predeterminado: %d)</translation>
     </message>
     <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>Establecer el límite de procesadores cuando está activada la generación (-1 = sin límite; predeterminado: -1)</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Esta es una versión de pre-prueba - utilícela bajo su propio riesgo. No la utilice para usos comerciales o de minería.</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. Bitcoin Core is probably already running.</source>
-        <translation>No se ha podido acceder a %s en esta máquina. Probablemente ya se está ejecutando Bitcoin Core.</translation>
+        <source>Unable to bind to %s on this computer. Reddcoin Core is probably already running.</source>
+        <translation>No se ha podido acceder a %s en esta máquina. Probablemente ya se está ejecutando Reddcoin Core.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
@@ -2789,16 +2811,16 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Aviso: ¡-paytxfee tiene un valor muy alto! Esta es la comisión que pagará si envía una transacción.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
-        <translation>Precaución: Por favor, ¡revise que la fecha y hora de su ordenador son correctas! Si su reloj está mal, Bitcoin no funcionará correctamente.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Reddcoin will not work properly.</source>
+        <translation>Aviso: Por favor, ¡revise que la fecha y hora de su ordenador son correctas! Si su reloj está mal, Reddcoin no funcionará correctamente.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Atención: ¡Parece que la red no está totalmente de acuerdo! Algunos mineros están presentando inconvenientes.</translation>
+        <translation>Alerta: La red no parece estar en consenso! Algunos mineros parecen tener problemas.</translation>
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Atención: ¡Parece que no estamos completamente de acuerdo con nuestros pares! Podría necesitar una actualización, u otros nodos podrían necesitarla.</translation>
+        <translation>Alerta: Falta de consenso con otros nodos! Tú o otros nodos pueden necesitar una actualización.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2825,16 +2847,12 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Intento de recuperar claves privadas de un wallet.dat corrupto</translation>
     </message>
     <message>
-        <source>Bitcoin Core Daemon</source>
-        <translation>Bitcoin Core Daemon (proceso independiente)</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Opciones de creación de bloques:</translation>
     </message>
     <message>
         <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation>Vaciar lista de transacciones del monedero (herramienta de diagnóstico; implica -rescan)</translation>
+        <translation>Vaciar lista de transacciones (herramienta de diagnóstico; implica -rescan)</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
@@ -2843,10 +2861,6 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     <message>
         <source>Connect through SOCKS proxy</source>
         <translation>Conectar a través de un proxy SOCKS</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Conectar a JSON-RPC en &lt;puerto&gt; (predeterminado: 8332 o testnet: 18332)</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2882,7 +2896,7 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Error initializing wallet database environment %s!</source>
-        <translation>Error al inicializar el entorno de la base de datos del monedero  %s</translation>
+        <translation>Error al inicializar el entorno de la base de datos del monedero %s</translation>
     </message>
     <message>
         <source>Error loading block database</source>
@@ -2901,8 +2915,12 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Error: ¡El monedero está bloqueado; no se puede crear la transacción!</translation>
     </message>
     <message>
+        <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
+        <translation>Error: Monedero desbloqueado solo para staking, incapaz de crear la transacción.</translation>
+    </message>
+    <message>
         <source>Error: system error: </source>
-        <translation>Error: error de sistema: </translation>
+        <translation>Error: error de sistema:</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
@@ -2938,7 +2956,7 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Failed to write to coin database</source>
-        <translation>No se ha podido escribir en la base de datos de bitcoins</translation>
+        <translation>No se ha podido escribir en la base de datos de monedas</translation>
     </message>
     <message>
         <source>Failed to write transaction index</source>
@@ -2957,16 +2975,8 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Las comisiones inferiores se consideran comisión cero (a efectos de propagación) (predeterminado:</translation>
     </message>
     <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Encontrar pares mediante búsqueda de DNS (predeterminado: 1 salvo con -connect)</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: 0)</source>
         <translation>Forzar modo seguro (predeterminado: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Generar bitcoins (predeterminado: 0)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: 288, 0 = all)</source>
@@ -2985,16 +2995,36 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Incorrecto o bloque de génesis no encontrado. Datadir equivocada para la red?</translation>
     </message>
     <message>
+        <source>Initialization sanity check failed. Reddcoin Core is shutting down.</source>
+        <translation>La inicialización de la verificación de validez falló. Se está apagando Reddcoin Core.</translation>
+    </message>
+    <message>
         <source>Invalid -onion address: '%s'</source>
-        <translation>Dirección -onion inválida: '%s'</translation>
+        <translation>Inválida -onion address: '%s'</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
+        <translation>Mantener como máximo &lt;n&gt;  bloques no conectables en memoria (por defecto: %u)</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Mantener como máximo &lt;n&gt; transacciones no conectables en memoria (por defecto: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index (default: 1)</source>
+        <translation>¿Mantener un índice completo de transacciones (Por defecto: 0) {1)?}</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
-        <translation>No hay suficientes descriptores de archivo disponibles. </translation>
+        <translation>No hay suficientes descriptores de archivo disponibles.</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: 1)</source>
         <translation>Anteponer marca temporal a la información de depuración (predeterminado: 1)</translation>
+    </message>
+    <message>
+        <source>RPC SSL options: (see the wiki.reddcoin.com for SSL setup instructions)</source>
+        <translation>Opciones SSL de RPC: (véase la wiki.reddcoin.com para las instrucciones de instalación de SSL)</translation>
     </message>
     <message>
         <source>RPC client options:</source>
@@ -3018,7 +3048,15 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Establecer el número de procesos para atender las llamadas RPC (predeterminado: 4)</translation>
+        <translation>Establecer el número de hilos para atender las llamadas RPC (predeterminado: 4)</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: reddcoin.conf)</source>
+        <translation>Especificar archivo de configuración (por defecto: reddcoin.conf) </translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: reddcoind.pid)</source>
+        <translation>Especificar archivo pid (predeterminado: reddcoind.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -3029,12 +3067,16 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Gastar cambio no confirmado al enviar transacciones (predeterminado: 1)</translation>
     </message>
     <message>
+        <source>Stake your coins to support network and gain reward (default: 1)</source>
+        <translation>Acumule sus monedas para apoyar la red y ganar recompensas (Por defecto: 1)</translation>
+    </message>
+    <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Esto afecta a las herramientas de prueba de regresión y al desarrollo informático de la aplicación.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use bitcoin-cli):</source>
-        <translation>Uso (desaconsejado, usar bitcoin-cli)</translation>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>No es posible conectar con %s en este sistema (bind ha dado el error %s)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3069,20 +3111,44 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Importa los bloques desde un archivo blk000??.dat externo</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Bitcoin Core is probably already running.</source>
-        <translation>No se ha podido bloquear el directorio de datos %s. Probablemente ya se está ejecutando Bitcoin Core.</translation>
+        <source>Cannot obtain a lock on data directory %s. Reddcoin Core is probably already running.</source>
+        <translation>No se ha podido bloquear el directorio de datos %s. Probablemente ya se está ejecutando Reddcoin Core.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Error: la escucha para conexiones entrantes falló (la escucha regresó el error %s)</translation>
+    </message>
+    <message>
+        <source>Execute command when a coinstake transaction is created (%s in cmd is replaced by TxID)</source>
+        <translation>Ejecutar comando cuando una transacción coinstake es creada (%s en el comando es reemplazado por la ID de la transacción)</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Ejecutar un comando cuando se reciba una alerta importante o cuando veamos un fork demasiado largo (%s en cmd se reemplazará por el mensaje)</translation>
+        <translation>Ejecutar comando cuando una alerta relevante es recibida o vemos un fork verdaderamente largo (%s en el comando es reemplazado por un mensaje)</translation>
     </message>
     <message>
         <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
         <translation>Mostrar información de depuración (predeterminado: 0, proporcionar &lt;category&gt; es opcional)</translation>
     </message>
     <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Consulta de direcciones pares mediante búsqueda de DNS, si bajo en direcciones (por defecto: 1 a menos que - conectar)</translation>
+    </message>
+    <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Establecer tamaño máximo de las transacciones de alta prioridad/baja comisión en bytes (predeterminado: %d)</translation>
+    </message>
+    <message>
+        <source>Set the processor limit for when generation is on (-1 = unlimited, default: 0)</source>
+        <translation>Establecer el límite de procesadores cuando está activada la generación (-1 = sin límite; predeterminado: 0)</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications</source>
+        <translation>Esta es una versión de pre-prueba - utilícela bajo su propio riesgo. No la utilice para usos comerciales o de minería.</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: 0)</source>
+        <translation>Siempre consultar direcciones de otros equipos por medio de DNS lookup (por defecto: 0)</translation>
     </message>
     <message>
         <source>Information</source>
@@ -3090,31 +3156,31 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Cantidad inválida para -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
+        <translation>Inválido por el monto -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Cantidad inválida para -mintxfee=&lt;amount&gt;: '%s'</translation>
+        <translation>Inválido por el monto -mintxfee=&lt;amount&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;: '%s'</source>
+        <translation>Cantidad inválida para -reservebalance=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
         <translation>Limitar tamaño de la cache de firmas a &lt;n&gt; entradas (predeterminado: 50000)</translation>
     </message>
     <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>Registrar en el log la prioridad de transacciones y la comisión por kB al minar bloques (predeterminado: 0)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Mantener índice de transacciones completo (predeterminado: 0)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 45444 or testnet: 55444)</source>
+        <translation>Escuchar conexiones en &lt;puerto&gt; (predeterminado: 45444 o testnet: 55444)</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>Búfer de recepción máximo por conexión, &lt;n&gt;*1000 bytes (predeterminado: 5000)</translation>
+        <translation>Búfer de recepción máximo por conexión, &lt;n&gt;*1000 bytes (por defecto: 5000)</translation>
     </message>
     <message>
         <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>Búfer de recepción máximo por conexión, , &lt;n&gt;*1000 bytes (predeterminado: 1000)</translation>
+        <translation>Búfer de recepción máximo por conexión, , &lt;n&gt;*1000 bytes (por defecto: 1000)</translation>
     </message>
     <message>
         <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
@@ -3122,7 +3188,7 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>Conectarse solo a nodos de la red &lt;net&gt; (IPv4, IPv6 o Tor)</translation>
+        <translation>Sólo conectar a nodos en redes &lt;net&gt; (ipv4, ipv6 o Tor)</translation>
     </message>
     <message>
         <source>Print block on startup, if found in block index</source>
@@ -3131,10 +3197,6 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     <message>
         <source>Print block tree on startup (default: 0)</source>
         <translation>Imprimir árbol de bloques al iniciar (predeterminado: 0)</translation>
-    </message>
-    <message>
-        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Opciones SSL de RPC: (véase la wiki de Bitcoin para las instrucciones de instalación de SSL)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3149,16 +3211,28 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Introducir datos fuzz en 1 de cada &lt;n&gt; mensajes de red al azar</translation>
     </message>
     <message>
+        <source>Reddcoin Core Daemon</source>
+        <translation>Reddcoin Core Daemon</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core RPC client version</source>
+        <translation>Versión de cliente RPC Reddcoin Core</translation>
+    </message>
+    <message>
         <source>Run a thread to flush wallet periodically (default: 1)</source>
         <translation>Ejecutar un hilo (thread) para limpiar de la memoria el monedero periódicamente (predeterminado: 1)</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Opciones SSL: (ver la Bitcoin Wiki para instrucciones de configuración SSL)</translation>
+        <source>SSL options: (see the Reddcoin Wiki for SSL setup instructions)</source>
+        <translation>Opciones SSL: (ver la Reddcoin Wiki para instrucciones de configuración SSL)</translation>
     </message>
     <message>
-        <source>Send command to Bitcoin Core</source>
-        <translation>Enviar orden a Bitcoin Core</translation>
+        <source>Send command to Reddcoin Core</source>
+        <translation>Envíe comando al  Reddcoin Core</translation>
+    </message>
+    <message>
+        <source>Send command to reddcoin Core</source>
+        <translation>Send command to reddcoin Core</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -3166,7 +3240,7 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Establecer tamaño mínimo de bloque en bytes (predeterminado: 0)</translation>
+        <translation>Establecer tamaño mínimo de bloque en bytes (por defecto: 0)</translation>
     </message>
     <message>
         <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
@@ -3193,12 +3267,12 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Especificar el tiempo máximo de conexión en milisegundos (predeterminado: 5000)</translation>
     </message>
     <message>
-        <source>Start Bitcoin Core Daemon</source>
-        <translation>Iniciar Bitcoin Core Daemon</translation>
+        <source>Start Reddcoin Core Daemon</source>
+        <translation>Iniciar Reddcoin Core Daemon</translation>
     </message>
     <message>
         <source>System error: </source>
-        <translation>Error de sistema: </translation>
+        <translation>Error de sistema:</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -3213,6 +3287,10 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Transacción demasiado grande</translation>
     </message>
     <message>
+        <source>Usage (deprecated, use reddcoin-cli):</source>
+        <translation>Uso (desaconsejado, usar reddcoin-cli)</translation>
+    </message>
+    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Usar UPnP para asignar el puerto de escucha (predeterminado: 0)</translation>
     </message>
@@ -3222,12 +3300,11 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Username for JSON-RPC connections</source>
-        <translation>Nombre de usuario para las conexiones JSON-RPC
-</translation>
+        <translation>Nombre de usuario para las conexiones JSON-RPC</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Aviso</translation>
+        <translation>Avis</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -3235,7 +3312,7 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
-        <translation>Eliminando todas las transacciones del monedero...</translation>
+        <translation>Pasando por todas las transacciones del monedero...</translation>
     </message>
     <message>
         <source>on startup</source>
@@ -3251,18 +3328,15 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Password for JSON-RPC connections</source>
-        <translation>Contraseña para las conexiones JSON-RPC
-</translation>
+        <translation>Contraseña para las conexiones JSON-RPC</translation>
     </message>
     <message>
         <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Permitir conexiones JSON-RPC desde la dirección IP especificada
-</translation>
+        <translation>Permitir conexiones JSON-RPC desde la dirección IP especificada</translation>
     </message>
     <message>
         <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Enviar comando al nodo situado en &lt;ip&gt; (predeterminado: 127.0.0.1)
-</translation>
+        <translation>Enviar comando al nodo situado en &lt;ip&gt; (predeterminado: 127.0.0.1)</translation>
     </message>
     <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
@@ -3274,8 +3348,7 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Ajustar el número de claves en reserva &lt;n&gt; (predeterminado: 100)
-</translation>
+        <translation>Ajustar el número de claves en reserva &lt;n&gt; (predeterminado: 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
@@ -3283,27 +3356,19 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
     </message>
     <message>
         <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Usar OpenSSL (https) para las conexiones JSON-RPC
-</translation>
+        <translation>Usar OpenSSL (https) para las conexiones JSON-RPC</translation>
     </message>
     <message>
         <source>Server certificate file (default: server.cert)</source>
-        <translation>Certificado del servidor (predeterminado: server.cert)
-</translation>
+        <translation>Certificado del servidor (predeterminado: server.cert)</translation>
     </message>
     <message>
         <source>Server private key (default: server.pem)</source>
-        <translation>Clave privada del servidor (predeterminado: server.pem)
-</translation>
+        <translation>Clave privada del servidor (predeterminado: server.pem)</translation>
     </message>
     <message>
         <source>This help message</source>
-        <translation>Este mensaje de ayuda
-</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>No es posible conectar con %s en este sistema (bind ha dado el error %d, %s)</translation>
+        <translation>Este mensaje de ayuda</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
@@ -3318,12 +3383,12 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <translation>Error al cargar wallet.dat: el monedero está dañado</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
-        <translation>Error al cargar wallet.dat: El monedero requiere una versión más reciente de Bitcoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Reddcoin</source>
+        <translation>Error al cargar wallet.dat: El monedero requiere una versión más reciente de Reddcoin Core</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
-        <translation>El monedero ha necesitado ser reescrito. Reinicie Bitcoin para completar el proceso</translation>
+        <source>Wallet needed to be rewritten: restart Reddcoin to complete</source>
+        <translation>El monedero ha necesitado ser reescrito. Reinicie Reddcoin para completar el proceso</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
@@ -3401,8 +3466,8 @@ Por ejemplo: alertnotify=echo %%s | mail -s "Bitcoin Alert" admin@foo.com
         <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
 %s
 If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>Tiene que establecer rpcpassword=&lt;contraseña&gt; en el fichero de configuración: ⏎
-%s ⏎
+        <translation>Tiene que establecer rpcpassword=&lt;contraseña&gt; en el fichero de configuración:
+%s
 Si el archivo no existe, créelo con permiso de lectura solamente del propietario.</translation>
     </message>
 </context>

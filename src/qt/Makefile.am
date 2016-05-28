@@ -38,8 +38,10 @@ QT_TS = \
   locale/bitcoin_eu_ES.ts \
   locale/bitcoin_fa_IR.ts \
   locale/bitcoin_fa.ts \
+  locale/bitcoin_fil.ts \
   locale/bitcoin_fi.ts \
   locale/bitcoin_fr_CA.ts \
+  locale/bitcoin_fr_FR.ts \
   locale/bitcoin_fr.ts \
   locale/bitcoin_gl.ts \
   locale/bitcoin_gu_IN.ts \
@@ -48,6 +50,7 @@ QT_TS = \
   locale/bitcoin_hr.ts \
   locale/bitcoin_hu.ts \
   locale/bitcoin_id_ID.ts \
+  locale/bitcoin_is.ts \
   locale/bitcoin_it.ts \
   locale/bitcoin_ja.ts \
   locale/bitcoin_ka.ts \
@@ -62,10 +65,12 @@ QT_TS = \
   locale/bitcoin_nb.ts \
   locale/bitcoin_nl.ts \
   locale/bitcoin_pam.ts \
+  locale/bitcoin_pl_PL.ts \
   locale/bitcoin_pl.ts \
   locale/bitcoin_pt_BR.ts \
   locale/bitcoin_pt_PT.ts \
   locale/bitcoin_ro_RO.ts \
+  locale/bitcoin_ro.ts \
   locale/bitcoin_ru.ts \
   locale/bitcoin_sah.ts \
   locale/bitcoin_sk.ts \
@@ -73,7 +78,10 @@ QT_TS = \
   locale/bitcoin_sq.ts \
   locale/bitcoin_sr.ts \
   locale/bitcoin_sv.ts \
+  locale/bitcoin_te_IN.ts \
   locale/bitcoin_th_TH.ts \
+  locale/bitcoin_tl_PH.ts \
+  locale/bitcoin_tr_TR.ts \
   locale/bitcoin_tr.ts \
   locale/bitcoin_uk.ts \
   locale/bitcoin_ur_PK.ts \
