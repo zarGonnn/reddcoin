@@ -12,7 +12,7 @@ packages:
 - "pkg-config"
 - "p7zip-full"
 
-reference_datetime: "2016-01-08 08:30:00"
+reference_datetime: "2016-05-28 00:00:00"
 remotes:
 - "url": "https://github.com/reddcoin-project/reddcoin.git"
   "dir": "reddcoin"
