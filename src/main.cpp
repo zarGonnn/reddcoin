@@ -2701,6 +2701,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
             return state.DoS(100, error("AcceptBlock() : forked chain older than last checkpoint (height %d)", nHeight));
 
         // Reject block.nVersion=2 blocks when 95% (75% on testnet) of the network has upgraded:
+        // Should pass here as all PoSV blocks nVersion=3
         if (block.nVersion < 3)
         {
             if ((!TestNet() && CBlockIndex::IsSuperMajority(3, pindexPrev, 9500, 10000)) ||
@@ -2710,10 +2711,10 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
                                      REJECT_OBSOLETE, "bad-version");
             }
         }
-        // Reject block.nVersion=3 blocks when 95% (75% on testnet) of the network has upgraded:
+        // Reject block.nVersion=3 blocks when 85% (51% on testnet) of the network has upgraded:
         if (block.nVersion < 4)
         {
-            if ((!TestNet() && CBlockIndex::IsSuperMajority(4, pindexPrev, 9500, 10000)) ||
+            if ((!TestNet() && CBlockIndex::IsSuperMajority(4, pindexPrev, 6120, 7200)) ||
                 (TestNet() && CBlockIndex::IsSuperMajority(4, pindexPrev, 750, 1000)))
             {
                 return state.Invalid(error("AcceptBlock() : rejected nVersion=3 block"),
