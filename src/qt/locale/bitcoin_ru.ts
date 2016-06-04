@@ -833,6 +833,10 @@ Address: %4
         <translation>Это значит, что требуется комиссия как минимум %1.</translation>
     </message>
     <message>
+        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
+        <translation>Суммы ниже 0,546 минимальных размеров платы реле показаны в виде пыли.</translation>
+    </message>
+    <message>
         <source>This label turns red, if the change is smaller than %1.</source>
         <translation>Эта пометка становится красной, если сдача меньше %1.</translation>
     </message>
@@ -3104,6 +3108,10 @@ rpcpassword=%s
         <translation>Ограничить размер кэша подписей &lt;n&gt; записями (по умолчанию: 50000)</translation>
     </message>
     <message>
+        <source>Listen for connections on &lt;port&gt; (default: 45444 or testnet: 55444)</source>
+        <translation>Слушай подключения по &lt;порт&gt; (по умолчанию: 45444 или testnet: 55444)</translation>
+    </message>
+    <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
         <translation>Максимальный размер буфера приёма на соединение, &lt;n&gt;*1000 байт (по умолчанию: 5000)</translation>
     </message>
@@ -3138,6 +3146,14 @@ rpcpassword=%s
     <message>
         <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
         <translation>Случайно разбрасывать 1 из каждых &lt;n&gt; сетевых сообщений</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core Daemon</source>
+        <translation>Дух ядра Reddcoin</translation>
+    </message>
+    <message>
+        <source>Reddcoin Core RPC client version</source>
+        <translation>Ядро Reddcoin RPC версия клиента</translation>
     </message>
     <message>
         <source>Run a thread to flush wallet periodically (default: 1)</source>
