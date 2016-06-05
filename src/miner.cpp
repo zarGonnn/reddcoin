@@ -598,6 +598,7 @@ void ReddcoinStaker(CWallet *pwallet)
             // on an obsolete chain. In regtest mode we expect to fly solo.
             while (vNodes.empty())
             {
+                // Busy-wait for the network to come online.
                 LogPrintf("ReddcoinStaker : Waiting for network online.\n");
                 nLastCoinStakeSearchInterval = 0;
                 MilliSleep(1000);
@@ -668,8 +669,17 @@ void static ReddcoinMiner(CWallet *pwallet)
         if (Params().NetworkID() != CChainParams::REGTEST) {
             // Busy-wait for the network to come online so we don't waste time mining
             // on an obsolete chain. In regtest mode we expect to fly solo.
-            while (vNodes.empty())
+            while (vNodes.empty()){
+                LogPrintf("ReddcoinMiner : Waiting for network online.\n");
                 MilliSleep(1000);
+            }
+        }
+
+        while (IsInitialBlockDownload()) 
+        {
+            // Busy-wait for the download of the blockchain to complete
+            LogPrintf("ReddcoinMiner : Waiting... Blockchain Downloading.\n");
+            MilliSleep(60000);
         }
 
         //
