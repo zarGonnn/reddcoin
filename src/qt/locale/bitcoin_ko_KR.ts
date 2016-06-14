@@ -2035,6 +2035,10 @@ Address: %4
         <translation>이상 동작을 하는 피어와 재접속을 하기 위한 대기 시간 (기본: 86400)</translation>
     </message>
     <message>
+        <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
+        <translation>IPv4의 청취를 위해 RPC 포트 %u 를 설정하는 동안 오류가 발생했습니다 : %s</translation>
+    </message>
+    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>명령줄과 JSON-RPC 명령을 허용</translation>
     </message>
