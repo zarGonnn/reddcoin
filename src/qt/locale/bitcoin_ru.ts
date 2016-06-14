@@ -1609,6 +1609,10 @@ Address: %4
         <translation>&amp;Повторно использовать существующий адрес получения (не рекомендуется)</translation>
     </message>
     <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Reddcoin network.</source>
+        <translation>Необязательное сообщение прикрепить к запросу оплаты, которая будет отображаться при открытии запроса. Примечание: сообщение не отправляется с выплатами по сети Reddcoin.</translation>
+    </message>
+    <message>
         <source>An optional label to associate with the new receiving address.</source>
         <translation>Необязательная метка для нового адреса получения.</translation>
     </message>
@@ -2398,6 +2402,10 @@ Address: %4
         <translation>Неподтвержденный</translation>
     </message>
     <message>
+        <source>Confirming (%1 of %2 recommended confirmations)</source>
+        <translation>Подтверждение (%1 из %2 рекомендуемых подтверждений)</translation>
+    </message>
+    <message>
         <source>Conflicted</source>
         <translation>Конфликт</translation>
     </message>
@@ -2689,6 +2697,10 @@ Address: %4
         <translation>Принимать командную строку и команды JSON-RPC</translation>
     </message>
     <message>
+        <source>Connect to JSON-RPC on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
+        <translation>Подключить в json-RPC на &lt;port&gt; (по умолчанию: 45443 или тестовом режиме: 55443) </translation>
+    </message>
+    <message>
         <source>Run in the background as a daemon and accept commands</source>
         <translation>Запускаться в фоне как демон и принимать команды</translation>
     </message>
@@ -2776,12 +2788,20 @@ rpcpassword=%s
         <translation>В этом режиме -genproclimit определяет, сколько блоков генерируется немедленно.</translation>
     </message>
     <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 45443 or testnet: 55443)</source>
+        <translation>Слушать для json-RPC для подключения по &lt;port&gt; (по умолчанию: 45443 или тестовом режиме: 55443) </translation>
+    </message>
+    <message>
         <source>Log transaction priority and fee per kB when staking blocks (default: 0)</source>
         <translation>Журнал транзакций приоритета и плата за кб при майнинге блока (по умолчанию: 0)</translation>
     </message>
     <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Задать число потоков проверки скрипта (от %u до %d, 0=авто, &lt;0 = оставить столько ядер свободными, по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. Reddcoin Core is probably already running.</source>
+        <translation>Не удается выполнить привязку к %s на этом компьютере. Reddcoin ядро, вероятно, уже запущено. </translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
@@ -2976,8 +2996,20 @@ rpcpassword=%s
         <translation>Неверный или отсутствующий начальный блок. Неправильный каталог данных для сети?</translation>
     </message>
     <message>
+        <source>Initialization sanity check failed. Reddcoin Core is shutting down.</source>
+        <translation>Инициализация проверки не удалось. Reddcoin ядро отключается. </translation>
+    </message>
+    <message>
         <source>Invalid -onion address: '%s'</source>
         <translation>Неверный -onion адрес: '%s'</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
+        <translation>Держать на самый &lt;n&gt;, несоединимое блоков в памяти (по умолчанию: %u) </translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Держать на самый &lt;n&gt; проводки, несоединимое в памяти (по умолчанию: %u) </translation>
     </message>
     <message>
         <source>Maintain a full transaction index (default: 1)</source>
@@ -3036,8 +3068,16 @@ rpcpassword=%s
         <translation>Тратить неподтвержденную сдачу при отправке транзакций (по умолчанию: 1)</translation>
     </message>
     <message>
+        <source>Stake your coins to support network and gain reward (default: 1)</source>
+        <translation>Cтавка для вашей монеты поддержки сети и получать награду (по умолчанию: 1) </translation>
+    </message>
+    <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Это рассчитано на инструменты регрессионного тестирования и разработку приложений.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Не удается выполнить привязку к %s на этом компьютере (привязка возвращаемых ошибок %s)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3080,6 +3120,10 @@ rpcpassword=%s
         <translation>Ошибка: не удалось начать прослушивание входящих подключений (прослушивание вернуло ошибку %s)</translation>
     </message>
     <message>
+        <source>Execute command when a coinstake transaction is created (%s in cmd is replaced by TxID)</source>
+        <translation>Команда выполнять когда транзакция coinstake создается (%s в cmd заменяется TxID) </translation>
+    </message>
+    <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
         <translation>Выполнить команду, когда приходит соответствующее сообщение о тревоге или наблюдается очень длинное расщепление цепи (%s в команде заменяется на сообщение)</translation>
     </message>
@@ -3088,8 +3132,24 @@ rpcpassword=%s
         <translation>Выводить отладочную информацию (по умолчанию: 0, указание &lt;category&gt; необязательно)</translation>
     </message>
     <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Запрос на экспертную адресов через DNS-запрос, если минимум на адреса (по умолчанию: 1 Если -подключения) </translation>
+    </message>
+    <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Задать максимальный размер высокоприоритетных/низкокомиссионных транзакций в байтах (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Set the processor limit for when generation is on (-1 = unlimited, default: 0)</source>
+        <translation>Установить ограничение процессор при генерации на (-1 = неограниченное, по умолчанию: 0) </translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications</source>
+        <translation>Это пре-релиз тестовой версии - используйте на свой страх и риск - не использовать для ставок или торговых приложений </translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: 0)</source>
+        <translation> Всегда запрашивать на экспертную адресов через DNS-запрос (по умолчанию: 0) </translation>
     </message>
     <message>
         <source>Information</source>
@@ -3102,6 +3162,10 @@ rpcpassword=%s
     <message>
         <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
         <translation>Неверное количество в параметре -mintxfee=&lt;кол-во&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;: '%s'</source>
+        <translation>Неверное количество в параметре -reservebalance=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
