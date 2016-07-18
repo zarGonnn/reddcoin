@@ -8,6 +8,7 @@ Release Process
 	doc/README*
 	share/setup.nsi
 	src/clientversion.h (change CLIENT_VERSION_IS_RELEASE to true)
+	./configure.ac (change (_CLIENT_VERSION_IS_RELEASE, true))
 
 ###tag version in git
 
@@ -16,6 +17,9 @@ Release Process
 ###write release notes. git shortlog helps a lot, for example:
 
 	git shortlog --no-merges v(current version, e.g. 0.7.2)..v(new version, e.g. 0.8.0)
+	or alternatively
+	git log --pretty=format:"%h - %an, %ar : %s" v(current version, e.g. 1.4.1)..v(new version, e.g. 2.0.0) > git.log
+
 
 * * *
 
@@ -185,9 +189,9 @@ Hash: SHA256
 ...
 ```
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the reddcoin.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the reddcoin.com server
 
-- Update reddcoin.org version
+- Update reddcoin.com version
 
   - Make a pull request to add a file named `YYYY-MM-DD-vX.Y.Z.md` with the release notes
   to https://github.com/bitcoin/bitcoin.org/tree/master/_releases
@@ -198,15 +202,13 @@ Hash: SHA256
 
 - Announce the release:
 
-  - Release sticky on bitcointalk: https://bitcointalk.org/index.php?board=1.0
+  - Release sticky on reddcointalk: https://www.reddcointalk.org/category/1/announcements
 
-  - Bitcoin-development mailing list
+  - Reddheads mailing list
 
   - Update title of #bitcoin on Freenode IRC
 
-  - Optionally reddit /r/Bitcoin, ... but this will usually sort out itself
-
-- Notify BlueMatt so that he can start building [https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin](the PPAs)
+  - Reddit /r/Reddcoin,
 
 - Add release notes for the new version to the directory `doc/release-notes` in git master
 
