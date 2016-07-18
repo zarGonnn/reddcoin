@@ -169,6 +169,10 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Ripeti la nuova passphrase</translation>
     </message>
     <message>
+        <source>For staking only</source>
+        <translation>Solo per lo staking</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Inserisci la nuova passphrase per il portamonete.&lt;br/&gt;Si prega di usare una passphrase di &lt;b&gt;10 o più caratteri casuali&lt;/b&gt;, o di &lt;b&gt;otto o più parole&lt;/b&gt;.</translation>
     </message>
@@ -2861,6 +2865,10 @@ ad esempio: alertnotify=echo %%s | mail -s "Allarme Reddcoin" admin@foo.com
         <translation>Errore: portamonete bloccato, impossibile creare la transazione!</translation>
     </message>
     <message>
+        <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
+        <translation>Errore: Portamonete sbloccato solo per lo staking, impossibile eseguire la transazione!</translation>
+    </message>
+    <message>
         <source>Error: system error: </source>
         <translation>Errore: errore di sistema:</translation>
     </message>
@@ -3075,6 +3083,10 @@ ad esempio: alertnotify=echo %%s | mail -s "Allarme Reddcoin" admin@foo.com
     <message>
         <source>Set the processor limit for when generation is on (-1 = unlimited, default: 0)</source>
         <translation>Imposta il limite della cpu quando la generazione è abilitata (-1 = non limitato, predefinito: 0)</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications</source>
+        <translation>Questa è una compilazione ancora in fase di sviluppo - usa a tuo rischio e pericolo - non usare per lo staking o per negoziare</translation>
     </message>
     <message>
         <source>Always query for peer addresses via DNS lookup (default: 0)</source>
