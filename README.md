@@ -33,7 +33,10 @@ algorithm which replaced Proof-of-Work (PoW).
  - white paper: http://www.reddcoin.com/papers/PoSV.pdf
  - FAQs paper: http://www.reddcoin.com/papers/PoSV_FAQ.pdf
 
-On February 2016 backported to be derived directly from Bitcoin v0.9 whilst maintaining the original functionality
+On December 2015 work commenced on porting directly from Bitcoin v0.9 whilst maintaining the original functionality.
+ - allowing for better maintainabilty
+ - monitoring of upstream features
+ - improved code consistency and sharing
 
 For more information, as well as an immediately useable, binary version of
 the Reddcoin Core software, see http://www.reddcoin.com
