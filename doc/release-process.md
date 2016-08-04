@@ -124,7 +124,7 @@ Release Process
         ./bin/gbuild --commit reddcoin=v${VERSION} ../reddcoin/contrib/gitian-descriptors/gitian-osx-reddcoin.yml
         ./bin/gsign --signer $SIGNER --release ${VERSION}-osx --destination ../gitian.sigs/ ../reddcoin/contrib/gitian-descriptors/gitian-osx-reddcoin.yml
 	pushd build/out
-	mv reddcoin-Qt.dmg ../../../
+	mv Reddcoin-Qt.dmg ../../../
 	popd
 	popd
 
@@ -132,7 +132,7 @@ Release Process
 
   1. linux 32-bit and 64-bit binaries + source (reddcoin-${VERSION}-linux-gitian.zip)
   2. windows 32-bit and 64-bit binaries + installer + source (reddcoin-${VERSION}-win-gitian.zip)
-  3. OSX installer (reddcoin-Qt.dmg)
+  3. OSX installer (Reddcoin-Qt.dmg)
   4. Gitian signatures (in gitian.sigs/${VERSION}[-win|-osx]/(your gitian key)/
 
 repackage gitian builds for release as stand-alone zip/tar/installer exe
@@ -152,7 +152,7 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 **Mac OS X .dmg:**
 
-	mv reddcoin-Qt.dmg reddcoin-${VERSION}-osx.dmg
+	mv Reddcoin-Qt.dmg reddcoin-${VERSION}-osx.dmg
 
 ###Next steps:
 
