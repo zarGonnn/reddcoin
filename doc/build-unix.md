@@ -8,8 +8,12 @@ To Build
 	./autogen.sh
 	./configure
 	make
+    make install # optional: will install to /usr/local/bin
 
 This will build reddcoin-qt as well if the dependencies are met.
+
+See [Debian Notes](../contrib/debian/README.md) for URI support in Desktop environment.
+
 
 Dependencies
 ---------------------
