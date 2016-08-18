@@ -21,20 +21,19 @@ SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTest
     setAutoFillBackground(true);
 
     // set reference point, paddings
-    int paddingRight            = 50;
     int paddingTop              = 50;
-    int titleVersionVSpace      = 17;
-    int titleCopyrightVSpace1   = 40;
-    int titleCopyrightVSpace2   = 53;
+    int paddingBottom           = 50;
 
     float fontFactor            = 1.0;
 
     // define text to place
     QString titleText       = tr("Reddcoin Core");
-    QString versionText     = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
+    QString versionText     = QString("version %1").arg(QString::fromStdString(FormatFullVersion()));
     QString copyrightText1   = QChar(0xA9)+QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
     QString copyrightText2   = QChar(0xA9)+QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Reddcoin Core developers"));
     QString testnetAddText  = QString(tr("[testnet]")); // define text to place as single text object
+    QString titleText_versionText = titleText + QString(" ") + versionText;
+    QString copyrightText = copyrightText1 + QString(" | ") + copyrightText2;
 
     QString font            = "Arial";
 
@@ -59,35 +58,38 @@ SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTest
         fontFactor = 0.75;
     }
 
-    pixPaint.setFont(QFont(font, 33*fontFactor));
+    // print title and version info
+    pixPaint.setFont(QFont(font, 16*fontFactor,QFont::Bold));
     fm = pixPaint.fontMetrics();
     titleTextWidth  = fm.width(titleText);
-    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight,paddingTop,titleText);
+    pixPaint.drawText(0, newPixmap.height()-paddingBottom-53, newPixmap.width(),paddingTop,Qt::AlignCenter,titleText_versionText);
 
     pixPaint.setFont(QFont(font, 15*fontFactor));
 
     // if the version string is to long, reduce size
-    fm = pixPaint.fontMetrics();
+/*    fm = pixPaint.fontMetrics();
     int versionTextWidth  = fm.width(versionText);
     if(versionTextWidth > titleTextWidth+paddingRight-10) {
         pixPaint.setFont(QFont(font, 10*fontFactor));
         titleVersionVSpace -= 5;
     }
     pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight+2,paddingTop+titleVersionVSpace,versionText);
+    */
 
     // draw copyright stuff
-    pixPaint.setFont(QFont(font, 10*fontFactor));
-    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight,paddingTop+titleCopyrightVSpace1,copyrightText1);
-    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight,paddingTop+titleCopyrightVSpace2,copyrightText2);
+    pixPaint.setFont(QFont(font, 11*fontFactor,QFont::Bold));
+    pixPaint.setPen(QColor(187,189,190)); // Grey
+    pixPaint.drawText(0, newPixmap.height()-paddingBottom-33, newPixmap.width(),paddingTop,Qt::AlignCenter,copyrightText);
+    pixPaint.setPen(QColor(255,255,255)); // Reset to white
 
     // draw testnet string if testnet is on
     if(isTestNet) {
-        QFont boldFont = QFont(font, 10*fontFactor);
+        QFont boldFont = QFont(font, 17*fontFactor);
         boldFont.setWeight(QFont::Bold);
         pixPaint.setFont(boldFont);
         fm = pixPaint.fontMetrics();
         int testnetAddTextWidth  = fm.width(testnetAddText);
-        pixPaint.drawText(newPixmap.width()-testnetAddTextWidth-10,15,testnetAddText);
+        pixPaint.drawText(newPixmap.width()-testnetAddTextWidth-10,18,testnetAddText);
     }
 
     pixPaint.end();
