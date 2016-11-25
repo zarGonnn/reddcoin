@@ -998,9 +998,11 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
         }
 
         if (fRejectInsaneFee && nFees > CTransaction::nMinRelayTxFee * 1000)
-            return error("AcceptToMemoryPool: : insane fees %s, %d > %d",
+            return state.Invalid(error("AcceptToMemoryPool: : absurdly high fees %s, %d > %d",
                          hash.ToString(),
-                         nFees, CTransaction::nMinRelayTxFee * 1000);
+                         nFees, CTransaction::nMinRelayTxFee * 1000),
+                         REJECT_HIGHFEE, "absurdly-high-fee");
+
 
         // Check against previous transactions
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.
@@ -1745,7 +1747,7 @@ bool CheckInputs(const CTransaction& tx, CValidationState &state, CCoinsViewCach
         {
             if (nValueIn < tx.GetValueOut())
                 return state.DoS(100, error("CheckInputs() : %s value in < value out", tx.GetHash().ToString()),
-                                 REJECT_INVALID, "bad-txns-in-belowout");
+                                 REJECT_INVALID, "bad-txns-inputs-lower-outputs");
 
             // Tally transaction fees
             int64_t nTxFee = nValueIn - tx.GetValueOut();
