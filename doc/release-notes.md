@@ -44,6 +44,8 @@ Reddcoin allows storing 80bytes of arbitary data in the blockchain
 
 2.0.1 changelog
 ===============
+c5fac37 - John Nash, 2018-01-20 : build update configure to initialize libtool and correct rpath insertion
+6bf33b1 - John Nash, 2017-12-23 : Bump version Add release notes
 fafc567 - John Nash, 2017-12-23 : Add additional dnsseed nodes
 47abb78 - Henry Young, 2017-01-08 : Corrected two string literal Bitcoin references to Redecoin
 f88a2e5 - Stoner19, 2017-01-05 : Update bitcoind.cpp
