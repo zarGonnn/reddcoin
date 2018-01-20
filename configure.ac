@@ -119,6 +119,10 @@ AC_ARG_WITH([protoc-bindir],[AS_HELP_STRING([--with-protoc-bindir=BIN_DIR],[spec
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_HEADERS([src/bitcoin-config.h])
 
+
+dnl Libtool init checks.
+LT_INIT([pic-only])
+
 dnl Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
@@ -721,12 +725,12 @@ AC_CONFIG_FILES([qa/pull-tester/build-tests.sh],[chmod +x qa/pull-tester/build-t
 AC_OUTPUT
 
 dnl Taken from https://wiki.debian.org/RpathIssue
-case ${host} in
- *-pc-linux-gnu)
-   AC_MSG_RESULT([Fixing libtool for -rpath problems.])
-   sed < libtool > libtool-2 \
-   's/^hardcode_libdir_flag_spec.*$'/'hardcode_libdir_flag_spec=" -D__LIBTOOL_IS_A_FOOL__ "/'
-   mv libtool-2 libtool
-   chmod 755 libtool
- ;;
+case $host in
+   *-*-linux-gnu)
+     AC_MSG_RESULT([Fixing libtool for -rpath problems.])
+     sed < libtool > libtool-2 \
+     's/^hardcode_libdir_flag_spec.*$'/'hardcode_libdir_flag_spec=" -D__LIBTOOL_IS_A_FOOL__ "/'
+     mv libtool-2 libtool
+     chmod 755 libtool
+   ;;
 esac
