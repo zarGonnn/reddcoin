@@ -44,6 +44,11 @@ Reddcoin allows storing 80bytes of arbitary data in the blockchain
 
 2.0.1 changelog
 ===============
+605d1fa - John Nash, 2018-01-21 : tools: update parameters for linearize.py
+d74b4079 - John Nash, 2018-01-20 : build: re-add AM_LDFLAGS where it's overridden
+4b5bc89 - John Nash, 2018-01-20 : build: fix win32 static linking after libtool merge
+8f41ec0 - John Nash, 2018-01-20 : build: adding LIBTOOLIZE
+787ee7e - John Nash, 2018-01-20 : build: Bump version, update release notes, update copyright year
 c5fac37 - John Nash, 2018-01-20 : build update configure to initialize libtool and correct rpath insertion
 6bf33b1 - John Nash, 2017-12-23 : Bump version Add release notes
 fafc567 - John Nash, 2017-12-23 : Add additional dnsseed nodes
