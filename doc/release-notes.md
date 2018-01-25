@@ -1,6 +1,6 @@
 Reddcoin Core version 2.0.1 is now available from:
 
-  https://wallet.reddcoin.com/
+  https://www.reddcoin.com/#Wallets
 
 This is a new minor version release of Reddcoin,
 Previously, the original and sunsequent versions of Reddcoin were taken from a fork of Litecoin.
