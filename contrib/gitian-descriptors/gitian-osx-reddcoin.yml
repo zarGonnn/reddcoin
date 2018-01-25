@@ -6,6 +6,7 @@ architectures:
 - "i386"
 packages:
 - "git-core"
+- "libtool"
 - "automake"
 - "faketime"
 - "bsdmainutils"
