@@ -1,7 +1,7 @@
 Reddcoin Core integration/staging tree
 =====================================
 
-http://www.reddcoin.com
+https://www.reddcoin.com
 
 Copyright (c) 2009-2018 Bitcoin Core Developers
 
