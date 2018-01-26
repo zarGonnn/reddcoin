@@ -4,6 +4,7 @@ Reddcoin Core integration/staging tree
 http://www.reddcoin.com
 
 Copyright (c) 2009-2018 Bitcoin Core Developers
+
 Copyright (c) 2014-2018 Reddcoin Core Developers
 
 What is Reddcoin?
