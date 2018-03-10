@@ -10,22 +10,21 @@ Raspberry Pi2 has some memory limits and can benefit with the addition of swapfi
 
 Edit /etc/dphys-swap:
 
-'''
-pi@reddnode~$ sudo nano /etc/dphys-swapfile
-'''
+    pi@reddnode~$ sudo nano /etc/dphys-swapfile
+
 And change the default size of 100
-'''
-CONF_SWAPSIZE=100
-'''
+
+    CONF_SWAPSIZE=100
+
 To 1000
-'''
-CONF_SWAPSIZE=1000
-'''
+
+    CONF_SWAPSIZE=1000
+
 Save and exit. Then run:
-'''
-pi@reddnode~$ sudo dphys-swapfile setup
-pi@reddnode~$ sudo dphys-swapfile swapon
-'''
+
+    pi@reddnode~$ sudo dphys-swapfile setup
+    pi@reddnode~$ sudo dphys-swapfile swapon
+
 To Build
 ---------------------
 
